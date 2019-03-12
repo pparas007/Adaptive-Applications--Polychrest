@@ -57,12 +57,15 @@ public class OntologyFactory{
         Resource bbcFood=bbcOntology.getResource("http://purl.org/ontology/fo/Food");
         Model dbpediaOntology = RDFDataMgr.loadModel("http://dbpedia.org/resource/classes#");
         Resource dbpediaFood=dbpediaOntology.getResource("http://dbpedia.org/ontology/Food");
+        
+        //There is no resource as Shop in dbpedia so there is no binding possible. Still keeping it!
         Resource dbpediaShop=dbpediaOntology.getResource("http://dbpedia.org/ontology/Shop");
         
         /*--------------------- Define Classes ---------------------*/
         food = model.createClass(base + "food");
         food.addLabel("food", "en");
-        food.addSameAs(bbcFood); food.addSameAs(dbpediaFood);
+        food.addSameAs(bbcFood); 
+        food.addSameAs(dbpediaFood);
         
         shop = model.createClass(base + "shop");
         shop.addLabel("any grocery shop", "en");
@@ -80,6 +83,7 @@ public class OntologyFactory{
         ofCategory.addLabel("food category", "en");
         ofCategory.setDomain(food);
         ofCategory.setRange(XSD.xstring);
+        
         atPrice = model.createDatatypeProperty(base + "atPrice");
         atPrice.addLabel("food price", "en");
         atPrice.setDomain(food);
@@ -89,35 +93,22 @@ public class OntologyFactory{
         hasShopName.addLabel("grocery shop name", "en");
         hasShopName.setDomain(shop);
         hasShopName.setRange(XSD.xstring);
+        
         hasShopAddress = model.createDatatypeProperty(base + "hasShopAddress");
         hasShopAddress.addLabel("grocery shop address", "en");
         hasShopAddress.setDomain(shop);
         hasShopAddress.setRange(XSD.xstring);
+        
         hasShopType = model.createDatatypeProperty(base + "hasShopType");
         hasShopType.addLabel("grocery shop type (eg. mall, supermarket, shop)", "en");
         hasShopType.setDomain(shop);
         hasShopType.setRange(XSD.xstring);
         
-        availableAt = model.createObjectProperty(base + "availableAt");
-        availableAt.addLabel("food item is available at this shop", "en");
-        availableAt.setDomain(food);
-        availableAt.setRange(shop);
-        sells = model.createObjectProperty(base + "sells");
-        sells.addLabel("this shop sells the food item", "en");
-        sells.addInverseOf(availableAt);
-        
-        atShop = model.createObjectProperty(base + "atShop");
-        atShop.addLabel("the user shopped at this shop", "en");
-        atShop.setDomain(shopping);
-        atShop.setRange(shop);
-        bought = model.createObjectProperty(base + "bought");
-        bought.addLabel("the user bought this item", "en");
-        bought.setDomain(shopping);
-        bought.setRange(food);
         quantity = model.createDatatypeProperty(base + "atTime");
         quantity.addLabel("quantity bought", "en");
         quantity.setDomain(shopping);
         quantity.setRange(XSD.xfloat);
+        
         atDateTime = model.createDatatypeProperty(base + "atDateTime");
         atDateTime.addLabel("the user shopped at this date-time", "en");
         atDateTime.setDomain(shopping);
@@ -127,10 +118,34 @@ public class OntologyFactory{
         hasName.addLabel("user name", "en");
         hasName.setDomain(user);
         hasName.setRange(XSD.xstring);
+        
         hasGoal = model.createDatatypeProperty(base + "hasGoal");
         hasGoal.addLabel("user goal", "en");
         hasGoal.setDomain(user);
         hasGoal.setRange(XSD.xstring);
+        
+        /* All Object Properties 
+         * 
+         */
+        availableAt = model.createObjectProperty(base + "availableAt");
+        availableAt.addLabel("food item is available at this shop", "en");
+        availableAt.setDomain(food);
+        availableAt.setRange(shop);
+        
+        sells = model.createObjectProperty(base + "sells");
+        sells.addLabel("this shop sells the food item", "en");
+        sells.addInverseOf(availableAt);
+        
+        atShop = model.createObjectProperty(base + "atShop");
+        atShop.addLabel("the user shopped at this shop", "en");
+        atShop.setDomain(shopping);
+        atShop.setRange(shop);
+        
+        bought = model.createObjectProperty(base + "bought");
+        bought.addLabel("the user bought this item", "en");
+        bought.setDomain(shopping);
+        bought.setRange(food);
+        
         shopped = model.createObjectProperty(base + "shopped");
         shopped.addLabel("the user shopped this shopping", "en");
         shopped.setDomain(user);
@@ -142,9 +157,11 @@ public class OntologyFactory{
 		Individual paras=user.createIndividual(base+"paras");
 		paras.addProperty(hasName, "paras");
 		paras.addProperty(hasGoal, Constants.GOAL_ECONOMICAL);
+		
 		Individual shubham=user.createIndividual(base+"shubham");
 		shubham.addProperty(hasName, "shubham");
 		shubham.addProperty(hasGoal, Constants.GOAL_VEGGIE);
+		
 		Individual anirban=user.createIndividual(base+"anirban");
 		anirban.addProperty(hasName, "anirban");
 		anirban.addProperty(hasGoal, Constants.GOAL_MEAT_LOVER);
@@ -155,14 +172,17 @@ public class OntologyFactory{
 		lidlArtane.addProperty(hasShopName, "LiDL");
 		lidlArtane.addProperty(hasShopAddress, "Artane, Dublin 5");
 		lidlArtane.addProperty(hasShopType, Constants.SHOP_SUPERMARKET);
+		
 		Individual lidlCityCentre=shop.createIndividual(base+"lidlCityCentre");
 		lidlCityCentre.addProperty(hasShopName, "LiDL");
 		lidlCityCentre.addProperty(hasShopAddress, "City Centre, Dublin");
 		lidlCityCentre.addProperty(hasShopType, Constants.SHOP_SUPERMARKET);
+		
 		Individual tescoCityCentre=shop.createIndividual(base+"tescoCityCentre");
 		tescoCityCentre.addProperty(hasShopName, "Tesco");
 		tescoCityCentre.addProperty(hasShopAddress, "City Centre, Dublin");
 		tescoCityCentre.addProperty(hasShopType, Constants.SHOP_SUPERMARKET);
+		
 		Individual euroGeneralFairview=shop.createIndividual(base+"euroGeneralFairview");
 		euroGeneralFairview.addProperty(hasShopName, "Euro General");
 		euroGeneralFairview.addProperty(hasShopAddress, "Fairview, Dublin");
@@ -173,18 +193,22 @@ public class OntologyFactory{
 		spinach.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
 		spinach.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
 		spinach.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEGETABLES);
-		Individual mashroom=food.createIndividual(base+"mashroom");
-		mashroom.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
-		mashroom.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
-		mashroom.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEGETABLES);
+		
+		Individual mushroom=food.createIndividual(base+"mushroom");
+		mushroom.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
+		mushroom.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
+		mushroom.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEGETABLES);
 		Individual brocolli=food.createIndividual(base+"brocolli");
+		
 		brocolli.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
 		brocolli.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
 		brocolli.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEGETABLES);
+		
 		Individual rocketLeaves=food.createIndividual(base+"rocketLeaves");
 		rocketLeaves.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
 		rocketLeaves.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
 		rocketLeaves.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEGETABLES);
+		
 		Individual capsicum=food.createIndividual(base+"capsicum");
 		capsicum.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
 		capsicum.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
@@ -199,14 +223,17 @@ public class OntologyFactory{
 		orange.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
 		orange.addProperty(ofCategory, Constants.FOOD_CATEGORY_FRUITS);
 		orange.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
+		
 		Individual kiwi=food.createIndividual(base+"kiwi");
 		kiwi.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
 		kiwi.addProperty(ofCategory, Constants.FOOD_CATEGORY_FRUITS);
 		kiwi.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
+		
 		Individual apple=food.createIndividual(base+"apple");
 		apple.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
 		apple.addProperty(ofCategory, Constants.FOOD_CATEGORY_FRUITS);
 		apple.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
+		
 		Individual irishApple=food.createIndividual(base+"irishApple");
 		irishApple.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
 		irishApple.addProperty(ofCategory, Constants.FOOD_CATEGORY_FRUITS);
@@ -216,18 +243,22 @@ public class OntologyFactory{
 		lowFatMilk.addProperty(ofCategory, Constants.FOOD_CATEGORY_MILK);
 		lowFatMilk.addProperty(ofCategory, Constants.FOOD_CATEGORY_DAIRY);
 		lowFatMilk.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
+		
 		Individual milk=food.createIndividual(base+"milk");
 		milk.addProperty(ofCategory, Constants.FOOD_CATEGORY_MILK);
 		milk.addProperty(ofCategory, Constants.FOOD_CATEGORY_DAIRY);
 		milk.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
+		
 		Individual butter=food.createIndividual(base+"butter");
 		butter.addProperty(ofCategory, Constants.FOOD_CATEGORY_DAIRY);
 		butter.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
 		butter.addProperty(ofCategory, Constants.FOOD_CATEGORY_CHOLESTEROL);
+		
 		Individual greekCheese=food.createIndividual(base+"greekCheese");
 		greekCheese.addProperty(ofCategory, Constants.FOOD_CATEGORY_DAIRY);
 		greekCheese.addProperty(ofCategory, Constants.FOOD_CATEGORY_CHEESE);
 		greekCheese.addProperty(ofCategory, Constants.FOOD_CATEGORY_CHOLESTEROL);
+		
 		Individual sweeseCheese=food.createIndividual(base+"sweeseCheese");
 		sweeseCheese.addProperty(ofCategory, Constants.FOOD_CATEGORY_DAIRY);
 		sweeseCheese.addProperty(ofCategory, Constants.FOOD_CATEGORY_CHEESE);
@@ -237,10 +268,12 @@ public class OntologyFactory{
 		chickenLegs.addProperty(ofCategory, Constants.FOOD_CATEGORY_NONVEG);
 		chickenLegs.addProperty(ofCategory, Constants.FOOD_CATEGORY_CHICKEN);
 		chickenLegs.addProperty(ofCategory, Constants.FOOD_CATEGORY_CHOLESTEROL);
+		
 		Individual chickenBreasts=food.createIndividual(base+"chickenBreasts");
 		chickenBreasts.addProperty(ofCategory, Constants.FOOD_CATEGORY_NONVEG);
 		chickenBreasts.addProperty(ofCategory, Constants.FOOD_CATEGORY_CHICKEN);
 		chickenBreasts.addProperty(ofCategory, Constants.FOOD_CATEGORY_CHOLESTEROL);
+		
 		Individual lamb=food.createIndividual(base+"lamb");
 		lamb.addProperty(ofCategory, Constants.FOOD_CATEGORY_NONVEG);
 		lamb.addProperty(ofCategory, Constants.FOOD_CATEGORY_LAMB);
@@ -248,18 +281,23 @@ public class OntologyFactory{
 
 		Individual pepsi=food.createIndividual(base+"pepsi");
 		pepsi.addProperty(ofCategory, Constants.FOOD_CATEGORY_SOFT_DRINK);
+		
 		Individual coke=food.createIndividual(base+"coke");
 		coke.addProperty(ofCategory, Constants.FOOD_CATEGORY_SOFT_DRINK);
+		
 		Individual fanta=food.createIndividual(base+"fanta");
 		fanta.addProperty(ofCategory, Constants.FOOD_CATEGORY_SOFT_DRINK);
+		
 		Individual sprite=food.createIndividual(base+"sprite");
 		sprite.addProperty(ofCategory, Constants.FOOD_CATEGORY_SOFT_DRINK);
+		
 		Individual dietCoke=food.createIndividual(base+"dietCoke");
 		dietCoke.addProperty(ofCategory, Constants.FOOD_CATEGORY_SOFT_DRINK);
 		
 		Individual bread=food.createIndividual(base+"bread");
 		bread.addProperty(ofCategory, Constants.FOOD_CATEGORY_BAKERY);
 		bread.addProperty(ofCategory, Constants.FOOD_CATEGORY_BREAD);
+		
 		Individual brownBread=food.createIndividual(base+"brownBread");
 		brownBread.addProperty(ofCategory, Constants.FOOD_CATEGORY_BAKERY);
 		brownBread.addProperty(ofCategory, Constants.FOOD_CATEGORY_BREAD);
@@ -267,7 +305,7 @@ public class OntologyFactory{
 		/*--------------------- Relate food and shops ---------------------*/
 		lidlArtane.addProperty(sells, noodles);
 		lidlArtane.addProperty(sells, spinach);
-		lidlArtane.addProperty(sells, mashroom);
+		lidlArtane.addProperty(sells, mushroom);
 		lidlArtane.addProperty(sells, brocolli);
 		lidlArtane.addProperty(sells, rocketLeaves);
 		lidlArtane.addProperty(sells, capsicum);
@@ -292,7 +330,7 @@ public class OntologyFactory{
 		
 		lidlCityCentre.addProperty(sells, noodles);
 		lidlCityCentre.addProperty(sells, spinach);
-		lidlCityCentre.addProperty(sells, mashroom);
+		lidlCityCentre.addProperty(sells, mushroom);
 		lidlCityCentre.addProperty(sells, rocketLeaves);
 		lidlCityCentre.addProperty(sells, capsicum);
 		lidlCityCentre.addProperty(sells, orange);
@@ -314,7 +352,7 @@ public class OntologyFactory{
 		lidlCityCentre.addProperty(sells, brownBread);
 		
 		tescoCityCentre.addProperty(sells, spinach);
-		tescoCityCentre.addProperty(sells, mashroom);
+		tescoCityCentre.addProperty(sells, mushroom);
 		tescoCityCentre.addProperty(sells, brocolli);
 		tescoCityCentre.addProperty(sells, rocketLeaves);
 		tescoCityCentre.addProperty(sells, capsicum);
@@ -361,24 +399,28 @@ public class OntologyFactory{
 		parasShops11.addProperty(atDateTime, "08-Mar-2019");
 		parasShops11.addProperty(quantity, "1");
 		parasShops11.addProperty(atPrice, "1");
+		
 		Individual parasShops12=shopping.createIndividual(base+"parasShops12");
 		parasShops12.addProperty(atShop, lidlArtane);
 		parasShops12.addProperty(bought, orange);
 		parasShops12.addProperty(atDateTime, "08-Mar-2019");
 		parasShops12.addProperty(quantity, "2");
 		parasShops12.addProperty(atPrice, "2");
+		
 		Individual parasShops13=shopping.createIndividual(base+"parasShops13");
 		parasShops13.addProperty(atShop, lidlArtane);
 		parasShops13.addProperty(bought, apple);
 		parasShops13.addProperty(atDateTime, "08-Mar-2019");
 		parasShops13.addProperty(quantity, "1");
 		parasShops13.addProperty(atPrice, "2");
+		
 		Individual parasShops14=shopping.createIndividual(base+"parasShops14");
 		parasShops14.addProperty(atShop, lidlArtane);
 		parasShops14.addProperty(bought, lowFatMilk);
 		parasShops14.addProperty(atDateTime, "08-Mar-2019");
 		parasShops14.addProperty(quantity, "2");
 		parasShops14.addProperty(atPrice, "2");
+		
 		Individual parasShops15=shopping.createIndividual(base+"parasShops15");
 		parasShops15.addProperty(atShop, lidlArtane);
 		parasShops15.addProperty(bought, chickenLegs);
@@ -396,30 +438,35 @@ public class OntologyFactory{
 		parasShops21.addProperty(atDateTime, "13-Mar-2019");
 		parasShops21.addProperty(quantity, "1");
 		parasShops21.addProperty(atPrice, "1");
+		
 		Individual parasShops22=shopping.createIndividual(base+"parasShops22");
 		parasShops22.addProperty(atShop, lidlArtane);
 		parasShops22.addProperty(bought, orange);
 		parasShops22.addProperty(atDateTime, "13-Mar-2019");
 		parasShops22.addProperty(quantity, "2");
 		parasShops22.addProperty(atPrice, "2");
+		
 		Individual parasShops23=shopping.createIndividual(base+"parasShops23");
 		parasShops23.addProperty(atShop, lidlArtane);
 		parasShops23.addProperty(bought, apple);
 		parasShops23.addProperty(atDateTime, "13-Mar-2019");
 		parasShops23.addProperty(quantity, "1");
 		parasShops23.addProperty(atPrice, "2");
+		
 		Individual parasShops24=shopping.createIndividual(base+"parasShops24");
 		parasShops24.addProperty(atShop, lidlArtane);
 		parasShops24.addProperty(bought, lowFatMilk);
 		parasShops24.addProperty(atDateTime, "13-Mar-2019");
 		parasShops24.addProperty(quantity, "2");
 		parasShops24.addProperty(atPrice, "2");
+		
 		Individual parasShops25=shopping.createIndividual(base+"parasShops25");
 		parasShops25.addProperty(atShop, lidlArtane);
 		parasShops25.addProperty(bought, chickenLegs);
 		parasShops25.addProperty(atDateTime, "13-Mar-2019");
 		parasShops25.addProperty(quantity, "1");
 		parasShops25.addProperty(atPrice, "2.5");
+		
 		Individual parasShops26=shopping.createIndividual(base+"parasShops26");
 		parasShops26.addProperty(atShop, lidlArtane);
 		parasShops26.addProperty(bought, brownBread);
