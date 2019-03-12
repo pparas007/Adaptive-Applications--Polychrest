@@ -64,7 +64,7 @@ public class OntologyFactory{
         food.addLabel("food", "en");
         food.addSameAs(bbcFood); food.addSameAs(dbpediaFood);
         
-        shop = model.createClass(base + "food");
+        shop = model.createClass(base + "shop");
         shop.addLabel("any grocery shop", "en");
         shop.addSameAs(dbpediaShop);
         
