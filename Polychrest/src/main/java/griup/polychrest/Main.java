@@ -6,6 +6,7 @@ public class Main {
 		ontology.intializeOntology();
 		ontology.createOntology();
 		ontology.createInstances();
+		ontology.createRecommendationInstances();
 		ontology.writeOntology();
 	}
 }

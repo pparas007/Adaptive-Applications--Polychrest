@@ -32,4 +32,8 @@ public class Constants {
 	public static String FOOD_CATEGORY_SOFT_DRINK="softdrink";
 	public static String FOOD_CATEGORY_ALCOHOL="alcohol";
 	public static String FOOD_CATEGORY_CHOLESTEROL="colesterol";
+	
+	/*public static String PATTERN_WEEKLY="weekly";
+	public static String PATTERN_BIWEEKLY="biweekly";
+	public static String PATTERN_MONTHLY="monthly";*/
 }
