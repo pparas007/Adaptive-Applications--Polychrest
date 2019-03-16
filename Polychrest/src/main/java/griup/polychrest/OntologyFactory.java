@@ -36,7 +36,7 @@ public class OntologyFactory{
     public static Individual paras,anirban,shubham,aditya,pavan,gauranksh;
     public static Individual euroGeneralFairview, tescoCityCentre, lidlCityCentre, lidlArtane;
     public static Individual sprite, dietCoke, bread,brownBread,pepsi,coke,fanta, lamb, chickenBreasts, chickenLegs, sweeseCheese, greekCheese, butter, lowFatMilk, milk, irishApple, apple, kiwi;
-    public static Individual orange, noodles, capsicum, rocketLeaves, spinach, mashroom, brocolli;
+    public static Individual orange, noodles, capsicum, rocketLeaves, spinach, mushroom, brocolli;
     
     public void intializeOntology() throws Exception{
 		Files.copy( URI.create(bbcOntologyOnline).toURL().openStream(), Paths.get(bbcOntologyLocal),StandardCopyOption.REPLACE_EXISTING);
@@ -67,7 +67,7 @@ public class OntologyFactory{
         food.addLabel("food", "en");
         food.addSameAs(bbcFood); food.addSameAs(dbpediaFood);
         
-        shop = model.createClass(base + "food");
+        shop = model.createClass(base + "shop");
         shop.addLabel("any grocery shop", "en");
         shop.addSameAs(dbpediaShop);
         
@@ -152,10 +152,12 @@ public class OntologyFactory{
         isRelatedTo.addLabel("recommendation is related to this food item", "en");
         isRelatedTo.setDomain(recommendation);
         isRelatedTo.setRange(food);
+        
         hasRecommendation = model.createObjectProperty(base + "hasRecommendation");
         hasRecommendation.addLabel("user has this recommendation", "en");
         hasRecommendation.setDomain(user);
         hasRecommendation.setRange(recommendation);
+        
         recommendedTo = model.createObjectProperty(base + "recommendedTo");
         recommendedTo.addLabel("recommendation is recommended to this user", "en");
         recommendedTo.addInverseOf(hasRecommendation);
@@ -207,10 +209,10 @@ public class OntologyFactory{
 		spinach.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
 		spinach.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
 		spinach.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEGETABLES);
-		mashroom=food.createIndividual(base+"mashroom");
-		mashroom.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
-		mashroom.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
-		mashroom.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEGETABLES);
+		mushroom=food.createIndividual(base+"mushroom");
+		mushroom.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
+		mushroom.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
+		mushroom.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEGETABLES);
 		brocolli=food.createIndividual(base+"brocolli");
 		brocolli.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
 		brocolli.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
@@ -301,7 +303,7 @@ public class OntologyFactory{
 		/*--------------------- Relate food and shops ---------------------*/
 		lidlArtane.addProperty(sells, noodles);
 		lidlArtane.addProperty(sells, spinach);
-		lidlArtane.addProperty(sells, mashroom);
+		lidlArtane.addProperty(sells, mushroom);
 		lidlArtane.addProperty(sells, brocolli);
 		lidlArtane.addProperty(sells, rocketLeaves);
 		lidlArtane.addProperty(sells, capsicum);
@@ -326,7 +328,7 @@ public class OntologyFactory{
 		
 		lidlCityCentre.addProperty(sells, noodles);
 		lidlCityCentre.addProperty(sells, spinach);
-		lidlCityCentre.addProperty(sells, mashroom);
+		lidlCityCentre.addProperty(sells, mushroom);
 		lidlCityCentre.addProperty(sells, rocketLeaves);
 		lidlCityCentre.addProperty(sells, capsicum);
 		lidlCityCentre.addProperty(sells, orange);
@@ -348,7 +350,7 @@ public class OntologyFactory{
 		lidlCityCentre.addProperty(sells, brownBread);
 		
 		tescoCityCentre.addProperty(sells, spinach);
-		tescoCityCentre.addProperty(sells, mashroom);
+		tescoCityCentre.addProperty(sells, mushroom);
 		tescoCityCentre.addProperty(sells, brocolli);
 		tescoCityCentre.addProperty(sells, rocketLeaves);
 		tescoCityCentre.addProperty(sells, capsicum);
@@ -441,6 +443,38 @@ public class OntologyFactory{
 		Individual parasRecommendedKiwiWeekly=weeklyRecommendation.createIndividual(base+"parasRecommendedKiwiWeekly");
 		Individual parasRecommendedKiwiBiWeekly=biweeklyRecommendation.createIndividual(base+"parasRecommendedKiwiBiWeekly");
 		Individual parasRecommendedKiwiMonthly=monthlyRecommendation.createIndividual(base+"parasRecommendedKiwiMonthly");
+		
+		//Ani-Code -- not touching Paras's code for the time being.
+		Individual recommendedWeekly=weeklyRecommendation.createIndividual(base+"recommendedWeekly");
+		Individual recommendedBiWeekly=biweeklyRecommendation.createIndividual(base+"recommendedBiWeekly");
+		Individual recommendedMonthly=monthlyRecommendation.createIndividual(base+"recommendedMonthly");
+		
+		
+		Individual recommendKiwi = recommendation.createIndividual(base+"recommendKiwi");
+		Individual recommendOrange = recommendation.createIndividual(base+"recommendOrange");
+		Individual recommendApple = recommendation.createIndividual(base+"recommendApple");
+		
+		recommendedWeekly.addProperty(hasRecommendation, recommendKiwi);
+		recommendedWeekly.addProperty(recommendedTo, paras);
+		recommendedWeekly.addProperty(recommendedTo, anirban); //two people can get the same recommendation.
+		
+		recommendedBiWeekly.addProperty(hasRecommendation, recommendOrange);
+		recommendedBiWeekly.addProperty(recommendedTo, paras);
+		
+		recommendedMonthly.addProperty(hasRecommendation, recommendApple);
+		recommendedMonthly.addProperty(recommendedTo, paras);
+		
+		//Individual product's recommendation will have a weightage 
+		recommendKiwi.addProperty(hasWeightage, "0.2");
+		//Cumulative weekly recommendation will have a weightage
+		recommendedWeekly.addProperty(hasWeightage, "0.2");
+		//Likewise biweekly and monthly will have a weightage
+		recommendedBiWeekly.addProperty(hasWeightage, "0.2");
+		recommendedMonthly.addProperty(hasWeightage, "0.2");
+		
+		// Till here it was Ani's Code. -- If everyone agrees will implement this flow, otherwise go with what Paras wrote.
+		
+		
 		parasRecommendedKiwiWeekly.addProperty(hasWeightage, "0.2");
 		parasRecommendedKiwiBiWeekly.addProperty(hasWeightage, "0.1");
 		parasRecommendedKiwiMonthly.addProperty(hasWeightage, "0.1");
@@ -457,6 +491,7 @@ public class OntologyFactory{
 		Individual parasRecommendedAppleWeekly=weeklyRecommendation.createIndividual(base+"parasRecommendedAppleWeekly");
 		Individual parasRecommendedAppleBiWeekly=biweeklyRecommendation.createIndividual(base+"parasRecommendedAppleBiWeekly");
 		Individual parasRecommendedAppleMonthly=monthlyRecommendation.createIndividual(base+"parasRecommendedAppleMonthly");
+		
 		parasRecommendedAppleWeekly.addProperty(hasWeightage, "0.1");
 		parasRecommendedAppleBiWeekly.addProperty(hasWeightage, "0.1");
 		parasRecommendedAppleMonthly.addProperty(hasWeightage, "0.1");
@@ -473,6 +508,7 @@ public class OntologyFactory{
 		Individual parasRecommendedOrangeWeekly=weeklyRecommendation.createIndividual(base+"parasRecommendedOrangeWeekly");
 		Individual parasRecommendedOrangeBiWeekly=biweeklyRecommendation.createIndividual(base+"parasRecommendedOrangeBiWeekly");
 		Individual parasRecommendedOrangeMonthly=monthlyRecommendation.createIndividual(base+"parasRecommendedOrangeMonthly");
+		
 		parasRecommendedOrangeWeekly.addProperty(hasWeightage, "0.1");
 		parasRecommendedOrangeBiWeekly.addProperty(hasWeightage, "0.1");
 		parasRecommendedOrangeMonthly.addProperty(hasWeightage, "0.1");
@@ -482,13 +518,17 @@ public class OntologyFactory{
 		parasRecommendedOrangeMonthly.addProperty(isRelatedTo, orange);
 		
 		paras.addProperty(hasRecommendation, parasRecommendedOrangeWeekly);
+		parasRecommendedOrangeWeekly.addProperty(recommendedTo, paras);
 		paras.addProperty(hasRecommendation, parasRecommendedOrangeBiWeekly);
+		parasRecommendedOrangeBiWeekly.addProperty(recommendedTo, paras);
 		paras.addProperty(hasRecommendation, parasRecommendedOrangeMonthly);
+		parasRecommendedOrangeMonthly.addProperty(recommendedTo, paras);
 		
 		
 		Individual parasRecommendedChickenLegsWeekly=weeklyRecommendation.createIndividual(base+"parasRecommendedChickenLegsWeekly");
 		Individual parasRecommendedChickenLegsBiWeekly=biweeklyRecommendation.createIndividual(base+"parasRecommendedChickenLegsBiWeekly");
 		Individual parasRecommendedChickenLegsMonthly=monthlyRecommendation.createIndividual(base+"parasRecommendedChickenLegsMonthly");
+		
 		parasRecommendedChickenLegsWeekly.addProperty(hasWeightage, "0.2");
 		parasRecommendedChickenLegsBiWeekly.addProperty(hasWeightage, "0.1");
 		parasRecommendedChickenLegsMonthly.addProperty(hasWeightage, "0.1");
