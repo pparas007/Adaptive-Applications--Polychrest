@@ -30,8 +30,8 @@ public class OntologyFactory{
 	
 	public static OntModel model;
 	public static Ontology ontology;
-	public static OntClass food, shop, user, shopping, recommendation, weeklyRecommendation, biweeklyRecommendation, monthlyRecommendation;
-	public static DatatypeProperty ofCategory, atPrice, hasShopName, hasShopAddress, hasShopType, quantity, atDateTime, hasName,hasGoal, hasWeightage, isEnabled;
+	public static OntClass food, shop, user, shopping, recommendation;
+	public static DatatypeProperty ofCategory, atPrice, hasShopName, hasShopAddress, hasShopType, quantity, atDateTime, hasName,hasGoal, hasWeelyWeightage, hasBiweelyWeightage, hasMonthlyWeightage, isEnabled;
 	public static ObjectProperty bought, atShop, shopped, sells, availableAt, isRelatedTo, hasRecommendation, recommendedTo;
     public static Individual paras,anirban,shubham,aditya,pavan,gauranksh;
     public static Individual euroGeneralFairview, tescoCityCentre, lidlCityCentre, lidlArtane;
@@ -80,13 +80,6 @@ public class OntologyFactory{
         
         recommendation = model.createClass(base + "recommendation");
         recommendation.addLabel("recommendations for user", "en");
-        weeklyRecommendation = model.createClass(base + "weeklyRecommendation");
-        weeklyRecommendation.addLabel("weekly recommendations for user", "en");
-        biweeklyRecommendation = model.createClass(base + "biweeklyRecommendation");
-        biweeklyRecommendation.addLabel("biweekly recommendations for user", "en");
-        monthlyRecommendation = model.createClass(base + "monthlyRecommendation");
-        monthlyRecommendation.addLabel("monthly recommendations for user", "en");
-        monthlyRecommendation.addSuperClass(recommendation);biweeklyRecommendation.addSuperClass(recommendation);weeklyRecommendation.addSuperClass(recommendation);
         /*--------------------- Define Properties ---------------------*/
         ofCategory = model.createDatatypeProperty(base + "ofCategory");
         ofCategory.addLabel("food category", "en");
@@ -162,10 +155,14 @@ public class OntologyFactory{
         recommendedTo.addLabel("recommendation is recommended to this user", "en");
         recommendedTo.addInverseOf(hasRecommendation);
         
-        hasWeightage = model.createDatatypeProperty(base + "hasWeightage");
-        hasWeightage.addLabel("denotes the weightage for the recommendation", "en");
-        hasWeightage.setDomain(recommendation);
-        hasWeightage.setRange(XSD.xfloat);
+        hasWeelyWeightage = model.createDatatypeProperty(base + "hasWeelyWeightage");
+        hasBiweelyWeightage = model.createDatatypeProperty(base + "hasBiweelyWeightage");
+        hasMonthlyWeightage = model.createDatatypeProperty(base + "hasMonthlyWeightage");
+        hasWeelyWeightage.addLabel("denotes the weekly weightage for the recommendation", "en");
+        hasBiweelyWeightage.addLabel("denotes the bi-weekly weightage for the recommendation", "en");
+        hasMonthlyWeightage.addLabel("denotes the monthly weightage for the recommendation", "en");
+        hasWeelyWeightage.setDomain(recommendation);hasBiweelyWeightage.setDomain(recommendation);hasMonthlyWeightage.setDomain(recommendation);
+        hasWeelyWeightage.setRange(XSD.xfloat);hasBiweelyWeightage.setRange(XSD.xfloat);hasMonthlyWeightage.setRange(XSD.xfloat);
         
         isEnabled = model.createDatatypeProperty(base + "isEnabled");
         isEnabled.addLabel("denotes if recommendation is enabled to be shown to user", "en");
@@ -440,106 +437,40 @@ public class OntologyFactory{
 	
 	public void createRecommendationInstances() {
 		//this sample recommendations entries are created based on the above shopping instances
-		Individual parasRecommendedKiwiWeekly=weeklyRecommendation.createIndividual(base+"parasRecommendedKiwiWeekly");
-		Individual parasRecommendedKiwiBiWeekly=biweeklyRecommendation.createIndividual(base+"parasRecommendedKiwiBiWeekly");
-		Individual parasRecommendedKiwiMonthly=monthlyRecommendation.createIndividual(base+"parasRecommendedKiwiMonthly");
+		Individual parasRecommendedKiwi=recommendation.createIndividual(base+"parasRecommendedKiwi");
+		parasRecommendedKiwi.addProperty(hasWeelyWeightage, "0.2");
+		parasRecommendedKiwi.addProperty(hasBiweelyWeightage, "0.1");
+		parasRecommendedKiwi.addProperty(hasMonthlyWeightage, "0.1");
 		
-		//Ani-Code -- not touching Paras's code for the time being.
-		Individual recommendedWeekly=weeklyRecommendation.createIndividual(base+"recommendedWeekly");
-		Individual recommendedBiWeekly=biweeklyRecommendation.createIndividual(base+"recommendedBiWeekly");
-		Individual recommendedMonthly=monthlyRecommendation.createIndividual(base+"recommendedMonthly");
-		
-		
-		Individual recommendKiwi = recommendation.createIndividual(base+"recommendKiwi");
-		Individual recommendOrange = recommendation.createIndividual(base+"recommendOrange");
-		Individual recommendApple = recommendation.createIndividual(base+"recommendApple");
-		
-		recommendedWeekly.addProperty(hasRecommendation, recommendKiwi);
-		recommendedWeekly.addProperty(recommendedTo, paras);
-		recommendedWeekly.addProperty(recommendedTo, anirban); //two people can get the same recommendation.
-		
-		recommendedBiWeekly.addProperty(hasRecommendation, recommendOrange);
-		recommendedBiWeekly.addProperty(recommendedTo, paras);
-		
-		recommendedMonthly.addProperty(hasRecommendation, recommendApple);
-		recommendedMonthly.addProperty(recommendedTo, paras);
-		
-		//Individual product's recommendation will have a weightage 
-		recommendKiwi.addProperty(hasWeightage, "0.2");
-		//Cumulative weekly recommendation will have a weightage
-		recommendedWeekly.addProperty(hasWeightage, "0.2");
-		//Likewise biweekly and monthly will have a weightage
-		recommendedBiWeekly.addProperty(hasWeightage, "0.2");
-		recommendedMonthly.addProperty(hasWeightage, "0.2");
-		
-		// Till here it was Ani's Code. -- If everyone agrees will implement this flow, otherwise go with what Paras wrote.
+		parasRecommendedKiwi.addProperty(isRelatedTo, kiwi);		
+		paras.addProperty(hasRecommendation, parasRecommendedKiwi);
 		
 		
-		parasRecommendedKiwiWeekly.addProperty(hasWeightage, "0.2");
-		parasRecommendedKiwiBiWeekly.addProperty(hasWeightage, "0.1");
-		parasRecommendedKiwiMonthly.addProperty(hasWeightage, "0.1");
+		Individual parasRecommendedApple=recommendation.createIndividual(base+"parasRecommendedApple");
+		parasRecommendedApple.addProperty(hasWeelyWeightage, "0.1");
+		parasRecommendedApple.addProperty(hasBiweelyWeightage, "0.1");
+		parasRecommendedApple.addProperty(hasMonthlyWeightage, "0.1");
 		
-		parasRecommendedKiwiWeekly.addProperty(isRelatedTo, kiwi);
-		parasRecommendedKiwiBiWeekly.addProperty(isRelatedTo, kiwi);
-		parasRecommendedKiwiMonthly.addProperty(isRelatedTo, kiwi);
-		
-		paras.addProperty(hasRecommendation, parasRecommendedKiwiWeekly);
-		paras.addProperty(hasRecommendation, parasRecommendedKiwiBiWeekly);
-		paras.addProperty(hasRecommendation, parasRecommendedKiwiMonthly);
+		parasRecommendedApple.addProperty(isRelatedTo, apple);
+		paras.addProperty(hasRecommendation, parasRecommendedApple);
 		
 		
-		Individual parasRecommendedAppleWeekly=weeklyRecommendation.createIndividual(base+"parasRecommendedAppleWeekly");
-		Individual parasRecommendedAppleBiWeekly=biweeklyRecommendation.createIndividual(base+"parasRecommendedAppleBiWeekly");
-		Individual parasRecommendedAppleMonthly=monthlyRecommendation.createIndividual(base+"parasRecommendedAppleMonthly");
+		Individual parasRecommendedOrange=recommendation.createIndividual(base+"parasRecommendedOrange");
+		parasRecommendedOrange.addProperty(hasWeelyWeightage, "0.1");
+		parasRecommendedOrange.addProperty(hasBiweelyWeightage, "0.1");
+		parasRecommendedOrange.addProperty(hasMonthlyWeightage, "0.1");
 		
-		parasRecommendedAppleWeekly.addProperty(hasWeightage, "0.1");
-		parasRecommendedAppleBiWeekly.addProperty(hasWeightage, "0.1");
-		parasRecommendedAppleMonthly.addProperty(hasWeightage, "0.1");
-		
-		parasRecommendedAppleWeekly.addProperty(isRelatedTo, apple);
-		parasRecommendedAppleBiWeekly.addProperty(isRelatedTo, apple);
-		parasRecommendedAppleMonthly.addProperty(isRelatedTo, apple);
-		
-		paras.addProperty(hasRecommendation, parasRecommendedAppleWeekly);
-		paras.addProperty(hasRecommendation, parasRecommendedAppleBiWeekly);
-		paras.addProperty(hasRecommendation, parasRecommendedAppleMonthly);
+		parasRecommendedOrange.addProperty(isRelatedTo, orange);
+		paras.addProperty(hasRecommendation, parasRecommendedOrange);
 		
 		
-		Individual parasRecommendedOrangeWeekly=weeklyRecommendation.createIndividual(base+"parasRecommendedOrangeWeekly");
-		Individual parasRecommendedOrangeBiWeekly=biweeklyRecommendation.createIndividual(base+"parasRecommendedOrangeBiWeekly");
-		Individual parasRecommendedOrangeMonthly=monthlyRecommendation.createIndividual(base+"parasRecommendedOrangeMonthly");
+		Individual parasRecommendedChickenLegs=recommendation.createIndividual(base+"parasRecommendedChickenLegs");
+		parasRecommendedChickenLegs.addProperty(hasWeelyWeightage, "0.2");
+		parasRecommendedChickenLegs.addProperty(hasBiweelyWeightage, "0.1");
+		parasRecommendedChickenLegs.addProperty(hasMonthlyWeightage, "0.1");
 		
-		parasRecommendedOrangeWeekly.addProperty(hasWeightage, "0.1");
-		parasRecommendedOrangeBiWeekly.addProperty(hasWeightage, "0.1");
-		parasRecommendedOrangeMonthly.addProperty(hasWeightage, "0.1");
-		
-		parasRecommendedOrangeWeekly.addProperty(isRelatedTo, orange);
-		parasRecommendedOrangeBiWeekly.addProperty(isRelatedTo, orange);
-		parasRecommendedOrangeMonthly.addProperty(isRelatedTo, orange);
-		
-		paras.addProperty(hasRecommendation, parasRecommendedOrangeWeekly);
-		parasRecommendedOrangeWeekly.addProperty(recommendedTo, paras);
-		paras.addProperty(hasRecommendation, parasRecommendedOrangeBiWeekly);
-		parasRecommendedOrangeBiWeekly.addProperty(recommendedTo, paras);
-		paras.addProperty(hasRecommendation, parasRecommendedOrangeMonthly);
-		parasRecommendedOrangeMonthly.addProperty(recommendedTo, paras);
-		
-		
-		Individual parasRecommendedChickenLegsWeekly=weeklyRecommendation.createIndividual(base+"parasRecommendedChickenLegsWeekly");
-		Individual parasRecommendedChickenLegsBiWeekly=biweeklyRecommendation.createIndividual(base+"parasRecommendedChickenLegsBiWeekly");
-		Individual parasRecommendedChickenLegsMonthly=monthlyRecommendation.createIndividual(base+"parasRecommendedChickenLegsMonthly");
-		
-		parasRecommendedChickenLegsWeekly.addProperty(hasWeightage, "0.2");
-		parasRecommendedChickenLegsBiWeekly.addProperty(hasWeightage, "0.1");
-		parasRecommendedChickenLegsMonthly.addProperty(hasWeightage, "0.1");
-		
-		parasRecommendedChickenLegsWeekly.addProperty(isRelatedTo, chickenLegs);
-		parasRecommendedChickenLegsBiWeekly.addProperty(isRelatedTo, chickenLegs);
-		parasRecommendedChickenLegsMonthly.addProperty(isRelatedTo, chickenLegs);
-		
-		paras.addProperty(hasRecommendation, parasRecommendedChickenLegsWeekly);
-		paras.addProperty(hasRecommendation, parasRecommendedChickenLegsBiWeekly);
-		paras.addProperty(hasRecommendation, parasRecommendedChickenLegsMonthly);
+		parasRecommendedChickenLegs.addProperty(isRelatedTo, chickenLegs);
+		paras.addProperty(hasRecommendation, parasRecommendedChickenLegs);
 	}
 	
 	public void writeOntology() throws Exception {
