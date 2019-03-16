@@ -186,6 +186,14 @@ public class OntologyFactory{
 		anirban.addProperty(hasName, "anirban");
 		anirban.addProperty(hasGoal, Constants.GOAL_MEAT_LOVER);
 		anirban.addProperty(hasGoal, Constants.GOAL_ECONOMICAL);
+		// New Users added
+		pavan=user.createIndividual(base+"pavan");
+		pavan.addProperty(hasName, "pavan");
+		pavan.addProperty(hasGoal, Constants.GOAL_VEGGIE);
+		aditya=user.createIndividual(base+"aditya");
+		aditya.addProperty(hasName, "aditya");
+		aditya.addProperty(hasGoal, Constants.GOAL_VEGGIE);
+		aditya.addProperty(hasGoal, Constants.GOAL_MEAT_LOVER);
 		
 		/*--------------------- Shop Instances ---------------------*/
 		lidlArtane=shop.createIndividual(base+"lidlArtane");
@@ -440,7 +448,7 @@ public class OntologyFactory{
 		paras.addProperty(shopped, parasShops11); paras.addProperty(shopped, parasShops12); paras.addProperty(shopped, parasShops13);
 		
 		//shopping instance 2
-		//paras shops 5 items on another day
+		//paras shops 4 items on another day
 		Individual parasShops21=shopping.createIndividual(base+"parasShops21");
 		parasShops21.addProperty(atShop, lidlArtane);
 		parasShops21.addProperty(bought, kiwi);
@@ -462,6 +470,116 @@ public class OntologyFactory{
 
 		
 		paras.addProperty(shopped, parasShops21); paras.addProperty(shopped, parasShops22); paras.addProperty(shopped, parasShops23);
+		
+		/*--------------------- Shopping Instances for anirban ---------------------*/
+		//shopping instance 1
+		//anirban shops 4 items on a day
+		Individual anirbanShops11=shopping.createIndividual(base+"anirbanShops11");
+		anirbanShops11.addProperty(atShop, lidlCityCentre);
+		anirbanShops11.addProperty(bought, bread);
+		anirbanShops11.addProperty(atDateTime, "06-Mar-2019");
+		anirbanShops11.addProperty(quantity, "1");
+		anirbanShops11.addProperty(atPrice, "1.5");
+		Individual anirbanShops12=shopping.createIndividual(base+"anirbanShops12");
+		anirbanShops12.addProperty(atShop, lidlCityCentre);
+		anirbanShops12.addProperty(bought, coke);
+		anirbanShops12.addProperty(atDateTime, "06-Mar-2019");
+		anirbanShops12.addProperty(quantity, "2");
+		anirbanShops12.addProperty(atPrice, "2.5");
+		Individual anirbanShops13=shopping.createIndividual(base+"anirbanShops13");
+		anirbanShops13.addProperty(atShop, lidlCityCentre);
+		anirbanShops13.addProperty(bought, lamb);
+		anirbanShops13.addProperty(atDateTime, "06-Mar-2019");
+		anirbanShops13.addProperty(quantity, "1");
+		anirbanShops13.addProperty(atPrice, "2");
+		
+		
+		anirban.addProperty(shopped, anirbanShops11); anirban.addProperty(shopped, anirbanShops12); anirban.addProperty(shopped, anirbanShops13);
+		
+		//shopping instance 2
+		//anirban shops 5 items on another day
+		Individual anirbanShops21=shopping.createIndividual(base+"anirbanShops21");
+		anirbanShops21.addProperty(atShop, lidlCityCentre);
+		anirbanShops21.addProperty(bought, bread);
+		anirbanShops21.addProperty(atDateTime, "14-Mar-2019");
+		anirbanShops21.addProperty(quantity, "1");
+		anirbanShops21.addProperty(atPrice, "1.5");
+		Individual anirbanShops22=shopping.createIndividual(base+"anirbanShops22");
+		anirbanShops22.addProperty(atShop, lidlCityCentre);
+		anirbanShops22.addProperty(bought, coke);
+		anirbanShops22.addProperty(atDateTime, "14-Mar-2019");
+		anirbanShops22.addProperty(quantity, "2");
+		anirbanShops22.addProperty(atPrice, "2.5");
+		Individual anirbanShops23=shopping.createIndividual(base+"anirbanShops23");
+		anirbanShops23.addProperty(atShop, lidlCityCentre);
+		anirbanShops23.addProperty(bought, lamb);
+		anirbanShops23.addProperty(atDateTime, "14-Mar-2019");
+		anirbanShops23.addProperty(quantity, "1");
+		anirbanShops23.addProperty(atPrice, "2");
+		Individual anirbanShops24=shopping.createIndividual(base+"anirbanShops24");
+		anirbanShops24.addProperty(atShop, lidlCityCentre);
+		anirbanShops24.addProperty(bought, butter);
+		anirbanShops24.addProperty(atDateTime, "14-Mar-2019");
+		anirbanShops24.addProperty(quantity, "1");
+		anirbanShops24.addProperty(atPrice, "1.5");
+
+		
+		anirban.addProperty(shopped, anirbanShops21); anirban.addProperty(shopped, anirbanShops22); anirban.addProperty(shopped, anirbanShops23); anirban.addProperty(shopped, anirbanShops24);
+		
+		/*--------------------- Shopping Instances for Aditya---------------------*/
+		//shopping instance 1
+		//aditya shops 3 items on a day
+		Individual adityaShops11=shopping.createIndividual(base+"adityaShops11");
+		adityaShops11.addProperty(atShop, tescoCityCentre);
+		adityaShops11.addProperty(bought, capsicum);
+		adityaShops11.addProperty(atDateTime, "07-Mar-2019");
+		adityaShops11.addProperty(quantity, "1");
+		adityaShops11.addProperty(atPrice, "1");
+		Individual adityaShops12=shopping.createIndividual(base+"adityaShops12");
+		adityaShops12.addProperty(atShop, tescoCityCentre);
+		adityaShops12.addProperty(bought, lowFatMilk);
+		adityaShops12.addProperty(atDateTime, "07-Mar-2019");
+		adityaShops12.addProperty(quantity, "1");
+		adityaShops12.addProperty(atPrice, "1.8");
+		Individual adityaShops13=shopping.createIndividual(base+"adityaShops13");
+		adityaShops13.addProperty(atShop, tescoCityCentre);
+		adityaShops13.addProperty(bought, chickenLegs);
+		adityaShops13.addProperty(atDateTime, "07-Mar-2019");
+		adityaShops13.addProperty(quantity, "1");
+		adityaShops13.addProperty(atPrice, "2.5");
+		
+		aditya.addProperty(shopped, adityaShops11); aditya.addProperty(shopped, adityaShops12); aditya.addProperty(shopped, adityaShops13);
+		
+		//shopping instance 2
+		//aditya shops 5 items on another day
+		Individual adityaShops21=shopping.createIndividual(base+"adityaShops21");
+		adityaShops21.addProperty(atShop, tescoCityCentre);
+		adityaShops21.addProperty(bought, capsicum);
+		adityaShops21.addProperty(atDateTime, "16-Mar-2019");
+		adityaShops21.addProperty(quantity, "1");
+		adityaShops21.addProperty(atPrice, "1");
+		Individual adityaShops22=shopping.createIndividual(base+"adityaShops22");
+		adityaShops22.addProperty(atShop, tescoCityCentre);
+		adityaShops22.addProperty(bought, lowFatMilk);
+		adityaShops22.addProperty(atDateTime, "16-Mar-2019");
+		adityaShops22.addProperty(quantity, "1");
+		adityaShops22.addProperty(atPrice, "1.8");
+		Individual adityaShops23=shopping.createIndividual(base+"adityaShops23");
+		adityaShops23.addProperty(atShop, tescoCityCentre);
+		adityaShops23.addProperty(bought, chickenLegs);
+		adityaShops23.addProperty(atDateTime, "16-Mar-2019");
+		adityaShops23.addProperty(quantity, "1");
+		adityaShops23.addProperty(atPrice, "2.5");
+		Individual adityaShops24=shopping.createIndividual(base+"adityaShops24");
+		adityaShops24.addProperty(atShop, tescoCityCentre);
+		adityaShops24.addProperty(bought, spinach);
+		adityaShops24.addProperty(atDateTime, "16-Mar-2019");
+		adityaShops24.addProperty(quantity, "2");
+		adityaShops24.addProperty(atPrice, "2.5");
+
+		
+		aditya.addProperty(shopped, adityaShops21); aditya.addProperty(shopped, adityaShops22); aditya.addProperty(shopped, adityaShops23); aditya.addProperty(shopped, adityaShops24);
+		
 	}
 	
 	public void createRecommendationInstances() {
@@ -500,6 +618,77 @@ public class OntologyFactory{
 		
 		parasRecommendedChickenLegs.addProperty(isRelatedTo, chickenLegs);
 		paras.addProperty(hasRecommendation, parasRecommendedChickenLegs);
+		
+		// Anirban
+		Individual anirbanRecommendedbread=recommendation.createIndividual(base+"anirbanRecommendedbread");
+		anirbanRecommendedbread.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedbread.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedbread.addProperty(hasMonthlyWeightage, "0.1");
+				
+		anirbanRecommendedbread.addProperty(isRelatedTo, bread);		
+		anirban.addProperty(hasRecommendation, anirbanRecommendedbread);
+		
+		
+		Individual anirbanRecommendedcoke=recommendation.createIndividual(base+"anirbanRecommendedcoke");
+		anirbanRecommendedcoke.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedcoke.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedcoke.addProperty(hasMonthlyWeightage, "0.1");
+				
+		anirbanRecommendedcoke.addProperty(isRelatedTo, coke);		
+		anirban.addProperty(hasRecommendation, anirbanRecommendedcoke);
+		
+		
+		Individual anirbanRecommendedlamb=recommendation.createIndividual(base+"anirbanRecommendedlamb");
+		anirbanRecommendedlamb.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedlamb.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedlamb.addProperty(hasMonthlyWeightage, "0.1");
+				
+		anirbanRecommendedlamb.addProperty(isRelatedTo, lamb);		
+		anirban.addProperty(hasRecommendation, anirbanRecommendedlamb);
+		
+		Individual anirbanRecommendedbutter=recommendation.createIndividual(base+"anirbanRecommendedbutter");
+		anirbanRecommendedbutter.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedbutter.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedbutter.addProperty(hasMonthlyWeightage, "0.1");
+				
+		anirbanRecommendedbutter.addProperty(isRelatedTo, butter);		
+		anirbanRecommendedbutter.addProperty(hasRecommendation, anirbanRecommendedbutter);
+		
+		//Aditya
+		Individual adityaRecommendedcapsicum=recommendation.createIndividual(base+"adityaRecommendedcapsicum");
+		adityaRecommendedcapsicum.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedcapsicum.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedcapsicum.addProperty(hasMonthlyWeightage, "0.1");
+				
+		adityaRecommendedcapsicum.addProperty(isRelatedTo, capsicum);		
+		aditya.addProperty(hasRecommendation, adityaRecommendedcapsicum);
+		
+		Individual adityaRecommendedlowFatMilk=recommendation.createIndividual(base+"adityaRecommendedlowFatMilk");
+		adityaRecommendedlowFatMilk.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedlowFatMilk.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedlowFatMilk.addProperty(hasMonthlyWeightage, "0.1");
+				
+		adityaRecommendedlowFatMilk.addProperty(isRelatedTo, lowFatMilk);		
+		aditya.addProperty(hasRecommendation, adityaRecommendedlowFatMilk);
+		
+		Individual adityaRecommendedchickenLegs=recommendation.createIndividual(base+"adityaRecommendedchickenLegs");
+		adityaRecommendedchickenLegs.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedchickenLegs.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedchickenLegs.addProperty(hasMonthlyWeightage, "0.1");
+				
+		adityaRecommendedchickenLegs.addProperty(isRelatedTo, kiwi);		
+		adityaRecommendedchickenLegs.addProperty(hasRecommendation, adityaRecommendedchickenLegs);
+		
+		
+		Individual adityaRecommendedspinach=recommendation.createIndividual(base+"adityaRecommendedspinach");
+		adityaRecommendedspinach.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedspinach.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedspinach.addProperty(hasMonthlyWeightage, "0.1");
+				
+		adityaRecommendedspinach.addProperty(isRelatedTo, kiwi);		
+		aditya.addProperty(hasRecommendation, adityaRecommendedspinach);
+		
+		
 	}
 	
 	public void writeOntology() throws Exception {
