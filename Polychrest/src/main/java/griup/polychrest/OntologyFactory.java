@@ -574,11 +574,17 @@ public class OntologyFactory{
 		adityaShops24.addProperty(atShop, tescoCityCentre);
 		adityaShops24.addProperty(bought, spinach);
 		adityaShops24.addProperty(atDateTime, "16-Mar-2019");
-		adityaShops24.addProperty(quantity, "2");
-		adityaShops24.addProperty(atPrice, "2.5");
+		adityaShops24.addProperty(quantity, "1");
+		adityaShops24.addProperty(atPrice, "1");
+		Individual adityaShops25=shopping.createIndividual(base+"adityaShops25");
+		adityaShops25.addProperty(atShop, tescoCityCentre);
+		adityaShops25.addProperty(bought, fanta);
+		adityaShops25.addProperty(atDateTime, "16-Mar-2019");
+		adityaShops25.addProperty(quantity, "1");
+		adityaShops25.addProperty(atPrice, "1");
 
 		
-		aditya.addProperty(shopped, adityaShops21); aditya.addProperty(shopped, adityaShops22); aditya.addProperty(shopped, adityaShops23); aditya.addProperty(shopped, adityaShops24);
+		aditya.addProperty(shopped, adityaShops21); aditya.addProperty(shopped, adityaShops22); aditya.addProperty(shopped, adityaShops23); aditya.addProperty(shopped, adityaShops24); aditya.addProperty(shopped, adityaShops25);
 		
 	}
 	
@@ -676,7 +682,7 @@ public class OntologyFactory{
 		adityaRecommendedchickenLegs.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedchickenLegs.addProperty(hasMonthlyWeightage, "0.1");
 				
-		adityaRecommendedchickenLegs.addProperty(isRelatedTo, kiwi);		
+		adityaRecommendedchickenLegs.addProperty(isRelatedTo, chickenLegs);		
 		adityaRecommendedchickenLegs.addProperty(hasRecommendation, adityaRecommendedchickenLegs);
 		
 		
@@ -685,8 +691,17 @@ public class OntologyFactory{
 		adityaRecommendedspinach.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedspinach.addProperty(hasMonthlyWeightage, "0.1");
 				
-		adityaRecommendedspinach.addProperty(isRelatedTo, kiwi);		
+		adityaRecommendedspinach.addProperty(isRelatedTo, spinach);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedspinach);
+		
+		
+		Individual adityaRecommendedfanta=recommendation.createIndividual(base+"adityaRecommendedfanta");
+		adityaRecommendedfanta.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedfanta.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedfanta.addProperty(hasMonthlyWeightage, "0.1");
+				
+		adityaRecommendedfanta.addProperty(isRelatedTo, fanta);		
+		aditya.addProperty(hasRecommendation, adityaRecommendedfanta);
 		
 		
 	}
