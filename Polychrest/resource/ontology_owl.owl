@@ -1,0 +1,726 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://purl.org/dc/terms/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:base="http://polychrest/ontology#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="http://polychrest/ontology">
+    <j.0:contributor>Shubham</j.0:contributor>
+    <rdfs:label xml:lang="en">Ontology Designed for Adaptive application module Project-Group Polychrest</rdfs:label>
+    <j.0:description>Ontology Designed for Adaptive application module Project-Group Polychrest</j.0:description>
+    <j.0:contributor>Anirban</j.0:contributor>
+    <j.0:contributor>Aditya</j.0:contributor>
+    <j.0:contributor>Gauransh</j.0:contributor>
+    <j.0:date>08-Mar-2019</j.0:date>
+    <j.0:contributor>Paras</j.0:contributor>
+    <j.0:contributor>Pavan</j.0:contributor>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://polychrest/ontology#recommendation">
+    <rdfs:label xml:lang="en">recommendations for user</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://polychrest/ontology#user">
+    <rdfs:label xml:lang="en">app user</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://polychrest/ontology#food">
+    <owl:sameAs rdf:resource="http://dbpedia.org/ontology/Food"/>
+    <owl:sameAs rdf:resource="http://purl.org/ontology/fo/Food"/>
+    <rdfs:label xml:lang="en">food</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://polychrest/ontology#shopping">
+    <rdfs:label xml:lang="en">user shopping details</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://polychrest/ontology#shop">
+    <owl:sameAs rdf:resource="http://dbpedia.org/ontology/Shop"/>
+    <rdfs:label xml:lang="en">any grocery shop</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://polychrest/ontology#sells">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://polychrest/ontology#availableAt"/>
+    </owl:inverseOf>
+    <rdfs:label xml:lang="en">this shop sells the food item</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://polychrest/ontology#availableAt">
+    <rdfs:range rdf:resource="http://polychrest/ontology#shop"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#food"/>
+    <rdfs:label xml:lang="en">food item is available at this shop</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://polychrest/ontology#shopped">
+    <rdfs:range rdf:resource="http://polychrest/ontology#shopping"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#user"/>
+    <rdfs:label xml:lang="en">the user shopped this shopping</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://polychrest/ontology#bought">
+    <rdfs:range rdf:resource="http://polychrest/ontology#food"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#shopping"/>
+    <rdfs:label xml:lang="en">the user bought this item</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://polychrest/ontology#isRelatedTo">
+    <rdfs:range rdf:resource="http://polychrest/ontology#food"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#recommendation"/>
+    <rdfs:label xml:lang="en">recommendation is related to this food item</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://polychrest/ontology#recommendedTo">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://polychrest/ontology#hasRecommendation"/>
+    </owl:inverseOf>
+    <rdfs:label xml:lang="en">recommendation is recommended to this user</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://polychrest/ontology#hasRecommendation">
+    <rdfs:range rdf:resource="http://polychrest/ontology#recommendation"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#user"/>
+    <rdfs:label xml:lang="en">user has this recommendation</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://polychrest/ontology#atShop">
+    <rdfs:range rdf:resource="http://polychrest/ontology#shop"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#shopping"/>
+    <rdfs:label xml:lang="en">the user shopped at this shop</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://polychrest/ontology#hasShopType">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#shop"/>
+    <rdfs:label xml:lang="en">grocery shop type (eg. mall, supermarket, shop)</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://polychrest/ontology#atTime">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#shopping"/>
+    <rdfs:label xml:lang="en">quantity bought</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://polychrest/ontology#isEnabled">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#recommendation"/>
+    <rdfs:label xml:lang="en">denotes if recommendation is enabled to be shown to user</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://polychrest/ontology#ofCategory">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#food"/>
+    <rdfs:label xml:lang="en">food category</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://polychrest/ontology#atDateTime">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#shopping"/>
+    <rdfs:label xml:lang="en">the user shopped at this date-time</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://polychrest/ontology#atPrice">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#food"/>
+    <rdfs:label xml:lang="en">food price</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://polychrest/ontology#hasName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#user"/>
+    <rdfs:label xml:lang="en">user name</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://polychrest/ontology#hasFoodName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#food"/>
+    <rdfs:label xml:lang="en">food name</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://polychrest/ontology#hasBiweelyWeightage">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#recommendation"/>
+    <rdfs:label xml:lang="en">denotes the bi-weekly weightage for the recommendation</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://polychrest/ontology#hasGoal">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#user"/>
+    <rdfs:label xml:lang="en">user goal</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://polychrest/ontology#hasShopName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#shop"/>
+    <rdfs:label xml:lang="en">grocery shop name</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://polychrest/ontology#hasShopAddress">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#shop"/>
+    <rdfs:label xml:lang="en">grocery shop address</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://polychrest/ontology#hasMonthlyWeightage">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#recommendation"/>
+    <rdfs:label xml:lang="en">denotes the monthly weightage for the recommendation</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://polychrest/ontology#hasWeelyWeightage">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="http://polychrest/ontology#recommendation"/>
+    <rdfs:label xml:lang="en">denotes the weekly weightage for the recommendation</rdfs:label>
+  </owl:DatatypeProperty>
+  <base:shop rdf:about="http://polychrest/ontology#euroGeneralFairview">
+    <base:sells>
+      <base:food rdf:about="http://polychrest/ontology#bread">
+        <base:ofCategory>bread</base:ofCategory>
+        <base:ofCategory>bakery</base:ofCategory>
+        <base:hasFoodName>bread</base:hasFoodName>
+      </base:food>
+    </base:sells>
+    <base:hasShopAddress>Fairview, Dublin</base:hasShopAddress>
+    <base:sells>
+      <base:food rdf:about="http://polychrest/ontology#apple">
+        <base:ofCategory>veg</base:ofCategory>
+        <base:ofCategory>fruits</base:ofCategory>
+        <base:ofCategory>healthy</base:ofCategory>
+        <base:hasFoodName>apple</base:hasFoodName>
+      </base:food>
+    </base:sells>
+    <base:sells>
+      <base:food rdf:about="http://polychrest/ontology#pepsi">
+        <base:ofCategory>softdrink</base:ofCategory>
+        <base:hasFoodName>pepsi</base:hasFoodName>
+      </base:food>
+    </base:sells>
+    <base:sells>
+      <base:food rdf:about="http://polychrest/ontology#chickenLegs">
+        <base:ofCategory>colesterol</base:ofCategory>
+        <base:ofCategory>chicken</base:ofCategory>
+        <base:ofCategory>nonveg</base:ofCategory>
+        <base:hasFoodName>chickenLegs</base:hasFoodName>
+      </base:food>
+    </base:sells>
+    <base:sells>
+      <base:food rdf:about="http://polychrest/ontology#chickenBreasts">
+        <base:ofCategory>colesterol</base:ofCategory>
+        <base:ofCategory>chicken</base:ofCategory>
+        <base:ofCategory>nonveg</base:ofCategory>
+        <base:hasFoodName>chickenBreasts</base:hasFoodName>
+      </base:food>
+    </base:sells>
+    <base:sells>
+      <base:food rdf:about="http://polychrest/ontology#fanta">
+        <base:ofCategory>softdrink</base:ofCategory>
+        <base:hasFoodName>fanta</base:hasFoodName>
+      </base:food>
+    </base:sells>
+    <base:sells>
+      <base:food rdf:about="http://polychrest/ontology#lamb">
+        <base:ofCategory>colesterol</base:ofCategory>
+        <base:ofCategory>lamb</base:ofCategory>
+        <base:ofCategory>nonveg</base:ofCategory>
+        <base:hasFoodName>lamb</base:hasFoodName>
+      </base:food>
+    </base:sells>
+    <base:hasShopType>store</base:hasShopType>
+    <base:sells>
+      <base:food rdf:about="http://polychrest/ontology#capsicum">
+        <base:ofCategory>vegetables</base:ofCategory>
+        <base:ofCategory>veg</base:ofCategory>
+        <base:ofCategory>healthy</base:ofCategory>
+        <base:hasFoodName>capsicum</base:hasFoodName>
+      </base:food>
+    </base:sells>
+    <base:sells>
+      <base:food rdf:about="http://polychrest/ontology#butter">
+        <base:ofCategory>colesterol</base:ofCategory>
+        <base:ofCategory>veg</base:ofCategory>
+        <base:ofCategory>dairy</base:ofCategory>
+        <base:hasFoodName>butter</base:hasFoodName>
+      </base:food>
+    </base:sells>
+    <base:sells>
+      <base:food rdf:about="http://polychrest/ontology#spinach">
+        <base:ofCategory>vegetables</base:ofCategory>
+        <base:ofCategory>veg</base:ofCategory>
+        <base:ofCategory>healthy</base:ofCategory>
+        <base:hasFoodName>spinach</base:hasFoodName>
+      </base:food>
+    </base:sells>
+    <base:sells>
+      <base:food rdf:about="http://polychrest/ontology#orange">
+        <base:ofCategory>veg</base:ofCategory>
+        <base:ofCategory>fruits</base:ofCategory>
+        <base:ofCategory>healthy</base:ofCategory>
+        <base:hasFoodName>orange</base:hasFoodName>
+      </base:food>
+    </base:sells>
+    <base:hasShopName>Euro General</base:hasShopName>
+    <base:sells>
+      <base:food rdf:about="http://polychrest/ontology#coke">
+        <base:ofCategory>softdrink</base:ofCategory>
+        <base:hasFoodName>coke</base:hasFoodName>
+      </base:food>
+    </base:sells>
+  </base:shop>
+  <base:user rdf:about="http://polychrest/ontology#anirban">
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedcoke">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#coke"/>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedlamb">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#lamb"/>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#anirbanShops22">
+        <base:atPrice>2.5</base:atPrice>
+        <base:atTime>2</base:atTime>
+        <base:atDateTime>14-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#coke"/>
+        <base:atShop>
+          <base:shop rdf:about="http://polychrest/ontology#lidlCityCentre">
+            <base:sells>
+              <base:food rdf:about="http://polychrest/ontology#greekCheese">
+                <base:ofCategory>colesterol</base:ofCategory>
+                <base:ofCategory>cheese</base:ofCategory>
+                <base:ofCategory>dairy</base:ofCategory>
+                <base:hasFoodName>greekCheese</base:hasFoodName>
+              </base:food>
+            </base:sells>
+            <base:sells>
+              <base:food rdf:about="http://polychrest/ontology#sprite">
+                <base:ofCategory>softdrink</base:ofCategory>
+                <base:hasFoodName>sprite</base:hasFoodName>
+              </base:food>
+            </base:sells>
+            <base:hasShopAddress>City Centre, Dublin</base:hasShopAddress>
+            <base:sells rdf:resource="http://polychrest/ontology#coke"/>
+            <base:sells rdf:resource="http://polychrest/ontology#fanta"/>
+            <base:sells>
+              <base:food rdf:about="http://polychrest/ontology#sweeseCheese">
+                <base:ofCategory>colesterol</base:ofCategory>
+                <base:ofCategory>cheese</base:ofCategory>
+                <base:ofCategory>dairy</base:ofCategory>
+                <base:hasFoodName>sweeseCheese</base:hasFoodName>
+              </base:food>
+            </base:sells>
+            <base:sells rdf:resource="http://polychrest/ontology#spinach"/>
+            <base:sells rdf:resource="http://polychrest/ontology#orange"/>
+            <base:hasShopType>supermarket</base:hasShopType>
+            <base:hasShopName>LiDL</base:hasShopName>
+            <base:sells rdf:resource="http://polychrest/ontology#butter"/>
+            <base:sells>
+              <base:food rdf:about="http://polychrest/ontology#mushroom">
+                <base:ofCategory>vegetables</base:ofCategory>
+                <base:ofCategory>veg</base:ofCategory>
+                <base:ofCategory>healthy</base:ofCategory>
+                <base:hasFoodName>mushroom</base:hasFoodName>
+              </base:food>
+            </base:sells>
+            <base:sells rdf:resource="http://polychrest/ontology#capsicum"/>
+            <base:sells rdf:resource="http://polychrest/ontology#pepsi"/>
+            <base:sells rdf:resource="http://polychrest/ontology#bread"/>
+            <base:sells>
+              <base:food rdf:about="http://polychrest/ontology#lowFatMilk">
+                <base:ofCategory>veg</base:ofCategory>
+                <base:ofCategory>dairy</base:ofCategory>
+                <base:ofCategory>milk</base:ofCategory>
+                <base:hasFoodName>lowFatMilk</base:hasFoodName>
+              </base:food>
+            </base:sells>
+            <base:sells>
+              <base:food rdf:about="http://polychrest/ontology#rocketLeaves">
+                <base:ofCategory>vegetables</base:ofCategory>
+                <base:ofCategory>veg</base:ofCategory>
+                <base:ofCategory>healthy</base:ofCategory>
+                <base:hasFoodName>rocketLeaves</base:hasFoodName>
+              </base:food>
+            </base:sells>
+            <base:sells>
+              <base:food rdf:about="http://polychrest/ontology#noodles">
+                <base:ofCategory>veg</base:ofCategory>
+                <base:ofCategory>asian</base:ofCategory>
+                <base:ofCategory>chinese</base:ofCategory>
+                <base:hasFoodName>noodles</base:hasFoodName>
+              </base:food>
+            </base:sells>
+            <base:sells rdf:resource="http://polychrest/ontology#lamb"/>
+            <base:sells rdf:resource="http://polychrest/ontology#chickenLegs"/>
+            <base:sells>
+              <base:food rdf:about="http://polychrest/ontology#kiwi">
+                <base:ofCategory>veg</base:ofCategory>
+                <base:ofCategory>fruits</base:ofCategory>
+                <base:ofCategory>healthy</base:ofCategory>
+                <base:hasFoodName>kiwi</base:hasFoodName>
+              </base:food>
+            </base:sells>
+            <base:sells>
+              <base:food rdf:about="http://polychrest/ontology#brownBread">
+                <base:ofCategory>bread</base:ofCategory>
+                <base:ofCategory>bakery</base:ofCategory>
+                <base:hasFoodName>brownBread</base:hasFoodName>
+              </base:food>
+            </base:sells>
+            <base:sells rdf:resource="http://polychrest/ontology#chickenBreasts"/>
+            <base:sells rdf:resource="http://polychrest/ontology#apple"/>
+          </base:shop>
+        </base:atShop>
+      </base:shopping>
+    </base:shopped>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#anirbanShops11">
+        <base:atPrice>1.5</base:atPrice>
+        <base:atTime>1</base:atTime>
+        <base:atDateTime>06-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#bread"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#lidlCityCentre"/>
+      </base:shopping>
+    </base:shopped>
+    <base:hasGoal>meatlover</base:hasGoal>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#anirbanShops24">
+        <base:atPrice>1.5</base:atPrice>
+        <base:atTime>1</base:atTime>
+        <base:atDateTime>14-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#butter"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#lidlCityCentre"/>
+      </base:shopping>
+    </base:shopped>
+    <base:hasName>anirban</base:hasName>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#anirbanShops21">
+        <base:atPrice>1.5</base:atPrice>
+        <base:atTime>1</base:atTime>
+        <base:atDateTime>14-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#bread"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#lidlCityCentre"/>
+      </base:shopping>
+    </base:shopped>
+    <base:hasGoal>economical</base:hasGoal>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#anirbanShops13">
+        <base:atPrice>2</base:atPrice>
+        <base:atTime>1</base:atTime>
+        <base:atDateTime>06-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#lamb"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#lidlCityCentre"/>
+      </base:shopping>
+    </base:shopped>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedbread">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#bread"/>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#anirbanShops23">
+        <base:atPrice>2</base:atPrice>
+        <base:atTime>1</base:atTime>
+        <base:atDateTime>14-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#lamb"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#lidlCityCentre"/>
+      </base:shopping>
+    </base:shopped>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#anirbanShops12">
+        <base:atPrice>2.5</base:atPrice>
+        <base:atTime>2</base:atTime>
+        <base:atDateTime>06-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#coke"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#lidlCityCentre"/>
+      </base:shopping>
+    </base:shopped>
+  </base:user>
+  <base:user rdf:about="http://polychrest/ontology#paras">
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedApple">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#apple"/>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.1</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#parasShops23">
+        <base:atPrice>2.5</base:atPrice>
+        <base:atTime>1</base:atTime>
+        <base:atDateTime>15-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#chickenLegs"/>
+        <base:atShop>
+          <base:shop rdf:about="http://polychrest/ontology#lidlArtane">
+            <base:sells rdf:resource="http://polychrest/ontology#sprite"/>
+            <base:sells rdf:resource="http://polychrest/ontology#butter"/>
+            <base:sells>
+              <base:food rdf:about="http://polychrest/ontology#brocolli">
+                <base:ofCategory>vegetables</base:ofCategory>
+                <base:ofCategory>veg</base:ofCategory>
+                <base:ofCategory>healthy</base:ofCategory>
+                <base:hasFoodName>brocolli</base:hasFoodName>
+              </base:food>
+            </base:sells>
+            <base:hasShopType>supermarket</base:hasShopType>
+            <base:sells rdf:resource="http://polychrest/ontology#spinach"/>
+            <base:sells rdf:resource="http://polychrest/ontology#orange"/>
+            <base:sells rdf:resource="http://polychrest/ontology#rocketLeaves"/>
+            <base:sells rdf:resource="http://polychrest/ontology#greekCheese"/>
+            <base:hasShopName>LiDL</base:hasShopName>
+            <base:hasShopAddress>Artane, Dublin 5</base:hasShopAddress>
+            <base:sells rdf:resource="http://polychrest/ontology#mushroom"/>
+            <base:sells rdf:resource="http://polychrest/ontology#chickenLegs"/>
+            <base:sells rdf:resource="http://polychrest/ontology#bread"/>
+            <base:sells rdf:resource="http://polychrest/ontology#capsicum"/>
+            <base:sells>
+              <base:food rdf:about="http://polychrest/ontology#irishApple">
+                <base:ofCategory>veg</base:ofCategory>
+                <base:ofCategory>fruits</base:ofCategory>
+                <base:ofCategory>healthy</base:ofCategory>
+                <base:hasFoodName>irishApple</base:hasFoodName>
+              </base:food>
+            </base:sells>
+            <base:sells>
+              <base:food rdf:about="http://polychrest/ontology#dietCoke">
+                <base:ofCategory>softdrink</base:ofCategory>
+                <base:hasFoodName>dietCoke</base:hasFoodName>
+              </base:food>
+            </base:sells>
+            <base:sells rdf:resource="http://polychrest/ontology#apple"/>
+            <base:sells rdf:resource="http://polychrest/ontology#chickenBreasts"/>
+            <base:sells rdf:resource="http://polychrest/ontology#noodles"/>
+            <base:sells rdf:resource="http://polychrest/ontology#coke"/>
+            <base:sells rdf:resource="http://polychrest/ontology#sweeseCheese"/>
+            <base:sells rdf:resource="http://polychrest/ontology#lowFatMilk"/>
+            <base:sells rdf:resource="http://polychrest/ontology#pepsi"/>
+            <base:sells rdf:resource="http://polychrest/ontology#lamb"/>
+            <base:sells rdf:resource="http://polychrest/ontology#fanta"/>
+            <base:sells rdf:resource="http://polychrest/ontology#kiwi"/>
+          </base:shop>
+        </base:atShop>
+      </base:shopping>
+    </base:shopped>
+    <base:hasGoal>economical</base:hasGoal>
+    <base:hasName>paras</base:hasName>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#parasShops12">
+        <base:atPrice>2</base:atPrice>
+        <base:atTime>1</base:atTime>
+        <base:atDateTime>08-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#apple"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#lidlArtane"/>
+      </base:shopping>
+    </base:shopped>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#parasShops11">
+        <base:atPrice>1</base:atPrice>
+        <base:atTime>1</base:atTime>
+        <base:atDateTime>08-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#kiwi"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#lidlArtane"/>
+      </base:shopping>
+    </base:shopped>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#parasShops22">
+        <base:atPrice>2</base:atPrice>
+        <base:atTime>2</base:atTime>
+        <base:atDateTime>15-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#orange"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#lidlArtane"/>
+      </base:shopping>
+    </base:shopped>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedKiwi">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#kiwi"/>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#parasShops13">
+        <base:atPrice>2.5</base:atPrice>
+        <base:atTime>1</base:atTime>
+        <base:atDateTime>08-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#chickenLegs"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#lidlArtane"/>
+      </base:shopping>
+    </base:shopped>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#parasShops21">
+        <base:atPrice>1</base:atPrice>
+        <base:atTime>1</base:atTime>
+        <base:atDateTime>15-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#kiwi"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#lidlArtane"/>
+      </base:shopping>
+    </base:shopped>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedChickenLegs">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#chickenLegs"/>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedOrange">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#orange"/>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.1</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+  </base:user>
+  <base:user rdf:about="http://polychrest/ontology#aditya">
+    <base:hasGoal>veggie</base:hasGoal>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedcapsicum">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#capsicum"/>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedlowFatMilk">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#lowFatMilk"/>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#adityaShops23">
+        <base:atPrice>2.5</base:atPrice>
+        <base:atTime>1</base:atTime>
+        <base:atDateTime>16-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#chickenLegs"/>
+        <base:atShop>
+          <base:shop rdf:about="http://polychrest/ontology#tescoCityCentre">
+            <base:hasShopName>Tesco</base:hasShopName>
+            <base:sells rdf:resource="http://polychrest/ontology#lowFatMilk"/>
+            <base:sells rdf:resource="http://polychrest/ontology#dietCoke"/>
+            <base:sells rdf:resource="http://polychrest/ontology#kiwi"/>
+            <base:sells rdf:resource="http://polychrest/ontology#rocketLeaves"/>
+            <base:sells rdf:resource="http://polychrest/ontology#bread"/>
+            <base:sells rdf:resource="http://polychrest/ontology#lamb"/>
+            <base:sells rdf:resource="http://polychrest/ontology#irishApple"/>
+            <base:sells rdf:resource="http://polychrest/ontology#orange"/>
+            <base:sells rdf:resource="http://polychrest/ontology#sprite"/>
+            <base:sells rdf:resource="http://polychrest/ontology#mushroom"/>
+            <base:sells rdf:resource="http://polychrest/ontology#sweeseCheese"/>
+            <base:sells rdf:resource="http://polychrest/ontology#chickenLegs"/>
+            <base:sells rdf:resource="http://polychrest/ontology#brownBread"/>
+            <base:sells rdf:resource="http://polychrest/ontology#apple"/>
+            <base:sells rdf:resource="http://polychrest/ontology#capsicum"/>
+            <base:sells rdf:resource="http://polychrest/ontology#butter"/>
+            <base:hasShopType>supermarket</base:hasShopType>
+            <base:sells rdf:resource="http://polychrest/ontology#pepsi"/>
+            <base:sells rdf:resource="http://polychrest/ontology#chickenBreasts"/>
+            <base:hasShopAddress>City Centre, Dublin</base:hasShopAddress>
+            <base:sells rdf:resource="http://polychrest/ontology#coke"/>
+            <base:sells rdf:resource="http://polychrest/ontology#brocolli"/>
+            <base:sells rdf:resource="http://polychrest/ontology#greekCheese"/>
+            <base:sells rdf:resource="http://polychrest/ontology#spinach"/>
+            <base:sells rdf:resource="http://polychrest/ontology#fanta"/>
+          </base:shop>
+        </base:atShop>
+      </base:shopping>
+    </base:shopped>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#adityaShops25">
+        <base:atPrice>1</base:atPrice>
+        <base:atTime>1</base:atTime>
+        <base:atDateTime>16-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#fanta"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#tescoCityCentre"/>
+      </base:shopping>
+    </base:shopped>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedspinach">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#spinach"/>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasGoal>meatlover</base:hasGoal>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedfanta">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#fanta"/>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#adityaShops11">
+        <base:atPrice>1</base:atPrice>
+        <base:atTime>1</base:atTime>
+        <base:atDateTime>07-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#capsicum"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#tescoCityCentre"/>
+      </base:shopping>
+    </base:shopped>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#adityaShops13">
+        <base:atPrice>2.5</base:atPrice>
+        <base:atTime>1</base:atTime>
+        <base:atDateTime>07-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#chickenLegs"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#tescoCityCentre"/>
+      </base:shopping>
+    </base:shopped>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#adityaShops24">
+        <base:atPrice>1</base:atPrice>
+        <base:atTime>1</base:atTime>
+        <base:atDateTime>16-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#spinach"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#tescoCityCentre"/>
+      </base:shopping>
+    </base:shopped>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#adityaShops22">
+        <base:atPrice>1.8</base:atPrice>
+        <base:atTime>1</base:atTime>
+        <base:atDateTime>16-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#lowFatMilk"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#tescoCityCentre"/>
+      </base:shopping>
+    </base:shopped>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#adityaShops21">
+        <base:atPrice>1</base:atPrice>
+        <base:atTime>1</base:atTime>
+        <base:atDateTime>16-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#capsicum"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#tescoCityCentre"/>
+      </base:shopping>
+    </base:shopped>
+    <base:hasName>aditya</base:hasName>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#adityaShops12">
+        <base:atPrice>1.8</base:atPrice>
+        <base:atTime>1</base:atTime>
+        <base:atDateTime>07-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#lowFatMilk"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#tescoCityCentre"/>
+      </base:shopping>
+    </base:shopped>
+  </base:user>
+  <base:user rdf:about="http://polychrest/ontology#shubham">
+    <base:hasGoal>veggie</base:hasGoal>
+    <base:hasName>shubham</base:hasName>
+  </base:user>
+  <base:user rdf:about="http://polychrest/ontology#pavan">
+    <base:hasGoal>veggie</base:hasGoal>
+    <base:hasName>pavan</base:hasName>
+  </base:user>
+  <base:food rdf:about="http://polychrest/ontology#milk">
+    <base:ofCategory>veg</base:ofCategory>
+    <base:ofCategory>dairy</base:ofCategory>
+    <base:ofCategory>milk</base:ofCategory>
+    <base:hasFoodName>milk</base:hasFoodName>
+  </base:food>
+  <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedchickenLegs">
+    <base:hasRecommendation rdf:resource="http://polychrest/ontology#adityaRecommendedchickenLegs"/>
+    <base:isRelatedTo rdf:resource="http://polychrest/ontology#chickenLegs"/>
+    <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+    <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+    <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+  </base:recommendation>
+  <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedbutter">
+    <base:hasRecommendation rdf:resource="http://polychrest/ontology#anirbanRecommendedbutter"/>
+    <base:isRelatedTo rdf:resource="http://polychrest/ontology#butter"/>
+    <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+    <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+    <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+  </base:recommendation>
+</rdf:RDF>

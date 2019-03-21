@@ -1,5 +1,7 @@
 package griup.polychrest;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.net.URI;
 import java.nio.file.Files;
@@ -12,6 +14,7 @@ import org.apache.jena.ontology.Individual;
 import org.apache.jena.ontology.ObjectProperty;
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntModel;
+import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.ontology.Ontology;
 import org.apache.jena.rdf.model.Model;
 //import org.apache.jena.ontology
@@ -25,6 +28,8 @@ public class OntologyFactory{
 	public static String link="http://polychrest/ontology";
 	public static String base="http://polychrest/ontology#";
 	public static String polychrest_ontology="resource\\polychrest_ontology.ttl";
+	public static String owlForm="resource\\ontology_owl.owl";
+	public static String ontology_owl_version = "resource\\ontologyInOwl.owl";
 	public static String bbcOntologyOnline="https://www.bbc.co.uk/ontologies/fo/1.1.ttl";
 	public static String bbcOntologyLocal="resource\\bbc.ttl";
 	
@@ -42,7 +47,7 @@ public class OntologyFactory{
 		Files.copy( URI.create(bbcOntologyOnline).toURL().openStream(), Paths.get(bbcOntologyLocal),StandardCopyOption.REPLACE_EXISTING);
 	}
 	public void createOntology() throws Exception {
-		model = ModelFactory.createOntologyModel();
+		model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
 		model.setNsPrefix("base", base);
 		ontology = model.createOntology(link);
         ontology.addLabel("Ontology Designed for Adaptive application module Project-Group Polychrest", "en");
@@ -709,6 +714,8 @@ public class OntologyFactory{
 	public void writeOntology() throws Exception {
 		//Ontology completed -- write to file
         model.write(new FileWriter(polychrest_ontology,false), "TURTLE");
+        model.write(new FileOutputStream(new File(owlForm)),"RDF/XML-ABBREV");
+       
 	}
 	
 	

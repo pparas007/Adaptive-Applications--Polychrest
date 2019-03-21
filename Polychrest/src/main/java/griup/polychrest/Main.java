@@ -8,5 +8,9 @@ public class Main {
 		ontology.createInstances();
 		ontology.createRecommendationInstances();
 		ontology.writeOntology();
+		
+	//	ReadOntology.query();
+		
+
 	}
 }
