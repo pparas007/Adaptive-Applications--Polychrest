@@ -9,7 +9,7 @@ public class Main {
 		ontology.createRecommendationInstances();
 		ontology.writeOntology();
 		
-	//	ReadOntology.query();
+		
 		
 
 	}
