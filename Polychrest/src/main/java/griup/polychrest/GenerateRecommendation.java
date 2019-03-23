@@ -2,12 +2,17 @@ package griup.polychrest;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
+
+import org.apache.jena.atlas.io.InStreamASCII;
 
 public class GenerateRecommendation {
 	
 	
 	public static ArrayList<User> getAllUser()
-	{try {
+	{
+		ArrayList<User> allUsersList = new ArrayList<User>();		
+		try {
 		String queryString = "PREFIX base:  <http://polychrest/ontology#>\r\n" + 
 				"PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n" + 
 				"PREFIX owl:   <http://www.w3.org/2002/07/owl#>\r\n" + 
@@ -23,15 +28,26 @@ public class GenerateRecommendation {
 		
 		String s=	ReadOntology.query(queryString);
 		
+		String cleanString = s.replaceAll("[^a-zA-Z0-9\\s+]", "").trim();
+		String extractName = cleanString.replaceAll("httppolychrestontology", "").replaceAll("user", "");
+		String strArray[] = extractName.split("\r");
 		
-		System.out.println(s);
+		for(int i=0; i<strArray.length;i++) {
+		User us = new User();
+		us.setName(strArray[i].trim());
+		allUsersList.add(us);
+		}	
+		for(int i=0; i<allUsersList.size();i++) {
+			System.out.println(allUsersList.get(i).getName());
+		}
 		
 		
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+	
+		return allUsersList;
 	}
 	
 	public static ArrayList<Shopping> getAll()
@@ -206,10 +222,11 @@ try {
 	public static void main(String[] args) throws Exception{
 		User user = new User();
 		user.setName("paras");
-		getAll();
-		getShoppingByUser(user);
-		getRecommendationListForUser( user);
-		getFoodAtShop("lidlCityCentre");
-		getShopThatSellsFood("brownBread");
+		getAllUser();
+	//	getAll();
+	//	getShoppingByUser(user);
+	//	getRecommendationListForUser( user);
+	//	getFoodAtShop("lidlCityCentre");
+	//	getShopThatSellsFood("brownBread");
 	}
 }
