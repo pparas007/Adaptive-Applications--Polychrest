@@ -52,6 +52,8 @@ public class GenerateRecommendation {
 	
 	public static ArrayList<Shopping> getAll()
 	{
+		ArrayList<Shopping>allShopping = new ArrayList<Shopping>();
+		
 		try {
 			String queryString = "					PREFIX base:  <http://polychrest/ontology#>\n" + 
 					"					PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
@@ -72,6 +74,8 @@ public class GenerateRecommendation {
 			
 			
 			String s=	ReadOntology.query(queryString);
+			
+		
 			
 			
 			System.out.println(s);
@@ -222,8 +226,8 @@ try {
 	public static void main(String[] args) throws Exception{
 		User user = new User();
 		user.setName("paras");
-		getAllUser();
-	//	getAll();
+	//	getAllUser();
+		getAll();
 	//	getShoppingByUser(user);
 	//	getRecommendationListForUser( user);
 	//	getFoodAtShop("lidlCityCentre");
