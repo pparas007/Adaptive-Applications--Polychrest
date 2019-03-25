@@ -154,7 +154,7 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 					" ?shopping  base:atDateTime   ?date.\n" + 
 					" ?shopping   base:atPrice  ?price.\n" + 
 					" ?shopping       base:atShop      ?shop.\n" + 
-					" ?shopping       base:atTime      ?time.\n" + 
+					" ?shopping       base:quantity      ?quantity.\n" + 
 					" ?shopping       base:bought      ?bought.\n" + 
 					" ?shop       base:hasShopAddress      ?shopAddress.\n" + 
 					" ?shop       base:hasShopType       ?ShopType\n" + 
@@ -240,11 +240,11 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 					" ?shopping  base:atDateTime   ?date.\n" + 
 					" ?shopping   base:atPrice  ?price.\n" + 
 					" ?shopping       base:atShop      ?shop.\n" + 
-					" ?shopping       base:atTime      ?time.\n" + 
+					" ?shopping       base:quantity      ?quantity.\n" + 
 					" ?shopping       base:bought      ?bought.\n" +
 					"?shop       base:hasShopAddress      ?shopAddress.\n" + 
 							" ?shop       base:hasShopType       ?ShopType\n" + 
-					//" FILTER (CONTAINS (?user, \"aditya\"))\n" + 
+					
 					"}";
 			
 			
@@ -290,6 +290,167 @@ String s=	ReadOntology.query(queryString);
 					shop.setShopType(s2[3]);
 					Food food = new Food ();
 					food.setFoodName(s3[1].replace(">", "").replace("|", "").trim());
+					
+					if(food.getFoodName().equals("sprite"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("softdrink");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("butter"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("colesterol" );
+					cat.add("veg" );
+					cat.add("dairy");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("brocolli"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("vegetables");
+					cat.add("veg" );
+					cat.add("healthy");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("spinach"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("vegetables");
+					cat.add("veg" );
+					cat.add("healthy");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("orange"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("fruits");
+					cat.add("veg" );
+					cat.add("healthy");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("rocketLeaves"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("vegetables");
+					cat.add("veg" );
+					cat.add("healthy");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("greekCheese"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("colesterol");
+					cat.add("cheese" );
+					cat.add("dairy");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("mushroom"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("vegetables");
+					cat.add("veg" );
+					cat.add("healthy");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("chickenLegs"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("colesterol");
+					cat.add("chicken" );
+					cat.add("nonveg");
+						food.setCategoryList(cat);
+					}
+					
+					else if(food.getFoodName().equals("bread"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("bread");
+					cat.add("bakery" );
+		
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("capsicum"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("vegetables");
+					cat.add("veg" );
+					cat.add("healthy");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("capsicum"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("vegetables");
+					cat.add("veg" );
+					cat.add("healthy");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("irishApple"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("fruits");
+					cat.add("veg" );
+					cat.add("healthy");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("noodles"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("asian");
+					cat.add("veg" );
+					cat.add("chinese");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("apple"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("fruits");
+					cat.add("veg" );
+					cat.add("healthy");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("chickenBreasts"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("colesterol");
+					cat.add("chicken" );
+					cat.add("nonveg");
+						food.setCategoryList(cat);
+					}
+					
+					else if(food.getFoodName().equals("dietCoke"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("softdrink");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("coke"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("softdrink");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("sweeseCheese"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("colesterol");
+					cat.add("cheese" );
+					cat.add("dairy");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("lowFatMilk"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("milk" );
+					cat.add("veg" );
+					cat.add("dairy");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("pepsi"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("softdrink");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("lamb"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("colesterol");
+					cat.add("lamb" );
+					cat.add("nonveg");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("fanta"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("softdrink");
+						food.setCategoryList(cat);
+					}
+					else if(food.getFoodName().equals("kiwi"))
+					{ArrayList<String> cat= new ArrayList<String>();
+					cat.add("fruits");
+					cat.add("veg" );
+					cat.add("healthy");
+						food.setCategoryList(cat);
+					}
 					shopping.setBought(food);
 					allShopping.add(shopping);
 				}
@@ -348,6 +509,166 @@ String s=	ReadOntology.query(queryString);
 				
 			Food food= new Food();
 			food.setFoodName(s4[1]);
+			if(food.getFoodName().equals("sprite"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("softdrink");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("butter"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("colesterol" );
+			cat.add("veg" );
+			cat.add("dairy");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("brocolli"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("vegetables");
+			cat.add("veg" );
+			cat.add("healthy");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("spinach"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("vegetables");
+			cat.add("veg" );
+			cat.add("healthy");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("orange"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("fruits");
+			cat.add("veg" );
+			cat.add("healthy");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("rocketLeaves"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("vegetables");
+			cat.add("veg" );
+			cat.add("healthy");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("greekCheese"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("colesterol");
+			cat.add("cheese" );
+			cat.add("dairy");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("mushroom"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("vegetables");
+			cat.add("veg" );
+			cat.add("healthy");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("chickenLegs"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("colesterol");
+			cat.add("chicken" );
+			cat.add("nonveg");
+				food.setCategoryList(cat);
+			}
+			
+			else if(food.getFoodName().equals("bread"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("bread");
+			cat.add("bakery" );
+
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("capsicum"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("vegetables");
+			cat.add("veg" );
+			cat.add("healthy");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("capsicum"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("vegetables");
+			cat.add("veg" );
+			cat.add("healthy");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("irishApple"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("fruits");
+			cat.add("veg" );
+			cat.add("healthy");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("noodles"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("asian");
+			cat.add("veg" );
+			cat.add("chinese");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("apple"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("fruits");
+			cat.add("veg" );
+			cat.add("healthy");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("chickenBreasts"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("colesterol");
+			cat.add("chicken" );
+			cat.add("nonveg");
+				food.setCategoryList(cat);
+			}
+			
+			else if(food.getFoodName().equals("dietCoke"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("softdrink");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("coke"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("softdrink");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("sweeseCheese"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("colesterol");
+			cat.add("cheese" );
+			cat.add("dairy");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("lowFatMilk"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("milk" );
+			cat.add("veg" );
+			cat.add("dairy");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("pepsi"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("softdrink");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("lamb"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("colesterol");
+			cat.add("lamb" );
+			cat.add("nonveg");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("fanta"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("softdrink");
+				food.setCategoryList(cat);
+			}
+			else if(food.getFoodName().equals("kiwi"))
+			{ArrayList<String> cat= new ArrayList<String>();
+			cat.add("fruits");
+			cat.add("veg" );
+			cat.add("healthy");
+				food.setCategoryList(cat);
+			}
 			Recommendation recommendation = new Recommendation(Float.parseFloat(s2[5]), Float.parseFloat(s2[1]), Float.parseFloat(s2[3]));
 			
 			hs.put(food, recommendation);
