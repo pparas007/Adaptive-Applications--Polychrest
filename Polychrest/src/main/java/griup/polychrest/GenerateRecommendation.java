@@ -6,6 +6,12 @@ import java.util.Arrays;
 
 import org.apache.jena.atlas.io.InStreamASCII;
 
+import griup.beans.Food;
+import griup.beans.Recommendation;
+import griup.beans.Shop;
+import griup.beans.Shopping;
+import griup.beans.User;
+
 public class GenerateRecommendation {
 	
 	
@@ -50,7 +56,7 @@ public class GenerateRecommendation {
 		return allUsersList;
 	}
 	
-	public static ArrayList<Shopping> getAll()
+	public static ArrayList<Shopping > getAll()
 	{
 		ArrayList<Shopping>allShopping = new ArrayList<Shopping>();
 		

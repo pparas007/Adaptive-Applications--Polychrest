@@ -18,6 +18,11 @@ public ArrayList<String> getGoalsList() {
 public void setGoalsList(ArrayList<String> goalsList) {
 	this.goalsList = goalsList;
 }
+@Override
+public String toString() {
+	return "User [name=" + name + ", goalsList=" + goalsList + "]";
+}
+
 
 
 }

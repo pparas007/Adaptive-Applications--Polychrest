@@ -8,15 +8,15 @@ base:adityaShops21  a    base:shopping ;
         base:atDateTime  "16-Mar-2019" ;
         base:atPrice     "1" ;
         base:atShop      base:tescoCityCentre ;
-        base:atTime      "1" ;
-        base:bought      base:capsicum .
+        base:bought      base:capsicum ;
+        base:quantity    "1" .
 
 base:parasShops13  a     base:shopping ;
         base:atDateTime  "08-Mar-2019" ;
         base:atPrice     "2.5" ;
         base:atShop      base:lidlArtane ;
-        base:atTime      "1" ;
-        base:bought      base:chickenLegs .
+        base:bought      base:chickenLegs ;
+        base:quantity    "1" .
 
 base:euroGeneralFairview
         a                    base:shop ;
@@ -29,8 +29,8 @@ base:anirbanShops21  a   base:shopping ;
         base:atDateTime  "14-Mar-2019" ;
         base:atPrice     "1.5" ;
         base:atShop      base:lidlCityCentre ;
-        base:atTime      "1" ;
-        base:bought      base:bread .
+        base:bought      base:bread ;
+        base:quantity    "1" .
 
 base:lidlArtane  a           base:shop ;
         base:hasShopAddress  "Artane, Dublin 5" ;
@@ -68,8 +68,8 @@ base:adityaShops13  a    base:shopping ;
         base:atDateTime  "07-Mar-2019" ;
         base:atPrice     "2.5" ;
         base:atShop      base:tescoCityCentre ;
-        base:atTime      "1" ;
-        base:bought      base:chickenLegs .
+        base:bought      base:chickenLegs ;
+        base:quantity    "1" .
 
 base:anirbanRecommendedlamb
         a                         base:recommendation ;
@@ -87,8 +87,8 @@ base:anirbanShops13  a   base:shopping ;
         base:atDateTime  "06-Mar-2019" ;
         base:atPrice     "2" ;
         base:atShop      base:lidlCityCentre ;
-        base:atTime      "1" ;
-        base:bought      base:lamb .
+        base:bought      base:lamb ;
+        base:quantity    "1" .
 
 base:mushroom  a          base:food ;
         base:hasFoodName  "mushroom" ;
@@ -106,8 +106,8 @@ base:parasShops12  a     base:shopping ;
         base:atDateTime  "08-Mar-2019" ;
         base:atPrice     "2" ;
         base:atShop      base:lidlArtane ;
-        base:atTime      "1" ;
-        base:bought      base:apple .
+        base:bought      base:apple ;
+        base:quantity    "1" .
 
 base:isEnabled  a    owl:DatatypeProperty ;
         rdfs:domain  base:recommendation ;
@@ -125,11 +125,6 @@ base:adityaRecommendedchickenLegs
 base:brownBread  a        base:food ;
         base:hasFoodName  "brownBread" ;
         base:ofCategory   "bread" , "bakery" .
-
-base:atTime  a       owl:DatatypeProperty ;
-        rdfs:domain  base:shopping ;
-        rdfs:label   "quantity bought"@en ;
-        rdfs:range   xsd:float .
 
 base:chickenBreasts  a    base:food ;
         base:hasFoodName  "chickenBreasts" ;
@@ -164,15 +159,15 @@ base:adityaShops12  a    base:shopping ;
         base:atDateTime  "07-Mar-2019" ;
         base:atPrice     "1.8" ;
         base:atShop      base:tescoCityCentre ;
-        base:atTime      "1" ;
-        base:bought      base:lowFatMilk .
+        base:bought      base:lowFatMilk ;
+        base:quantity    "1" .
 
 base:adityaShops25  a    base:shopping ;
         base:atDateTime  "16-Mar-2019" ;
         base:atPrice     "1" ;
         base:atShop      base:tescoCityCentre ;
-        base:atTime      "1" ;
-        base:bought      base:fanta .
+        base:bought      base:fanta ;
+        base:quantity    "1" .
 
 base:spinach  a           base:food ;
         base:hasFoodName  "spinach" ;
@@ -182,8 +177,8 @@ base:anirbanShops12  a   base:shopping ;
         base:atDateTime  "06-Mar-2019" ;
         base:atPrice     "2.5" ;
         base:atShop      base:lidlCityCentre ;
-        base:atTime      "2" ;
-        base:bought      base:coke .
+        base:bought      base:coke ;
+        base:quantity    "2" .
 
 base:pavan  a         base:user ;
         base:hasGoal  "veggie" ;
@@ -193,8 +188,8 @@ base:parasShops11  a     base:shopping ;
         base:atDateTime  "08-Mar-2019" ;
         base:atPrice     "1" ;
         base:atShop      base:lidlArtane ;
-        base:atTime      "1" ;
-        base:bought      base:kiwi .
+        base:bought      base:kiwi ;
+        base:quantity    "1" .
 
 base:sells  a          owl:ObjectProperty ;
         rdfs:label     "this shop sells the food item"@en ;
@@ -245,6 +240,11 @@ base:lidlCityCentre  a       base:shop ;
         base:hasShopType     "supermarket" ;
         base:sells           base:greekCheese , base:sprite , base:coke , base:fanta , base:sweeseCheese , base:spinach , base:orange , base:butter , base:mushroom , base:capsicum , base:pepsi , base:bread , base:lowFatMilk , base:rocketLeaves , base:noodles , base:lamb , base:chickenLegs , base:kiwi , base:brownBread , base:chickenBreasts , base:apple .
 
+base:quantity  a     owl:DatatypeProperty ;
+        rdfs:domain  base:shopping ;
+        rdfs:label   "quantity bought"@en ;
+        rdfs:range   xsd:float .
+
 base:rocketLeaves  a      base:food ;
         base:hasFoodName  "rocketLeaves" ;
         base:ofCategory   "vegetables" , "veg" , "healthy" .
@@ -253,8 +253,8 @@ base:adityaShops11  a    base:shopping ;
         base:atDateTime  "07-Mar-2019" ;
         base:atPrice     "1" ;
         base:atShop      base:tescoCityCentre ;
-        base:atTime      "1" ;
-        base:bought      base:capsicum .
+        base:bought      base:capsicum ;
+        base:quantity    "1" .
 
 base:shopping  a    owl:Class ;
         rdfs:label  "user shopping details"@en .
@@ -263,8 +263,8 @@ base:adityaShops24  a    base:shopping ;
         base:atDateTime  "16-Mar-2019" ;
         base:atPrice     "1" ;
         base:atShop      base:tescoCityCentre ;
-        base:atTime      "1" ;
-        base:bought      base:spinach .
+        base:bought      base:spinach ;
+        base:quantity    "1" .
 
 base:brocolli  a          base:food ;
         base:hasFoodName  "brocolli" ;
@@ -277,8 +277,8 @@ base:anirbanShops11  a   base:shopping ;
         base:atDateTime  "06-Mar-2019" ;
         base:atPrice     "1.5" ;
         base:atShop      base:lidlCityCentre ;
-        base:atTime      "1" ;
-        base:bought      base:bread .
+        base:bought      base:bread ;
+        base:quantity    "1" .
 
 base:anirbanRecommendedbread
         a                         base:recommendation ;
@@ -300,8 +300,8 @@ base:anirbanShops24  a   base:shopping ;
         base:atDateTime  "14-Mar-2019" ;
         base:atPrice     "1.5" ;
         base:atShop      base:lidlCityCentre ;
-        base:atTime      "1" ;
-        base:bought      base:butter .
+        base:bought      base:butter ;
+        base:quantity    "1" .
 
 base:hasRecommendation
         a            owl:ObjectProperty ;
@@ -321,8 +321,8 @@ base:parasShops23  a     base:shopping ;
         base:atDateTime  "15-Mar-2019" ;
         base:atPrice     "2.5" ;
         base:atShop      base:lidlArtane ;
-        base:atTime      "1" ;
-        base:bought      base:chickenLegs .
+        base:bought      base:chickenLegs ;
+        base:quantity    "1" .
 
 base:parasRecommendedOrange
         a                         base:recommendation ;
@@ -371,15 +371,15 @@ base:adityaShops23  a    base:shopping ;
         base:atDateTime  "16-Mar-2019" ;
         base:atPrice     "2.5" ;
         base:atShop      base:tescoCityCentre ;
-        base:atTime      "1" ;
-        base:bought      base:chickenLegs .
+        base:bought      base:chickenLegs ;
+        base:quantity    "1" .
 
 base:anirbanShops23  a   base:shopping ;
         base:atDateTime  "14-Mar-2019" ;
         base:atPrice     "2" ;
         base:atShop      base:lidlCityCentre ;
-        base:atTime      "1" ;
-        base:bought      base:lamb .
+        base:bought      base:lamb ;
+        base:quantity    "1" .
 
 base:shopped  a      owl:ObjectProperty ;
         rdfs:domain  base:user ;
@@ -401,8 +401,8 @@ base:parasShops22  a     base:shopping ;
         base:atDateTime  "15-Mar-2019" ;
         base:atPrice     "2" ;
         base:atShop      base:lidlArtane ;
-        base:atTime      "2" ;
-        base:bought      base:orange .
+        base:bought      base:orange ;
+        base:quantity    "2" .
 
 base:shubham  a       base:user ;
         base:hasGoal  "veggie" ;
@@ -452,8 +452,8 @@ base:adityaShops22  a    base:shopping ;
         base:atDateTime  "16-Mar-2019" ;
         base:atPrice     "1.8" ;
         base:atShop      base:tescoCityCentre ;
-        base:atTime      "1" ;
-        base:bought      base:lowFatMilk .
+        base:bought      base:lowFatMilk ;
+        base:quantity    "1" .
 
 base:pepsi  a             base:food ;
         base:hasFoodName  "pepsi" ;
@@ -471,8 +471,8 @@ base:anirbanShops22  a   base:shopping ;
         base:atDateTime  "14-Mar-2019" ;
         base:atPrice     "2.5" ;
         base:atShop      base:lidlCityCentre ;
-        base:atTime      "2" ;
-        base:bought      base:coke .
+        base:bought      base:coke ;
+        base:quantity    "2" .
 
 base:hasShopType  a  owl:DatatypeProperty ;
         rdfs:domain  base:shop ;
@@ -494,8 +494,8 @@ base:parasShops21  a     base:shopping ;
         base:atDateTime  "15-Mar-2019" ;
         base:atPrice     "1" ;
         base:atShop      base:lidlArtane ;
-        base:atTime      "1" ;
-        base:bought      base:kiwi .
+        base:bought      base:kiwi ;
+        base:quantity    "1" .
 
 <http://polychrest/ontology>
         a           owl:Ontology ;

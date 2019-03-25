@@ -44,5 +44,11 @@ public class Shopping {
 	public void setBought(Food bought) {
 		this.bought = bought;
 	}
+	@Override
+	public String toString() {
+		return "Shopping [shoppingName=" + shoppingName + ", atPrice=" + atPrice + ", atDateTime=" + atDateTime
+				+ ", quantity=" + quantity + ", atShop=" + atShop + ", bought=" + bought + "]";
+	}
+	
 	
 }

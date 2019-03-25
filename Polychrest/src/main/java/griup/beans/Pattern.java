@@ -38,4 +38,11 @@ public class Pattern {
 			return monthlyPatternConfidence;
 				
 	}
+	@Override
+	public String toString() {
+		return "Pattern [weeklyPatternConfidence=" + weeklyPatternConfidence + ", biweeklyPatternConfidence="
+				+ biweeklyPatternConfidence + ", monthlyPatternConfidence=" + monthlyPatternConfidence + "]";
+	}
+	
+	
 }

@@ -128,7 +128,7 @@ public class OntologyFactory{
         bought.addLabel("the user bought this item", "en");
         bought.setDomain(shopping);
         bought.setRange(food);
-        quantity = model.createDatatypeProperty(base + "atTime");
+        quantity = model.createDatatypeProperty(base + "quantity");
         quantity.addLabel("quantity bought", "en");
         quantity.setDomain(shopping);
         quantity.setRange(XSD.xfloat);

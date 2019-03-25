@@ -1,7 +1,5 @@
 package griup.beans;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
 import java.util.ArrayList;
 
 public class Food {
@@ -34,6 +32,10 @@ public void setCategoryList(ArrayList<String> categoryList) {
 			}
 			return hashcode;
 		}
+	@Override
+	public String toString() {
+		return "Food [foodName=" + foodName + ", categoryList=" + categoryList + "]";
+	}
 
 
 }

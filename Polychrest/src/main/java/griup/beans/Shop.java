@@ -23,6 +23,10 @@ public class Shop {
 	public void setShopName(String shopName) {
 		this.shopName = shopName;
 	}
+	@Override
+	public String toString() {
+		return "Shop [shopType=" + shopType + ", shopAddress=" + shopAddress + ", shopName=" + shopName + "]";
+	}
 	
 	
 }

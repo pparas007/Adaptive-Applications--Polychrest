@@ -1,5 +1,6 @@
 package griup.polychrest;
 
+
 public class Constants {
 	public static String GOAL_MEAT_LOVER="meatlover";
 	public static String GOAL_ECONOMICAL="economical";
@@ -36,5 +37,14 @@ public class Constants {
 	public static String PATTERN_WEEKLY="weekly";
 	public static String PATTERN_BIWEEKLY="biweekly";
 	public static String PATTERN_MONTHLY="monthly";
-	public static String[] PATTERNS= {PATTERN_WEEKLY,PATTERN_BIWEEKLY,PATTERN_MONTHLY}; 
+	
+	//UI Contsants
+	public static final String[] userList= {"paras","shubham","anirban","pavan", "aditya"};
+	public static final String foodList[]= {"spinach","mushroom","brocolli","rocketLeaves","noodles","orange","kiwi","apple","irishApple","lowFatMilk","milk","butter","greekCheese","sweeseCheese","chickenLegs","chickenBreasts","lamb","pepsi","coke","fanta","sprite","dietCoke","bread","brownBread"};
+	public static final String shopList[]= {"lidlArtane","lidlCityCentre","tescoCityCentre","euroGeneralFairview"};
+	public static final String patternList[]= {PATTERN_WEEKLY,PATTERN_BIWEEKLY,PATTERN_MONTHLY};
+	public static final String patternConfidenceList[]= {"0.9","0.8","0.7","0.6"};
+	public static final String quantityList[]= {"1","2","3"};
+	public static final String priceList[]= {"1","1.5","2","2.5","3","3.5","4","4.5","5"};
+	//UI Constants ends
 }

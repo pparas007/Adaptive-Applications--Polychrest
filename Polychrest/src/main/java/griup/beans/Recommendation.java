@@ -31,6 +31,11 @@ public class Recommendation {
 		this.hasByWeeklyWeightage = hasByWeeklyWeightage;
 		this.hasMonthlyWeightage = hasMonthlyWeightage;
 	}
+	@Override
+	public String toString() {
+		return "Recommendation [hasWeeklyWeightage=" + hasWeeklyWeightage + ", hasByWeeklyWeightage="
+				+ hasByWeeklyWeightage + ", hasMonthlyWeightage=" + hasMonthlyWeightage + "]";
+	}
 	
 	
 	
