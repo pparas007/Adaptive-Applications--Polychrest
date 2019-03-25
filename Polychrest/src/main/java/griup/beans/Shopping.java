@@ -2,8 +2,15 @@ package griup.beans;
 
 public class Shopping {
 
+	String shoppingName;
+	public String getShoppingName() {
+		return shoppingName;
+	}
+	public void setShoppingName(String shoppingName) {
+		this.shoppingName = shoppingName;
+	}
 	float atPrice;
-	String atTime;
+	String atDateTime;
 	float quantity;
 	Shop atShop;
 	Food bought;
@@ -13,11 +20,11 @@ public class Shopping {
 	public void setAtPrice(float atPrice) {
 		this.atPrice = atPrice;
 	}
-	public String getAtTime() {
-		return atTime;
+	public String getAtDateTime() {
+		return atDateTime;
 	}
-	public void setAtTime(String atTime) {
-		this.atTime = atTime;
+	public void setAtDateTime(String atTime) {
+		this.atDateTime = atTime;
 	}
 	public float getQuantity() {
 		return quantity;

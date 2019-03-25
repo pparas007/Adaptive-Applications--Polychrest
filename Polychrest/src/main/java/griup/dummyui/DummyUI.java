@@ -13,11 +13,22 @@ import griup.beans.Shopping;
 import griup.beans.User;
 import griup.middleware.Middleware;
 import griup.polychrest.Constants;
+import griup.polychrest.InteractWithOntology;
 
 public class DummyUI {
 
 	public static void main(String[] args) {
-		createShoppingInstance();
+		//createShoppingInstance();
+		InteractWithOntology io= new InteractWithOntology();
+		io.getAllUser();
+		io.getAll();
+		User user=new User();
+		user.setName("paras");
+		io. getShoppingByUser( user);
+		io.getRecommendationListForUser(user);
+		Shop shop= new Shop();
+		io.getFoodAtShop("lidlArtane");
+		io.getShopThatSellsFood("butter");
 	}
 	
 	public static void createShoppingInstance() {
@@ -31,7 +42,7 @@ public class DummyUI {
 		Shopping shopping=new Shopping();
 		shopping.setAtPrice(1f);
 		shopping.setAtShop(lidlArtane);
-		shopping.setAtTime("12:00");
+		shopping.setAtDateTime("12:00");
 		shopping.setBought(kiwi);
 		shopping.setQuantity(1);
 		
@@ -42,6 +53,7 @@ public class DummyUI {
 	public static void getRecommendation() {
 		User paras=new User();
 		paras.setName("paras");
-		HashMap<Food,Recommendation> recommendationListForUser=Middleware.getRecommendationListForUser(paras);
+		
+	HashMap<Food,Recommendation> recommendationListForUser=Middleware.getRecommendationListForUser(paras);
 	}
 }

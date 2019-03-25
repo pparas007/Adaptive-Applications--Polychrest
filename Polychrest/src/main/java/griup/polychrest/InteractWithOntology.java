@@ -1,6 +1,7 @@
 package griup.polychrest;
 
 import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -26,10 +27,10 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 	//	new InteractWithOntology().getShopThatSellsFood("brownBread");
 	}
 	
-	@Override
 	public ArrayList<User> getAllUser()
 	{
-		ArrayList<User> allUsersList = new ArrayList<User>();		
+		ArrayList<User> users= new ArrayList<User>();
+		
 		try {
 		String queryString = "PREFIX base:  <http://polychrest/ontology#>\r\n" + 
 				"PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n" + 
@@ -37,16 +38,17 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 				"PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\r\n" + 
 				"PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\r\n" + 
 				"\r\n" + 
-				"select ?user where \r\n" + 
+				"select * where \r\n" + 
 				"{\r\n" + 
-				"?user a base:user\r\n" + 
+				"?user a base:user.\r\n" + 
+				"?user  base:hasGoal ?goal\r\n" + 
 				"}";
 		
 		
 		
 		String s=	ReadOntology.query(queryString);
 		System.out.println(s);
-		String cleanString = s.replaceAll("[^a-zA-Z0-9\\s+]", "").trim();
+		/*String cleanString = s.replaceAll("[^a-zA-Z0-9\\s+]", "").trim();
 		String extractName = cleanString.replaceAll("httppolychrestontology", "").replaceAll("user", "");
 		String strArray[] = extractName.split("\r");
 		
@@ -57,7 +59,74 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 		}	
 		for(int i=0; i<allUsersList.size();i++) {
 			System.out.println(allUsersList.get(i).getName());
+		}*/
+		
+		
+		String [] s1= s.split("#");
+		
+		for (int i=1;i<s1.length;i++ )
+		{
+			
+			//System.out.println("s1-"+i+" "+s1[i]);
+			String s2[] =s1[i].split("\"");
+			//System.out.println("s2[0] "+ s2[0]);
+			//System.out.println("s2[1] "+ s2[1]);
+			//System.out.println("Name: "+s2[0].replace(">", "").replace("|","").trim());
+			//System.out.println("Goal: "+ s2[1].replace("\"", "").trim());
+			
+			if(!users.isEmpty())
+			{int size=users.size();
+			int check=-1;
+		
+				for(int j=0;j<size;j++)
+				{
+					if(users.get(j).getName().equals(s2[0].replace(">", "").replace("|","").trim()))
+					{
+						check=j;
+					}	
+				}	
+				if(check!=-1)		
+				{
+						//System.out.println("Name  equal :"+users.get(check).getName()+ ":"+s2[0].replace(">", "").replace("|","").trim()+" ,goal :"+s2[1].replace("\"", "").trim());
+						
+					//users.get(j).getGoalsList().add(s2[1].replace("\"", "").trim());
+					ArrayList <String> s3= users.get(check).getGoalsList();
+					s3.add(s2[1].replace("\"", "").trim());
+					users.get(check).setGoalsList(s3);
+					}
+					else
+					{//System.out.println("Inside else inside else :Inserting into users:"+s2[0].replace(">", "").replace("|","").trim()+" goal "+s2[1].replace("\"", "").trim());
+					
+						User us= new User();
+						ArrayList<String> gl = new ArrayList<String>();
+						gl.add(s2[1].replace("\"", "").trim());
+						us.setGoalsList(gl);
+						us.setName(s2[0].replace(">", "").replace("|","").trim());
+						users.add(us);
+					}
+				
+			}
+			else {
+				//System.out.println("Inside else :Inserting into users:"+s2[0].replace(">", "").replace("|","").trim()+" goal "+s2[1].replace("\"", "").trim());
+				User us= new User();
+				ArrayList<String> gl = new ArrayList<String>();
+				gl.add(s2[1].replace("\"", "").trim());//goal
+				us.setGoalsList(gl);
+				us.setName(s2[0].replace(">", "").replace("|","").trim());
+				users.add(us);
+			}
+				
+		
+			
 		}
+	/*	for (int k=0;k<users.size();k++)
+		{
+			System.out.println("user name :"+users.get(k).getName());
+			for(int l=0;l<users.get(k).getGoalsList().size();l++)
+			{
+				System.out.println("Goal "+l+" : "+users.get(k).getGoalsList().get(l));
+			}
+		}*/
 		
 		
 		} catch (FileNotFoundException e) {
@@ -65,10 +134,10 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 			e.printStackTrace();
 		}
 	
-		return allUsersList;
+		return users;
 	}
 	
-	@Override
+	
 	public ArrayList<Shopping> getAll()
 	{
 		ArrayList<Shopping>allShopping = new ArrayList<Shopping>();
@@ -86,7 +155,9 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 					" ?shopping   base:atPrice  ?price.\n" + 
 					" ?shopping       base:atShop      ?shop.\n" + 
 					" ?shopping       base:atTime      ?time.\n" + 
-					" ?shopping       base:bought      ?bought\n" + 
+					" ?shopping       base:bought      ?bought.\n" + 
+					" ?shop       base:hasShopAddress      ?shopAddress.\n" + 
+					" ?shop       base:hasShopType       ?ShopType\n" + 
 					"}\n" + 
 					"";
 			
@@ -94,22 +165,67 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 			
 			String s=	ReadOntology.query(queryString);
 			
-		
+			String [] s1= s.split("<");
+			Shopping shopping= null;
+			for(int i=1;i<s1.length;i++)
+			{
+				Shop shop= new Shop();
+				System.out.println("i: "+i+" "+s1[i]);
+				if(i%3==1)
+				{shopping = new Shopping();
+					String s2[] = s1[i].split("\"");
+					String s3[]= s2[0].split("#");
+				System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
+					System.out.println(s2[1]);
+					System.out.println(s2[3]);
+					shopping.setShoppingName(s3[1].replace(">", "").replace("|", "").trim());
+					shopping.setAtDateTime(s2[1]);
+					shopping.setAtPrice(Float.parseFloat(s2[3]));
+					
+				}
+				else if(i%3==2)
+				{
+					String s2[] = s1[i].split("\"");
+					String s3[]= s2[0].split("#");
+					System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
+					System.out.println(s2[1]);
+					shop.setShopName(s3[1].replace(">", "").replace("|", "").trim());
+					shopping.setQuantity(Float.parseFloat(s2[1]));
+					
+				}
+				else
+				{
+					String s2[] = s1[i].split("\"");
+					String s3[]= s2[0].split("#");
+					System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
+					System.out.println(s2[1]);
+					System.out.println(s2[3]);
+					shop.setShopAddress(s2[1]);
+					shop.setShopType(s2[3]);
+					Food food = new Food ();
+					food.setFoodName(s3[1].replace(">", "").replace("|", "").trim());
+					shopping.setBought(food);
+					allShopping.add(shopping);
+				}
+				
+			}
 			
 			
 			System.out.println(s);
-			
-			
+			for (int k=0;k<allShopping.size();k++)
+			{
+				System.out.println("user name :"+allShopping.get(k).getShoppingName());
+				
+			}
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			return null;
+			return allShopping;
 	}
 
-	@Override
 	public ArrayList<Shopping> getShoppingByUser(User user)
-	{
+	{ArrayList<Shopping>allShopping = new ArrayList<Shopping>();
 		try {
 			String name = user.getName();
 			String queryString = "										PREFIX base:  <http://polychrest/ontology#>\n" + 
@@ -125,28 +241,78 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 					" ?shopping   base:atPrice  ?price.\n" + 
 					" ?shopping       base:atShop      ?shop.\n" + 
 					" ?shopping       base:atTime      ?time.\n" + 
-					" ?shopping       base:bought      ?bought.\n" + 
+					" ?shopping       base:bought      ?bought.\n" +
+					"?shop       base:hasShopAddress      ?shopAddress.\n" + 
+							" ?shop       base:hasShopType       ?ShopType\n" + 
 					//" FILTER (CONTAINS (?user, \"aditya\"))\n" + 
 					"}";
 			
 			
 			
-			String s=	ReadOntology.query(queryString);
+String s=	ReadOntology.query(queryString);
+			
+			String [] s1= s.split("<");
+			Shopping shopping= null;
+			for(int i=1;i<s1.length;i++)
+			{
+				Shop shop= new Shop();
+				System.out.println("i: "+i+" "+s1[i]);
+				if(i%3==1)
+				{shopping = new Shopping();
+					String s2[] = s1[i].split("\"");
+					String s3[]= s2[0].split("#");
+				System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
+					System.out.println(s2[1]);
+					System.out.println(s2[3]);
+					shopping.setShoppingName(s3[1].replace(">", "").replace("|", "").trim());
+					shopping.setAtDateTime(s2[1]);
+					shopping.setAtPrice(Float.parseFloat(s2[3]));
+					
+				}
+				else if(i%3==2)
+				{
+					String s2[] = s1[i].split("\"");
+					String s3[]= s2[0].split("#");
+					System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
+					System.out.println(s2[1]);
+					shop.setShopName(s3[1].replace(">", "").replace("|", "").trim());
+					shopping.setQuantity(Float.parseFloat(s2[1]));
+					
+				}
+				else
+				{
+					String s2[] = s1[i].split("\"");
+					String s3[]= s2[0].split("#");
+					System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
+					System.out.println(s2[1]);
+					System.out.println(s2[3]);
+					shop.setShopAddress(s2[1]);
+					shop.setShopType(s2[3]);
+					Food food = new Food ();
+					food.setFoodName(s3[1].replace(">", "").replace("|", "").trim());
+					shopping.setBought(food);
+					allShopping.add(shopping);
+				}
+				
+			}
 			
 			
 			System.out.println(s);
-			
-			
+			for (int k=0;k<allShopping.size();k++)
+			{
+				System.out.println("user name :"+allShopping.get(k).getShoppingName());
+				
+			}
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			return null;
+			return allShopping;
 	}
 	
-	@Override
+
 	public HashMap<Food,Recommendation> getRecommendationListForUser(User user)
-	{
+	{HashMap <Food,Recommendation> hs = new HashMap<Food,Recommendation>();
 		try {
 			String name = user.getName();
 			String queryString = "					PREFIX base:  <http://polychrest/ontology#>\n" + 
@@ -168,22 +334,43 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 			
 			
 			System.out.println(s);
+			String [] s1= s.split("<");
+			
+			for(int i=1;i<s1.length;i++)
+			{String s2[] = s1[i].split("\"");
+			String s3[]= s2[0].split("#");
+			//System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
+			String s4[]= 	s3[1].replace(">", "").replace("|", "").trim().split("Recommended");
+			System.out.println(s4[1]);
+			System.out.println(s2[1]);
+			System.out.println(s2[3]);
+			System.out.println(s2[5]);
+				
+			Food food= new Food();
+			food.setFoodName(s4[1]);
+			Recommendation recommendation = new Recommendation(Float.parseFloat(s2[5]), Float.parseFloat(s2[1]), Float.parseFloat(s2[3]));
+			
+			hs.put(food, recommendation);
+			
+			}
 			
 			
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			return null;
+		
+		
+			return hs;
 		
 		
 		
 	}
 	
-	@Override
+
 	public ArrayList<Food> getFoodAtShop(String shopName)
 	{
-	
+	ArrayList<Food> foods= new ArrayList<Food>();
 		try {
 			
 			String queryString = "									PREFIX base:  <http://polychrest/ontology#>\n" + 
@@ -201,22 +388,28 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 			
 			
 			String s=	ReadOntology.query(queryString);
-			
-			
 			System.out.println(s);
-			
+			String [] s1= s.split("<");
+			for(int i=1;i<s1.length;i++)
+			{
+				Food food= new Food();
+			String s3[]= s1[i].split("#");
+			System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
+			food.setFoodName(s3[1].replace(">", "").replace("|", "").trim());
+			foods.add(food);
+			}
 			
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			return null;
+			return foods;
 		
 	}
 	
-	@Override
+	
 	public ArrayList<Shop> getShopThatSellsFood(String foodName)
-	{
+	{ArrayList<Shop> shops = new ArrayList<Shop>();
 		try {
 			
 			String queryString = "									PREFIX base:  <http://polychrest/ontology#>\n" + 
@@ -238,21 +431,29 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 			
 			System.out.println(s);
 			
-			
+			String [] s1= s.split("<");
+			for(int i=1;i<s1.length;i++)
+			{
+				Shop shop= new Shop();
+			String s3[]= s1[i].split("#");
+			System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
+			shop.setShopName(s3[1].replace(">", "").replace("|", "").trim());
+			shops.add(shop);
+			}
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			return null;
+			return shops;
 	}
 	
-	@Override
+	
 	public void insertShoppingInstance(User user,Shopping shopping) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+
 	public Recommendation getRecommendationForUserAndFoodPair(User user, Food food) {
 		// TODO Auto-generated method stub
 		return null;
