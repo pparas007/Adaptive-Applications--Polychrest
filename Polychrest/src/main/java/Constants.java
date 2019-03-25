@@ -1,4 +1,4 @@
-package griup.polychrest;
+
 
 public class Constants {
 	public static String GOAL_MEAT_LOVER="meatlover";
@@ -36,5 +36,4 @@ public class Constants {
 	public static String PATTERN_WEEKLY="weekly";
 	public static String PATTERN_BIWEEKLY="biweekly";
 	public static String PATTERN_MONTHLY="monthly";
-	public static String[] PATTERNS= {PATTERN_WEEKLY,PATTERN_BIWEEKLY,PATTERN_MONTHLY}; 
 }
