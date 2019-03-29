@@ -36,7 +36,7 @@ public class OntologyFactory{
 	public static OntModel model;
 	public static Ontology ontology;
 	public static OntClass food, shop, user, shopping, recommendation;
-	public static DatatypeProperty ofCategory, atPrice, hasShopName, hasShopAddress, hasShopType, quantity, atDateTime, hasName, hasFoodName,hasGoal, hasWeelyWeightage, hasBiweelyWeightage, hasMonthlyWeightage, isEnabled;
+	public static DatatypeProperty ofCategory, atPrice, hasShopName, hasShopAddress, hasShopType, quantity, atDateTime, hasName, hasFoodName,hasGoal, hasWeelyWeightage, hasBiweelyWeightage, hasMonthlyWeightage, hasUserInterest, isEnabled;
 	public static ObjectProperty bought, atShop, shopped, sells, availableAt, isRelatedTo, hasRecommendation, recommendedTo;
     public static Individual paras,anirban,shubham,aditya,pavan,gauranksh;
     public static Individual euroGeneralFairview, tescoCityCentre, lidlCityCentre, lidlArtane;
@@ -167,11 +167,13 @@ public class OntologyFactory{
         hasWeelyWeightage = model.createDatatypeProperty(base + "hasWeelyWeightage");
         hasBiweelyWeightage = model.createDatatypeProperty(base + "hasBiweelyWeightage");
         hasMonthlyWeightage = model.createDatatypeProperty(base + "hasMonthlyWeightage");
+        hasUserInterest = model.createDatatypeProperty(base + "hasUserInterest");
         hasWeelyWeightage.addLabel("denotes the weekly weightage for the recommendation", "en");
         hasBiweelyWeightage.addLabel("denotes the bi-weekly weightage for the recommendation", "en");
         hasMonthlyWeightage.addLabel("denotes the monthly weightage for the recommendation", "en");
-        hasWeelyWeightage.setDomain(recommendation);hasBiweelyWeightage.setDomain(recommendation);hasMonthlyWeightage.setDomain(recommendation);
-        hasWeelyWeightage.setRange(XSD.xfloat);hasBiweelyWeightage.setRange(XSD.xfloat);hasMonthlyWeightage.setRange(XSD.xfloat);
+        hasUserInterest.addLabel("denotes user's interest in an item", "en");
+        hasWeelyWeightage.setDomain(recommendation);hasBiweelyWeightage.setDomain(recommendation);hasMonthlyWeightage.setDomain(recommendation);hasUserInterest.setDomain(recommendation);
+        hasWeelyWeightage.setRange(XSD.xfloat);hasBiweelyWeightage.setRange(XSD.xfloat);hasMonthlyWeightage.setRange(XSD.xfloat);hasUserInterest.setRange(XSD.xfloat);
         
         isEnabled = model.createDatatypeProperty(base + "isEnabled");
         isEnabled.addLabel("denotes if recommendation is enabled to be shown to user", "en");
@@ -599,6 +601,7 @@ public class OntologyFactory{
 		parasRecommendedKiwi.addProperty(hasWeelyWeightage, "0.2");
 		parasRecommendedKiwi.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedKiwi.addProperty(hasMonthlyWeightage, "0.1");
+		parasRecommendedKiwi.addProperty(hasUserInterest, "0.5");
 		
 		parasRecommendedKiwi.addProperty(isRelatedTo, kiwi);		
 		paras.addProperty(hasRecommendation, parasRecommendedKiwi);
@@ -608,6 +611,7 @@ public class OntologyFactory{
 		parasRecommendedApple.addProperty(hasWeelyWeightage, "0.1");
 		parasRecommendedApple.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedApple.addProperty(hasMonthlyWeightage, "0.1");
+		parasRecommendedApple.addProperty(hasUserInterest, "0.5");
 		
 		parasRecommendedApple.addProperty(isRelatedTo, apple);
 		paras.addProperty(hasRecommendation, parasRecommendedApple);
@@ -617,6 +621,7 @@ public class OntologyFactory{
 		parasRecommendedOrange.addProperty(hasWeelyWeightage, "0.1");
 		parasRecommendedOrange.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedOrange.addProperty(hasMonthlyWeightage, "0.1");
+		parasRecommendedOrange.addProperty(hasUserInterest, "0.5");
 		
 		parasRecommendedOrange.addProperty(isRelatedTo, orange);
 		paras.addProperty(hasRecommendation, parasRecommendedOrange);
@@ -626,6 +631,7 @@ public class OntologyFactory{
 		parasRecommendedChickenLegs.addProperty(hasWeelyWeightage, "0.2");
 		parasRecommendedChickenLegs.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedChickenLegs.addProperty(hasMonthlyWeightage, "0.1");
+		parasRecommendedChickenLegs.addProperty(hasUserInterest, "0.5");
 		
 		parasRecommendedChickenLegs.addProperty(isRelatedTo, chickenLegs);
 		paras.addProperty(hasRecommendation, parasRecommendedChickenLegs);
@@ -635,7 +641,8 @@ public class OntologyFactory{
 		anirbanRecommendedbread.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedbread.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedbread.addProperty(hasMonthlyWeightage, "0.1");
-				
+		anirbanRecommendedbread.addProperty(hasUserInterest, "0.5");
+		
 		anirbanRecommendedbread.addProperty(isRelatedTo, bread);		
 		anirban.addProperty(hasRecommendation, anirbanRecommendedbread);
 		
@@ -644,7 +651,8 @@ public class OntologyFactory{
 		anirbanRecommendedcoke.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedcoke.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedcoke.addProperty(hasMonthlyWeightage, "0.1");
-				
+		anirbanRecommendedcoke.addProperty(hasUserInterest, "0.5");
+		
 		anirbanRecommendedcoke.addProperty(isRelatedTo, coke);		
 		anirban.addProperty(hasRecommendation, anirbanRecommendedcoke);
 		
@@ -653,7 +661,8 @@ public class OntologyFactory{
 		anirbanRecommendedlamb.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedlamb.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedlamb.addProperty(hasMonthlyWeightage, "0.1");
-				
+		anirbanRecommendedlamb.addProperty(hasUserInterest, "0.5");
+		
 		anirbanRecommendedlamb.addProperty(isRelatedTo, lamb);		
 		anirban.addProperty(hasRecommendation, anirbanRecommendedlamb);
 		
@@ -661,7 +670,8 @@ public class OntologyFactory{
 		anirbanRecommendedbutter.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedbutter.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedbutter.addProperty(hasMonthlyWeightage, "0.1");
-				
+		anirbanRecommendedbutter.addProperty(hasUserInterest, "0.5");
+		
 		anirbanRecommendedbutter.addProperty(isRelatedTo, butter);		
 		anirbanRecommendedbutter.addProperty(hasRecommendation, anirbanRecommendedbutter);
 		
@@ -670,7 +680,8 @@ public class OntologyFactory{
 		adityaRecommendedcapsicum.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedcapsicum.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedcapsicum.addProperty(hasMonthlyWeightage, "0.1");
-				
+		adityaRecommendedcapsicum.addProperty(hasUserInterest, "0.5");
+		
 		adityaRecommendedcapsicum.addProperty(isRelatedTo, capsicum);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedcapsicum);
 		
@@ -678,7 +689,8 @@ public class OntologyFactory{
 		adityaRecommendedlowFatMilk.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedlowFatMilk.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedlowFatMilk.addProperty(hasMonthlyWeightage, "0.1");
-				
+		adityaRecommendedlowFatMilk.addProperty(hasUserInterest, "0.5");
+		
 		adityaRecommendedlowFatMilk.addProperty(isRelatedTo, lowFatMilk);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedlowFatMilk);
 		
@@ -686,7 +698,8 @@ public class OntologyFactory{
 		adityaRecommendedchickenLegs.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedchickenLegs.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedchickenLegs.addProperty(hasMonthlyWeightage, "0.1");
-				
+		adityaRecommendedchickenLegs.addProperty(hasUserInterest, "0.5");
+		
 		adityaRecommendedchickenLegs.addProperty(isRelatedTo, chickenLegs);		
 		adityaRecommendedchickenLegs.addProperty(hasRecommendation, adityaRecommendedchickenLegs);
 		
@@ -695,7 +708,8 @@ public class OntologyFactory{
 		adityaRecommendedspinach.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedspinach.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedspinach.addProperty(hasMonthlyWeightage, "0.1");
-				
+		adityaRecommendedspinach.addProperty(hasUserInterest, "0.5");
+		
 		adityaRecommendedspinach.addProperty(isRelatedTo, spinach);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedspinach);
 		
@@ -704,7 +718,8 @@ public class OntologyFactory{
 		adityaRecommendedfanta.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedfanta.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedfanta.addProperty(hasMonthlyWeightage, "0.1");
-				
+		adityaRecommendedfanta.addProperty(hasUserInterest, "0.5");
+		
 		adityaRecommendedfanta.addProperty(isRelatedTo, fanta);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedfanta);
 		

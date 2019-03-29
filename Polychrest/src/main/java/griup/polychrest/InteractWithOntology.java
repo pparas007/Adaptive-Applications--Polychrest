@@ -669,7 +669,7 @@ String s=	ReadOntology.query(queryString);
 			cat.add("healthy");
 				food.setCategoryList(cat);
 			}
-			Recommendation recommendation = new Recommendation(Float.parseFloat(s2[5]), Float.parseFloat(s2[1]), Float.parseFloat(s2[3]));
+			Recommendation recommendation = new Recommendation(Float.parseFloat(s2[5]), Float.parseFloat(s2[1]), Float.parseFloat(s2[3]), 0.5f);
 			
 			hs.put(food, recommendation);
 			

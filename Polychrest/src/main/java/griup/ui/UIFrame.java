@@ -27,6 +27,12 @@ import griup.polychrest.Constants;
 public class UIFrame extends JFrame implements ActionListener{
 	JButton submitShopping=new JButton("Shop");
 	JButton checkWeightageButton=new JButton("Check");
+	
+	JButton forgot=new JButton("Thanks! I almost forgot to buy");
+	JButton hate=new JButton("I did't like this item!");
+	JButton love=new JButton("I loved this item!");
+	JButton alreadyHave=new JButton("Oh, I have it already!");
+	
 	JComboBox <String> userComboBox = new JComboBox<String>(Constants.userList);
 	JComboBox <String> foodComboBox = new JComboBox<String>(Constants.foodList);
 	JComboBox <String> checkWeightageFoodComboBox = new JComboBox<String>(Constants.foodList);
@@ -144,29 +150,83 @@ public class UIFrame extends JFrame implements ActionListener{
 		checkWeightageNote.setFont(new Font("Lucida Console", Font.PLAIN, 11));
 		checkWeightageNote.setForeground(Color.RED);
 		checkWeightageFoodComboBox.setBounds(20, 280, 120, 30);
-		weeklyWeightageLabel.setBounds(150, 280, 200, 30);
-		biweeklyWeightageLabel.setBounds(300, 280, 200, 30);
-		monthlyWeightageLabel.setBounds(450, 280, 200, 30);
-		weeklyWeightageLabel.setForeground(Color.GREEN);biweeklyWeightageLabel.setForeground(Color.GREEN);monthlyWeightageLabel.setForeground(Color.GREEN);
-		checkWeightageButton.setBounds(20, 320, 120, 40);
+		weeklyWeightageLabel.setBounds(20, 320, 200, 40);
+		biweeklyWeightageLabel.setBounds(20, 350, 200, 40);
+		monthlyWeightageLabel.setBounds(20, 380, 200, 40);
+		weeklyWeightageLabel.setForeground(Color.GRAY);biweeklyWeightageLabel.setForeground(Color.GRAY);monthlyWeightageLabel.setForeground(Color.GRAY);
+		checkWeightageButton.setBounds(150, 280, 120, 30);
 		checkWeightageButton.setBackground(Color.GREEN);
 		//add action listeners
 		checkWeightageButton.addActionListener(this);
 		
+		//add user interaction button
+		love.setBounds(300, 280, 230, 15);
+		hate.setBounds(530, 280, 230, 15);
+		forgot.setBounds(300, 300, 230, 15);
+		alreadyHave.setBounds(530, 300, 230, 15);
+		love.setForeground(Color.BLUE);
+		hate.setForeground(Color.BLUE);
+		forgot.setForeground(Color.BLUE);
+		alreadyHave.setForeground(Color.BLUE);
+		love.setFont(new Font("Lucida Console", Font.PLAIN, 11));
+		hate.setFont(new Font("Lucida Console", Font.PLAIN, 11));
+		forgot.setFont(new Font("Lucida Console", Font.PLAIN, 11));
+		alreadyHave.setFont(new Font("Lucida Console", Font.PLAIN, 11));
+		love.setVisible(false);hate.setVisible(false);forgot.setVisible(false);alreadyHave.setVisible(false);
+		//add user interaction button ends
+		
+		//add action listeners
+		love.addActionListener(this);forgot.addActionListener(this);hate.addActionListener(this);alreadyHave.addActionListener(this);
 		//add components to frame
 		add(userLabel);add(userComboBox);add(userNote);
 		add(foodComboBox); add(shopComboBox); add(priceComboBox); add(patternComboBox); add(shoppingLabel);add(shoppingNote);add(patternNote);add(patternNote2);add(submitShopping);
 		add(checkWeightageLabel);add(checkWeightageNote);add(checkWeightageFoodComboBox);add(checkWeightageButton);
 		add(weeklyWeightageLabel);add(biweeklyWeightageLabel);add(monthlyWeightageLabel);add(patternConfidenceComboBox);
 		add(foodLabel);add(priceLabel);add(patternLabel);add(patternConfidenceLabel);add(shopLabel);
+		add(love);add(hate);add(alreadyHave);add(forgot);
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
+		System.out.println(arg0.getActionCommand());
 		if(arg0.getActionCommand().equals("Shop")) {
+			changeUserButtonVisibility(false);
 			insertShoppingInstance();
 		}else if(arg0.getActionCommand().equals("Check")) {
+			changeUserButtonVisibility(true);
 			checkWeightage();
+		}else if(arg0.getActionCommand().equals("I loved this item!")) {
+			upgradeInterest();
+		}else if(arg0.getActionCommand().equals("Thanks! I almost forgot to buy")) {
+			upgradePattern();
+		}else if(arg0.getActionCommand().equals("I did't like this item!")) {
+			downgradeInterest();
+		}else if(arg0.getActionCommand().equals("Oh, I have it already!")) {
+			downgradePattern();
 		} 
+	}
+
+	private void downgradePattern() {
+		System.out.println("downgradePattern() called");
+		updateScreenData();
+		Middleware.downGradePattern(user,weightageFood);
+	}
+
+	private void downgradeInterest() {
+		System.out.println("downgradeInterest() called");
+		updateScreenData();
+		Middleware.downgradeInterest(user,weightageFood);
+	}
+
+	private void upgradePattern() {
+		System.out.println("upgradePattern() called");
+		updateScreenData();
+		Middleware.upGradePattern(user,weightageFood);
+	}
+
+	private void upgradeInterest() {
+		System.out.println("upgradeInterest() called");
+		updateScreenData();
+		Middleware.upgradeInterest(user,weightageFood);
 	}
 
 	private void insertShoppingInstance() {
@@ -183,11 +243,16 @@ public class UIFrame extends JFrame implements ActionListener{
 		updateScreenData();
 		
 		Recommendation recommendation=Middleware.getRecommendationForUserAndFoodPair(user, weightageFood);
-		recommendation=new Recommendation(0.1f, 0.1f, 0.8f);//dummy data; to be removed after above method is available
+		recommendation=new Recommendation(0.3f, 0.1f, 0.2f,0.5f);//dummy data; to be removed after above method is available
 		weeklyWeightageLabel.setText("Weekly weightage: "+recommendation.getHasWeeklyWeightage());
 		biweeklyWeightageLabel.setText("Biweekly weightage: "+recommendation.getHasByWeeklyWeightage());
 		monthlyWeightageLabel.setText("Monthly weightage: "+recommendation.getHasMonthlyWeightage());
 		
+		//set green for highest weghtage
+		weeklyWeightageLabel.setForeground(Color.GRAY);biweeklyWeightageLabel.setForeground(Color.GRAY);monthlyWeightageLabel.setForeground(Color.GRAY);
+		if(recommendation.getHighestWeightage()==recommendation.getHasWeeklyWeightage()) weeklyWeightageLabel.setForeground(Color.GREEN);
+		else if(recommendation.getHighestWeightage()==recommendation.getHasByWeeklyWeightage()) biweeklyWeightageLabel.setForeground(Color.GREEN);
+		else monthlyWeightageLabel.setForeground(Color.GREEN);
 	}
 	private Pattern getPattern(String patternName,float patternConfidence) {
 		Pattern pattern;
@@ -234,6 +299,8 @@ public class UIFrame extends JFrame implements ActionListener{
 	private void refresh() {
 		revalidate();repaint();
 	}
-	
+	private void changeUserButtonVisibility(boolean b) {
+		love.setVisible(b);hate.setVisible(b);forgot.setVisible(b);alreadyHave.setVisible(b);
+	}
 	
 }
