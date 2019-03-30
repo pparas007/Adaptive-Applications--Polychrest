@@ -673,7 +673,7 @@ public class OntologyFactory{
 		anirbanRecommendedbutter.addProperty(hasUserInterest, "0.5");
 		
 		anirbanRecommendedbutter.addProperty(isRelatedTo, butter);		
-		anirbanRecommendedbutter.addProperty(hasRecommendation, anirbanRecommendedbutter);
+		anirban.addProperty(hasRecommendation, anirbanRecommendedbutter);
 		
 		//Aditya
 		Individual adityaRecommendedcapsicum=recommendation.createIndividual(base+"adityaRecommendedcapsicum");
@@ -701,7 +701,7 @@ public class OntologyFactory{
 		adityaRecommendedchickenLegs.addProperty(hasUserInterest, "0.5");
 		
 		adityaRecommendedchickenLegs.addProperty(isRelatedTo, chickenLegs);		
-		adityaRecommendedchickenLegs.addProperty(hasRecommendation, adityaRecommendedchickenLegs);
+		aditya.addProperty(hasRecommendation, adityaRecommendedchickenLegs);
 		
 		
 		Individual adityaRecommendedspinach=recommendation.createIndividual(base+"adityaRecommendedspinach");
