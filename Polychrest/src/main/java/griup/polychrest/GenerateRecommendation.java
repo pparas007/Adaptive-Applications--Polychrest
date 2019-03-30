@@ -229,14 +229,5 @@ try {
 	}
 	
 	
-	public static void main(String[] args) throws Exception{
-		User user = new User();
-		user.setName("paras");
-	//	getAllUser();
-		getAll();
-	//	getShoppingByUser(user);
-	//	getRecommendationListForUser( user);
-	//	getFoodAtShop("lidlCityCentre");
-	//	getShopThatSellsFood("brownBread");
-	}
+	
 }

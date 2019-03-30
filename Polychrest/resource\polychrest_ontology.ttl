@@ -2,6 +2,7 @@
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix j.0:   <http://purl.org/dc/terms/> .
 @prefix base:  <http://polychrest/ontology#> .
 
 base:adityaShops21  a    base:shopping ;
@@ -23,7 +24,7 @@ base:euroGeneralFairview
         base:hasShopAddress  "Fairview, Dublin" ;
         base:hasShopName     "Euro General" ;
         base:hasShopType     "store" ;
-        base:sells           base:bread , base:apple , base:pepsi , base:chickenLegs , base:chickenBreasts , base:fanta , base:lamb , base:capsicum , base:butter , base:spinach , base:orange , base:coke .
+        base:sells           base:bread , base:apple , base:pepsi , base:chickenLegs , base:chickenBreasts , base:fanta , base:lamb , base:capsicum , base:butter , base:orange , base:spinach , base:coke .
 
 base:anirbanShops21  a   base:shopping ;
         base:atDateTime  "14-Mar-2019" ;
@@ -36,7 +37,7 @@ base:lidlArtane  a           base:shop ;
         base:hasShopAddress  "Artane, Dublin 5" ;
         base:hasShopName     "LiDL" ;
         base:hasShopType     "supermarket" ;
-        base:sells           base:sprite , base:butter , base:brocolli , base:spinach , base:orange , base:rocketLeaves , base:greekCheese , base:mushroom , base:chickenLegs , base:bread , base:capsicum , base:irishApple , base:dietCoke , base:apple , base:chickenBreasts , base:noodles , base:coke , base:sweeseCheese , base:lowFatMilk , base:pepsi , base:lamb , base:fanta , base:kiwi .
+        base:sells           base:sprite , base:butter , base:brocolli , base:spinach , base:orange , base:rocketLeaves , base:greekCheese , base:mushroom , base:chickenLegs , base:bread , base:capsicum , base:irishApple , base:noodles , base:apple , base:chickenBreasts , base:dietCoke , base:coke , base:sweeseCheese , base:lowFatMilk , base:pepsi , base:lamb , base:fanta , base:kiwi .
 
 base:hasMonthlyWeightage
         a            owl:DatatypeProperty ;
@@ -48,21 +49,21 @@ base:anirban  a                 base:user ;
         base:hasGoal            "meatlover" , "economical" ;
         base:hasName            "anirban" ;
         base:hasRecommendation  base:anirbanRecommendedcoke , base:anirbanRecommendedlamb , base:anirbanRecommendedbread ;
-        base:shopped            base:anirbanShops22 , base:anirbanShops11 , base:anirbanShops24 , base:anirbanShops21 , base:anirbanShops13 , base:anirbanShops23 , base:anirbanShops12 .
-
-base:irishApple  a        base:food ;
-        base:hasFoodName  "irishApple" ;
-        base:ofCategory   "veg" , "fruits" , "healthy" .
+        base:shopped            base:anirbanShops22 , base:anirbanShops11 , base:anirbanShops6143 , base:anirbanShops24 , base:anirbanShops21 , base:anirbanShops13 , base:anirbanShops23 , base:anirbanShops12 .
 
 base:tescoCityCentre  a      base:shop ;
         base:hasShopAddress  "City Centre, Dublin" ;
         base:hasShopName     "Tesco" ;
         base:hasShopType     "supermarket" ;
-        base:sells           base:lowFatMilk , base:dietCoke , base:kiwi , base:rocketLeaves , base:bread , base:lamb , base:irishApple , base:orange , base:sprite , base:mushroom , base:sweeseCheese , base:chickenLegs , base:brownBread , base:apple , base:capsicum , base:butter , base:pepsi , base:chickenBreasts , base:coke , base:brocolli , base:greekCheese , base:spinach , base:fanta .
+        base:sells           base:lowFatMilk , base:kiwi , base:dietCoke , base:rocketLeaves , base:bread , base:orange , base:lamb , base:irishApple , base:mushroom , base:sprite , base:sweeseCheese , base:chickenLegs , base:capsicum , base:apple , base:brownBread , base:butter , base:pepsi , base:chickenBreasts , base:coke , base:brocolli , base:greekCheese , base:spinach , base:fanta .
+
+base:irishApple  a        base:food ;
+        base:hasFoodName  "irishApple" ;
+        base:ofCategory   "healthy" , "fruits" , "veg" .
 
 base:milk  a              base:food ;
         base:hasFoodName  "milk" ;
-        base:ofCategory   "veg" , "dairy" , "milk" .
+        base:ofCategory   "milk" , "dairy" , "veg" .
 
 base:adityaShops13  a    base:shopping ;
         base:atDateTime  "07-Mar-2019" ;
@@ -75,6 +76,7 @@ base:anirbanRecommendedlamb
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:lamb .
 
@@ -92,15 +94,15 @@ base:anirbanShops13  a   base:shopping ;
 
 base:mushroom  a          base:food ;
         base:hasFoodName  "mushroom" ;
-        base:ofCategory   "vegetables" , "veg" , "healthy" .
+        base:ofCategory   "healthy" , "veg" , "vegetables" .
 
 base:butter  a            base:food ;
         base:hasFoodName  "butter" ;
-        base:ofCategory   "colesterol" , "veg" , "dairy" .
+        base:ofCategory   "dairy" , "veg" , "colesterol" .
 
 base:chickenLegs  a       base:food ;
         base:hasFoodName  "chickenLegs" ;
-        base:ofCategory   "colesterol" , "chicken" , "nonveg" .
+        base:ofCategory   "nonveg" , "chicken" , "colesterol" .
 
 base:parasShops12  a     base:shopping ;
         base:atDateTime  "08-Mar-2019" ;
@@ -119,20 +121,21 @@ base:adityaRecommendedchickenLegs
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
         base:hasRecommendation    base:adityaRecommendedchickenLegs ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:chickenLegs .
 
 base:brownBread  a        base:food ;
         base:hasFoodName  "brownBread" ;
-        base:ofCategory   "bread" , "bakery" .
+        base:ofCategory   "bakery" , "bread" .
 
 base:chickenBreasts  a    base:food ;
         base:hasFoodName  "chickenBreasts" ;
-        base:ofCategory   "colesterol" , "chicken" , "nonveg" .
+        base:ofCategory   "nonveg" , "chicken" , "colesterol" .
 
 base:noodles  a           base:food ;
         base:hasFoodName  "noodles" ;
-        base:ofCategory   "veg" , "asian" , "chinese" .
+        base:ofCategory   "chinese" , "asian" , "veg" .
 
 base:shop  a        owl:Class ;
         rdfs:label  "any grocery shop"@en ;
@@ -171,7 +174,7 @@ base:adityaShops25  a    base:shopping ;
 
 base:spinach  a           base:food ;
         base:hasFoodName  "spinach" ;
-        base:ofCategory   "vegetables" , "veg" , "healthy" .
+        base:ofCategory   "healthy" , "veg" , "vegetables" .
 
 base:anirbanShops12  a   base:shopping ;
         base:atDateTime  "06-Mar-2019" ;
@@ -204,6 +207,7 @@ base:adityaRecommendedcapsicum
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:capsicum .
 
@@ -220,6 +224,7 @@ base:parasRecommendedChickenLegs
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:chickenLegs .
 
@@ -227,18 +232,19 @@ base:parasRecommendedKiwi
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:kiwi .
-
-base:greekCheese  a       base:food ;
-        base:hasFoodName  "greekCheese" ;
-        base:ofCategory   "colesterol" , "cheese" , "dairy" .
 
 base:lidlCityCentre  a       base:shop ;
         base:hasShopAddress  "City Centre, Dublin" ;
         base:hasShopName     "LiDL" ;
         base:hasShopType     "supermarket" ;
-        base:sells           base:greekCheese , base:sprite , base:coke , base:fanta , base:sweeseCheese , base:spinach , base:orange , base:butter , base:mushroom , base:capsicum , base:pepsi , base:bread , base:lowFatMilk , base:rocketLeaves , base:noodles , base:lamb , base:chickenLegs , base:kiwi , base:brownBread , base:chickenBreasts , base:apple .
+        base:sells           base:greekCheese , base:sprite , base:coke , base:sweeseCheese , base:fanta , base:spinach , base:orange , base:mushroom , base:butter , base:capsicum , base:pepsi , base:noodles , base:lowFatMilk , base:rocketLeaves , base:bread , base:chickenLegs , base:lamb , base:kiwi , base:brownBread , base:apple , base:chickenBreasts .
+
+base:greekCheese  a       base:food ;
+        base:hasFoodName  "greekCheese" ;
+        base:ofCategory   "dairy" , "cheese" , "colesterol" .
 
 base:quantity  a     owl:DatatypeProperty ;
         rdfs:domain  base:shopping ;
@@ -247,7 +253,7 @@ base:quantity  a     owl:DatatypeProperty ;
 
 base:rocketLeaves  a      base:food ;
         base:hasFoodName  "rocketLeaves" ;
-        base:ofCategory   "vegetables" , "veg" , "healthy" .
+        base:ofCategory   "healthy" , "veg" , "vegetables" .
 
 base:adityaShops11  a    base:shopping ;
         base:atDateTime  "07-Mar-2019" ;
@@ -268,7 +274,7 @@ base:adityaShops24  a    base:shopping ;
 
 base:brocolli  a          base:food ;
         base:hasFoodName  "brocolli" ;
-        base:ofCategory   "vegetables" , "veg" , "healthy" .
+        base:ofCategory   "healthy" , "veg" , "vegetables" .
 
 base:recommendation  a  owl:Class ;
         rdfs:label  "recommendations for user"@en .
@@ -284,6 +290,7 @@ base:anirbanRecommendedbread
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:bread .
 
@@ -294,7 +301,7 @@ base:atShop  a       owl:ObjectProperty ;
 
 base:orange  a            base:food ;
         base:hasFoodName  "orange" ;
-        base:ofCategory   "veg" , "fruits" , "healthy" .
+        base:ofCategory   "healthy" , "fruits" , "veg" .
 
 base:anirbanShops24  a   base:shopping ;
         base:atDateTime  "14-Mar-2019" ;
@@ -311,11 +318,11 @@ base:hasRecommendation
 
 base:food  a        owl:Class ;
         rdfs:label  "food"@en ;
-        owl:sameAs  <http://dbpedia.org/ontology/Food> , <http://purl.org/ontology/fo/Food> .
+        owl:sameAs  <http://purl.org/ontology/fo/Food> , <http://dbpedia.org/ontology/Food> .
 
 base:apple  a             base:food ;
         base:hasFoodName  "apple" ;
-        base:ofCategory   "veg" , "fruits" , "healthy" .
+        base:ofCategory   "healthy" , "fruits" , "veg" .
 
 base:parasShops23  a     base:shopping ;
         base:atDateTime  "15-Mar-2019" ;
@@ -328,6 +335,7 @@ base:parasRecommendedOrange
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.1" ;
         base:isRelatedTo          base:orange .
 
@@ -341,31 +349,38 @@ base:paras  a                   base:user ;
         base:hasRecommendation  base:parasRecommendedApple , base:parasRecommendedKiwi , base:parasRecommendedChickenLegs , base:parasRecommendedOrange ;
         base:shopped            base:parasShops23 , base:parasShops12 , base:parasShops11 , base:parasShops22 , base:parasShops13 , base:parasShops21 .
 
+base:hasUserInterest  a  owl:DatatypeProperty ;
+        rdfs:domain  base:recommendation ;
+        rdfs:label   "denotes user's interest in an item"@en ;
+        rdfs:range   xsd:float .
+
 base:adityaRecommendedspinach
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:spinach .
 
 base:lamb  a              base:food ;
         base:hasFoodName  "lamb" ;
-        base:ofCategory   "colesterol" , "lamb" , "nonveg" .
+        base:ofCategory   "nonveg" , "lamb" , "colesterol" .
 
 base:adityaRecommendedfanta
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:fanta .
 
 base:sweeseCheese  a      base:food ;
         base:hasFoodName  "sweeseCheese" ;
-        base:ofCategory   "colesterol" , "cheese" , "dairy" .
+        base:ofCategory   "dairy" , "cheese" , "colesterol" .
 
 base:lowFatMilk  a        base:food ;
         base:hasFoodName  "lowFatMilk" ;
-        base:ofCategory   "veg" , "dairy" , "milk" .
+        base:ofCategory   "milk" , "dairy" , "veg" .
 
 base:adityaShops23  a    base:shopping ;
         base:atDateTime  "16-Mar-2019" ;
@@ -388,14 +403,19 @@ base:shopped  a      owl:ObjectProperty ;
 
 base:kiwi  a              base:food ;
         base:hasFoodName  "kiwi" ;
-        base:ofCategory   "veg" , "fruits" , "healthy" .
+        base:ofCategory   "healthy" , "fruits" , "veg" .
 
 base:parasRecommendedApple
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.1" ;
         base:isRelatedTo          base:apple .
+
+base:shubham  a       base:user ;
+        base:hasGoal  "veggie" ;
+        base:hasName  "shubham" .
 
 base:parasShops22  a     base:shopping ;
         base:atDateTime  "15-Mar-2019" ;
@@ -404,10 +424,6 @@ base:parasShops22  a     base:shopping ;
         base:bought      base:orange ;
         base:quantity    "2" .
 
-base:shubham  a       base:user ;
-        base:hasGoal  "veggie" ;
-        base:hasName  "shubham" .
-
 base:hasGoal  a      owl:DatatypeProperty ;
         rdfs:domain  base:user ;
         rdfs:label   "user goal"@en ;
@@ -415,7 +431,7 @@ base:hasGoal  a      owl:DatatypeProperty ;
 
 base:capsicum  a          base:food ;
         base:hasFoodName  "capsicum" ;
-        base:ofCategory   "vegetables" , "veg" , "healthy" .
+        base:ofCategory   "healthy" , "veg" , "vegetables" .
 
 base:hasShopName  a  owl:DatatypeProperty ;
         rdfs:domain  base:shop ;
@@ -426,6 +442,7 @@ base:adityaRecommendedlowFatMilk
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:lowFatMilk .
 
@@ -464,8 +481,17 @@ base:anirbanRecommendedbutter
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
         base:hasRecommendation    base:anirbanRecommendedbutter ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:butter .
+
+base:anirbanShops6143
+        a                base:shopping ;
+        base:atDateTime  "12:00" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:kiwi ;
+        base:quantity    "1.0" .
 
 base:anirbanShops22  a   base:shopping ;
         base:atDateTime  "14-Mar-2019" ;
@@ -498,18 +524,15 @@ base:parasShops21  a     base:shopping ;
         base:quantity    "1" .
 
 <http://polychrest/ontology>
-        a           owl:Ontology ;
-        rdfs:label  "Ontology Designed for Adaptive application module Project-Group Polychrest"@en ;
-        <http://purl.org/dc/terms/contributor>
-                "Shubham" , "Anirban" , "Aditya" , "Gauransh" , "Paras" , "Pavan" ;
-        <http://purl.org/dc/terms/date>
-                "08-Mar-2019" ;
-        <http://purl.org/dc/terms/description>
-                "Ontology Designed for Adaptive application module Project-Group Polychrest" .
+        a                owl:Ontology ;
+        rdfs:label       "Ontology Designed for Adaptive application module Project-Group Polychrest"@en ;
+        j.0:contributor  "Shubham" , "Anirban" , "Aditya" , "Gauransh" , "Paras" , "Pavan" ;
+        j.0:date         "08-Mar-2019" ;
+        j.0:description  "Ontology Designed for Adaptive application module Project-Group Polychrest" .
 
 base:bread  a             base:food ;
         base:hasFoodName  "bread" ;
-        base:ofCategory   "bread" , "bakery" .
+        base:ofCategory   "bakery" , "bread" .
 
 base:isRelatedTo  a  owl:ObjectProperty ;
         rdfs:domain  base:recommendation ;
@@ -525,11 +548,12 @@ base:aditya  a                  base:user ;
         base:hasGoal            "veggie" , "meatlover" ;
         base:hasName            "aditya" ;
         base:hasRecommendation  base:adityaRecommendedcapsicum , base:adityaRecommendedlowFatMilk , base:adityaRecommendedspinach , base:adityaRecommendedfanta ;
-        base:shopped            base:adityaShops23 , base:adityaShops25 , base:adityaShops11 , base:adityaShops13 , base:adityaShops24 , base:adityaShops22 , base:adityaShops21 , base:adityaShops12 .
+        base:shopped            base:adityaShops23 , base:adityaShops25 , base:adityaShops11 , base:adityaShops13 , base:adityaShops22 , base:adityaShops21 , base:adityaShops24 , base:adityaShops12 .
 
 base:anirbanRecommendedcoke
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:coke .

@@ -22,13 +22,34 @@ public class DummyUI {
 		InteractWithOntology io= new InteractWithOntology();
 		io.getAllUser();
 		io.getAll();
+		Shop lidlArtane=new Shop();
+		lidlArtane.setShopName("lidlArtane");
+		Food kiwi=new Food();
+		kiwi.setFoodName("kiwi");
+		User paras=new User ();
+		paras.setName("paras");
 		User user=new User();
-		user.setName("paras");
+		Food food= new Food ();
+		food.setFoodName("ChickenLegs");
+		user.setName("anirban");
 		io. getShoppingByUser( user);
 		io.getRecommendationListForUser(user);
 		Shop shop= new Shop();
 		io.getFoodAtShop("lidlArtane");
 		io.getShopThatSellsFood("butter");
+		Shopping shopping=new Shopping();
+		shopping.setAtPrice(1f);
+		shopping.setAtShop(lidlArtane);
+		shopping.setAtDateTime("12:00");
+		shopping.setBought(kiwi);
+		shopping.setQuantity(1);
+		int shopingNo=(int)(Math.random()*10000);
+		System.out.println(shopingNo);
+		shopping.setShoppingName(user.getName()+"Shops"+shopingNo);
+		io.insertShoppingInstance(user, shopping);
+		//io.getRecommendationForUserAndFoodPair(user, food);
+		//io.updateRecommendationForUserAndFoodPair(user, food, io.getRecommendationForUserAndFoodPair(user, food));
+		io.getRecommendationListForUser(user);
 	}
 	
 	public static void createShoppingInstance() {

@@ -769,19 +769,122 @@ String s=	ReadOntology.query(queryString);
 	}
 	
 	
+
+	
 	public void insertShoppingInstance(User user,Shopping shopping) {
 		// TODO Auto-generated method stub
-		
+		try {
+			String queryString = "PREFIX base:  <http://polychrest/ontology#>\n" + 
+					"PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
+					"PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
+					"PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
+					"PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
+					"\n" + 
+					"INSERT {\n" + 
+					"base:"+shopping.getShoppingName()+"  a   base:shopping ;\n" + 
+					"        base:atDateTime  \""+shopping.getAtDateTime()+ "\"; \n" + 
+					"        base:atPrice    \""+shopping.getAtPrice()+"\" ;\n" + 
+					"        base:atShop      base:"+shopping.getAtShop().getShopName()+ " ;\n" + 
+					"        base:bought     base:"+shopping.getBought().getFoodName()+" ;\n" + 
+					"        base:quantity   \""+shopping.getQuantity()+"\" .\n" + 
+					"base:"+user.getName()+"  base:shopped            base:"+shopping.getShoppingName()+".\n" + 
+					"}\n" + 
+					"\n" + 
+					"Where {\n" + 
+					"base:anirban a base:user .\n" + 
+					"base:lidlCityCentre  a       base:shop.\n" + 
+					"base:bread  a             base:food.\n" + 
+					"\n" + 
+					"}";
+					System.out.println(queryString);
+			ReadOntology.insert(queryString) ;
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 
 	public Recommendation getRecommendationForUserAndFoodPair(User user, Food food) {
 		// TODO Auto-generated method stub
-		return null;
+		Recommendation recommendation=null;
+		try {
+		String queryString = "									PREFIX base:  <http://polychrest/ontology#>\n" + 
+				"					PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
+				"					PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
+				"					PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
+				"					PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
+				"					select *\n" + 
+				"where{\n" + 
+				"\n" + 
+				"base:"+user.getName()+"Recommended"+food.getFoodName()+"  a                         base:recommendation.\n" + 
+				"base:"+user.getName()+"Recommended"+food.getFoodName()+"  base:hasWeelyWeightage                        ?WeelyWeightage.\n" + 
+				"base:"+user.getName()+"Recommended"+food.getFoodName()+"  base:hasBiweelyWeightage                        ?BiWeelyWeightage.\n" + 
+				"base:"+user.getName()+"Recommended"+food.getFoodName()+"  base:hasMonthlyWeightage                        ?MonthlyWeelyWeightage.\n" + 
+				"base:"+user.getName()+"Recommended"+food.getFoodName()+"  base:hasUserInterest                        ?hasUserInterest.\n" + 
+				//"base:"+user.getName()+"Recommended"+food.getFoodName()+"  base:isRelatedTo                        base:"+food.getFoodName()+".\n" + 
+				
+
+				"}\n" + 
+				"";
+		
+		
+		
+		String s=	ReadOntology.query(queryString);
+		System.out.println(s);
+		String s1[]= s.split("\"");
+		System.out.println("hasWeeklyWeightage"+s1[1]);
+		System.out.println("hasBiWeeklyWeightage"+s1[3]);
+		System.out.println("hasmonthlyWeightage"+s1[5]);
+		System.out.println("hasUserIntrest"+s1[7]);
+		 recommendation= new Recommendation(Float.parseFloat(s1[1]), Float.parseFloat(s1[3]),Float.parseFloat( s1[5]),Float.parseFloat( s1[7]));
+		
+		return recommendation;
+		
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return recommendation;
 	}
 
 	public void updateRecommendationForUserAndFoodPair(User user, Food food, Recommendation recommendation) {
 		// TODO Auto-generated method stub
+		try {
+		
+			String queryString="PREFIX base:  <http://polychrest/ontology#>\n" + 
+					"PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
+					"PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
+					"PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
+					"PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
+					"DELETE {"
+					+ "base:"+user.getName()+"Recommended"+food.getFoodName()+" base:hasBiweelyWeightage  ?hwb ;\n" + 
+					"        base:hasMonthlyWeightage ?hwm ;\n" + 
+					"  	base:hasUserInterest      ?ui ;\n" + 
+					"        base:hasWeelyWeightage   ?hww .}\n" + 
+					"INSERT {\n" + 
+					 "base:"+user.getName()+"Recommended"+food.getFoodName()+" base:hasBiweelyWeightage \""+recommendation.getHasByWeeklyWeightage()+"\" ;\n" + 
+					"        base:hasMonthlyWeightage  \""+recommendation.getHasMonthlyWeightage()+"\" ;\n" + 
+					"  	base:hasUserInterest      \""+recommendation.getHasUserInterest()+"\" ;\n" + 
+					"        base:hasWeelyWeightage   \""+recommendation.getHasWeeklyWeightage()+"\" .}\n" +  
+					"Where {\n" + 
+					"base:"+user.getName()+"Recommended"+food.getFoodName() +" base:isRelatedTo  base:chickenLegs ;\n" + 
+					" base:hasRecommendation    base:adityaRecommendedchickenLegs .\n" + 
+					"}";
+
+		System.out.println(queryString);
+
+		
+		ReadOntology.insert(queryString) ;
+		
+
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
 		
 	}
 }
