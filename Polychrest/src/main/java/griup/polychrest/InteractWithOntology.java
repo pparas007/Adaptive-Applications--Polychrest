@@ -854,7 +854,7 @@ String s=	ReadOntology.query(queryString);
 		return recommendation;
 	}
 
-	public void updateRecommendationForUserAndFoodPair(User user, Food food, Recommendation recommendation) {
+	public void updateRecommendationForUserAndFoodPair(User user, Food food, Recommendation oldRecommendation, Recommendation newRecommendation) {
 		// TODO Auto-generated method stub
 		try {
 		String foodName=food.getFoodName();
@@ -867,17 +867,17 @@ String s=	ReadOntology.query(queryString);
 					"PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
 					"PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
 					"DELETE {"
-					+ "base:"+user.getName()+"Recommended"+foodNameInCamelCase+" base:hasBiweelyWeightage  ?hwb ;\n" + 
-					"        base:hasMonthlyWeightage ?hwm ;\n" + 
-					"  	base:hasUserInterest      ?ui ;\n" + 
-					"        base:hasWeelyWeightage   ?hww .}\n" + 
+					+ "base:"+user.getName()+"Recommended"+foodNameInCamelCase+" base:hasBiweelyWeightage  \""+oldRecommendation.getHasByWeeklyWeightage()+"\" ;\n" + 
+					"        base:hasMonthlyWeightage \""+oldRecommendation.getHasMonthlyWeightage()+"\" ;\n" + 
+					"  	base:hasUserInterest      \""+oldRecommendation.getHasUserInterest()+"\" ;\n" + 
+					"        base:hasWeelyWeightage   \""+oldRecommendation.getHasWeeklyWeightage()+"\" .}\n" +  
 					"INSERT {\n" + 
-					 "base:"+user.getName()+"Recommended"+foodNameInCamelCase+" base:hasBiweelyWeightage \""+recommendation.getHasByWeeklyWeightage()+"\" ;\n" + 
-					"        base:hasMonthlyWeightage  \""+recommendation.getHasMonthlyWeightage()+"\" ;\n" + 
-					"  	base:hasUserInterest      \""+recommendation.getHasUserInterest()+"\" ;\n" + 
-					"        base:hasWeelyWeightage   \""+recommendation.getHasWeeklyWeightage()+"\" .}\n" +  
+					 "base:"+user.getName()+"Recommended"+foodNameInCamelCase+" base:hasBiweelyWeightage \""+newRecommendation.getHasByWeeklyWeightage()+"\" ;\n" + 
+					"        base:hasMonthlyWeightage  \""+newRecommendation.getHasMonthlyWeightage()+"\" ;\n" + 
+					"  	base:hasUserInterest      \""+newRecommendation.getHasUserInterest()+"\" ;\n" + 
+					"        base:hasWeelyWeightage   \""+newRecommendation.getHasWeeklyWeightage()+"\" .}\n" +  
 					"Where {\n" + 
-					"base:"+user.getName()+"Recommended"+foodNameInCamelCase +"   base:isRelatedTo  "+  "base:"+foodNameInCamelCase+"." +"\n" + 
+					"base:"+user.getName()+"Recommended"+foodNameInCamelCase +"   base:isRelatedTo  "+  "base:"+foodName+"." +"\n" + 
 					 
 					"}";
 

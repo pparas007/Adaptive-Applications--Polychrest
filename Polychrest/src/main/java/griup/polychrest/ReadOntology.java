@@ -1,7 +1,9 @@
 package griup.polychrest;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -22,7 +24,7 @@ import org.apache.jena.update.UpdateFactory;
 import org.apache.jena.update.UpdateRequest;
 
 public class ReadOntology {
-
+	public static String owlForm="resource\\ontology_owl.owl";
 	
 	public static String link="http://polychrest/ontology";
 	public static OntModel Ontologymodel = null;
@@ -83,6 +85,7 @@ public static void InsertData (OntModel m,String query123) {
     //return resultTxt;
 	try {
 		m.write(new FileWriter(polychrest_ontology,false), "TURTLE");
+		  m.write(new FileOutputStream(new File(localSource)),"RDF/XML-ABBREV");
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

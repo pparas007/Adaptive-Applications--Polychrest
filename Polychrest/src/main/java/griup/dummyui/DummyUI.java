@@ -47,9 +47,12 @@ public class DummyUI {
 		System.out.println(shopingNo);
 		shopping.setShoppingName(user.getName()+"Shops"+shopingNo);
 		//io.insertShoppingInstance(user, shopping);
-		io.getRecommendationForUserAndFoodPair(user, food);
-		//io.updateRecommendationForUserAndFoodPair(user, food, io.getRecommendationForUserAndFoodPair(user, food));
-		//io.getRecommendationListForUser(user);
+		Recommendation rec=io.getRecommendationForUserAndFoodPair(user, food);
+		rec.setHasByWeeklyWeightage((float) 0.912312);
+		rec.setHasUserInterest((float) 0.931231);
+		rec.setHasWeeklyWeightage((float) 0.93123123);
+		io.updateRecommendationForUserAndFoodPair(user, food,io.getRecommendationForUserAndFoodPair(user, food), rec);
+		io.getRecommendationListForUser(user);
 	}
 	
 	public static void createShoppingInstance() {

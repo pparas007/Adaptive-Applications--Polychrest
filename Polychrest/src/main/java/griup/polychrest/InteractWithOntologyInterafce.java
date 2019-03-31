@@ -24,7 +24,7 @@ public interface InteractWithOntologyInterafce {
 	//yet to be implemented 
 	public void insertShoppingInstance(User user,Shopping shopping);
 	public Recommendation getRecommendationForUserAndFoodPair(User user,Food food);
-	public void updateRecommendationForUserAndFoodPair(User user, Food food, Recommendation recommendation);
+	public void updateRecommendationForUserAndFoodPair(User user, Food food, Recommendation oldRecommendation, Recommendation newRecommendation);
 	
 
 }
