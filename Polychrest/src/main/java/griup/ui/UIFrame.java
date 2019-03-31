@@ -59,6 +59,7 @@ public class UIFrame extends JFrame implements ActionListener{
 	JLabel weeklyWeightageLabel=new JLabel("");
 	JLabel biweeklyWeightageLabel=new JLabel("");
 	JLabel monthlyWeightageLabel=new JLabel("");
+	JLabel userInterestLabel=new JLabel("");
 	
 	//global variables to hold screen data
 	Food food,weightageFood;
@@ -153,7 +154,8 @@ public class UIFrame extends JFrame implements ActionListener{
 		weeklyWeightageLabel.setBounds(20, 320, 200, 40);
 		biweeklyWeightageLabel.setBounds(20, 350, 200, 40);
 		monthlyWeightageLabel.setBounds(20, 380, 200, 40);
-		weeklyWeightageLabel.setForeground(Color.GRAY);biweeklyWeightageLabel.setForeground(Color.GRAY);monthlyWeightageLabel.setForeground(Color.GRAY);
+		userInterestLabel.setBounds(20, 410, 200, 40);
+		weeklyWeightageLabel.setForeground(Color.GRAY);biweeklyWeightageLabel.setForeground(Color.GRAY);monthlyWeightageLabel.setForeground(Color.GRAY);userInterestLabel.setForeground(Color.GRAY);
 		checkWeightageButton.setBounds(150, 280, 120, 30);
 		checkWeightageButton.setBackground(Color.GREEN);
 		//add action listeners
@@ -181,7 +183,7 @@ public class UIFrame extends JFrame implements ActionListener{
 		add(userLabel);add(userComboBox);add(userNote);
 		add(foodComboBox); add(shopComboBox); add(priceComboBox); add(patternComboBox); add(shoppingLabel);add(shoppingNote);add(patternNote);add(patternNote2);add(submitShopping);
 		add(checkWeightageLabel);add(checkWeightageNote);add(checkWeightageFoodComboBox);add(checkWeightageButton);
-		add(weeklyWeightageLabel);add(biweeklyWeightageLabel);add(monthlyWeightageLabel);add(patternConfidenceComboBox);
+		add(weeklyWeightageLabel);add(biweeklyWeightageLabel);add(monthlyWeightageLabel);add(userInterestLabel);add(patternConfidenceComboBox);
 		add(foodLabel);add(priceLabel);add(patternLabel);add(patternConfidenceLabel);add(shopLabel);
 		add(love);add(hate);add(alreadyHave);add(forgot);
 	}
@@ -243,16 +245,18 @@ public class UIFrame extends JFrame implements ActionListener{
 		updateScreenData();
 		
 		Recommendation recommendation=Middleware.getRecommendationForUserAndFoodPair(user, weightageFood);
-		recommendation=new Recommendation(0.3f, 0.1f, 0.2f,0.5f);//dummy data; to be removed after above method is available
+		//recommendation=new Recommendation(0.3f, 0.1f, 0.2f,0.5f);//dummy data; to be removed after above method is available
 		weeklyWeightageLabel.setText("Weekly weightage: "+recommendation.getHasWeeklyWeightage());
 		biweeklyWeightageLabel.setText("Biweekly weightage: "+recommendation.getHasByWeeklyWeightage());
 		monthlyWeightageLabel.setText("Monthly weightage: "+recommendation.getHasMonthlyWeightage());
+		userInterestLabel.setText("User Interest: "+recommendation.getHasUserInterest());
 		
 		//set green for highest weghtage
 		weeklyWeightageLabel.setForeground(Color.GRAY);biweeklyWeightageLabel.setForeground(Color.GRAY);monthlyWeightageLabel.setForeground(Color.GRAY);
 		if(recommendation.getHighestWeightage()==recommendation.getHasWeeklyWeightage()) weeklyWeightageLabel.setForeground(Color.GREEN);
 		else if(recommendation.getHighestWeightage()==recommendation.getHasByWeeklyWeightage()) biweeklyWeightageLabel.setForeground(Color.GREEN);
 		else monthlyWeightageLabel.setForeground(Color.GREEN);
+		if(recommendation.getHasUserInterest()>0.69) userInterestLabel.setForeground(Color.GREEN);
 	}
 	private Pattern getPattern(String patternName,float patternConfidence) {
 		Pattern pattern;

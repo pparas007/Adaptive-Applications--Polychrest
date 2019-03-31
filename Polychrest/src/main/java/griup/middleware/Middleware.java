@@ -25,7 +25,8 @@ public class Middleware {
 		
 		//get current recommendation weightage
 		Recommendation recommendation=getRecommendationForUserAndFoodPair(user, shopping.getBought());
-		recommendation=getDummyRecommendation();//dummy data; to be removed after above method is available
+		Recommendation oldRecommendation=new Recommendation(recommendation);
+		//recommendation=getDummyRecommendation();//dummy data; to be removed after above method is available
 		
 		float hasWeeklyWeightage=recommendation.getHasWeeklyWeightage();
 		float hasByWeeklyWeightage=recommendation.getHasByWeeklyWeightage();
@@ -57,7 +58,7 @@ public class Middleware {
 		recommendation.setHasMonthlyWeightage(hasMonthlyWeightage);
 		
 		//update weightage to ontology
-		new InteractWithOntology().updateRecommendationForUserAndFoodPair(user, shopping.getBought(), recommendation);
+		new InteractWithOntology().updateRecommendationForUserAndFoodPair(user, shopping.getBought(), oldRecommendation, recommendation);
 	}
 	
 	public static Recommendation getRecommendationForUserAndFoodPair(User user, Food food) {
@@ -76,7 +77,8 @@ public class Middleware {
 		System.out.println("Middleware method downgradeInterest with parameters:\n"+user+"\n"+weightageFood);
 		//get current recommendation weightage
 		Recommendation recommendation=getRecommendationForUserAndFoodPair(user, weightageFood);
-		recommendation=getDummyRecommendation();//dummy data; to be removed after above method is available
+		Recommendation oldRecommendation=new Recommendation(recommendation);
+		//recommendation=getDummyRecommendation();//dummy data; to be removed after above method is available
 		
 		float hasUserInterest=recommendation.getHasUserInterest();
 		System.out.println("User interest before: "+hasUserInterest);
@@ -90,14 +92,15 @@ public class Middleware {
 		recommendation.setHasUserInterest(hasUserInterest);
 		
 		//update weightage to ontology
-		new InteractWithOntology().updateRecommendationForUserAndFoodPair(user, weightageFood, recommendation);
+		new InteractWithOntology().updateRecommendationForUserAndFoodPair(user, weightageFood, oldRecommendation, recommendation);
 	}
 	
 	public static void downgradeInterest(User user, Food weightageFood) {
 		System.out.println("Middleware method downgradeInterest with parameters:\n"+user+"\n"+weightageFood);
 		//get current recommendation weightage
 		Recommendation recommendation=getRecommendationForUserAndFoodPair(user, weightageFood);
-		recommendation=getDummyRecommendation();//dummy data; to be removed after above method is available
+		Recommendation oldRecommendation=new Recommendation(recommendation);
+		//recommendation=getDummyRecommendation();//dummy data; to be removed after above method is available
 
 		float hasUserInterest=recommendation.getHasUserInterest();
 		System.out.println("User interest before: "+hasUserInterest);
@@ -111,14 +114,15 @@ public class Middleware {
 		recommendation.setHasUserInterest(hasUserInterest);
 		
 		//update weightage to ontology
-		new InteractWithOntology().updateRecommendationForUserAndFoodPair(user, weightageFood, recommendation);
+		new InteractWithOntology().updateRecommendationForUserAndFoodPair(user, weightageFood, oldRecommendation, recommendation);
 	}
 	
 	public static void upGradePattern(User user, Food weightageFood) {
 		System.out.println("Middleware method upGradePattern with parameters:\n"+user+"\n"+weightageFood);
 		//get current recommendation weightage
 		Recommendation recommendation=getRecommendationForUserAndFoodPair(user, weightageFood);
-		recommendation=getDummyRecommendation();//dummy data; to be removed after above method is available
+		Recommendation oldRecommendation=new Recommendation(recommendation);
+		//recommendation=getDummyRecommendation();//dummy data; to be removed after above method is available
 		
 		float hasWeeklyWeightage=recommendation.getHasWeeklyWeightage();
 		float hasByWeeklyWeightage=recommendation.getHasByWeeklyWeightage();
@@ -152,14 +156,15 @@ public class Middleware {
 		recommendation.setHasMonthlyWeightage(hasMonthlyWeightage);
 		
 		//update weightage to ontology
-		new InteractWithOntology().updateRecommendationForUserAndFoodPair(user, weightageFood, recommendation);
+		new InteractWithOntology().updateRecommendationForUserAndFoodPair(user, weightageFood, oldRecommendation, recommendation);
 	}
 
 	public static void downGradePattern(User user, Food weightageFood) {
 		System.out.println("Middleware method downGradePattern with parameters:\n"+user+"\n"+weightageFood);
 		//get current recommendation weightage
 		Recommendation recommendation=getRecommendationForUserAndFoodPair(user, weightageFood);
-		recommendation=getDummyRecommendation();//dummy data; to be removed after above method is available
+		Recommendation oldRecommendation=new Recommendation(recommendation);
+		//recommendation=getDummyRecommendation();//dummy data; to be removed after above method is available
 		
 		float hasWeeklyWeightage=recommendation.getHasWeeklyWeightage();
 		float hasByWeeklyWeightage=recommendation.getHasByWeeklyWeightage();
@@ -193,7 +198,7 @@ public class Middleware {
 		recommendation.setHasMonthlyWeightage(hasMonthlyWeightage);
 		
 		//update weightage to ontology
-		new InteractWithOntology().updateRecommendationForUserAndFoodPair(user, weightageFood, recommendation);
+		new InteractWithOntology().updateRecommendationForUserAndFoodPair(user, weightageFood, oldRecommendation, recommendation);
 	}
 	
 	public static Recommendation getDummyRecommendation() {

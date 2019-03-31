@@ -1,5 +1,5 @@
-@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix j.0:   <http://purl.org/dc/terms/> .
@@ -186,6 +186,13 @@ base:parasRecommendedBrocolli
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:brocolli .
 
+base:parasShops6611  a   base:shopping ;
+        base:atDateTime  "12:00" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:spinach ;
+        base:quantity    "1.0" .
+
 base:mushroom  a          base:food ;
         base:hasFoodName  "mushroom" ;
         base:ofCategory   "healthy" , "veg" , "vegetables" .
@@ -249,6 +256,13 @@ base:parasRecommendedButter
         base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:butter .
+
+base:parasShops9164  a   base:shopping ;
+        base:atDateTime  "12:00" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:spinach ;
+        base:quantity    "1.0" .
 
 base:anirbanRecommendedLowFatMilk
         a                         base:recommendation ;
@@ -357,6 +371,13 @@ base:anirbanShops12  a   base:shopping ;
         base:bought      base:coke ;
         base:quantity    "2" .
 
+base:parasShops6777  a   base:shopping ;
+        base:atDateTime  "12:00" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:spinach ;
+        base:quantity    "1.0" .
+
 base:anirbanRecommendedChickenBreasts
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
@@ -460,6 +481,20 @@ base:adityaRecommendedCoke
         base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:coke .
+
+base:parasShops459  a    base:shopping ;
+        base:atDateTime  "12:00" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:spinach ;
+        base:quantity    "1.0" .
+
+base:parasShops6323  a   base:shopping ;
+        base:atDateTime  "12:00" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:spinach ;
+        base:quantity    "1.0" .
 
 base:anirbanRecommendedSpinach
         a                         base:recommendation ;
@@ -590,7 +625,7 @@ base:paras  a                   base:user ;
         base:hasGoal            "economical" ;
         base:hasName            "paras" ;
         base:hasRecommendation  base:parasRecommendedApple , base:parasRecommendedBread , base:parasRecommendedCoke , base:parasRecommendedButter , base:parasRecommendedMilk , base:parasRecommendedChickenBreasts , base:parasRecommendedDietCoke , base:parasRecommendedSweeseCheese , base:parasRecommendedBrocolli , base:parasRecommendedKiwi , base:parasRecommendedMushroom , base:parasRecommendedLowFatMilk , base:parasRecommendedSpinach , base:parasRecommendedChickenLegs , base:parasRecommendedBrownBread , base:parasRecommendedOrange , base:parasRecommendedGreekCheese ;
-        base:shopped            base:parasShops23 , base:parasShops12 , base:parasShops11 , base:parasShops22 , base:parasShops13 , base:parasShops21 .
+        base:shopped            base:parasShops23 , base:parasShops5641 , base:parasShops12 , base:parasShops6323 , base:parasShops11 , base:parasShops6611 , base:parasShops459 , base:parasShops22 , base:parasShops13 , base:parasShops6777 , base:parasShops21 , base:parasShops9164 .
 
 base:hasUserInterest  a  owl:DatatypeProperty ;
         rdfs:domain  base:recommendation ;
@@ -638,10 +673,10 @@ base:adityaRecommendedBrownBread
 
 base:parasRecommendedSpinach
         a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasMonthlyWeightage  "0.1" ;
+        base:hasBiweelyWeightage  "0.8788999" ;
+        base:hasMonthlyWeightage  "4.4642275E-4" ;
         base:hasUserInterest      "0.5" ;
-        base:hasWeelyWeightage    "0.2" ;
+        base:hasWeelyWeightage    "0.09706197" ;
         base:isRelatedTo          base:spinach .
 
 base:adityaRecommendedChickenBreasts
@@ -819,6 +854,13 @@ base:anirbanRecommendedMilk
         base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:milk .
+
+base:parasShops5641  a   base:shopping ;
+        base:atDateTime  "12:00" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:spinach ;
+        base:quantity    "1.0" .
 
 base:adityaRecommendedButter
         a                         base:recommendation ;

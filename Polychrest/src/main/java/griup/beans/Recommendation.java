@@ -42,6 +42,16 @@ public class Recommendation {
 		this.hasMonthlyWeightage = hasMonthlyWeightage;
 		this.hasUserInterest = hasUserInterest;
 	}
+	
+	
+	public Recommendation(Recommendation recommendation) {
+		super();
+		this.hasWeeklyWeightage = recommendation.getHasWeeklyWeightage();
+		this.hasByWeeklyWeightage = recommendation.getHasByWeeklyWeightage();
+		this.hasMonthlyWeightage = recommendation.getHasMonthlyWeightage();
+		this.hasUserInterest = recommendation.getHasUserInterest();
+	}
+	
 	public float getHighestWeightage() {
 		if((hasWeeklyWeightage>=hasByWeeklyWeightage) && (hasWeeklyWeightage>=hasMonthlyWeightage)) return hasWeeklyWeightage;
 		else if((hasByWeeklyWeightage>=hasWeeklyWeightage) && (hasByWeeklyWeightage>=hasMonthlyWeightage)) return hasByWeeklyWeightage;
