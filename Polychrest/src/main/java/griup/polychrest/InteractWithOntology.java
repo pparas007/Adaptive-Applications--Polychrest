@@ -877,8 +877,8 @@ String s=	ReadOntology.query(queryString);
 					"  	base:hasUserInterest      \""+recommendation.getHasUserInterest()+"\" ;\n" + 
 					"        base:hasWeelyWeightage   \""+recommendation.getHasWeeklyWeightage()+"\" .}\n" +  
 					"Where {\n" + 
-					"base:"+user.getName()+"Recommended"+foodNameInCamelCase +"   base:isRelatedTo  "+  "base:"+foodNameInCamelCase+";" +"\n" + 
-					" base:hasRecommendation  "+   "base:"+user.getName()+"Recommended"+foodNameInCamelCase+"."+" \n" + 
+					"base:"+user.getName()+"Recommended"+foodNameInCamelCase +"   base:isRelatedTo  "+  "base:"+foodNameInCamelCase+"." +"\n" + 
+					 
 					"}";
 
 		System.out.println(queryString);
