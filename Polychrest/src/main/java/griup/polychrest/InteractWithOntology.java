@@ -810,6 +810,10 @@ String s=	ReadOntology.query(queryString);
 		// TODO Auto-generated method stub
 		Recommendation recommendation=null;
 		try {
+			String foodName=food.getFoodName();
+			char  firstChar=foodName.charAt(0);
+			String foodNameInCamelCase=Character.toUpperCase(firstChar)+foodName.substring(1);
+			System.out.println("foodNameInCamelCase: "+foodNameInCamelCase);
 		String queryString = "									PREFIX base:  <http://polychrest/ontology#>\n" + 
 				"					PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
 				"					PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
@@ -818,11 +822,11 @@ String s=	ReadOntology.query(queryString);
 				"					select *\n" + 
 				"where{\n" + 
 				"\n" + 
-				"base:"+user.getName()+"Recommended"+food.getFoodName()+"  a                         base:recommendation.\n" + 
-				"base:"+user.getName()+"Recommended"+food.getFoodName()+"  base:hasWeelyWeightage                        ?WeelyWeightage.\n" + 
-				"base:"+user.getName()+"Recommended"+food.getFoodName()+"  base:hasBiweelyWeightage                        ?BiWeelyWeightage.\n" + 
-				"base:"+user.getName()+"Recommended"+food.getFoodName()+"  base:hasMonthlyWeightage                        ?MonthlyWeelyWeightage.\n" + 
-				"base:"+user.getName()+"Recommended"+food.getFoodName()+"  base:hasUserInterest                        ?hasUserInterest.\n" + 
+				"base:"+user.getName()+"Recommended"+foodNameInCamelCase+"  a                         base:recommendation.\n" + 
+				"base:"+user.getName()+"Recommended"+foodNameInCamelCase+"  base:hasWeelyWeightage                        ?WeelyWeightage.\n" + 
+				"base:"+user.getName()+"Recommended"+foodNameInCamelCase+"  base:hasBiweelyWeightage                        ?BiWeelyWeightage.\n" + 
+				"base:"+user.getName()+"Recommended"+foodNameInCamelCase+"  base:hasMonthlyWeightage                        ?MonthlyWeelyWeightage.\n" + 
+				"base:"+user.getName()+"Recommended"+foodNameInCamelCase+"  base:hasUserInterest                        ?hasUserInterest.\n" + 
 				//"base:"+user.getName()+"Recommended"+food.getFoodName()+"  base:isRelatedTo                        base:"+food.getFoodName()+".\n" + 
 				
 
@@ -853,24 +857,27 @@ String s=	ReadOntology.query(queryString);
 	public void updateRecommendationForUserAndFoodPair(User user, Food food, Recommendation recommendation) {
 		// TODO Auto-generated method stub
 		try {
-		
+		String foodName=food.getFoodName();
+		char  firstChar=foodName.charAt(0);
+		String foodNameInCamelCase=Character.toUpperCase(firstChar)+foodName.substring(1);
+		System.out.println("foodNameInCamelCase: "+foodNameInCamelCase);
 			String queryString="PREFIX base:  <http://polychrest/ontology#>\n" + 
 					"PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
 					"PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
 					"PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
 					"PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
 					"DELETE {"
-					+ "base:"+user.getName()+"Recommended"+food.getFoodName()+" base:hasBiweelyWeightage  ?hwb ;\n" + 
+					+ "base:"+user.getName()+"Recommended"+foodNameInCamelCase+" base:hasBiweelyWeightage  ?hwb ;\n" + 
 					"        base:hasMonthlyWeightage ?hwm ;\n" + 
 					"  	base:hasUserInterest      ?ui ;\n" + 
 					"        base:hasWeelyWeightage   ?hww .}\n" + 
 					"INSERT {\n" + 
-					 "base:"+user.getName()+"Recommended"+food.getFoodName()+" base:hasBiweelyWeightage \""+recommendation.getHasByWeeklyWeightage()+"\" ;\n" + 
+					 "base:"+user.getName()+"Recommended"+foodNameInCamelCase+" base:hasBiweelyWeightage \""+recommendation.getHasByWeeklyWeightage()+"\" ;\n" + 
 					"        base:hasMonthlyWeightage  \""+recommendation.getHasMonthlyWeightage()+"\" ;\n" + 
 					"  	base:hasUserInterest      \""+recommendation.getHasUserInterest()+"\" ;\n" + 
 					"        base:hasWeelyWeightage   \""+recommendation.getHasWeeklyWeightage()+"\" .}\n" +  
 					"Where {\n" + 
-					"base:"+user.getName()+"Recommended"+food.getFoodName() +" base:isRelatedTo  base:chickenLegs ;\n" + 
+					"base:"+user.getName()+"Recommended"+foodNameInCamelCase +" base:isRelatedTo  base:chickenLegs ;\n" + 
 					" base:hasRecommendation    base:adityaRecommendedchickenLegs .\n" + 
 					"}";
 

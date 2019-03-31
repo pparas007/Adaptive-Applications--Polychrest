@@ -30,8 +30,8 @@ public class DummyUI {
 		paras.setName("paras");
 		User user=new User();
 		Food food= new Food ();
-		food.setFoodName("ChickenLegs");
-		user.setName("paras");
+		food.setFoodName("chickenLegs");
+		user.setName("shubham");
 		io. getShoppingByUser( user);
 		io.getRecommendationListForUser(user);
 		Shop shop= new Shop();

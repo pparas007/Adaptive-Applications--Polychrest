@@ -184,12 +184,6 @@
         <base:atShop>
           <base:shop rdf:about="http://polychrest/ontology#lidlArtane">
             <base:sells>
-              <base:food rdf:about="http://polychrest/ontology#sprite">
-                <base:ofCategory>softdrink</base:ofCategory>
-                <base:hasFoodName>sprite</base:hasFoodName>
-              </base:food>
-            </base:sells>
-            <base:sells>
               <base:food rdf:about="http://polychrest/ontology#butter">
                 <base:ofCategory>colesterol</base:ofCategory>
                 <base:ofCategory>veg</base:ofCategory>
@@ -223,14 +217,6 @@
               </base:food>
             </base:sells>
             <base:sells>
-              <base:food rdf:about="http://polychrest/ontology#rocketLeaves">
-                <base:ofCategory>vegetables</base:ofCategory>
-                <base:ofCategory>veg</base:ofCategory>
-                <base:ofCategory>healthy</base:ofCategory>
-                <base:hasFoodName>rocketLeaves</base:hasFoodName>
-              </base:food>
-            </base:sells>
-            <base:sells>
               <base:food rdf:about="http://polychrest/ontology#greekCheese">
                 <base:ofCategory>colesterol</base:ofCategory>
                 <base:ofCategory>cheese</base:ofCategory>
@@ -256,28 +242,6 @@
                 <base:hasFoodName>bread</base:hasFoodName>
               </base:food>
             </base:sells>
-            <base:sells>
-              <base:food rdf:about="http://polychrest/ontology#capsicum">
-                <base:ofCategory>vegetables</base:ofCategory>
-                <base:ofCategory>veg</base:ofCategory>
-                <base:ofCategory>healthy</base:ofCategory>
-                <base:hasFoodName>capsicum</base:hasFoodName>
-              </base:food>
-            </base:sells>
-            <base:sells>
-              <base:food rdf:about="http://polychrest/ontology#irishApple">
-                <base:ofCategory>veg</base:ofCategory>
-                <base:ofCategory>fruits</base:ofCategory>
-                <base:ofCategory>healthy</base:ofCategory>
-                <base:hasFoodName>irishApple</base:hasFoodName>
-              </base:food>
-            </base:sells>
-            <base:sells>
-              <base:food rdf:about="http://polychrest/ontology#dietCoke">
-                <base:ofCategory>softdrink</base:ofCategory>
-                <base:hasFoodName>dietCoke</base:hasFoodName>
-              </base:food>
-            </base:sells>
             <base:sells rdf:resource="http://polychrest/ontology#apple"/>
             <base:sells>
               <base:food rdf:about="http://polychrest/ontology#chickenBreasts">
@@ -288,11 +252,9 @@
               </base:food>
             </base:sells>
             <base:sells>
-              <base:food rdf:about="http://polychrest/ontology#noodles">
-                <base:ofCategory>veg</base:ofCategory>
-                <base:ofCategory>asian</base:ofCategory>
-                <base:ofCategory>chinese</base:ofCategory>
-                <base:hasFoodName>noodles</base:hasFoodName>
+              <base:food rdf:about="http://polychrest/ontology#dietCoke">
+                <base:ofCategory>softdrink</base:ofCategory>
+                <base:hasFoodName>dietCoke</base:hasFoodName>
               </base:food>
             </base:sells>
             <base:sells>
@@ -318,26 +280,6 @@
               </base:food>
             </base:sells>
             <base:sells>
-              <base:food rdf:about="http://polychrest/ontology#pepsi">
-                <base:ofCategory>softdrink</base:ofCategory>
-                <base:hasFoodName>pepsi</base:hasFoodName>
-              </base:food>
-            </base:sells>
-            <base:sells>
-              <base:food rdf:about="http://polychrest/ontology#lamb">
-                <base:ofCategory>colesterol</base:ofCategory>
-                <base:ofCategory>lamb</base:ofCategory>
-                <base:ofCategory>nonveg</base:ofCategory>
-                <base:hasFoodName>lamb</base:hasFoodName>
-              </base:food>
-            </base:sells>
-            <base:sells>
-              <base:food rdf:about="http://polychrest/ontology#fanta">
-                <base:ofCategory>softdrink</base:ofCategory>
-                <base:hasFoodName>fanta</base:hasFoodName>
-              </base:food>
-            </base:sells>
-            <base:sells>
               <base:food rdf:about="http://polychrest/ontology#kiwi">
                 <base:ofCategory>veg</base:ofCategory>
                 <base:ofCategory>fruits</base:ofCategory>
@@ -349,8 +291,51 @@
         </base:atShop>
       </base:shopping>
     </base:shopped>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedBread">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#bread"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedButter">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#butter"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedCoke">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#coke"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
     <base:hasGoal>economical</base:hasGoal>
     <base:hasName>paras</base:hasName>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedMilk">
+        <base:isRelatedTo>
+          <base:food rdf:about="http://polychrest/ontology#milk">
+            <base:ofCategory>veg</base:ofCategory>
+            <base:ofCategory>dairy</base:ofCategory>
+            <base:ofCategory>milk</base:ofCategory>
+            <base:hasFoodName>milk</base:hasFoodName>
+          </base:food>
+        </base:isRelatedTo>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
     <base:shopped>
       <base:shopping rdf:about="http://polychrest/ontology#parasShops12">
         <base:atPrice>2</base:atPrice>
@@ -369,6 +354,33 @@
         <base:atShop rdf:resource="http://polychrest/ontology#lidlArtane"/>
       </base:shopping>
     </base:shopped>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedKiwi">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#kiwi"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedDietCoke">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#dietCoke"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedSweeseCheese">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#sweeseCheese"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
     <base:shopped>
       <base:shopping rdf:about="http://polychrest/ontology#parasShops22">
         <base:atPrice>2</base:atPrice>
@@ -379,8 +391,17 @@
       </base:shopping>
     </base:shopped>
     <base:hasRecommendation>
-      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedKiwi">
-        <base:isRelatedTo rdf:resource="http://polychrest/ontology#kiwi"/>
+      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedBrocolli">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#brocolli"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedChickenBreasts">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#chickenBreasts"/>
         <base:hasUserInterest>0.5</base:hasUserInterest>
         <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
         <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
@@ -396,6 +417,24 @@
         <base:atShop rdf:resource="http://polychrest/ontology#lidlArtane"/>
       </base:shopping>
     </base:shopped>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedMushroom">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#mushroom"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedLowFatMilk">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#lowFatMilk"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
     <base:shopped>
       <base:shopping rdf:about="http://polychrest/ontology#parasShops21">
         <base:atPrice>1</base:atPrice>
@@ -406,8 +445,32 @@
       </base:shopping>
     </base:shopped>
     <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedSpinach">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#spinach"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
       <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedChickenLegs">
         <base:isRelatedTo rdf:resource="http://polychrest/ontology#chickenLegs"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedBrownBread">
+        <base:isRelatedTo>
+          <base:food rdf:about="http://polychrest/ontology#brownBread">
+            <base:ofCategory>bread</base:ofCategory>
+            <base:ofCategory>bakery</base:ofCategory>
+            <base:hasFoodName>brownBread</base:hasFoodName>
+          </base:food>
+        </base:isRelatedTo>
         <base:hasUserInterest>0.5</base:hasUserInterest>
         <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
         <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
@@ -423,12 +486,20 @@
         <base:hasWeelyWeightage>0.1</base:hasWeelyWeightage>
       </base:recommendation>
     </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#parasRecommendedGreekCheese">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#greekCheese"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
   </base:user>
   <base:user rdf:about="http://polychrest/ontology#aditya">
-    <base:hasGoal>veggie</base:hasGoal>
     <base:hasRecommendation>
-      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedcapsicum">
-        <base:isRelatedTo rdf:resource="http://polychrest/ontology#capsicum"/>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedMilk">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#milk"/>
         <base:hasUserInterest>0.5</base:hasUserInterest>
         <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
         <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
@@ -436,8 +507,72 @@
       </base:recommendation>
     </base:hasRecommendation>
     <base:hasRecommendation>
-      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedlowFatMilk">
-        <base:isRelatedTo rdf:resource="http://polychrest/ontology#lowFatMilk"/>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedApple">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#apple"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.1</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasGoal>veggie</base:hasGoal>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedOrange">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#orange"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.1</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedCoke">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#coke"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedSweeseCheese">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#sweeseCheese"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedDietCoke">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#dietCoke"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedBread">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#bread"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedChickenLegs">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#chickenLegs"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedBrownBread">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#brownBread"/>
         <base:hasUserInterest>0.5</base:hasUserInterest>
         <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
         <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
@@ -456,50 +591,55 @@
             <base:sells rdf:resource="http://polychrest/ontology#lowFatMilk"/>
             <base:sells rdf:resource="http://polychrest/ontology#dietCoke"/>
             <base:sells rdf:resource="http://polychrest/ontology#kiwi"/>
-            <base:sells rdf:resource="http://polychrest/ontology#rocketLeaves"/>
             <base:sells rdf:resource="http://polychrest/ontology#bread"/>
-            <base:sells rdf:resource="http://polychrest/ontology#lamb"/>
-            <base:sells rdf:resource="http://polychrest/ontology#irishApple"/>
             <base:sells rdf:resource="http://polychrest/ontology#orange"/>
-            <base:sells rdf:resource="http://polychrest/ontology#sprite"/>
             <base:sells rdf:resource="http://polychrest/ontology#mushroom"/>
             <base:sells rdf:resource="http://polychrest/ontology#sweeseCheese"/>
             <base:sells rdf:resource="http://polychrest/ontology#chickenLegs"/>
-            <base:sells>
-              <base:food rdf:about="http://polychrest/ontology#brownBread">
-                <base:ofCategory>bread</base:ofCategory>
-                <base:ofCategory>bakery</base:ofCategory>
-                <base:hasFoodName>brownBread</base:hasFoodName>
-              </base:food>
-            </base:sells>
+            <base:sells rdf:resource="http://polychrest/ontology#brownBread"/>
             <base:sells rdf:resource="http://polychrest/ontology#apple"/>
-            <base:sells rdf:resource="http://polychrest/ontology#capsicum"/>
             <base:sells rdf:resource="http://polychrest/ontology#butter"/>
             <base:hasShopType>supermarket</base:hasShopType>
-            <base:sells rdf:resource="http://polychrest/ontology#pepsi"/>
             <base:sells rdf:resource="http://polychrest/ontology#chickenBreasts"/>
             <base:hasShopAddress>City Centre, Dublin</base:hasShopAddress>
             <base:sells rdf:resource="http://polychrest/ontology#coke"/>
             <base:sells rdf:resource="http://polychrest/ontology#brocolli"/>
             <base:sells rdf:resource="http://polychrest/ontology#greekCheese"/>
             <base:sells rdf:resource="http://polychrest/ontology#spinach"/>
-            <base:sells rdf:resource="http://polychrest/ontology#fanta"/>
           </base:shop>
         </base:atShop>
       </base:shopping>
     </base:shopped>
-    <base:shopped>
-      <base:shopping rdf:about="http://polychrest/ontology#adityaShops25">
-        <base:atPrice>1</base:atPrice>
-        <base:quantity>1</base:quantity>
-        <base:atDateTime>16-Mar-2019</base:atDateTime>
-        <base:bought rdf:resource="http://polychrest/ontology#fanta"/>
-        <base:atShop rdf:resource="http://polychrest/ontology#tescoCityCentre"/>
-      </base:shopping>
-    </base:shopped>
     <base:hasRecommendation>
-      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedspinach">
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedButter">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#butter"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedLowFatMilk">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#lowFatMilk"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedSpinach">
         <base:isRelatedTo rdf:resource="http://polychrest/ontology#spinach"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedKiwi">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#kiwi"/>
         <base:hasUserInterest>0.5</base:hasUserInterest>
         <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
         <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
@@ -508,8 +648,26 @@
     </base:hasRecommendation>
     <base:hasGoal>meatlover</base:hasGoal>
     <base:hasRecommendation>
-      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedfanta">
-        <base:isRelatedTo rdf:resource="http://polychrest/ontology#fanta"/>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedChickenBreasts">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#chickenBreasts"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedMushroom">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#mushroom"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedBrocolli">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#brocolli"/>
         <base:hasUserInterest>0.5</base:hasUserInterest>
         <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
         <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
@@ -517,20 +675,29 @@
       </base:recommendation>
     </base:hasRecommendation>
     <base:shopped>
-      <base:shopping rdf:about="http://polychrest/ontology#adityaShops11">
-        <base:atPrice>1</base:atPrice>
-        <base:quantity>1</base:quantity>
-        <base:atDateTime>07-Mar-2019</base:atDateTime>
-        <base:bought rdf:resource="http://polychrest/ontology#capsicum"/>
-        <base:atShop rdf:resource="http://polychrest/ontology#tescoCityCentre"/>
-      </base:shopping>
-    </base:shopped>
-    <base:shopped>
       <base:shopping rdf:about="http://polychrest/ontology#adityaShops13">
         <base:atPrice>2.5</base:atPrice>
         <base:quantity>1</base:quantity>
         <base:atDateTime>07-Mar-2019</base:atDateTime>
         <base:bought rdf:resource="http://polychrest/ontology#chickenLegs"/>
+        <base:atShop rdf:resource="http://polychrest/ontology#tescoCityCentre"/>
+      </base:shopping>
+    </base:shopped>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedGreekCheese">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#greekCheese"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:shopped>
+      <base:shopping rdf:about="http://polychrest/ontology#adityaShops22">
+        <base:atPrice>1.8</base:atPrice>
+        <base:quantity>1</base:quantity>
+        <base:atDateTime>16-Mar-2019</base:atDateTime>
+        <base:bought rdf:resource="http://polychrest/ontology#lowFatMilk"/>
         <base:atShop rdf:resource="http://polychrest/ontology#tescoCityCentre"/>
       </base:shopping>
     </base:shopped>
@@ -543,34 +710,7 @@
         <base:atShop rdf:resource="http://polychrest/ontology#tescoCityCentre"/>
       </base:shopping>
     </base:shopped>
-    <base:shopped>
-      <base:shopping rdf:about="http://polychrest/ontology#adityaShops22">
-        <base:atPrice>1.8</base:atPrice>
-        <base:quantity>1</base:quantity>
-        <base:atDateTime>16-Mar-2019</base:atDateTime>
-        <base:bought rdf:resource="http://polychrest/ontology#lowFatMilk"/>
-        <base:atShop rdf:resource="http://polychrest/ontology#tescoCityCentre"/>
-      </base:shopping>
-    </base:shopped>
-    <base:shopped>
-      <base:shopping rdf:about="http://polychrest/ontology#adityaShops21">
-        <base:atPrice>1</base:atPrice>
-        <base:quantity>1</base:quantity>
-        <base:atDateTime>16-Mar-2019</base:atDateTime>
-        <base:bought rdf:resource="http://polychrest/ontology#capsicum"/>
-        <base:atShop rdf:resource="http://polychrest/ontology#tescoCityCentre"/>
-      </base:shopping>
-    </base:shopped>
     <base:hasName>aditya</base:hasName>
-    <base:hasRecommendation>
-      <base:recommendation rdf:about="http://polychrest/ontology#adityaRecommendedchickenLegs">
-        <base:isRelatedTo rdf:resource="http://polychrest/ontology#chickenLegs"/>
-        <base:hasUserInterest>0.5</base:hasUserInterest>
-        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
-        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
-        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
-      </base:recommendation>
-    </base:hasRecommendation>
     <base:shopped>
       <base:shopping rdf:about="http://polychrest/ontology#adityaShops12">
         <base:atPrice>1.8</base:atPrice>
@@ -582,35 +722,136 @@
     </base:shopped>
   </base:user>
   <base:user rdf:about="http://polychrest/ontology#shubham">
-    <base:hasGoal>veggie</base:hasGoal>
-    <base:hasName>shubham</base:hasName>
-  </base:user>
-  <base:food rdf:about="http://polychrest/ontology#milk">
-    <base:ofCategory>veg</base:ofCategory>
-    <base:ofCategory>dairy</base:ofCategory>
-    <base:ofCategory>milk</base:ofCategory>
-    <base:hasFoodName>milk</base:hasFoodName>
-  </base:food>
-  <base:shop rdf:about="http://polychrest/ontology#euroGeneralFairview">
-    <base:sells rdf:resource="http://polychrest/ontology#bread"/>
-    <base:hasShopAddress>Fairview, Dublin</base:hasShopAddress>
-    <base:sells rdf:resource="http://polychrest/ontology#apple"/>
-    <base:sells rdf:resource="http://polychrest/ontology#pepsi"/>
-    <base:sells rdf:resource="http://polychrest/ontology#chickenLegs"/>
-    <base:sells rdf:resource="http://polychrest/ontology#chickenBreasts"/>
-    <base:sells rdf:resource="http://polychrest/ontology#fanta"/>
-    <base:sells rdf:resource="http://polychrest/ontology#lamb"/>
-    <base:hasShopType>store</base:hasShopType>
-    <base:sells rdf:resource="http://polychrest/ontology#capsicum"/>
-    <base:sells rdf:resource="http://polychrest/ontology#butter"/>
-    <base:sells rdf:resource="http://polychrest/ontology#spinach"/>
-    <base:sells rdf:resource="http://polychrest/ontology#orange"/>
-    <base:hasShopName>Euro General</base:hasShopName>
-    <base:sells rdf:resource="http://polychrest/ontology#coke"/>
-  </base:shop>
-  <base:user rdf:about="http://polychrest/ontology#anirban">
     <base:hasRecommendation>
-      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedcoke">
+      <base:recommendation rdf:about="http://polychrest/ontology#shubhamRecommendedApple">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#apple"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.1</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#shubhamRecommendedOrange">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#orange"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.1</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#shubhamRecommendedKiwi">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#kiwi"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#shubhamRecommendedSpinach">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#spinach"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#shubhamRecommendedMilk">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#milk"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#shubhamRecommendedChickenBreasts">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#chickenBreasts"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#shubhamRecommendedBread">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#bread"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#shubhamRecommendedGreekCheese">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#greekCheese"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#shubhamRecommendedMushroom">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#mushroom"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#shubhamRecommendedBrocolli">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#brocolli"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasName>shubham</base:hasName>
+    <base:hasGoal>veggie</base:hasGoal>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#shubhamRecommendedButter">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#butter"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#shubhamRecommendedDietCoke">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#dietCoke"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#shubhamRecommendedLowFatMilk">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#lowFatMilk"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#shubhamRecommendedChickenLegs">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#chickenLegs"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#shubhamRecommendedCoke">
         <base:isRelatedTo rdf:resource="http://polychrest/ontology#coke"/>
         <base:hasUserInterest>0.5</base:hasUserInterest>
         <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
@@ -619,8 +860,50 @@
       </base:recommendation>
     </base:hasRecommendation>
     <base:hasRecommendation>
-      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedlamb">
-        <base:isRelatedTo rdf:resource="http://polychrest/ontology#lamb"/>
+      <base:recommendation rdf:about="http://polychrest/ontology#shubhamRecommendedBrownBread">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#brownBread"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#shubhamRecommendedSweeseCheese">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#sweeseCheese"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+  </base:user>
+  <base:shop rdf:about="http://polychrest/ontology#euroGeneralFairview">
+    <base:sells rdf:resource="http://polychrest/ontology#bread"/>
+    <base:hasShopAddress>Fairview, Dublin</base:hasShopAddress>
+    <base:sells rdf:resource="http://polychrest/ontology#apple"/>
+    <base:sells rdf:resource="http://polychrest/ontology#chickenLegs"/>
+    <base:sells rdf:resource="http://polychrest/ontology#chickenBreasts"/>
+    <base:hasShopType>store</base:hasShopType>
+    <base:sells rdf:resource="http://polychrest/ontology#butter"/>
+    <base:sells rdf:resource="http://polychrest/ontology#spinach"/>
+    <base:sells rdf:resource="http://polychrest/ontology#orange"/>
+    <base:hasShopName>Euro General</base:hasShopName>
+    <base:sells rdf:resource="http://polychrest/ontology#coke"/>
+  </base:shop>
+  <base:user rdf:about="http://polychrest/ontology#anirban">
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedKiwi">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#kiwi"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedBrocolli">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#brocolli"/>
         <base:hasUserInterest>0.5</base:hasUserInterest>
         <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
         <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
@@ -636,10 +919,8 @@
         <base:atShop>
           <base:shop rdf:about="http://polychrest/ontology#lidlCityCentre">
             <base:sells rdf:resource="http://polychrest/ontology#greekCheese"/>
-            <base:sells rdf:resource="http://polychrest/ontology#sprite"/>
             <base:hasShopAddress>City Centre, Dublin</base:hasShopAddress>
             <base:sells rdf:resource="http://polychrest/ontology#coke"/>
-            <base:sells rdf:resource="http://polychrest/ontology#fanta"/>
             <base:sells rdf:resource="http://polychrest/ontology#sweeseCheese"/>
             <base:sells rdf:resource="http://polychrest/ontology#spinach"/>
             <base:sells rdf:resource="http://polychrest/ontology#orange"/>
@@ -647,13 +928,8 @@
             <base:hasShopName>LiDL</base:hasShopName>
             <base:sells rdf:resource="http://polychrest/ontology#butter"/>
             <base:sells rdf:resource="http://polychrest/ontology#mushroom"/>
-            <base:sells rdf:resource="http://polychrest/ontology#capsicum"/>
-            <base:sells rdf:resource="http://polychrest/ontology#pepsi"/>
-            <base:sells rdf:resource="http://polychrest/ontology#bread"/>
             <base:sells rdf:resource="http://polychrest/ontology#lowFatMilk"/>
-            <base:sells rdf:resource="http://polychrest/ontology#rocketLeaves"/>
-            <base:sells rdf:resource="http://polychrest/ontology#noodles"/>
-            <base:sells rdf:resource="http://polychrest/ontology#lamb"/>
+            <base:sells rdf:resource="http://polychrest/ontology#bread"/>
             <base:sells rdf:resource="http://polychrest/ontology#chickenLegs"/>
             <base:sells rdf:resource="http://polychrest/ontology#kiwi"/>
             <base:sells rdf:resource="http://polychrest/ontology#brownBread"/>
@@ -663,6 +939,24 @@
         </base:atShop>
       </base:shopping>
     </base:shopped>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedMushroom">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#mushroom"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedOrange">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#orange"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.1</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
     <base:shopped>
       <base:shopping rdf:about="http://polychrest/ontology#anirbanShops11">
         <base:atPrice>1.5</base:atPrice>
@@ -682,7 +976,43 @@
         <base:atShop rdf:resource="http://polychrest/ontology#lidlCityCentre"/>
       </base:shopping>
     </base:shopped>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedChickenLegs">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#chickenLegs"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedApple">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#apple"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.1</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedSpinach">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#spinach"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
     <base:hasName>anirban</base:hasName>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedButter">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#butter"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
     <base:shopped>
       <base:shopping rdf:about="http://polychrest/ontology#anirbanShops21">
         <base:atPrice>1.5</base:atPrice>
@@ -693,26 +1023,34 @@
       </base:shopping>
     </base:shopped>
     <base:hasRecommendation>
-      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedbutter">
-        <base:isRelatedTo rdf:resource="http://polychrest/ontology#butter"/>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedGreekCheese">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#greekCheese"/>
         <base:hasUserInterest>0.5</base:hasUserInterest>
         <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
         <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
         <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
       </base:recommendation>
     </base:hasRecommendation>
-    <base:hasGoal>economical</base:hasGoal>
-    <base:shopped>
-      <base:shopping rdf:about="http://polychrest/ontology#anirbanShops13">
-        <base:atPrice>2</base:atPrice>
-        <base:quantity>1</base:quantity>
-        <base:atDateTime>06-Mar-2019</base:atDateTime>
-        <base:bought rdf:resource="http://polychrest/ontology#lamb"/>
-        <base:atShop rdf:resource="http://polychrest/ontology#lidlCityCentre"/>
-      </base:shopping>
-    </base:shopped>
     <base:hasRecommendation>
-      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedbread">
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedLowFatMilk">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#lowFatMilk"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedMilk">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#milk"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedBread">
         <base:isRelatedTo rdf:resource="http://polychrest/ontology#bread"/>
         <base:hasUserInterest>0.5</base:hasUserInterest>
         <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
@@ -720,15 +1058,43 @@
         <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
       </base:recommendation>
     </base:hasRecommendation>
-    <base:shopped>
-      <base:shopping rdf:about="http://polychrest/ontology#anirbanShops23">
-        <base:atPrice>2</base:atPrice>
-        <base:quantity>1</base:quantity>
-        <base:atDateTime>14-Mar-2019</base:atDateTime>
-        <base:bought rdf:resource="http://polychrest/ontology#lamb"/>
-        <base:atShop rdf:resource="http://polychrest/ontology#lidlCityCentre"/>
-      </base:shopping>
-    </base:shopped>
+    <base:hasGoal>economical</base:hasGoal>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedSweeseCheese">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#sweeseCheese"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedBrownBread">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#brownBread"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedChickenBreasts">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#chickenBreasts"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedDietCoke">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#dietCoke"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
     <base:shopped>
       <base:shopping rdf:about="http://polychrest/ontology#anirbanShops12">
         <base:atPrice>2.5</base:atPrice>
@@ -738,9 +1104,14 @@
         <base:atShop rdf:resource="http://polychrest/ontology#lidlCityCentre"/>
       </base:shopping>
     </base:shopped>
-  </base:user>
-  <base:user rdf:about="http://polychrest/ontology#pavan">
-    <base:hasGoal>veggie</base:hasGoal>
-    <base:hasName>pavan</base:hasName>
+    <base:hasRecommendation>
+      <base:recommendation rdf:about="http://polychrest/ontology#anirbanRecommendedCoke">
+        <base:isRelatedTo rdf:resource="http://polychrest/ontology#coke"/>
+        <base:hasUserInterest>0.5</base:hasUserInterest>
+        <base:hasMonthlyWeightage>0.1</base:hasMonthlyWeightage>
+        <base:hasBiweelyWeightage>0.1</base:hasBiweelyWeightage>
+        <base:hasWeelyWeightage>0.2</base:hasWeelyWeightage>
+      </base:recommendation>
+    </base:hasRecommendation>
   </base:user>
 </rdf:RDF>
