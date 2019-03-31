@@ -791,9 +791,9 @@ String s=	ReadOntology.query(queryString);
 					"}\n" + 
 					"\n" + 
 					"Where {\n" + 
-					"base:anirban a base:user .\n" + 
-					"base:lidlCityCentre  a       base:shop.\n" + 
-					"base:bread  a             base:food.\n" + 
+					"base:"+user.getName()+" a base:user .\n" + 
+					"base:"+shopping.getAtShop().getShopName()+ "  a       base:shop.\n" + 
+					"base:"+shopping.getBought().getFoodName()+"  a             base:food.\n" + 
 					"\n" + 
 					"}";
 					System.out.println(queryString);
