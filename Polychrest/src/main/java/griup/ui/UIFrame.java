@@ -290,7 +290,8 @@ public class UIFrame extends JFrame implements ActionListener{
 		shopping.setAtDateTime("12:00");
 		shopping.setBought(food);
 		shopping.setQuantity(quantity);
-
+		int shopingNo=(int)(Math.random()*10000);
+		shopping.setShoppingName(user.getName()+"Shops"+shopingNo);
 		String weightageFoodName=checkWeightageFoodComboBox.getSelectedItem().toString();
 		weightageFood=new Food();
 		weightageFood.setFoodName(weightageFoodName);
