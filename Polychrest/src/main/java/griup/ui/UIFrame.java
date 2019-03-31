@@ -252,10 +252,12 @@ public class UIFrame extends JFrame implements ActionListener{
 		userInterestLabel.setText("User Interest: "+recommendation.getHasUserInterest());
 		
 		//set green for highest weghtage
-		weeklyWeightageLabel.setForeground(Color.GRAY);biweeklyWeightageLabel.setForeground(Color.GRAY);monthlyWeightageLabel.setForeground(Color.GRAY);
+		weeklyWeightageLabel.setForeground(Color.GRAY);biweeklyWeightageLabel.setForeground(Color.GRAY);monthlyWeightageLabel.setForeground(Color.GRAY);userInterestLabel.setForeground(Color.GRAY);
 		if(recommendation.getHighestWeightage()==recommendation.getHasWeeklyWeightage()) weeklyWeightageLabel.setForeground(Color.GREEN);
 		else if(recommendation.getHighestWeightage()==recommendation.getHasByWeeklyWeightage()) biweeklyWeightageLabel.setForeground(Color.GREEN);
 		else monthlyWeightageLabel.setForeground(Color.GREEN);
+		
+		//user interest label
 		if(recommendation.getHasUserInterest()>0.69) userInterestLabel.setForeground(Color.GREEN);
 	}
 	private Pattern getPattern(String patternName,float patternConfidence) {
