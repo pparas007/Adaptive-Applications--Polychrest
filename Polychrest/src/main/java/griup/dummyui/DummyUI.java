@@ -31,7 +31,7 @@ public class DummyUI {
 		User user=new User();
 		Food food= new Food ();
 		food.setFoodName("ChickenLegs");
-		user.setName("anirban");
+		user.setName("paras");
 		io. getShoppingByUser( user);
 		io.getRecommendationListForUser(user);
 		Shop shop= new Shop();
@@ -46,10 +46,10 @@ public class DummyUI {
 		int shopingNo=(int)(Math.random()*10000);
 		System.out.println(shopingNo);
 		shopping.setShoppingName(user.getName()+"Shops"+shopingNo);
-		io.insertShoppingInstance(user, shopping);
-		//io.getRecommendationForUserAndFoodPair(user, food);
+		//io.insertShoppingInstance(user, shopping);
+		io.getRecommendationForUserAndFoodPair(user, food);
 		//io.updateRecommendationForUserAndFoodPair(user, food, io.getRecommendationForUserAndFoodPair(user, food));
-		io.getRecommendationListForUser(user);
+		//io.getRecommendationListForUser(user);
 	}
 	
 	public static void createShoppingInstance() {

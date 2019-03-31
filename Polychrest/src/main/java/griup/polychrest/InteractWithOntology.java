@@ -830,7 +830,7 @@ String s=	ReadOntology.query(queryString);
 				"";
 		
 		
-		
+		System.out.println(queryString);
 		String s=	ReadOntology.query(queryString);
 		System.out.println(s);
 		String s1[]= s.split("\"");
