@@ -1,5 +1,6 @@
 package griup.polychrest;
 
+import org.apache.jena.ontology.Individual;
 
 public class Constants {
 	public static String GOAL_MEAT_LOVER="meatlover";
@@ -39,8 +40,9 @@ public class Constants {
 	public static String PATTERN_MONTHLY="monthly";
 	
 	//UI Contsants
-	public static final String[] userList= {"paras","shubham","anirban","pavan", "aditya"};
-	public static final String foodList[]= {"spinach","mushroom","brocolli","rocketLeaves","noodles","orange","kiwi","apple","irishApple","lowFatMilk","milk","butter","greekCheese","sweeseCheese","chickenLegs","chickenBreasts","lamb","pepsi","coke","fanta","sprite","dietCoke","bread","brownBread"};
+	public static final String[] userList= {"paras","shubham","anirban", "aditya"};
+  
+	public static final String foodList[]= {"spinach","mushroom","brocolli","orange","kiwi","apple","lowFatMilk","milk","butter","greekCheese","sweeseCheese","chickenLegs","chickenBreasts","coke","dietCoke","bread","brownBread"};
 	public static final String shopList[]= {"lidlArtane","lidlCityCentre","tescoCityCentre","euroGeneralFairview"};
 	public static final String patternList[]= {PATTERN_WEEKLY,PATTERN_BIWEEKLY,PATTERN_MONTHLY};
 	public static final String patternConfidenceList[]= {"0.9","0.8","0.7","0.6"};

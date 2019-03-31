@@ -38,10 +38,10 @@ public class OntologyFactory{
 	public static OntClass food, shop, user, shopping, recommendation;
 	public static DatatypeProperty ofCategory, atPrice, hasShopName, hasShopAddress, hasShopType, quantity, atDateTime, hasName, hasFoodName,hasGoal, hasWeelyWeightage, hasBiweelyWeightage, hasMonthlyWeightage, hasUserInterest, isEnabled;
 	public static ObjectProperty bought, atShop, shopped, sells, availableAt, isRelatedTo, hasRecommendation, recommendedTo;
-    public static Individual paras,anirban,shubham,aditya,pavan,gauranksh;
+    public static Individual paras,anirban,shubham,aditya;
     public static Individual euroGeneralFairview, tescoCityCentre, lidlCityCentre, lidlArtane;
-    public static Individual sprite, dietCoke, bread,brownBread,pepsi,coke,fanta, lamb, chickenBreasts, chickenLegs, sweeseCheese, greekCheese, butter, lowFatMilk, milk, irishApple, apple, kiwi;
-    public static Individual orange, noodles, capsicum, rocketLeaves, spinach, mushroom, brocolli;
+    public static Individual dietCoke, bread,brownBread,coke, chickenBreasts, chickenLegs, sweeseCheese, greekCheese, butter, lowFatMilk, milk, apple, kiwi;
+    public static Individual orange, spinach, mushroom, brocolli;
     
     public void intializeOntology() throws Exception{
 		Files.copy( URI.create(bbcOntologyOnline).toURL().openStream(), Paths.get(bbcOntologyLocal),StandardCopyOption.REPLACE_EXISTING);
@@ -194,9 +194,7 @@ public class OntologyFactory{
 		anirban.addProperty(hasGoal, Constants.GOAL_MEAT_LOVER);
 		anirban.addProperty(hasGoal, Constants.GOAL_ECONOMICAL);
 		// New Users added
-		pavan=user.createIndividual(base+"pavan");
-		pavan.addProperty(hasName, "pavan");
-		pavan.addProperty(hasGoal, Constants.GOAL_VEGGIE);
+		
 		aditya=user.createIndividual(base+"aditya");
 		aditya.addProperty(hasName, "aditya");
 		aditya.addProperty(hasGoal, Constants.GOAL_VEGGIE);
@@ -236,22 +234,7 @@ public class OntologyFactory{
 		brocolli.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
 		brocolli.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
 		brocolli.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEGETABLES);
-		rocketLeaves=food.createIndividual(base+"rocketLeaves");
-		rocketLeaves.addProperty(hasFoodName, "rocketLeaves");
-		rocketLeaves.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
-		rocketLeaves.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
-		rocketLeaves.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEGETABLES);
-		capsicum=food.createIndividual(base+"capsicum");
-		capsicum.addProperty(hasFoodName, "capsicum");
-		capsicum.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
-		capsicum.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
-		capsicum.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEGETABLES);
 		
-		noodles=food.createIndividual(base+"noodles");
-		noodles.addProperty(hasFoodName, "noodles");
-		noodles.addProperty(ofCategory, Constants.FOOD_CATEGORY_CHINESE);
-		noodles.addProperty(ofCategory, Constants.FOOD_CATEGORY_ASIAN);
-		noodles.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
 		
 		orange=food.createIndividual(base+"orange");
 		orange.addProperty(hasFoodName, "orange");
@@ -268,11 +251,6 @@ public class OntologyFactory{
 		apple.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
 		apple.addProperty(ofCategory, Constants.FOOD_CATEGORY_FRUITS);
 		apple.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
-		irishApple=food.createIndividual(base+"irishApple");
-		irishApple.addProperty(hasFoodName, "irishApple");
-		irishApple.addProperty(ofCategory, Constants.FOOD_CATEGORY_HEALTHY);
-		irishApple.addProperty(ofCategory, Constants.FOOD_CATEGORY_FRUITS);
-		irishApple.addProperty(ofCategory, Constants.FOOD_CATEGORY_VEG);
 		
 		lowFatMilk=food.createIndividual(base+"lowFatMilk");
 		lowFatMilk.addProperty(hasFoodName, "lowFatMilk");
@@ -310,24 +288,11 @@ public class OntologyFactory{
 		chickenBreasts.addProperty(ofCategory, Constants.FOOD_CATEGORY_NONVEG);
 		chickenBreasts.addProperty(ofCategory, Constants.FOOD_CATEGORY_CHICKEN);
 		chickenBreasts.addProperty(ofCategory, Constants.FOOD_CATEGORY_CHOLESTEROL);
-		lamb=food.createIndividual(base+"lamb");
-		lamb.addProperty(hasFoodName, "lamb");
-		lamb.addProperty(ofCategory, Constants.FOOD_CATEGORY_NONVEG);
-		lamb.addProperty(ofCategory, Constants.FOOD_CATEGORY_LAMB);
-		lamb.addProperty(ofCategory, Constants.FOOD_CATEGORY_CHOLESTEROL);
-
-		pepsi=food.createIndividual(base+"pepsi");
-		pepsi.addProperty(hasFoodName, "pepsi");
-		pepsi.addProperty(ofCategory, Constants.FOOD_CATEGORY_SOFT_DRINK);
+		
 		coke=food.createIndividual(base+"coke");
 		coke.addProperty(hasFoodName, "coke");
 		coke.addProperty(ofCategory, Constants.FOOD_CATEGORY_SOFT_DRINK);
-		fanta=food.createIndividual(base+"fanta");
-		fanta.addProperty(hasFoodName, "fanta");
-		fanta.addProperty(ofCategory, Constants.FOOD_CATEGORY_SOFT_DRINK);
-		sprite=food.createIndividual(base+"sprite");
-		sprite.addProperty(hasFoodName, "sprite");
-		sprite.addProperty(ofCategory, Constants.FOOD_CATEGORY_SOFT_DRINK);
+		
 		dietCoke=food.createIndividual(base+"dietCoke");
 		dietCoke.addProperty(hasFoodName, "dietCoke");
 		dietCoke.addProperty(ofCategory, Constants.FOOD_CATEGORY_SOFT_DRINK);
@@ -342,36 +307,24 @@ public class OntologyFactory{
 		brownBread.addProperty(ofCategory, Constants.FOOD_CATEGORY_BREAD);
 		
 		/*--------------------- Relate food and shops ---------------------*/
-		lidlArtane.addProperty(sells, noodles);
 		lidlArtane.addProperty(sells, spinach);
 		lidlArtane.addProperty(sells, mushroom);
 		lidlArtane.addProperty(sells, brocolli);
-		lidlArtane.addProperty(sells, rocketLeaves);
-		lidlArtane.addProperty(sells, capsicum);
 		lidlArtane.addProperty(sells, orange);
 		lidlArtane.addProperty(sells, kiwi);
 		lidlArtane.addProperty(sells, apple);
-		lidlArtane.addProperty(sells, irishApple);
 		lidlArtane.addProperty(sells, lowFatMilk);
 		lidlArtane.addProperty(sells, butter);
 		lidlArtane.addProperty(sells, greekCheese);
 		lidlArtane.addProperty(sells, sweeseCheese);
 		lidlArtane.addProperty(sells, chickenLegs);
 		lidlArtane.addProperty(sells, chickenBreasts);
-		lidlArtane.addProperty(sells, lamb);
-		lidlArtane.addProperty(sells, pepsi);
 		lidlArtane.addProperty(sells, coke);
-		lidlArtane.addProperty(sells, fanta);
-		lidlArtane.addProperty(sells, sprite);
 		lidlArtane.addProperty(sells, dietCoke);
-		lidlArtane.addProperty(sells, fanta);
 		lidlArtane.addProperty(sells, bread);
 		
-		lidlCityCentre.addProperty(sells, noodles);
 		lidlCityCentre.addProperty(sells, spinach);
 		lidlCityCentre.addProperty(sells, mushroom);
-		lidlCityCentre.addProperty(sells, rocketLeaves);
-		lidlCityCentre.addProperty(sells, capsicum);
 		lidlCityCentre.addProperty(sells, orange);
 		lidlCityCentre.addProperty(sells, kiwi);
 		lidlCityCentre.addProperty(sells, apple);
@@ -381,52 +334,34 @@ public class OntologyFactory{
 		lidlCityCentre.addProperty(sells, sweeseCheese);
 		lidlCityCentre.addProperty(sells, chickenLegs);
 		lidlCityCentre.addProperty(sells, chickenBreasts);
-		lidlCityCentre.addProperty(sells, lamb);
-		lidlCityCentre.addProperty(sells, pepsi);
 		lidlCityCentre.addProperty(sells, coke);
-		lidlCityCentre.addProperty(sells, fanta);
-		lidlCityCentre.addProperty(sells, sprite);
-		lidlCityCentre.addProperty(sells, fanta);
 		lidlCityCentre.addProperty(sells, bread);
 		lidlCityCentre.addProperty(sells, brownBread);
 		
 		tescoCityCentre.addProperty(sells, spinach);
 		tescoCityCentre.addProperty(sells, mushroom);
 		tescoCityCentre.addProperty(sells, brocolli);
-		tescoCityCentre.addProperty(sells, rocketLeaves);
-		tescoCityCentre.addProperty(sells, capsicum);
 		tescoCityCentre.addProperty(sells, orange);
 		tescoCityCentre.addProperty(sells, kiwi);
 		tescoCityCentre.addProperty(sells, apple);
-		tescoCityCentre.addProperty(sells, irishApple);
 		tescoCityCentre.addProperty(sells, lowFatMilk);
 		tescoCityCentre.addProperty(sells, butter);
 		tescoCityCentre.addProperty(sells, greekCheese);
 		tescoCityCentre.addProperty(sells, sweeseCheese);
 		tescoCityCentre.addProperty(sells, chickenLegs);
 		tescoCityCentre.addProperty(sells, chickenBreasts);
-		tescoCityCentre.addProperty(sells, lamb);
-		tescoCityCentre.addProperty(sells, pepsi);
 		tescoCityCentre.addProperty(sells, coke);
-		tescoCityCentre.addProperty(sells, fanta);
-		tescoCityCentre.addProperty(sells, sprite);
 		tescoCityCentre.addProperty(sells, dietCoke);
-		tescoCityCentre.addProperty(sells, fanta);
 		tescoCityCentre.addProperty(sells, bread);
 		tescoCityCentre.addProperty(sells, brownBread);
 		
 		euroGeneralFairview.addProperty(sells, spinach);
-		euroGeneralFairview.addProperty(sells, capsicum);
 		euroGeneralFairview.addProperty(sells, orange);
 		euroGeneralFairview.addProperty(sells, apple);
 		euroGeneralFairview.addProperty(sells, butter);
 		euroGeneralFairview.addProperty(sells, chickenLegs);
 		euroGeneralFairview.addProperty(sells, chickenBreasts);
-		euroGeneralFairview.addProperty(sells, lamb);
-		euroGeneralFairview.addProperty(sells, pepsi);
 		euroGeneralFairview.addProperty(sells, coke);
-		euroGeneralFairview.addProperty(sells, fanta);
-		euroGeneralFairview.addProperty(sells, fanta);
 		euroGeneralFairview.addProperty(sells, bread);
 		
 		
@@ -493,15 +428,10 @@ public class OntologyFactory{
 		anirbanShops12.addProperty(atDateTime, "06-Mar-2019");
 		anirbanShops12.addProperty(quantity, "2");
 		anirbanShops12.addProperty(atPrice, "2.5");
-		Individual anirbanShops13=shopping.createIndividual(base+"anirbanShops13");
-		anirbanShops13.addProperty(atShop, lidlCityCentre);
-		anirbanShops13.addProperty(bought, lamb);
-		anirbanShops13.addProperty(atDateTime, "06-Mar-2019");
-		anirbanShops13.addProperty(quantity, "1");
-		anirbanShops13.addProperty(atPrice, "2");
+
 		
 		
-		anirban.addProperty(shopped, anirbanShops11); anirban.addProperty(shopped, anirbanShops12); anirban.addProperty(shopped, anirbanShops13);
+		anirban.addProperty(shopped, anirbanShops11); anirban.addProperty(shopped, anirbanShops12); 
 		
 		//shopping instance 2
 		//anirban shops 5 items on another day
@@ -517,12 +447,7 @@ public class OntologyFactory{
 		anirbanShops22.addProperty(atDateTime, "14-Mar-2019");
 		anirbanShops22.addProperty(quantity, "2");
 		anirbanShops22.addProperty(atPrice, "2.5");
-		Individual anirbanShops23=shopping.createIndividual(base+"anirbanShops23");
-		anirbanShops23.addProperty(atShop, lidlCityCentre);
-		anirbanShops23.addProperty(bought, lamb);
-		anirbanShops23.addProperty(atDateTime, "14-Mar-2019");
-		anirbanShops23.addProperty(quantity, "1");
-		anirbanShops23.addProperty(atPrice, "2");
+		
 		Individual anirbanShops24=shopping.createIndividual(base+"anirbanShops24");
 		anirbanShops24.addProperty(atShop, lidlCityCentre);
 		anirbanShops24.addProperty(bought, butter);
@@ -531,17 +456,12 @@ public class OntologyFactory{
 		anirbanShops24.addProperty(atPrice, "1.5");
 
 		
-		anirban.addProperty(shopped, anirbanShops21); anirban.addProperty(shopped, anirbanShops22); anirban.addProperty(shopped, anirbanShops23); anirban.addProperty(shopped, anirbanShops24);
+		anirban.addProperty(shopped, anirbanShops21); anirban.addProperty(shopped, anirbanShops22);  anirban.addProperty(shopped, anirbanShops24);
 		
 		/*--------------------- Shopping Instances for Aditya---------------------*/
 		//shopping instance 1
 		//aditya shops 3 items on a day
-		Individual adityaShops11=shopping.createIndividual(base+"adityaShops11");
-		adityaShops11.addProperty(atShop, tescoCityCentre);
-		adityaShops11.addProperty(bought, capsicum);
-		adityaShops11.addProperty(atDateTime, "07-Mar-2019");
-		adityaShops11.addProperty(quantity, "1");
-		adityaShops11.addProperty(atPrice, "1");
+		
 		Individual adityaShops12=shopping.createIndividual(base+"adityaShops12");
 		adityaShops12.addProperty(atShop, tescoCityCentre);
 		adityaShops12.addProperty(bought, lowFatMilk);
@@ -555,16 +475,10 @@ public class OntologyFactory{
 		adityaShops13.addProperty(quantity, "1");
 		adityaShops13.addProperty(atPrice, "2.5");
 		
-		aditya.addProperty(shopped, adityaShops11); aditya.addProperty(shopped, adityaShops12); aditya.addProperty(shopped, adityaShops13);
+		aditya.addProperty(shopped, adityaShops12); aditya.addProperty(shopped, adityaShops13);
 		
 		//shopping instance 2
 		//aditya shops 5 items on another day
-		Individual adityaShops21=shopping.createIndividual(base+"adityaShops21");
-		adityaShops21.addProperty(atShop, tescoCityCentre);
-		adityaShops21.addProperty(bought, capsicum);
-		adityaShops21.addProperty(atDateTime, "16-Mar-2019");
-		adityaShops21.addProperty(quantity, "1");
-		adityaShops21.addProperty(atPrice, "1");
 		Individual adityaShops22=shopping.createIndividual(base+"adityaShops22");
 		adityaShops22.addProperty(atShop, tescoCityCentre);
 		adityaShops22.addProperty(bought, lowFatMilk);
@@ -583,20 +497,131 @@ public class OntologyFactory{
 		adityaShops24.addProperty(atDateTime, "16-Mar-2019");
 		adityaShops24.addProperty(quantity, "1");
 		adityaShops24.addProperty(atPrice, "1");
-		Individual adityaShops25=shopping.createIndividual(base+"adityaShops25");
-		adityaShops25.addProperty(atShop, tescoCityCentre);
-		adityaShops25.addProperty(bought, fanta);
-		adityaShops25.addProperty(atDateTime, "16-Mar-2019");
-		adityaShops25.addProperty(quantity, "1");
-		adityaShops25.addProperty(atPrice, "1");
-
 		
-		aditya.addProperty(shopped, adityaShops21); aditya.addProperty(shopped, adityaShops22); aditya.addProperty(shopped, adityaShops23); aditya.addProperty(shopped, adityaShops24); aditya.addProperty(shopped, adityaShops25);
+		aditya.addProperty(shopped, adityaShops22); aditya.addProperty(shopped, adityaShops23); aditya.addProperty(shopped, adityaShops24);
 		
 	}
 	
 	public void createRecommendationInstances() {
 		//this sample recommendations entries are created based on the above shopping instances
+		//paras
+		Individual parasRecommendedDietCoke=recommendation.createIndividual(base+"parasRecommendedDietCoke");
+		parasRecommendedDietCoke.addProperty(hasWeelyWeightage, "0.2");
+		parasRecommendedDietCoke.addProperty(hasBiweelyWeightage, "0.1");
+		parasRecommendedDietCoke.addProperty(hasMonthlyWeightage, "0.1");
+		parasRecommendedDietCoke.addProperty(hasUserInterest, "0.5");
+		
+		parasRecommendedDietCoke.addProperty(isRelatedTo, dietCoke);		
+		paras.addProperty(hasRecommendation, parasRecommendedDietCoke);
+		
+		Individual parasRecommendedBread=recommendation.createIndividual(base+"parasRecommendedBread");
+		parasRecommendedBread.addProperty(hasWeelyWeightage, "0.2");
+		parasRecommendedBread.addProperty(hasBiweelyWeightage, "0.1");
+		parasRecommendedBread.addProperty(hasMonthlyWeightage, "0.1");
+		parasRecommendedBread.addProperty(hasUserInterest, "0.5");
+		
+		parasRecommendedBread.addProperty(isRelatedTo, bread);		
+		paras.addProperty(hasRecommendation, parasRecommendedBread);
+		
+		Individual parasRecommendedBrownBread=recommendation.createIndividual(base+"parasRecommendedBrownBread");
+		parasRecommendedBrownBread.addProperty(hasWeelyWeightage, "0.2");
+		parasRecommendedBrownBread.addProperty(hasBiweelyWeightage, "0.1");
+		parasRecommendedBrownBread.addProperty(hasMonthlyWeightage, "0.1");
+		parasRecommendedBrownBread.addProperty(hasUserInterest, "0.5");
+		
+		parasRecommendedBrownBread.addProperty(isRelatedTo, brownBread);		
+		paras.addProperty(hasRecommendation, parasRecommendedBrownBread);
+
+		Individual parasRecommendedCoke=recommendation.createIndividual(base+"parasRecommendedCoke");
+		parasRecommendedCoke.addProperty(hasWeelyWeightage, "0.2");
+		parasRecommendedCoke.addProperty(hasBiweelyWeightage, "0.1");
+		parasRecommendedCoke.addProperty(hasMonthlyWeightage, "0.1");
+		parasRecommendedCoke.addProperty(hasUserInterest, "0.5");
+		
+		parasRecommendedCoke.addProperty(isRelatedTo, coke);		
+		paras.addProperty(hasRecommendation, parasRecommendedCoke);
+		
+		Individual parasRecommendedChickenBreasts=recommendation.createIndividual(base+"parasRecommendedChickenBreasts");
+		parasRecommendedChickenBreasts.addProperty(hasWeelyWeightage, "0.2");
+		parasRecommendedChickenBreasts.addProperty(hasBiweelyWeightage, "0.1");
+		parasRecommendedChickenBreasts.addProperty(hasMonthlyWeightage, "0.1");
+		parasRecommendedChickenBreasts.addProperty(hasUserInterest, "0.5");
+		
+		parasRecommendedChickenBreasts.addProperty(isRelatedTo, chickenBreasts);		
+		paras.addProperty(hasRecommendation, parasRecommendedChickenBreasts);
+		
+		Individual parasRecommendedSweeseCheese=recommendation.createIndividual(base+"parasRecommendedSweeseCheese");
+		parasRecommendedSweeseCheese.addProperty(hasWeelyWeightage, "0.2");
+		parasRecommendedSweeseCheese.addProperty(hasBiweelyWeightage, "0.1");
+		parasRecommendedSweeseCheese.addProperty(hasMonthlyWeightage, "0.1");
+		parasRecommendedSweeseCheese.addProperty(hasUserInterest, "0.5");
+		
+		parasRecommendedSweeseCheese.addProperty(isRelatedTo, sweeseCheese);		
+		paras.addProperty(hasRecommendation, parasRecommendedSweeseCheese);
+		
+		Individual parasRecommendedGreekCheese=recommendation.createIndividual(base+"parasRecommendedGreekCheese");
+		parasRecommendedGreekCheese.addProperty(hasWeelyWeightage, "0.2");
+		parasRecommendedGreekCheese.addProperty(hasBiweelyWeightage, "0.1");
+		parasRecommendedGreekCheese.addProperty(hasMonthlyWeightage, "0.1");
+		parasRecommendedGreekCheese.addProperty(hasUserInterest, "0.5");
+		
+		parasRecommendedGreekCheese.addProperty(isRelatedTo, greekCheese);		
+		paras.addProperty(hasRecommendation, parasRecommendedGreekCheese);
+		
+		Individual parasRecommendedButter=recommendation.createIndividual(base+"parasRecommendedButter");
+		parasRecommendedButter.addProperty(hasWeelyWeightage, "0.2");
+		parasRecommendedButter.addProperty(hasBiweelyWeightage, "0.1");
+		parasRecommendedButter.addProperty(hasMonthlyWeightage, "0.1");
+		parasRecommendedButter.addProperty(hasUserInterest, "0.5");
+		
+		parasRecommendedButter.addProperty(isRelatedTo, butter);		
+		paras.addProperty(hasRecommendation, parasRecommendedButter);
+		
+		Individual parasRecommendedLowFatMilk=recommendation.createIndividual(base+"parasRecommendedLowFatMilk");
+		parasRecommendedLowFatMilk.addProperty(hasWeelyWeightage, "0.2");
+		parasRecommendedLowFatMilk.addProperty(hasBiweelyWeightage, "0.1");
+		parasRecommendedLowFatMilk.addProperty(hasMonthlyWeightage, "0.1");
+		parasRecommendedLowFatMilk.addProperty(hasUserInterest, "0.5");
+		
+		parasRecommendedLowFatMilk.addProperty(isRelatedTo, lowFatMilk);		
+		paras.addProperty(hasRecommendation, parasRecommendedLowFatMilk);
+		
+		Individual parasRecommendedMilk=recommendation.createIndividual(base+"parasRecommendedMilk");
+		parasRecommendedMilk.addProperty(hasWeelyWeightage, "0.2");
+		parasRecommendedMilk.addProperty(hasBiweelyWeightage, "0.1");
+		parasRecommendedMilk.addProperty(hasMonthlyWeightage, "0.1");
+		parasRecommendedMilk.addProperty(hasUserInterest, "0.5");
+		
+		parasRecommendedMilk.addProperty(isRelatedTo, milk);		
+		paras.addProperty(hasRecommendation, parasRecommendedMilk);
+		
+		Individual parasRecommendedSpinach=recommendation.createIndividual(base+"parasRecommendedSpinach");
+		parasRecommendedSpinach.addProperty(hasWeelyWeightage, "0.2");
+		parasRecommendedSpinach.addProperty(hasBiweelyWeightage, "0.1");
+		parasRecommendedSpinach.addProperty(hasMonthlyWeightage, "0.1");
+		parasRecommendedSpinach.addProperty(hasUserInterest, "0.5");
+		
+		parasRecommendedSpinach.addProperty(isRelatedTo, spinach);		
+		paras.addProperty(hasRecommendation, parasRecommendedSpinach);
+		
+		Individual parasRecommendedMushroom=recommendation.createIndividual(base+"parasRecommendedMushroom");
+		parasRecommendedMushroom.addProperty(hasWeelyWeightage, "0.2");
+		parasRecommendedMushroom.addProperty(hasBiweelyWeightage, "0.1");
+		parasRecommendedMushroom.addProperty(hasMonthlyWeightage, "0.1");
+		parasRecommendedMushroom.addProperty(hasUserInterest, "0.5");
+		
+		parasRecommendedMushroom.addProperty(isRelatedTo, mushroom);		
+		paras.addProperty(hasRecommendation, parasRecommendedMushroom);
+		
+		Individual parasRecommendedBrocolli=recommendation.createIndividual(base+"parasRecommendedBrocolli");
+		parasRecommendedBrocolli.addProperty(hasWeelyWeightage, "0.2");
+		parasRecommendedBrocolli.addProperty(hasBiweelyWeightage, "0.1");
+		parasRecommendedBrocolli.addProperty(hasMonthlyWeightage, "0.1");
+		parasRecommendedBrocolli.addProperty(hasUserInterest, "0.5");
+		
+		parasRecommendedBrocolli.addProperty(isRelatedTo, brocolli);		
+		paras.addProperty(hasRecommendation, parasRecommendedBrocolli);
+		
 		Individual parasRecommendedKiwi=recommendation.createIndividual(base+"parasRecommendedKiwi");
 		parasRecommendedKiwi.addProperty(hasWeelyWeightage, "0.2");
 		parasRecommendedKiwi.addProperty(hasBiweelyWeightage, "0.1");
@@ -635,95 +660,480 @@ public class OntologyFactory{
 		
 		parasRecommendedChickenLegs.addProperty(isRelatedTo, chickenLegs);
 		paras.addProperty(hasRecommendation, parasRecommendedChickenLegs);
+				
 		
-		// Anirban
-		Individual anirbanRecommendedbread=recommendation.createIndividual(base+"anirbanRecommendedbread");
-		anirbanRecommendedbread.addProperty(hasWeelyWeightage, "0.2");
-		anirbanRecommendedbread.addProperty(hasBiweelyWeightage, "0.1");
-		anirbanRecommendedbread.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedbread.addProperty(hasUserInterest, "0.5");
+		//anirban
+		Individual anirbanRecommendedDietCoke=recommendation.createIndividual(base+"anirbanRecommendedDietCoke");
+		anirbanRecommendedDietCoke.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedDietCoke.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedDietCoke.addProperty(hasMonthlyWeightage, "0.1");
+		anirbanRecommendedDietCoke.addProperty(hasUserInterest, "0.5");
 		
-		anirbanRecommendedbread.addProperty(isRelatedTo, bread);		
-		anirban.addProperty(hasRecommendation, anirbanRecommendedbread);
+		anirbanRecommendedDietCoke.addProperty(isRelatedTo, dietCoke);		
+		anirban.addProperty(hasRecommendation, anirbanRecommendedDietCoke);
+		
+		Individual anirbanRecommendedBread=recommendation.createIndividual(base+"anirbanRecommendedBread");
+		anirbanRecommendedBread.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedBread.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedBread.addProperty(hasMonthlyWeightage, "0.1");
+		anirbanRecommendedBread.addProperty(hasUserInterest, "0.5");
+		
+		anirbanRecommendedBread.addProperty(isRelatedTo, bread);		
+		anirban.addProperty(hasRecommendation, anirbanRecommendedBread);
+		
+		Individual anirbanRecommendedBrownBread=recommendation.createIndividual(base+"anirbanRecommendedBrownBread");
+		anirbanRecommendedBrownBread.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedBrownBread.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedBrownBread.addProperty(hasMonthlyWeightage, "0.1");
+		anirbanRecommendedBrownBread.addProperty(hasUserInterest, "0.5");
+		
+		anirbanRecommendedBrownBread.addProperty(isRelatedTo, brownBread);		
+		anirban.addProperty(hasRecommendation, anirbanRecommendedBrownBread);
+
+		Individual anirbanRecommendedCoke=recommendation.createIndividual(base+"anirbanRecommendedCoke");
+		anirbanRecommendedCoke.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedCoke.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedCoke.addProperty(hasMonthlyWeightage, "0.1");
+		anirbanRecommendedCoke.addProperty(hasUserInterest, "0.5");
+		
+		anirbanRecommendedCoke.addProperty(isRelatedTo, coke);		
+		anirban.addProperty(hasRecommendation, anirbanRecommendedCoke);
+		
+		Individual anirbanRecommendedChickenBreasts=recommendation.createIndividual(base+"anirbanRecommendedChickenBreasts");
+		anirbanRecommendedChickenBreasts.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedChickenBreasts.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedChickenBreasts.addProperty(hasMonthlyWeightage, "0.1");
+		anirbanRecommendedChickenBreasts.addProperty(hasUserInterest, "0.5");
+		
+		anirbanRecommendedChickenBreasts.addProperty(isRelatedTo, chickenBreasts);		
+		anirban.addProperty(hasRecommendation, anirbanRecommendedChickenBreasts);
+		
+		Individual anirbanRecommendedSweeseCheese=recommendation.createIndividual(base+"anirbanRecommendedSweeseCheese");
+		anirbanRecommendedSweeseCheese.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedSweeseCheese.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedSweeseCheese.addProperty(hasMonthlyWeightage, "0.1");
+		anirbanRecommendedSweeseCheese.addProperty(hasUserInterest, "0.5");
+		
+		anirbanRecommendedSweeseCheese.addProperty(isRelatedTo, sweeseCheese);		
+		anirban.addProperty(hasRecommendation, anirbanRecommendedSweeseCheese);
+		
+		Individual anirbanRecommendedGreekCheese=recommendation.createIndividual(base+"anirbanRecommendedGreekCheese");
+		anirbanRecommendedGreekCheese.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedGreekCheese.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedGreekCheese.addProperty(hasMonthlyWeightage, "0.1");
+		anirbanRecommendedGreekCheese.addProperty(hasUserInterest, "0.5");
+		
+		anirbanRecommendedGreekCheese.addProperty(isRelatedTo, greekCheese);		
+		anirban.addProperty(hasRecommendation, anirbanRecommendedGreekCheese);
+		
+		Individual anirbanRecommendedButter=recommendation.createIndividual(base+"anirbanRecommendedButter");
+		anirbanRecommendedButter.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedButter.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedButter.addProperty(hasMonthlyWeightage, "0.1");
+		anirbanRecommendedButter.addProperty(hasUserInterest, "0.5");
+		
+		anirbanRecommendedButter.addProperty(isRelatedTo, butter);		
+		anirban.addProperty(hasRecommendation, anirbanRecommendedButter);
+		
+		Individual anirbanRecommendedLowFatMilk=recommendation.createIndividual(base+"anirbanRecommendedLowFatMilk");
+		anirbanRecommendedLowFatMilk.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedLowFatMilk.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedLowFatMilk.addProperty(hasMonthlyWeightage, "0.1");
+		anirbanRecommendedLowFatMilk.addProperty(hasUserInterest, "0.5");
+		
+		anirbanRecommendedLowFatMilk.addProperty(isRelatedTo, lowFatMilk);		
+		anirban.addProperty(hasRecommendation, anirbanRecommendedLowFatMilk);
+		
+		Individual anirbanRecommendedMilk=recommendation.createIndividual(base+"anirbanRecommendedMilk");
+		anirbanRecommendedMilk.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedMilk.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedMilk.addProperty(hasMonthlyWeightage, "0.1");
+		anirbanRecommendedMilk.addProperty(hasUserInterest, "0.5");
+		
+		anirbanRecommendedMilk.addProperty(isRelatedTo, milk);		
+		anirban.addProperty(hasRecommendation, anirbanRecommendedMilk);
+		
+		Individual anirbanRecommendedSpinach=recommendation.createIndividual(base+"anirbanRecommendedSpinach");
+		anirbanRecommendedSpinach.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedSpinach.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedSpinach.addProperty(hasMonthlyWeightage, "0.1");
+		anirbanRecommendedSpinach.addProperty(hasUserInterest, "0.5");
+		
+		anirbanRecommendedSpinach.addProperty(isRelatedTo, spinach);		
+		anirban.addProperty(hasRecommendation, anirbanRecommendedSpinach);
+		
+		Individual anirbanRecommendedMushroom=recommendation.createIndividual(base+"anirbanRecommendedMushroom");
+		anirbanRecommendedMushroom.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedMushroom.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedMushroom.addProperty(hasMonthlyWeightage, "0.1");
+		anirbanRecommendedMushroom.addProperty(hasUserInterest, "0.5");
+		
+		anirbanRecommendedMushroom.addProperty(isRelatedTo, mushroom);		
+		anirban.addProperty(hasRecommendation, anirbanRecommendedMushroom);
+		
+		Individual anirbanRecommendedBrocolli=recommendation.createIndividual(base+"anirbanRecommendedBrocolli");
+		anirbanRecommendedBrocolli.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedBrocolli.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedBrocolli.addProperty(hasMonthlyWeightage, "0.1");
+		anirbanRecommendedBrocolli.addProperty(hasUserInterest, "0.5");
+		
+		anirbanRecommendedBrocolli.addProperty(isRelatedTo, brocolli);		
+		anirban.addProperty(hasRecommendation, anirbanRecommendedBrocolli);
+		
+		Individual anirbanRecommendedKiwi=recommendation.createIndividual(base+"anirbanRecommendedKiwi");
+		anirbanRecommendedKiwi.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedKiwi.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedKiwi.addProperty(hasMonthlyWeightage, "0.1");
+		anirbanRecommendedKiwi.addProperty(hasUserInterest, "0.5");
+		
+		anirbanRecommendedKiwi.addProperty(isRelatedTo, kiwi);		
+		anirban.addProperty(hasRecommendation, anirbanRecommendedKiwi);
 		
 		
-		Individual anirbanRecommendedcoke=recommendation.createIndividual(base+"anirbanRecommendedcoke");
-		anirbanRecommendedcoke.addProperty(hasWeelyWeightage, "0.2");
-		anirbanRecommendedcoke.addProperty(hasBiweelyWeightage, "0.1");
-		anirbanRecommendedcoke.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedcoke.addProperty(hasUserInterest, "0.5");
+		Individual anirbanRecommendedApple=recommendation.createIndividual(base+"anirbanRecommendedApple");
+		anirbanRecommendedApple.addProperty(hasWeelyWeightage, "0.1");
+		anirbanRecommendedApple.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedApple.addProperty(hasMonthlyWeightage, "0.1");
+		anirbanRecommendedApple.addProperty(hasUserInterest, "0.5");
 		
-		anirbanRecommendedcoke.addProperty(isRelatedTo, coke);		
-		anirban.addProperty(hasRecommendation, anirbanRecommendedcoke);
-		
-		
-		Individual anirbanRecommendedlamb=recommendation.createIndividual(base+"anirbanRecommendedlamb");
-		anirbanRecommendedlamb.addProperty(hasWeelyWeightage, "0.2");
-		anirbanRecommendedlamb.addProperty(hasBiweelyWeightage, "0.1");
-		anirbanRecommendedlamb.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedlamb.addProperty(hasUserInterest, "0.5");
-		
-		anirbanRecommendedlamb.addProperty(isRelatedTo, lamb);		
-		anirban.addProperty(hasRecommendation, anirbanRecommendedlamb);
-		
-		Individual anirbanRecommendedbutter=recommendation.createIndividual(base+"anirbanRecommendedbutter");
-		anirbanRecommendedbutter.addProperty(hasWeelyWeightage, "0.2");
-		anirbanRecommendedbutter.addProperty(hasBiweelyWeightage, "0.1");
-		anirbanRecommendedbutter.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedbutter.addProperty(hasUserInterest, "0.5");
-		
-		anirbanRecommendedbutter.addProperty(isRelatedTo, butter);		
-		anirban.addProperty(hasRecommendation, anirbanRecommendedbutter);
-		
-		//Aditya
-		Individual adityaRecommendedcapsicum=recommendation.createIndividual(base+"adityaRecommendedcapsicum");
-		adityaRecommendedcapsicum.addProperty(hasWeelyWeightage, "0.2");
-		adityaRecommendedcapsicum.addProperty(hasBiweelyWeightage, "0.1");
-		adityaRecommendedcapsicum.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedcapsicum.addProperty(hasUserInterest, "0.5");
-		
-		adityaRecommendedcapsicum.addProperty(isRelatedTo, capsicum);		
-		aditya.addProperty(hasRecommendation, adityaRecommendedcapsicum);
-		
-		Individual adityaRecommendedlowFatMilk=recommendation.createIndividual(base+"adityaRecommendedlowFatMilk");
-		adityaRecommendedlowFatMilk.addProperty(hasWeelyWeightage, "0.2");
-		adityaRecommendedlowFatMilk.addProperty(hasBiweelyWeightage, "0.1");
-		adityaRecommendedlowFatMilk.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedlowFatMilk.addProperty(hasUserInterest, "0.5");
-		
-		adityaRecommendedlowFatMilk.addProperty(isRelatedTo, lowFatMilk);		
-		aditya.addProperty(hasRecommendation, adityaRecommendedlowFatMilk);
-		
-		Individual adityaRecommendedchickenLegs=recommendation.createIndividual(base+"adityaRecommendedchickenLegs");
-		adityaRecommendedchickenLegs.addProperty(hasWeelyWeightage, "0.2");
-		adityaRecommendedchickenLegs.addProperty(hasBiweelyWeightage, "0.1");
-		adityaRecommendedchickenLegs.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedchickenLegs.addProperty(hasUserInterest, "0.5");
-		
-		adityaRecommendedchickenLegs.addProperty(isRelatedTo, chickenLegs);		
-		aditya.addProperty(hasRecommendation, adityaRecommendedchickenLegs);
+		anirbanRecommendedApple.addProperty(isRelatedTo, apple);
+		anirban.addProperty(hasRecommendation, anirbanRecommendedApple);
 		
 		
-		Individual adityaRecommendedspinach=recommendation.createIndividual(base+"adityaRecommendedspinach");
-		adityaRecommendedspinach.addProperty(hasWeelyWeightage, "0.2");
-		adityaRecommendedspinach.addProperty(hasBiweelyWeightage, "0.1");
-		adityaRecommendedspinach.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedspinach.addProperty(hasUserInterest, "0.5");
+		Individual anirbanRecommendedOrange=recommendation.createIndividual(base+"anirbanRecommendedOrange");
+		anirbanRecommendedOrange.addProperty(hasWeelyWeightage, "0.1");
+		anirbanRecommendedOrange.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedOrange.addProperty(hasMonthlyWeightage, "0.1");
+		anirbanRecommendedOrange.addProperty(hasUserInterest, "0.5");
 		
-		adityaRecommendedspinach.addProperty(isRelatedTo, spinach);		
-		aditya.addProperty(hasRecommendation, adityaRecommendedspinach);
-		
-		
-		Individual adityaRecommendedfanta=recommendation.createIndividual(base+"adityaRecommendedfanta");
-		adityaRecommendedfanta.addProperty(hasWeelyWeightage, "0.2");
-		adityaRecommendedfanta.addProperty(hasBiweelyWeightage, "0.1");
-		adityaRecommendedfanta.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedfanta.addProperty(hasUserInterest, "0.5");
-		
-		adityaRecommendedfanta.addProperty(isRelatedTo, fanta);		
-		aditya.addProperty(hasRecommendation, adityaRecommendedfanta);
+		anirbanRecommendedOrange.addProperty(isRelatedTo, orange);
+		anirban.addProperty(hasRecommendation, anirbanRecommendedOrange);
 		
 		
+		Individual anirbanRecommendedChickenLegs=recommendation.createIndividual(base+"anirbanRecommendedChickenLegs");
+		anirbanRecommendedChickenLegs.addProperty(hasWeelyWeightage, "0.2");
+		anirbanRecommendedChickenLegs.addProperty(hasBiweelyWeightage, "0.1");
+		anirbanRecommendedChickenLegs.addProperty(hasMonthlyWeightage, "0.1");
+		anirbanRecommendedChickenLegs.addProperty(hasUserInterest, "0.5");
+		
+		anirbanRecommendedChickenLegs.addProperty(isRelatedTo, chickenLegs);
+		anirban.addProperty(hasRecommendation, anirbanRecommendedChickenLegs);
+		
+		
+		//shubham
+		Individual shubhamRecommendedDietCoke=recommendation.createIndividual(base+"shubhamRecommendedDietCoke");
+		shubhamRecommendedDietCoke.addProperty(hasWeelyWeightage, "0.2");
+		shubhamRecommendedDietCoke.addProperty(hasBiweelyWeightage, "0.1");
+		shubhamRecommendedDietCoke.addProperty(hasMonthlyWeightage, "0.1");
+		shubhamRecommendedDietCoke.addProperty(hasUserInterest, "0.5");
+		
+		shubhamRecommendedDietCoke.addProperty(isRelatedTo, dietCoke);		
+		shubham.addProperty(hasRecommendation, shubhamRecommendedDietCoke);
+		
+		Individual shubhamRecommendedBread=recommendation.createIndividual(base+"shubhamRecommendedBread");
+		shubhamRecommendedBread.addProperty(hasWeelyWeightage, "0.2");
+		shubhamRecommendedBread.addProperty(hasBiweelyWeightage, "0.1");
+		shubhamRecommendedBread.addProperty(hasMonthlyWeightage, "0.1");
+		shubhamRecommendedBread.addProperty(hasUserInterest, "0.5");
+		
+		shubhamRecommendedBread.addProperty(isRelatedTo, bread);		
+		shubham.addProperty(hasRecommendation, shubhamRecommendedBread);
+		
+		Individual shubhamRecommendedBrownBread=recommendation.createIndividual(base+"shubhamRecommendedBrownBread");
+		shubhamRecommendedBrownBread.addProperty(hasWeelyWeightage, "0.2");
+		shubhamRecommendedBrownBread.addProperty(hasBiweelyWeightage, "0.1");
+		shubhamRecommendedBrownBread.addProperty(hasMonthlyWeightage, "0.1");
+		shubhamRecommendedBrownBread.addProperty(hasUserInterest, "0.5");
+		
+		shubhamRecommendedBrownBread.addProperty(isRelatedTo, brownBread);		
+		shubham.addProperty(hasRecommendation, shubhamRecommendedBrownBread);
+
+		Individual shubhamRecommendedCoke=recommendation.createIndividual(base+"shubhamRecommendedCoke");
+		shubhamRecommendedCoke.addProperty(hasWeelyWeightage, "0.2");
+		shubhamRecommendedCoke.addProperty(hasBiweelyWeightage, "0.1");
+		shubhamRecommendedCoke.addProperty(hasMonthlyWeightage, "0.1");
+		shubhamRecommendedCoke.addProperty(hasUserInterest, "0.5");
+		
+		shubhamRecommendedCoke.addProperty(isRelatedTo, coke);		
+		shubham.addProperty(hasRecommendation, shubhamRecommendedCoke);
+		
+		Individual shubhamRecommendedChickenBreasts=recommendation.createIndividual(base+"shubhamRecommendedChickenBreasts");
+		shubhamRecommendedChickenBreasts.addProperty(hasWeelyWeightage, "0.2");
+		shubhamRecommendedChickenBreasts.addProperty(hasBiweelyWeightage, "0.1");
+		shubhamRecommendedChickenBreasts.addProperty(hasMonthlyWeightage, "0.1");
+		shubhamRecommendedChickenBreasts.addProperty(hasUserInterest, "0.5");
+		
+		shubhamRecommendedChickenBreasts.addProperty(isRelatedTo, chickenBreasts);		
+		shubham.addProperty(hasRecommendation, shubhamRecommendedChickenBreasts);
+		
+		Individual shubhamRecommendedSweeseCheese=recommendation.createIndividual(base+"shubhamRecommendedSweeseCheese");
+		shubhamRecommendedSweeseCheese.addProperty(hasWeelyWeightage, "0.2");
+		shubhamRecommendedSweeseCheese.addProperty(hasBiweelyWeightage, "0.1");
+		shubhamRecommendedSweeseCheese.addProperty(hasMonthlyWeightage, "0.1");
+		shubhamRecommendedSweeseCheese.addProperty(hasUserInterest, "0.5");
+		
+		shubhamRecommendedSweeseCheese.addProperty(isRelatedTo, sweeseCheese);		
+		shubham.addProperty(hasRecommendation, shubhamRecommendedSweeseCheese);
+		
+		Individual shubhamRecommendedGreekCheese=recommendation.createIndividual(base+"shubhamRecommendedGreekCheese");
+		shubhamRecommendedGreekCheese.addProperty(hasWeelyWeightage, "0.2");
+		shubhamRecommendedGreekCheese.addProperty(hasBiweelyWeightage, "0.1");
+		shubhamRecommendedGreekCheese.addProperty(hasMonthlyWeightage, "0.1");
+		shubhamRecommendedGreekCheese.addProperty(hasUserInterest, "0.5");
+		
+		shubhamRecommendedGreekCheese.addProperty(isRelatedTo, greekCheese);		
+		shubham.addProperty(hasRecommendation, shubhamRecommendedGreekCheese);
+		
+		Individual shubhamRecommendedButter=recommendation.createIndividual(base+"shubhamRecommendedButter");
+		shubhamRecommendedButter.addProperty(hasWeelyWeightage, "0.2");
+		shubhamRecommendedButter.addProperty(hasBiweelyWeightage, "0.1");
+		shubhamRecommendedButter.addProperty(hasMonthlyWeightage, "0.1");
+		shubhamRecommendedButter.addProperty(hasUserInterest, "0.5");
+		
+		shubhamRecommendedButter.addProperty(isRelatedTo, butter);		
+		shubham.addProperty(hasRecommendation, shubhamRecommendedButter);
+		
+		Individual shubhamRecommendedLowFatMilk=recommendation.createIndividual(base+"shubhamRecommendedLowFatMilk");
+		shubhamRecommendedLowFatMilk.addProperty(hasWeelyWeightage, "0.2");
+		shubhamRecommendedLowFatMilk.addProperty(hasBiweelyWeightage, "0.1");
+		shubhamRecommendedLowFatMilk.addProperty(hasMonthlyWeightage, "0.1");
+		shubhamRecommendedLowFatMilk.addProperty(hasUserInterest, "0.5");
+		
+		shubhamRecommendedLowFatMilk.addProperty(isRelatedTo, lowFatMilk);		
+		shubham.addProperty(hasRecommendation, shubhamRecommendedLowFatMilk);
+		
+		Individual shubhamRecommendedMilk=recommendation.createIndividual(base+"shubhamRecommendedMilk");
+		shubhamRecommendedMilk.addProperty(hasWeelyWeightage, "0.2");
+		shubhamRecommendedMilk.addProperty(hasBiweelyWeightage, "0.1");
+		shubhamRecommendedMilk.addProperty(hasMonthlyWeightage, "0.1");
+		shubhamRecommendedMilk.addProperty(hasUserInterest, "0.5");
+		
+		shubhamRecommendedMilk.addProperty(isRelatedTo, milk);		
+		shubham.addProperty(hasRecommendation, shubhamRecommendedMilk);
+		
+		Individual shubhamRecommendedSpinach=recommendation.createIndividual(base+"shubhamRecommendedSpinach");
+		shubhamRecommendedSpinach.addProperty(hasWeelyWeightage, "0.2");
+		shubhamRecommendedSpinach.addProperty(hasBiweelyWeightage, "0.1");
+		shubhamRecommendedSpinach.addProperty(hasMonthlyWeightage, "0.1");
+		shubhamRecommendedSpinach.addProperty(hasUserInterest, "0.5");
+		
+		shubhamRecommendedSpinach.addProperty(isRelatedTo, spinach);		
+		shubham.addProperty(hasRecommendation, shubhamRecommendedSpinach);
+		
+		Individual shubhamRecommendedMushroom=recommendation.createIndividual(base+"shubhamRecommendedMushroom");
+		shubhamRecommendedMushroom.addProperty(hasWeelyWeightage, "0.2");
+		shubhamRecommendedMushroom.addProperty(hasBiweelyWeightage, "0.1");
+		shubhamRecommendedMushroom.addProperty(hasMonthlyWeightage, "0.1");
+		shubhamRecommendedMushroom.addProperty(hasUserInterest, "0.5");
+		
+		shubhamRecommendedMushroom.addProperty(isRelatedTo, mushroom);		
+		shubham.addProperty(hasRecommendation, shubhamRecommendedMushroom);
+		
+		Individual shubhamRecommendedBrocolli=recommendation.createIndividual(base+"shubhamRecommendedBrocolli");
+		shubhamRecommendedBrocolli.addProperty(hasWeelyWeightage, "0.2");
+		shubhamRecommendedBrocolli.addProperty(hasBiweelyWeightage, "0.1");
+		shubhamRecommendedBrocolli.addProperty(hasMonthlyWeightage, "0.1");
+		shubhamRecommendedBrocolli.addProperty(hasUserInterest, "0.5");
+		
+		shubhamRecommendedBrocolli.addProperty(isRelatedTo, brocolli);		
+		shubham.addProperty(hasRecommendation, shubhamRecommendedBrocolli);
+		
+		Individual shubhamRecommendedKiwi=recommendation.createIndividual(base+"shubhamRecommendedKiwi");
+		shubhamRecommendedKiwi.addProperty(hasWeelyWeightage, "0.2");
+		shubhamRecommendedKiwi.addProperty(hasBiweelyWeightage, "0.1");
+		shubhamRecommendedKiwi.addProperty(hasMonthlyWeightage, "0.1");
+		shubhamRecommendedKiwi.addProperty(hasUserInterest, "0.5");
+		
+		shubhamRecommendedKiwi.addProperty(isRelatedTo, kiwi);		
+		shubham.addProperty(hasRecommendation, shubhamRecommendedKiwi);
+		
+		
+		Individual shubhamRecommendedApple=recommendation.createIndividual(base+"shubhamRecommendedApple");
+		shubhamRecommendedApple.addProperty(hasWeelyWeightage, "0.1");
+		shubhamRecommendedApple.addProperty(hasBiweelyWeightage, "0.1");
+		shubhamRecommendedApple.addProperty(hasMonthlyWeightage, "0.1");
+		shubhamRecommendedApple.addProperty(hasUserInterest, "0.5");
+		
+		shubhamRecommendedApple.addProperty(isRelatedTo, apple);
+		shubham.addProperty(hasRecommendation, shubhamRecommendedApple);
+		
+		
+		Individual shubhamRecommendedOrange=recommendation.createIndividual(base+"shubhamRecommendedOrange");
+		shubhamRecommendedOrange.addProperty(hasWeelyWeightage, "0.1");
+		shubhamRecommendedOrange.addProperty(hasBiweelyWeightage, "0.1");
+		shubhamRecommendedOrange.addProperty(hasMonthlyWeightage, "0.1");
+		shubhamRecommendedOrange.addProperty(hasUserInterest, "0.5");
+		
+		shubhamRecommendedOrange.addProperty(isRelatedTo, orange);
+		shubham.addProperty(hasRecommendation, shubhamRecommendedOrange);
+		
+		
+		Individual shubhamRecommendedChickenLegs=recommendation.createIndividual(base+"shubhamRecommendedChickenLegs");
+		shubhamRecommendedChickenLegs.addProperty(hasWeelyWeightage, "0.2");
+		shubhamRecommendedChickenLegs.addProperty(hasBiweelyWeightage, "0.1");
+		shubhamRecommendedChickenLegs.addProperty(hasMonthlyWeightage, "0.1");
+		shubhamRecommendedChickenLegs.addProperty(hasUserInterest, "0.5");
+		
+		shubhamRecommendedChickenLegs.addProperty(isRelatedTo, chickenLegs);
+		shubham.addProperty(hasRecommendation, shubhamRecommendedChickenLegs);
+		
+		
+		//aditya
+		Individual adityaRecommendedDietCoke=recommendation.createIndividual(base+"adityaRecommendedDietCoke");
+		adityaRecommendedDietCoke.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedDietCoke.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedDietCoke.addProperty(hasMonthlyWeightage, "0.1");
+		adityaRecommendedDietCoke.addProperty(hasUserInterest, "0.5");
+		
+		adityaRecommendedDietCoke.addProperty(isRelatedTo, dietCoke);		
+		aditya.addProperty(hasRecommendation, adityaRecommendedDietCoke);
+		
+		Individual adityaRecommendedBread=recommendation.createIndividual(base+"adityaRecommendedBread");
+		adityaRecommendedBread.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedBread.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedBread.addProperty(hasMonthlyWeightage, "0.1");
+		adityaRecommendedBread.addProperty(hasUserInterest, "0.5");
+		
+		adityaRecommendedBread.addProperty(isRelatedTo, bread);		
+		aditya.addProperty(hasRecommendation, adityaRecommendedBread);
+		
+		Individual adityaRecommendedBrownBread=recommendation.createIndividual(base+"adityaRecommendedBrownBread");
+		adityaRecommendedBrownBread.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedBrownBread.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedBrownBread.addProperty(hasMonthlyWeightage, "0.1");
+		adityaRecommendedBrownBread.addProperty(hasUserInterest, "0.5");
+		
+		adityaRecommendedBrownBread.addProperty(isRelatedTo, brownBread);		
+		aditya.addProperty(hasRecommendation, adityaRecommendedBrownBread);
+
+		Individual adityaRecommendedCoke=recommendation.createIndividual(base+"adityaRecommendedCoke");
+		adityaRecommendedCoke.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedCoke.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedCoke.addProperty(hasMonthlyWeightage, "0.1");
+		adityaRecommendedCoke.addProperty(hasUserInterest, "0.5");
+		
+		adityaRecommendedCoke.addProperty(isRelatedTo, coke);		
+		aditya.addProperty(hasRecommendation, adityaRecommendedCoke);
+		
+		Individual adityaRecommendedChickenBreasts=recommendation.createIndividual(base+"adityaRecommendedChickenBreasts");
+		adityaRecommendedChickenBreasts.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedChickenBreasts.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedChickenBreasts.addProperty(hasMonthlyWeightage, "0.1");
+		adityaRecommendedChickenBreasts.addProperty(hasUserInterest, "0.5");
+		
+		adityaRecommendedChickenBreasts.addProperty(isRelatedTo, chickenBreasts);		
+		aditya.addProperty(hasRecommendation, adityaRecommendedChickenBreasts);
+		
+		Individual adityaRecommendedSweeseCheese=recommendation.createIndividual(base+"adityaRecommendedSweeseCheese");
+		adityaRecommendedSweeseCheese.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedSweeseCheese.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedSweeseCheese.addProperty(hasMonthlyWeightage, "0.1");
+		adityaRecommendedSweeseCheese.addProperty(hasUserInterest, "0.5");
+		
+		adityaRecommendedSweeseCheese.addProperty(isRelatedTo, sweeseCheese);		
+		aditya.addProperty(hasRecommendation, adityaRecommendedSweeseCheese);
+		
+		Individual adityaRecommendedGreekCheese=recommendation.createIndividual(base+"adityaRecommendedGreekCheese");
+		adityaRecommendedGreekCheese.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedGreekCheese.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedGreekCheese.addProperty(hasMonthlyWeightage, "0.1");
+		adityaRecommendedGreekCheese.addProperty(hasUserInterest, "0.5");
+		
+		adityaRecommendedGreekCheese.addProperty(isRelatedTo, greekCheese);		
+		aditya.addProperty(hasRecommendation, adityaRecommendedGreekCheese);
+		
+		Individual adityaRecommendedButter=recommendation.createIndividual(base+"adityaRecommendedButter");
+		adityaRecommendedButter.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedButter.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedButter.addProperty(hasMonthlyWeightage, "0.1");
+		adityaRecommendedButter.addProperty(hasUserInterest, "0.5");
+		
+		adityaRecommendedButter.addProperty(isRelatedTo, butter);		
+		aditya.addProperty(hasRecommendation, adityaRecommendedButter);
+		
+		Individual adityaRecommendedLowFatMilk=recommendation.createIndividual(base+"adityaRecommendedLowFatMilk");
+		adityaRecommendedLowFatMilk.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedLowFatMilk.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedLowFatMilk.addProperty(hasMonthlyWeightage, "0.1");
+		adityaRecommendedLowFatMilk.addProperty(hasUserInterest, "0.5");
+		
+		adityaRecommendedLowFatMilk.addProperty(isRelatedTo, lowFatMilk);		
+		aditya.addProperty(hasRecommendation, adityaRecommendedLowFatMilk);
+		
+		Individual adityaRecommendedMilk=recommendation.createIndividual(base+"adityaRecommendedMilk");
+		adityaRecommendedMilk.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedMilk.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedMilk.addProperty(hasMonthlyWeightage, "0.1");
+		adityaRecommendedMilk.addProperty(hasUserInterest, "0.5");
+		
+		adityaRecommendedMilk.addProperty(isRelatedTo, milk);		
+		aditya.addProperty(hasRecommendation, adityaRecommendedMilk);
+		
+		Individual adityaRecommendedSpinach=recommendation.createIndividual(base+"adityaRecommendedSpinach");
+		adityaRecommendedSpinach.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedSpinach.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedSpinach.addProperty(hasMonthlyWeightage, "0.1");
+		adityaRecommendedSpinach.addProperty(hasUserInterest, "0.5");
+		
+		adityaRecommendedSpinach.addProperty(isRelatedTo, spinach);		
+		aditya.addProperty(hasRecommendation, adityaRecommendedSpinach);
+		
+		Individual adityaRecommendedMushroom=recommendation.createIndividual(base+"adityaRecommendedMushroom");
+		adityaRecommendedMushroom.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedMushroom.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedMushroom.addProperty(hasMonthlyWeightage, "0.1");
+		adityaRecommendedMushroom.addProperty(hasUserInterest, "0.5");
+		
+		adityaRecommendedMushroom.addProperty(isRelatedTo, mushroom);		
+		aditya.addProperty(hasRecommendation, adityaRecommendedMushroom);
+		
+		Individual adityaRecommendedBrocolli=recommendation.createIndividual(base+"adityaRecommendedBrocolli");
+		adityaRecommendedBrocolli.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedBrocolli.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedBrocolli.addProperty(hasMonthlyWeightage, "0.1");
+		adityaRecommendedBrocolli.addProperty(hasUserInterest, "0.5");
+		
+		adityaRecommendedBrocolli.addProperty(isRelatedTo, brocolli);		
+		aditya.addProperty(hasRecommendation, adityaRecommendedBrocolli);
+		
+		Individual adityaRecommendedKiwi=recommendation.createIndividual(base+"adityaRecommendedKiwi");
+		adityaRecommendedKiwi.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedKiwi.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedKiwi.addProperty(hasMonthlyWeightage, "0.1");
+		adityaRecommendedKiwi.addProperty(hasUserInterest, "0.5");
+		
+		adityaRecommendedKiwi.addProperty(isRelatedTo, kiwi);		
+		aditya.addProperty(hasRecommendation, adityaRecommendedKiwi);
+		
+		
+		Individual adityaRecommendedApple=recommendation.createIndividual(base+"adityaRecommendedApple");
+		adityaRecommendedApple.addProperty(hasWeelyWeightage, "0.1");
+		adityaRecommendedApple.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedApple.addProperty(hasMonthlyWeightage, "0.1");
+		adityaRecommendedApple.addProperty(hasUserInterest, "0.5");
+		
+		adityaRecommendedApple.addProperty(isRelatedTo, apple);
+		aditya.addProperty(hasRecommendation, adityaRecommendedApple);
+		
+		
+		Individual adityaRecommendedOrange=recommendation.createIndividual(base+"adityaRecommendedOrange");
+		adityaRecommendedOrange.addProperty(hasWeelyWeightage, "0.1");
+		adityaRecommendedOrange.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedOrange.addProperty(hasMonthlyWeightage, "0.1");
+		adityaRecommendedOrange.addProperty(hasUserInterest, "0.5");
+		
+		adityaRecommendedOrange.addProperty(isRelatedTo, orange);
+		aditya.addProperty(hasRecommendation, adityaRecommendedOrange);
+		
+		
+		Individual adityaRecommendedChickenLegs=recommendation.createIndividual(base+"adityaRecommendedChickenLegs");
+		adityaRecommendedChickenLegs.addProperty(hasWeelyWeightage, "0.2");
+		adityaRecommendedChickenLegs.addProperty(hasBiweelyWeightage, "0.1");
+		adityaRecommendedChickenLegs.addProperty(hasMonthlyWeightage, "0.1");
+		adityaRecommendedChickenLegs.addProperty(hasUserInterest, "0.5");
+		
+		adityaRecommendedChickenLegs.addProperty(isRelatedTo, chickenLegs);
+		aditya.addProperty(hasRecommendation, adityaRecommendedChickenLegs);
 	}
 	
 	public void writeOntology() throws Exception {
