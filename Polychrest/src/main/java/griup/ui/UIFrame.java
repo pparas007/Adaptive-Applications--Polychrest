@@ -27,6 +27,7 @@ import griup.polychrest.Constants;
 public class UIFrame extends JFrame implements ActionListener{
 	JButton submitShopping=new JButton("Shop");
 	JButton checkWeightageButton=new JButton("Check");
+	JButton generateCsv=new JButton("Generate CSV");
 	
 	JButton forgot=new JButton("Thanks! I almost forgot to buy");
 	JButton hate=new JButton("I did't like this item!");
@@ -98,6 +99,9 @@ public class UIFrame extends JFrame implements ActionListener{
 		userNote.setFont(new Font("Lucida Console", Font.PLAIN, 11));
 		userNote.setForeground(Color.RED);
 		
+		generateCsv.setBounds(500, 25, 150, 30);
+		generateCsv.setBackground(Color.GREEN);
+		generateCsv.addActionListener(this);
 		
 		//Shopping section label
 		shoppingLabel.setBounds(20, 80, 150, 40);
@@ -180,7 +184,7 @@ public class UIFrame extends JFrame implements ActionListener{
 		//add action listeners
 		love.addActionListener(this);forgot.addActionListener(this);hate.addActionListener(this);alreadyHave.addActionListener(this);
 		//add components to frame
-		add(userLabel);add(userComboBox);add(userNote);
+		add(userLabel);add(userComboBox);add(userNote);add(generateCsv);
 		add(foodComboBox); add(shopComboBox); add(priceComboBox); add(patternComboBox); add(shoppingLabel);add(shoppingNote);add(patternNote);add(patternNote2);add(submitShopping);
 		add(checkWeightageLabel);add(checkWeightageNote);add(checkWeightageFoodComboBox);add(checkWeightageButton);
 		add(weeklyWeightageLabel);add(biweeklyWeightageLabel);add(monthlyWeightageLabel);add(userInterestLabel);add(patternConfidenceComboBox);
@@ -204,7 +208,16 @@ public class UIFrame extends JFrame implements ActionListener{
 			downgradeInterest();
 		}else if(arg0.getActionCommand().equals("Oh, I have it already!")) {
 			downgradePattern();
-		} 
+		}else if(arg0.getActionCommand().equals("Generate CSV")) {
+			generateCsv();
+		}  
+		
+	}
+
+	private void generateCsv() {
+		System.out.println("generateCsv() called");
+		updateScreenData();
+		Middleware.generateCsv(user);
 	}
 
 	private void downgradePattern() {

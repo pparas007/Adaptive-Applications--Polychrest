@@ -3,6 +3,8 @@ package griup.middleware;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 import com.github.andrewoma.dexx.collection.HashMap;
 import griup.beans.Food;
 import griup.beans.Pattern;
@@ -10,6 +12,7 @@ import griup.beans.Recommendation;
 import griup.beans.Shop;
 import griup.beans.Shopping;
 import griup.beans.User;
+import griup.polychrest.Constants;
 import griup.polychrest.InteractWithOntology;
 
 
@@ -204,4 +207,32 @@ public class Middleware {
 	public static Recommendation getDummyRecommendation() {
 		return new Recommendation(0.1f, 0.20f, 0.70f,0.66f);//dummy data; to be removed after above method is available
 	}
+
+	public static void generateCsv(User user) {
+		System.out.println("Middleware method generateCsv with parameters:\n"+user);
+		
+		//get all foods list
+		List<Food> foodList=getAllFoodList(user);
+		Map<String, Recommendation> recommendationListForAllFoods=new java.util.HashMap<String, Recommendation>();
+		
+		//form recommendation object list
+		for(Food food:foodList) {
+			Recommendation recommendation= new InteractWithOntology().getRecommendationForUserAndFoodPair(user, food);
+			recommendationListForAllFoods.put(food.getFoodName(),recommendation);
+		}
+		
+		Utility.generateUserInterestCsv(user,recommendationListForAllFoods);
+	}
+
+	private static List<Food> getAllFoodList(User user) {
+		List<Food> foodList=new ArrayList<Food>();
+		for(String foodString:Constants.foodList) {
+			Food food=new Food();
+			food.setFoodName(foodString);
+			
+			foodList.add(food);
+		}
+		return foodList;
+	}
+	
 }
