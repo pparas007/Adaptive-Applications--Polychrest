@@ -1,5 +1,5 @@
-@prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix j.0:   <http://purl.org/dc/terms/> .
@@ -16,23 +16,23 @@ base:adityaRecommendedSweeseCheese
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:sweeseCheese .
 
 base:shubhamRecommendedButter
         a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
-        base:hasWeelyWeightage    "0.2" ;
+        base:hasBiweelyWeightage  "0.043080907" ;
+        base:hasMonthlyWeightage  "0.042962953" ;
+        base:hasUserInterest      "0.8203722" ;
+        base:hasWeelyWeightage    "0.85908884" ;
         base:isRelatedTo          base:butter .
 
 base:anirbanRecommendedCoke
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:coke .
 
@@ -47,7 +47,7 @@ base:adityaRecommendedMushroom
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:mushroom .
 
@@ -62,7 +62,7 @@ base:anirbanRecommendedApple
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.1" ;
         base:isRelatedTo          base:apple .
 
@@ -88,7 +88,7 @@ base:adityaRecommendedSpinach
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:spinach .
 
@@ -96,7 +96,7 @@ base:shubhamRecommendedDietCoke
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:dietCoke .
 
@@ -104,7 +104,7 @@ base:shubhamRecommendedSpinach
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:spinach .
 
@@ -112,7 +112,7 @@ base:anirbanRecommendedGreekCheese
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:greekCheese .
 
@@ -120,9 +120,16 @@ base:anirbanRecommendedMushroom
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:mushroom .
+
+base:adityaShops13  a    base:shopping ;
+        base:atDateTime  "07-Mar-2019" ;
+        base:atPrice     "2.5" ;
+        base:atShop      base:tescoCityCentre ;
+        base:bought      base:chickenLegs ;
+        base:quantity    "1" .
 
 base:tescoCityCentre  a      base:shop ;
         base:hasShopAddress  "City Centre, Dublin" ;
@@ -134,18 +141,18 @@ base:milk  a              base:food ;
         base:hasFoodName  "milk" ;
         base:ofCategory   "milk" , "dairy" , "veg" .
 
-base:adityaShops13  a    base:shopping ;
-        base:atDateTime  "07-Mar-2019" ;
-        base:atPrice     "2.5" ;
-        base:atShop      base:tescoCityCentre ;
-        base:bought      base:chickenLegs ;
-        base:quantity    "1" .
+base:parasShops9976  a   base:shopping ;
+        base:atDateTime  "12:00" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:spinach ;
+        base:quantity    "1.0" .
 
 base:adityaRecommendedLowFatMilk
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:lowFatMilk .
 
@@ -153,7 +160,7 @@ base:anirbanRecommendedChickenLegs
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:chickenLegs .
 
@@ -161,7 +168,7 @@ base:parasRecommendedBread
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:bread .
 
@@ -169,7 +176,7 @@ base:parasRecommendedBrownBread
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:brownBread .
 
@@ -182,7 +189,7 @@ base:parasRecommendedBrocolli
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:brocolli .
 
@@ -198,7 +205,7 @@ base:adityaRecommendedApple
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.1" ;
         base:isRelatedTo          base:apple .
 
@@ -206,7 +213,7 @@ base:adityaRecommendedDietCoke
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:dietCoke .
 
@@ -214,7 +221,7 @@ base:shubhamRecommendedKiwi
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:kiwi .
 
@@ -222,7 +229,7 @@ base:parasRecommendedSweeseCheese
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:sweeseCheese .
 
@@ -246,7 +253,7 @@ base:parasRecommendedButter
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:butter .
 
@@ -254,7 +261,7 @@ base:anirbanRecommendedLowFatMilk
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:lowFatMilk .
 
@@ -270,7 +277,7 @@ base:anirbanRecommendedDietCoke
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:dietCoke .
 
@@ -286,7 +293,7 @@ base:adityaRecommendedOrange
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.1" ;
         base:isRelatedTo          base:orange .
 
@@ -303,7 +310,7 @@ base:shubhamRecommendedBrocolli
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:brocolli .
 
@@ -311,7 +318,7 @@ base:parasRecommendedChickenBreasts
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:chickenBreasts .
 
@@ -326,7 +333,7 @@ base:anirbanRecommendedButter
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:butter .
 
@@ -334,7 +341,7 @@ base:adityaRecommendedMilk
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:milk .
 
@@ -342,7 +349,7 @@ base:adityaRecommendedBread
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:bread .
 
@@ -361,7 +368,7 @@ base:anirbanRecommendedChickenBreasts
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:chickenBreasts .
 
@@ -369,7 +376,7 @@ base:shubhamRecommendedApple
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.1" ;
         base:isRelatedTo          base:apple .
 
@@ -388,7 +395,7 @@ base:adityaRecommendedBrocolli
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:brocolli .
 
@@ -396,7 +403,7 @@ base:shubhamRecommendedOrange
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.1" ;
         base:isRelatedTo          base:orange .
 
@@ -418,7 +425,7 @@ base:parasRecommendedChickenLegs
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:chickenLegs .
 
@@ -426,7 +433,7 @@ base:parasRecommendedKiwi
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:kiwi .
 
@@ -444,7 +451,7 @@ base:anirbanRecommendedBrocolli
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:brocolli .
 
@@ -457,7 +464,7 @@ base:adityaRecommendedCoke
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:coke .
 
@@ -465,7 +472,7 @@ base:anirbanRecommendedSpinach
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:spinach .
 
@@ -473,12 +480,20 @@ base:anirbanRecommendedBread
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:bread .
 
 base:shopping  a    owl:Class ;
         rdfs:label  "user shopping details"@en .
+
+base:anirbanRecommendedKiwi
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.5" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:kiwi .
 
 base:adityaShops24  a    base:shopping ;
         base:atDateTime  "16-Mar-2019" ;
@@ -487,13 +502,13 @@ base:adityaShops24  a    base:shopping ;
         base:bought      base:spinach ;
         base:quantity    "1" .
 
-base:anirbanRecommendedKiwi
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:kiwi .
+base:shubhamShops8967
+        a                base:shopping ;
+        base:atDateTime  "12:00" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:butter ;
+        base:quantity    "1.0" .
 
 base:brocolli  a          base:food ;
         base:hasFoodName  "brocolli" ;
@@ -501,6 +516,13 @@ base:brocolli  a          base:food ;
 
 base:recommendation  a  owl:Class ;
         rdfs:label  "recommendations for user"@en .
+
+base:parasShops1075  a   base:shopping ;
+        base:atDateTime  "12:00" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:spinach ;
+        base:quantity    "1.0" .
 
 base:anirbanShops11  a   base:shopping ;
         base:atDateTime  "06-Mar-2019" ;
@@ -513,7 +535,7 @@ base:shubhamRecommendedBread
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:bread .
 
@@ -547,7 +569,7 @@ base:shubhamRecommendedBrownBread
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:brownBread .
 
@@ -555,7 +577,7 @@ base:parasRecommendedOrange
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.1" ;
         base:isRelatedTo          base:orange .
 
@@ -574,7 +596,7 @@ base:parasRecommendedLowFatMilk
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:lowFatMilk .
 
@@ -582,7 +604,7 @@ base:shubhamRecommendedMilk
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:milk .
 
@@ -590,7 +612,7 @@ base:paras  a                   base:user ;
         base:hasGoal            "economical" ;
         base:hasName            "paras" ;
         base:hasRecommendation  base:parasRecommendedApple , base:parasRecommendedBread , base:parasRecommendedCoke , base:parasRecommendedButter , base:parasRecommendedMilk , base:parasRecommendedChickenBreasts , base:parasRecommendedDietCoke , base:parasRecommendedSweeseCheese , base:parasRecommendedBrocolli , base:parasRecommendedKiwi , base:parasRecommendedMushroom , base:parasRecommendedLowFatMilk , base:parasRecommendedSpinach , base:parasRecommendedChickenLegs , base:parasRecommendedBrownBread , base:parasRecommendedOrange , base:parasRecommendedGreekCheese ;
-        base:shopped            base:parasShops23 , base:parasShops12 , base:parasShops11 , base:parasShops22 , base:parasShops13 , base:parasShops21 , base:parasShops5371 .
+        base:shopped            base:parasShops23 , base:parasShops12 , base:parasShops11 , base:parasShops1075 , base:parasShops9976 , base:parasShops22 , base:parasShops13 , base:parasShops21 .
 
 base:hasUserInterest  a  owl:DatatypeProperty ;
         rdfs:domain  base:recommendation ;
@@ -601,16 +623,17 @@ base:sweeseCheese  a      base:food ;
         base:hasFoodName  "sweeseCheese" ;
         base:ofCategory   "dairy" , "cheese" , "colesterol" .
 
-base:parasShops5371  a   base:shopping ;
-        base:atDateTime  "12:00" ;
-        base:atPrice     "1.0" ;
-        base:atShop      base:lidlArtane ;
-        base:bought      base:spinach ;
-        base:quantity    "1.0" .
-
 base:lowFatMilk  a        base:food ;
         base:hasFoodName  "lowFatMilk" ;
         base:ofCategory   "milk" , "dairy" , "veg" .
+
+base:shubhamShops5315
+        a                base:shopping ;
+        base:atDateTime  "12:00" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:coke ;
+        base:quantity    "1.0" .
 
 base:adityaShops23  a    base:shopping ;
         base:atDateTime  "16-Mar-2019" ;
@@ -623,7 +646,7 @@ base:parasRecommendedGreekCheese
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:greekCheese .
 
@@ -631,7 +654,7 @@ base:anirbanRecommendedSweeseCheese
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:sweeseCheese .
 
@@ -639,23 +662,22 @@ base:adityaRecommendedBrownBread
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:brownBread .
 
 base:parasRecommendedSpinach
         a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.043590058" ;
-        base:hasMonthlyWeightage  "0.04344176" ;
-        base:hasUserInterest      "0.8578405" ;
-        base:hasWeelyWeightage    "0.89183927" ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:spinach .
 
 base:adityaRecommendedChickenBreasts
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:chickenBreasts .
 
@@ -672,7 +694,7 @@ base:shubhamRecommendedChickenBreasts
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:chickenBreasts .
 
@@ -680,22 +702,23 @@ base:parasRecommendedApple
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.1" ;
         base:isRelatedTo          base:apple .
 
 base:shubhamRecommendedCoke
         a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
-        base:hasWeelyWeightage    "0.2" ;
+        base:hasBiweelyWeightage  "0.043080907" ;
+        base:hasMonthlyWeightage  "0.042962953" ;
+        base:hasUserInterest      "0.8203722" ;
+        base:hasWeelyWeightage    "0.85908884" ;
         base:isRelatedTo          base:coke .
 
 base:shubham  a                 base:user ;
         base:hasGoal            "veggie" ;
         base:hasName            "shubham" ;
-        base:hasRecommendation  base:shubhamRecommendedApple , base:shubhamRecommendedOrange , base:shubhamRecommendedMilk , base:shubhamRecommendedKiwi , base:shubhamRecommendedSpinach , base:shubhamRecommendedChickenBreasts , base:shubhamRecommendedBread , base:shubhamRecommendedGreekCheese , base:shubhamRecommendedMushroom , base:shubhamRecommendedBrocolli , base:shubhamRecommendedDietCoke , base:shubhamRecommendedButter , base:shubhamRecommendedLowFatMilk , base:shubhamRecommendedChickenLegs , base:shubhamRecommendedCoke , base:shubhamRecommendedBrownBread , base:shubhamRecommendedSweeseCheese .
+        base:hasRecommendation  base:shubhamRecommendedApple , base:shubhamRecommendedOrange , base:shubhamRecommendedMilk , base:shubhamRecommendedKiwi , base:shubhamRecommendedSpinach , base:shubhamRecommendedChickenBreasts , base:shubhamRecommendedBread , base:shubhamRecommendedGreekCheese , base:shubhamRecommendedMushroom , base:shubhamRecommendedBrocolli , base:shubhamRecommendedDietCoke , base:shubhamRecommendedButter , base:shubhamRecommendedLowFatMilk , base:shubhamRecommendedChickenLegs , base:shubhamRecommendedCoke , base:shubhamRecommendedBrownBread , base:shubhamRecommendedSweeseCheese ;
+        base:shopped            base:shubhamShops5315 , base:shubhamShops8967 , base:shubhamShops6587 .
 
 base:parasShops22  a     base:shopping ;
         base:atDateTime  "15-Mar-2019" ;
@@ -713,7 +736,7 @@ base:shubhamRecommendedSweeseCheese
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:sweeseCheese .
 
@@ -726,7 +749,7 @@ base:anirbanRecommendedBrownBread
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:brownBread .
 
@@ -743,7 +766,7 @@ base:parasRecommendedMushroom
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:mushroom .
 
@@ -751,7 +774,7 @@ base:parasRecommendedMilk
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:milk .
 
@@ -783,7 +806,7 @@ base:shubhamRecommendedGreekCheese
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:greekCheese .
 
@@ -799,17 +822,17 @@ base:hasFoodName  a  owl:DatatypeProperty ;
 
 base:shubhamRecommendedChickenLegs
         a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
-        base:hasWeelyWeightage    "0.2" ;
+        base:hasBiweelyWeightage  "0.293554" ;
+        base:hasMonthlyWeightage  "0.03424269" ;
+        base:hasUserInterest      "0.85718083" ;
+        base:hasWeelyWeightage    "0.8486765" ;
         base:isRelatedTo          base:chickenLegs .
 
 base:adityaRecommendedKiwi
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:kiwi .
 
@@ -823,7 +846,7 @@ base:anirbanRecommendedMilk
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:milk .
 
@@ -831,7 +854,7 @@ base:adityaRecommendedButter
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:butter .
 
@@ -839,7 +862,7 @@ base:anirbanRecommendedOrange
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.1" ;
         base:isRelatedTo          base:orange .
 
@@ -854,7 +877,7 @@ base:parasRecommendedDietCoke
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:dietCoke .
 
@@ -862,15 +885,23 @@ base:shubhamRecommendedMushroom
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:mushroom .
+
+base:shubhamShops6587
+        a                base:shopping ;
+        base:atDateTime  "12:00" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:chickenLegs ;
+        base:quantity    "1.0" .
 
 base:adityaRecommendedGreekCheese
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:greekCheese .
 
@@ -885,7 +916,7 @@ base:adityaRecommendedChickenLegs
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:chickenLegs .
 
@@ -893,7 +924,7 @@ base:parasRecommendedCoke
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:coke .
 
@@ -910,7 +941,7 @@ base:shubhamRecommendedLowFatMilk
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.9" ;
+        base:hasUserInterest      "0.5" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:lowFatMilk .
 
