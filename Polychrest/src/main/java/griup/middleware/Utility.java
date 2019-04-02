@@ -12,7 +12,7 @@ import griup.beans.User;
 public class Utility{
 	private static float e=2.73f;
 	private static String csvPrefix="resource\\csv\\";
-	private static String userInterestCsvPostfix="_user_interest.csv";
+	private static String userInterestCsvPostfix=".csv";
 	
 	public static  float changeExponentially(float weightage, float boost) {
 		System.out.println("###########");
@@ -27,6 +27,10 @@ public class Utility{
 		return (first/(first+second+third));
 	}
 	
+	public static float convertToProbability(float first, float second) {
+		return (first/(first+second));
+	}
+	
 	public static void generateUserInterestCsv(User user, Map<String, Recommendation> recommendationListForAllFoods) {
 		File file = new File(csvPrefix+user.getName()+userInterestCsvPostfix); 
 	    try { 
@@ -37,7 +41,7 @@ public class Utility{
 	        CSVWriter writer = new CSVWriter(outputfile); 
 	  
 	        // adding header to csv 
-	        String[] header = { "Food", "User Interest" }; 
+	        String[] header = { "Food", "User_Interest" }; 
 	        writer.writeNext(header); 
 	  
 	        // add data to csv

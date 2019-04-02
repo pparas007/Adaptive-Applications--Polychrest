@@ -192,13 +192,11 @@ public class OntologyFactory{
 		anirban=user.createIndividual(base+"anirban");
 		anirban.addProperty(hasName, "anirban");
 		anirban.addProperty(hasGoal, Constants.GOAL_MEAT_LOVER);
-		anirban.addProperty(hasGoal, Constants.GOAL_ECONOMICAL);
 		// New Users added
 		
 		aditya=user.createIndividual(base+"aditya");
 		aditya.addProperty(hasName, "aditya");
-		aditya.addProperty(hasGoal, Constants.GOAL_VEGGIE);
-		aditya.addProperty(hasGoal, Constants.GOAL_MEAT_LOVER);
+		aditya.addProperty(hasGoal, Constants.GOAL_FITNESS_FREAK);
 		
 		/*--------------------- Shop Instances ---------------------*/
 		lidlArtane=shop.createIndividual(base+"lidlArtane");
@@ -509,7 +507,7 @@ public class OntologyFactory{
 		parasRecommendedDietCoke.addProperty(hasWeelyWeightage, "0.2");
 		parasRecommendedDietCoke.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedDietCoke.addProperty(hasMonthlyWeightage, "0.1");
-		parasRecommendedDietCoke.addProperty(hasUserInterest, "0.9");
+		parasRecommendedDietCoke.addProperty(hasUserInterest, "0.3");
 		
 		parasRecommendedDietCoke.addProperty(isRelatedTo, dietCoke);		
 		paras.addProperty(hasRecommendation, parasRecommendedDietCoke);
@@ -518,7 +516,7 @@ public class OntologyFactory{
 		parasRecommendedBread.addProperty(hasWeelyWeightage, "0.2");
 		parasRecommendedBread.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedBread.addProperty(hasMonthlyWeightage, "0.1");
-		parasRecommendedBread.addProperty(hasUserInterest, "0.9");
+		parasRecommendedBread.addProperty(hasUserInterest, "0.3");
 		
 		parasRecommendedBread.addProperty(isRelatedTo, bread);		
 		paras.addProperty(hasRecommendation, parasRecommendedBread);
@@ -527,7 +525,7 @@ public class OntologyFactory{
 		parasRecommendedBrownBread.addProperty(hasWeelyWeightage, "0.2");
 		parasRecommendedBrownBread.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedBrownBread.addProperty(hasMonthlyWeightage, "0.1");
-		parasRecommendedBrownBread.addProperty(hasUserInterest, "0.9");
+		parasRecommendedBrownBread.addProperty(hasUserInterest, "0.3");
 		
 		parasRecommendedBrownBread.addProperty(isRelatedTo, brownBread);		
 		paras.addProperty(hasRecommendation, parasRecommendedBrownBread);
@@ -536,7 +534,7 @@ public class OntologyFactory{
 		parasRecommendedCoke.addProperty(hasWeelyWeightage, "0.2");
 		parasRecommendedCoke.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedCoke.addProperty(hasMonthlyWeightage, "0.1");
-		parasRecommendedCoke.addProperty(hasUserInterest, "0.9");
+		parasRecommendedCoke.addProperty(hasUserInterest, "0.3");
 		
 		parasRecommendedCoke.addProperty(isRelatedTo, coke);		
 		paras.addProperty(hasRecommendation, parasRecommendedCoke);
@@ -545,7 +543,7 @@ public class OntologyFactory{
 		parasRecommendedChickenBreasts.addProperty(hasWeelyWeightage, "0.2");
 		parasRecommendedChickenBreasts.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedChickenBreasts.addProperty(hasMonthlyWeightage, "0.1");
-		parasRecommendedChickenBreasts.addProperty(hasUserInterest, "0.9");
+		parasRecommendedChickenBreasts.addProperty(hasUserInterest, "0.3");
 		
 		parasRecommendedChickenBreasts.addProperty(isRelatedTo, chickenBreasts);		
 		paras.addProperty(hasRecommendation, parasRecommendedChickenBreasts);
@@ -554,7 +552,7 @@ public class OntologyFactory{
 		parasRecommendedSweeseCheese.addProperty(hasWeelyWeightage, "0.2");
 		parasRecommendedSweeseCheese.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedSweeseCheese.addProperty(hasMonthlyWeightage, "0.1");
-		parasRecommendedSweeseCheese.addProperty(hasUserInterest, "0.9");
+		parasRecommendedSweeseCheese.addProperty(hasUserInterest, "0.3");
 		
 		parasRecommendedSweeseCheese.addProperty(isRelatedTo, sweeseCheese);		
 		paras.addProperty(hasRecommendation, parasRecommendedSweeseCheese);
@@ -563,7 +561,7 @@ public class OntologyFactory{
 		parasRecommendedGreekCheese.addProperty(hasWeelyWeightage, "0.2");
 		parasRecommendedGreekCheese.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedGreekCheese.addProperty(hasMonthlyWeightage, "0.1");
-		parasRecommendedGreekCheese.addProperty(hasUserInterest, "0.9");
+		parasRecommendedGreekCheese.addProperty(hasUserInterest, "0.3");
 		
 		parasRecommendedGreekCheese.addProperty(isRelatedTo, greekCheese);		
 		paras.addProperty(hasRecommendation, parasRecommendedGreekCheese);
@@ -572,7 +570,7 @@ public class OntologyFactory{
 		parasRecommendedButter.addProperty(hasWeelyWeightage, "0.2");
 		parasRecommendedButter.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedButter.addProperty(hasMonthlyWeightage, "0.1");
-		parasRecommendedButter.addProperty(hasUserInterest, "0.9");
+		parasRecommendedButter.addProperty(hasUserInterest, "0.3");
 		
 		parasRecommendedButter.addProperty(isRelatedTo, butter);		
 		paras.addProperty(hasRecommendation, parasRecommendedButter);
@@ -581,7 +579,7 @@ public class OntologyFactory{
 		parasRecommendedLowFatMilk.addProperty(hasWeelyWeightage, "0.2");
 		parasRecommendedLowFatMilk.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedLowFatMilk.addProperty(hasMonthlyWeightage, "0.1");
-		parasRecommendedLowFatMilk.addProperty(hasUserInterest, "0.9");
+		parasRecommendedLowFatMilk.addProperty(hasUserInterest, "0.3");
 		
 		parasRecommendedLowFatMilk.addProperty(isRelatedTo, lowFatMilk);		
 		paras.addProperty(hasRecommendation, parasRecommendedLowFatMilk);
@@ -590,7 +588,7 @@ public class OntologyFactory{
 		parasRecommendedMilk.addProperty(hasWeelyWeightage, "0.2");
 		parasRecommendedMilk.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedMilk.addProperty(hasMonthlyWeightage, "0.1");
-		parasRecommendedMilk.addProperty(hasUserInterest, "0.9");
+		parasRecommendedMilk.addProperty(hasUserInterest, "0.3");
 		
 		parasRecommendedMilk.addProperty(isRelatedTo, milk);		
 		paras.addProperty(hasRecommendation, parasRecommendedMilk);
@@ -599,7 +597,7 @@ public class OntologyFactory{
 		parasRecommendedSpinach.addProperty(hasWeelyWeightage, "0.2");
 		parasRecommendedSpinach.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedSpinach.addProperty(hasMonthlyWeightage, "0.1");
-		parasRecommendedSpinach.addProperty(hasUserInterest, "0.9");
+		parasRecommendedSpinach.addProperty(hasUserInterest, "0.3");
 		
 		parasRecommendedSpinach.addProperty(isRelatedTo, spinach);		
 		paras.addProperty(hasRecommendation, parasRecommendedSpinach);
@@ -608,7 +606,7 @@ public class OntologyFactory{
 		parasRecommendedMushroom.addProperty(hasWeelyWeightage, "0.2");
 		parasRecommendedMushroom.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedMushroom.addProperty(hasMonthlyWeightage, "0.1");
-		parasRecommendedMushroom.addProperty(hasUserInterest, "0.9");
+		parasRecommendedMushroom.addProperty(hasUserInterest, "0.3");
 		
 		parasRecommendedMushroom.addProperty(isRelatedTo, mushroom);		
 		paras.addProperty(hasRecommendation, parasRecommendedMushroom);
@@ -617,7 +615,7 @@ public class OntologyFactory{
 		parasRecommendedBrocolli.addProperty(hasWeelyWeightage, "0.2");
 		parasRecommendedBrocolli.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedBrocolli.addProperty(hasMonthlyWeightage, "0.1");
-		parasRecommendedBrocolli.addProperty(hasUserInterest, "0.9");
+		parasRecommendedBrocolli.addProperty(hasUserInterest, "0.3");
 		
 		parasRecommendedBrocolli.addProperty(isRelatedTo, brocolli);		
 		paras.addProperty(hasRecommendation, parasRecommendedBrocolli);
@@ -626,7 +624,7 @@ public class OntologyFactory{
 		parasRecommendedKiwi.addProperty(hasWeelyWeightage, "0.2");
 		parasRecommendedKiwi.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedKiwi.addProperty(hasMonthlyWeightage, "0.1");
-		parasRecommendedKiwi.addProperty(hasUserInterest, "0.9");
+		parasRecommendedKiwi.addProperty(hasUserInterest, "0.3");
 		
 		parasRecommendedKiwi.addProperty(isRelatedTo, kiwi);		
 		paras.addProperty(hasRecommendation, parasRecommendedKiwi);
@@ -636,7 +634,7 @@ public class OntologyFactory{
 		parasRecommendedApple.addProperty(hasWeelyWeightage, "0.1");
 		parasRecommendedApple.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedApple.addProperty(hasMonthlyWeightage, "0.1");
-		parasRecommendedApple.addProperty(hasUserInterest, "0.9");
+		parasRecommendedApple.addProperty(hasUserInterest, "0.3");
 		
 		parasRecommendedApple.addProperty(isRelatedTo, apple);
 		paras.addProperty(hasRecommendation, parasRecommendedApple);
@@ -646,7 +644,7 @@ public class OntologyFactory{
 		parasRecommendedOrange.addProperty(hasWeelyWeightage, "0.1");
 		parasRecommendedOrange.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedOrange.addProperty(hasMonthlyWeightage, "0.1");
-		parasRecommendedOrange.addProperty(hasUserInterest, "0.9");
+		parasRecommendedOrange.addProperty(hasUserInterest, "0.3");
 		
 		parasRecommendedOrange.addProperty(isRelatedTo, orange);
 		paras.addProperty(hasRecommendation, parasRecommendedOrange);
@@ -656,7 +654,7 @@ public class OntologyFactory{
 		parasRecommendedChickenLegs.addProperty(hasWeelyWeightage, "0.2");
 		parasRecommendedChickenLegs.addProperty(hasBiweelyWeightage, "0.1");
 		parasRecommendedChickenLegs.addProperty(hasMonthlyWeightage, "0.1");
-		parasRecommendedChickenLegs.addProperty(hasUserInterest, "0.9");
+		parasRecommendedChickenLegs.addProperty(hasUserInterest, "0.3");
 		
 		parasRecommendedChickenLegs.addProperty(isRelatedTo, chickenLegs);
 		paras.addProperty(hasRecommendation, parasRecommendedChickenLegs);
@@ -667,7 +665,7 @@ public class OntologyFactory{
 		anirbanRecommendedDietCoke.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedDietCoke.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedDietCoke.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedDietCoke.addProperty(hasUserInterest, "0.9");
+		anirbanRecommendedDietCoke.addProperty(hasUserInterest, "0.3");
 		
 		anirbanRecommendedDietCoke.addProperty(isRelatedTo, dietCoke);		
 		anirban.addProperty(hasRecommendation, anirbanRecommendedDietCoke);
@@ -676,7 +674,7 @@ public class OntologyFactory{
 		anirbanRecommendedBread.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedBread.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedBread.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedBread.addProperty(hasUserInterest, "0.9");
+		anirbanRecommendedBread.addProperty(hasUserInterest, "0.3");
 		
 		anirbanRecommendedBread.addProperty(isRelatedTo, bread);		
 		anirban.addProperty(hasRecommendation, anirbanRecommendedBread);
@@ -685,7 +683,7 @@ public class OntologyFactory{
 		anirbanRecommendedBrownBread.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedBrownBread.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedBrownBread.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedBrownBread.addProperty(hasUserInterest, "0.9");
+		anirbanRecommendedBrownBread.addProperty(hasUserInterest, "0.3");
 		
 		anirbanRecommendedBrownBread.addProperty(isRelatedTo, brownBread);		
 		anirban.addProperty(hasRecommendation, anirbanRecommendedBrownBread);
@@ -694,7 +692,7 @@ public class OntologyFactory{
 		anirbanRecommendedCoke.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedCoke.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedCoke.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedCoke.addProperty(hasUserInterest, "0.9");
+		anirbanRecommendedCoke.addProperty(hasUserInterest, "0.3");
 		
 		anirbanRecommendedCoke.addProperty(isRelatedTo, coke);		
 		anirban.addProperty(hasRecommendation, anirbanRecommendedCoke);
@@ -703,7 +701,7 @@ public class OntologyFactory{
 		anirbanRecommendedChickenBreasts.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedChickenBreasts.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedChickenBreasts.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedChickenBreasts.addProperty(hasUserInterest, "0.9");
+		anirbanRecommendedChickenBreasts.addProperty(hasUserInterest, "0.3");
 		
 		anirbanRecommendedChickenBreasts.addProperty(isRelatedTo, chickenBreasts);		
 		anirban.addProperty(hasRecommendation, anirbanRecommendedChickenBreasts);
@@ -712,7 +710,7 @@ public class OntologyFactory{
 		anirbanRecommendedSweeseCheese.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedSweeseCheese.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedSweeseCheese.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedSweeseCheese.addProperty(hasUserInterest, "0.9");
+		anirbanRecommendedSweeseCheese.addProperty(hasUserInterest, "0.3");
 		
 		anirbanRecommendedSweeseCheese.addProperty(isRelatedTo, sweeseCheese);		
 		anirban.addProperty(hasRecommendation, anirbanRecommendedSweeseCheese);
@@ -721,7 +719,7 @@ public class OntologyFactory{
 		anirbanRecommendedGreekCheese.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedGreekCheese.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedGreekCheese.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedGreekCheese.addProperty(hasUserInterest, "0.9");
+		anirbanRecommendedGreekCheese.addProperty(hasUserInterest, "0.3");
 		
 		anirbanRecommendedGreekCheese.addProperty(isRelatedTo, greekCheese);		
 		anirban.addProperty(hasRecommendation, anirbanRecommendedGreekCheese);
@@ -730,7 +728,7 @@ public class OntologyFactory{
 		anirbanRecommendedButter.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedButter.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedButter.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedButter.addProperty(hasUserInterest, "0.9");
+		anirbanRecommendedButter.addProperty(hasUserInterest, "0.3");
 		
 		anirbanRecommendedButter.addProperty(isRelatedTo, butter);		
 		anirban.addProperty(hasRecommendation, anirbanRecommendedButter);
@@ -739,7 +737,7 @@ public class OntologyFactory{
 		anirbanRecommendedLowFatMilk.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedLowFatMilk.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedLowFatMilk.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedLowFatMilk.addProperty(hasUserInterest, "0.9");
+		anirbanRecommendedLowFatMilk.addProperty(hasUserInterest, "0.3");
 		
 		anirbanRecommendedLowFatMilk.addProperty(isRelatedTo, lowFatMilk);		
 		anirban.addProperty(hasRecommendation, anirbanRecommendedLowFatMilk);
@@ -748,7 +746,7 @@ public class OntologyFactory{
 		anirbanRecommendedMilk.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedMilk.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedMilk.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedMilk.addProperty(hasUserInterest, "0.9");
+		anirbanRecommendedMilk.addProperty(hasUserInterest, "0.3");
 		
 		anirbanRecommendedMilk.addProperty(isRelatedTo, milk);		
 		anirban.addProperty(hasRecommendation, anirbanRecommendedMilk);
@@ -757,7 +755,7 @@ public class OntologyFactory{
 		anirbanRecommendedSpinach.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedSpinach.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedSpinach.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedSpinach.addProperty(hasUserInterest, "0.9");
+		anirbanRecommendedSpinach.addProperty(hasUserInterest, "0.3");
 		
 		anirbanRecommendedSpinach.addProperty(isRelatedTo, spinach);		
 		anirban.addProperty(hasRecommendation, anirbanRecommendedSpinach);
@@ -766,7 +764,7 @@ public class OntologyFactory{
 		anirbanRecommendedMushroom.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedMushroom.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedMushroom.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedMushroom.addProperty(hasUserInterest, "0.9");
+		anirbanRecommendedMushroom.addProperty(hasUserInterest, "0.3");
 		
 		anirbanRecommendedMushroom.addProperty(isRelatedTo, mushroom);		
 		anirban.addProperty(hasRecommendation, anirbanRecommendedMushroom);
@@ -775,7 +773,7 @@ public class OntologyFactory{
 		anirbanRecommendedBrocolli.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedBrocolli.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedBrocolli.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedBrocolli.addProperty(hasUserInterest, "0.9");
+		anirbanRecommendedBrocolli.addProperty(hasUserInterest, "0.3");
 		
 		anirbanRecommendedBrocolli.addProperty(isRelatedTo, brocolli);		
 		anirban.addProperty(hasRecommendation, anirbanRecommendedBrocolli);
@@ -784,7 +782,7 @@ public class OntologyFactory{
 		anirbanRecommendedKiwi.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedKiwi.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedKiwi.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedKiwi.addProperty(hasUserInterest, "0.9");
+		anirbanRecommendedKiwi.addProperty(hasUserInterest, "0.3");
 		
 		anirbanRecommendedKiwi.addProperty(isRelatedTo, kiwi);		
 		anirban.addProperty(hasRecommendation, anirbanRecommendedKiwi);
@@ -794,7 +792,7 @@ public class OntologyFactory{
 		anirbanRecommendedApple.addProperty(hasWeelyWeightage, "0.1");
 		anirbanRecommendedApple.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedApple.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedApple.addProperty(hasUserInterest, "0.9");
+		anirbanRecommendedApple.addProperty(hasUserInterest, "0.3");
 		
 		anirbanRecommendedApple.addProperty(isRelatedTo, apple);
 		anirban.addProperty(hasRecommendation, anirbanRecommendedApple);
@@ -804,7 +802,7 @@ public class OntologyFactory{
 		anirbanRecommendedOrange.addProperty(hasWeelyWeightage, "0.1");
 		anirbanRecommendedOrange.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedOrange.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedOrange.addProperty(hasUserInterest, "0.9");
+		anirbanRecommendedOrange.addProperty(hasUserInterest, "0.3");
 		
 		anirbanRecommendedOrange.addProperty(isRelatedTo, orange);
 		anirban.addProperty(hasRecommendation, anirbanRecommendedOrange);
@@ -814,7 +812,7 @@ public class OntologyFactory{
 		anirbanRecommendedChickenLegs.addProperty(hasWeelyWeightage, "0.2");
 		anirbanRecommendedChickenLegs.addProperty(hasBiweelyWeightage, "0.1");
 		anirbanRecommendedChickenLegs.addProperty(hasMonthlyWeightage, "0.1");
-		anirbanRecommendedChickenLegs.addProperty(hasUserInterest, "0.9");
+		anirbanRecommendedChickenLegs.addProperty(hasUserInterest, "0.3");
 		
 		anirbanRecommendedChickenLegs.addProperty(isRelatedTo, chickenLegs);
 		anirban.addProperty(hasRecommendation, anirbanRecommendedChickenLegs);
@@ -825,7 +823,7 @@ public class OntologyFactory{
 		shubhamRecommendedDietCoke.addProperty(hasWeelyWeightage, "0.2");
 		shubhamRecommendedDietCoke.addProperty(hasBiweelyWeightage, "0.1");
 		shubhamRecommendedDietCoke.addProperty(hasMonthlyWeightage, "0.1");
-		shubhamRecommendedDietCoke.addProperty(hasUserInterest, "0.9");
+		shubhamRecommendedDietCoke.addProperty(hasUserInterest, "0.3");
 		
 		shubhamRecommendedDietCoke.addProperty(isRelatedTo, dietCoke);		
 		shubham.addProperty(hasRecommendation, shubhamRecommendedDietCoke);
@@ -834,7 +832,7 @@ public class OntologyFactory{
 		shubhamRecommendedBread.addProperty(hasWeelyWeightage, "0.2");
 		shubhamRecommendedBread.addProperty(hasBiweelyWeightage, "0.1");
 		shubhamRecommendedBread.addProperty(hasMonthlyWeightage, "0.1");
-		shubhamRecommendedBread.addProperty(hasUserInterest, "0.9");
+		shubhamRecommendedBread.addProperty(hasUserInterest, "0.3");
 		
 		shubhamRecommendedBread.addProperty(isRelatedTo, bread);		
 		shubham.addProperty(hasRecommendation, shubhamRecommendedBread);
@@ -843,7 +841,7 @@ public class OntologyFactory{
 		shubhamRecommendedBrownBread.addProperty(hasWeelyWeightage, "0.2");
 		shubhamRecommendedBrownBread.addProperty(hasBiweelyWeightage, "0.1");
 		shubhamRecommendedBrownBread.addProperty(hasMonthlyWeightage, "0.1");
-		shubhamRecommendedBrownBread.addProperty(hasUserInterest, "0.9");
+		shubhamRecommendedBrownBread.addProperty(hasUserInterest, "0.3");
 		
 		shubhamRecommendedBrownBread.addProperty(isRelatedTo, brownBread);		
 		shubham.addProperty(hasRecommendation, shubhamRecommendedBrownBread);
@@ -852,7 +850,7 @@ public class OntologyFactory{
 		shubhamRecommendedCoke.addProperty(hasWeelyWeightage, "0.2");
 		shubhamRecommendedCoke.addProperty(hasBiweelyWeightage, "0.1");
 		shubhamRecommendedCoke.addProperty(hasMonthlyWeightage, "0.1");
-		shubhamRecommendedCoke.addProperty(hasUserInterest, "0.9");
+		shubhamRecommendedCoke.addProperty(hasUserInterest, "0.3");
 		
 		shubhamRecommendedCoke.addProperty(isRelatedTo, coke);		
 		shubham.addProperty(hasRecommendation, shubhamRecommendedCoke);
@@ -861,7 +859,7 @@ public class OntologyFactory{
 		shubhamRecommendedChickenBreasts.addProperty(hasWeelyWeightage, "0.2");
 		shubhamRecommendedChickenBreasts.addProperty(hasBiweelyWeightage, "0.1");
 		shubhamRecommendedChickenBreasts.addProperty(hasMonthlyWeightage, "0.1");
-		shubhamRecommendedChickenBreasts.addProperty(hasUserInterest, "0.9");
+		shubhamRecommendedChickenBreasts.addProperty(hasUserInterest, "0.3");
 		
 		shubhamRecommendedChickenBreasts.addProperty(isRelatedTo, chickenBreasts);		
 		shubham.addProperty(hasRecommendation, shubhamRecommendedChickenBreasts);
@@ -870,7 +868,7 @@ public class OntologyFactory{
 		shubhamRecommendedSweeseCheese.addProperty(hasWeelyWeightage, "0.2");
 		shubhamRecommendedSweeseCheese.addProperty(hasBiweelyWeightage, "0.1");
 		shubhamRecommendedSweeseCheese.addProperty(hasMonthlyWeightage, "0.1");
-		shubhamRecommendedSweeseCheese.addProperty(hasUserInterest, "0.9");
+		shubhamRecommendedSweeseCheese.addProperty(hasUserInterest, "0.3");
 		
 		shubhamRecommendedSweeseCheese.addProperty(isRelatedTo, sweeseCheese);		
 		shubham.addProperty(hasRecommendation, shubhamRecommendedSweeseCheese);
@@ -879,7 +877,7 @@ public class OntologyFactory{
 		shubhamRecommendedGreekCheese.addProperty(hasWeelyWeightage, "0.2");
 		shubhamRecommendedGreekCheese.addProperty(hasBiweelyWeightage, "0.1");
 		shubhamRecommendedGreekCheese.addProperty(hasMonthlyWeightage, "0.1");
-		shubhamRecommendedGreekCheese.addProperty(hasUserInterest, "0.9");
+		shubhamRecommendedGreekCheese.addProperty(hasUserInterest, "0.3");
 		
 		shubhamRecommendedGreekCheese.addProperty(isRelatedTo, greekCheese);		
 		shubham.addProperty(hasRecommendation, shubhamRecommendedGreekCheese);
@@ -888,7 +886,7 @@ public class OntologyFactory{
 		shubhamRecommendedButter.addProperty(hasWeelyWeightage, "0.2");
 		shubhamRecommendedButter.addProperty(hasBiweelyWeightage, "0.1");
 		shubhamRecommendedButter.addProperty(hasMonthlyWeightage, "0.1");
-		shubhamRecommendedButter.addProperty(hasUserInterest, "0.9");
+		shubhamRecommendedButter.addProperty(hasUserInterest, "0.3");
 		
 		shubhamRecommendedButter.addProperty(isRelatedTo, butter);		
 		shubham.addProperty(hasRecommendation, shubhamRecommendedButter);
@@ -897,7 +895,7 @@ public class OntologyFactory{
 		shubhamRecommendedLowFatMilk.addProperty(hasWeelyWeightage, "0.2");
 		shubhamRecommendedLowFatMilk.addProperty(hasBiweelyWeightage, "0.1");
 		shubhamRecommendedLowFatMilk.addProperty(hasMonthlyWeightage, "0.1");
-		shubhamRecommendedLowFatMilk.addProperty(hasUserInterest, "0.9");
+		shubhamRecommendedLowFatMilk.addProperty(hasUserInterest, "0.3");
 		
 		shubhamRecommendedLowFatMilk.addProperty(isRelatedTo, lowFatMilk);		
 		shubham.addProperty(hasRecommendation, shubhamRecommendedLowFatMilk);
@@ -906,7 +904,7 @@ public class OntologyFactory{
 		shubhamRecommendedMilk.addProperty(hasWeelyWeightage, "0.2");
 		shubhamRecommendedMilk.addProperty(hasBiweelyWeightage, "0.1");
 		shubhamRecommendedMilk.addProperty(hasMonthlyWeightage, "0.1");
-		shubhamRecommendedMilk.addProperty(hasUserInterest, "0.9");
+		shubhamRecommendedMilk.addProperty(hasUserInterest, "0.3");
 		
 		shubhamRecommendedMilk.addProperty(isRelatedTo, milk);		
 		shubham.addProperty(hasRecommendation, shubhamRecommendedMilk);
@@ -915,7 +913,7 @@ public class OntologyFactory{
 		shubhamRecommendedSpinach.addProperty(hasWeelyWeightage, "0.2");
 		shubhamRecommendedSpinach.addProperty(hasBiweelyWeightage, "0.1");
 		shubhamRecommendedSpinach.addProperty(hasMonthlyWeightage, "0.1");
-		shubhamRecommendedSpinach.addProperty(hasUserInterest, "0.9");
+		shubhamRecommendedSpinach.addProperty(hasUserInterest, "0.3");
 		
 		shubhamRecommendedSpinach.addProperty(isRelatedTo, spinach);		
 		shubham.addProperty(hasRecommendation, shubhamRecommendedSpinach);
@@ -924,7 +922,7 @@ public class OntologyFactory{
 		shubhamRecommendedMushroom.addProperty(hasWeelyWeightage, "0.2");
 		shubhamRecommendedMushroom.addProperty(hasBiweelyWeightage, "0.1");
 		shubhamRecommendedMushroom.addProperty(hasMonthlyWeightage, "0.1");
-		shubhamRecommendedMushroom.addProperty(hasUserInterest, "0.9");
+		shubhamRecommendedMushroom.addProperty(hasUserInterest, "0.3");
 		
 		shubhamRecommendedMushroom.addProperty(isRelatedTo, mushroom);		
 		shubham.addProperty(hasRecommendation, shubhamRecommendedMushroom);
@@ -933,7 +931,7 @@ public class OntologyFactory{
 		shubhamRecommendedBrocolli.addProperty(hasWeelyWeightage, "0.2");
 		shubhamRecommendedBrocolli.addProperty(hasBiweelyWeightage, "0.1");
 		shubhamRecommendedBrocolli.addProperty(hasMonthlyWeightage, "0.1");
-		shubhamRecommendedBrocolli.addProperty(hasUserInterest, "0.9");
+		shubhamRecommendedBrocolli.addProperty(hasUserInterest, "0.3");
 		
 		shubhamRecommendedBrocolli.addProperty(isRelatedTo, brocolli);		
 		shubham.addProperty(hasRecommendation, shubhamRecommendedBrocolli);
@@ -942,7 +940,7 @@ public class OntologyFactory{
 		shubhamRecommendedKiwi.addProperty(hasWeelyWeightage, "0.2");
 		shubhamRecommendedKiwi.addProperty(hasBiweelyWeightage, "0.1");
 		shubhamRecommendedKiwi.addProperty(hasMonthlyWeightage, "0.1");
-		shubhamRecommendedKiwi.addProperty(hasUserInterest, "0.9");
+		shubhamRecommendedKiwi.addProperty(hasUserInterest, "0.3");
 		
 		shubhamRecommendedKiwi.addProperty(isRelatedTo, kiwi);		
 		shubham.addProperty(hasRecommendation, shubhamRecommendedKiwi);
@@ -952,7 +950,7 @@ public class OntologyFactory{
 		shubhamRecommendedApple.addProperty(hasWeelyWeightage, "0.1");
 		shubhamRecommendedApple.addProperty(hasBiweelyWeightage, "0.1");
 		shubhamRecommendedApple.addProperty(hasMonthlyWeightage, "0.1");
-		shubhamRecommendedApple.addProperty(hasUserInterest, "0.9");
+		shubhamRecommendedApple.addProperty(hasUserInterest, "0.3");
 		
 		shubhamRecommendedApple.addProperty(isRelatedTo, apple);
 		shubham.addProperty(hasRecommendation, shubhamRecommendedApple);
@@ -962,7 +960,7 @@ public class OntologyFactory{
 		shubhamRecommendedOrange.addProperty(hasWeelyWeightage, "0.1");
 		shubhamRecommendedOrange.addProperty(hasBiweelyWeightage, "0.1");
 		shubhamRecommendedOrange.addProperty(hasMonthlyWeightage, "0.1");
-		shubhamRecommendedOrange.addProperty(hasUserInterest, "0.9");
+		shubhamRecommendedOrange.addProperty(hasUserInterest, "0.3");
 		
 		shubhamRecommendedOrange.addProperty(isRelatedTo, orange);
 		shubham.addProperty(hasRecommendation, shubhamRecommendedOrange);
@@ -972,7 +970,7 @@ public class OntologyFactory{
 		shubhamRecommendedChickenLegs.addProperty(hasWeelyWeightage, "0.2");
 		shubhamRecommendedChickenLegs.addProperty(hasBiweelyWeightage, "0.1");
 		shubhamRecommendedChickenLegs.addProperty(hasMonthlyWeightage, "0.1");
-		shubhamRecommendedChickenLegs.addProperty(hasUserInterest, "0.9");
+		shubhamRecommendedChickenLegs.addProperty(hasUserInterest, "0.3");
 		
 		shubhamRecommendedChickenLegs.addProperty(isRelatedTo, chickenLegs);
 		shubham.addProperty(hasRecommendation, shubhamRecommendedChickenLegs);
@@ -983,7 +981,7 @@ public class OntologyFactory{
 		adityaRecommendedDietCoke.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedDietCoke.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedDietCoke.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedDietCoke.addProperty(hasUserInterest, "0.9");
+		adityaRecommendedDietCoke.addProperty(hasUserInterest, "0.3");
 		
 		adityaRecommendedDietCoke.addProperty(isRelatedTo, dietCoke);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedDietCoke);
@@ -992,7 +990,7 @@ public class OntologyFactory{
 		adityaRecommendedBread.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedBread.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedBread.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedBread.addProperty(hasUserInterest, "0.9");
+		adityaRecommendedBread.addProperty(hasUserInterest, "0.3");
 		
 		adityaRecommendedBread.addProperty(isRelatedTo, bread);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedBread);
@@ -1001,7 +999,7 @@ public class OntologyFactory{
 		adityaRecommendedBrownBread.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedBrownBread.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedBrownBread.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedBrownBread.addProperty(hasUserInterest, "0.9");
+		adityaRecommendedBrownBread.addProperty(hasUserInterest, "0.3");
 		
 		adityaRecommendedBrownBread.addProperty(isRelatedTo, brownBread);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedBrownBread);
@@ -1010,7 +1008,7 @@ public class OntologyFactory{
 		adityaRecommendedCoke.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedCoke.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedCoke.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedCoke.addProperty(hasUserInterest, "0.9");
+		adityaRecommendedCoke.addProperty(hasUserInterest, "0.3");
 		
 		adityaRecommendedCoke.addProperty(isRelatedTo, coke);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedCoke);
@@ -1019,7 +1017,7 @@ public class OntologyFactory{
 		adityaRecommendedChickenBreasts.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedChickenBreasts.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedChickenBreasts.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedChickenBreasts.addProperty(hasUserInterest, "0.9");
+		adityaRecommendedChickenBreasts.addProperty(hasUserInterest, "0.3");
 		
 		adityaRecommendedChickenBreasts.addProperty(isRelatedTo, chickenBreasts);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedChickenBreasts);
@@ -1028,7 +1026,7 @@ public class OntologyFactory{
 		adityaRecommendedSweeseCheese.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedSweeseCheese.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedSweeseCheese.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedSweeseCheese.addProperty(hasUserInterest, "0.9");
+		adityaRecommendedSweeseCheese.addProperty(hasUserInterest, "0.3");
 		
 		adityaRecommendedSweeseCheese.addProperty(isRelatedTo, sweeseCheese);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedSweeseCheese);
@@ -1037,7 +1035,7 @@ public class OntologyFactory{
 		adityaRecommendedGreekCheese.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedGreekCheese.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedGreekCheese.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedGreekCheese.addProperty(hasUserInterest, "0.9");
+		adityaRecommendedGreekCheese.addProperty(hasUserInterest, "0.3");
 		
 		adityaRecommendedGreekCheese.addProperty(isRelatedTo, greekCheese);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedGreekCheese);
@@ -1046,7 +1044,7 @@ public class OntologyFactory{
 		adityaRecommendedButter.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedButter.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedButter.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedButter.addProperty(hasUserInterest, "0.9");
+		adityaRecommendedButter.addProperty(hasUserInterest, "0.3");
 		
 		adityaRecommendedButter.addProperty(isRelatedTo, butter);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedButter);
@@ -1055,7 +1053,7 @@ public class OntologyFactory{
 		adityaRecommendedLowFatMilk.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedLowFatMilk.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedLowFatMilk.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedLowFatMilk.addProperty(hasUserInterest, "0.9");
+		adityaRecommendedLowFatMilk.addProperty(hasUserInterest, "0.3");
 		
 		adityaRecommendedLowFatMilk.addProperty(isRelatedTo, lowFatMilk);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedLowFatMilk);
@@ -1064,7 +1062,7 @@ public class OntologyFactory{
 		adityaRecommendedMilk.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedMilk.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedMilk.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedMilk.addProperty(hasUserInterest, "0.9");
+		adityaRecommendedMilk.addProperty(hasUserInterest, "0.3");
 		
 		adityaRecommendedMilk.addProperty(isRelatedTo, milk);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedMilk);
@@ -1073,7 +1071,7 @@ public class OntologyFactory{
 		adityaRecommendedSpinach.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedSpinach.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedSpinach.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedSpinach.addProperty(hasUserInterest, "0.9");
+		adityaRecommendedSpinach.addProperty(hasUserInterest, "0.3");
 		
 		adityaRecommendedSpinach.addProperty(isRelatedTo, spinach);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedSpinach);
@@ -1082,7 +1080,7 @@ public class OntologyFactory{
 		adityaRecommendedMushroom.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedMushroom.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedMushroom.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedMushroom.addProperty(hasUserInterest, "0.9");
+		adityaRecommendedMushroom.addProperty(hasUserInterest, "0.3");
 		
 		adityaRecommendedMushroom.addProperty(isRelatedTo, mushroom);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedMushroom);
@@ -1091,7 +1089,7 @@ public class OntologyFactory{
 		adityaRecommendedBrocolli.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedBrocolli.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedBrocolli.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedBrocolli.addProperty(hasUserInterest, "0.9");
+		adityaRecommendedBrocolli.addProperty(hasUserInterest, "0.3");
 		
 		adityaRecommendedBrocolli.addProperty(isRelatedTo, brocolli);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedBrocolli);
@@ -1100,7 +1098,7 @@ public class OntologyFactory{
 		adityaRecommendedKiwi.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedKiwi.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedKiwi.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedKiwi.addProperty(hasUserInterest, "0.9");
+		adityaRecommendedKiwi.addProperty(hasUserInterest, "0.3");
 		
 		adityaRecommendedKiwi.addProperty(isRelatedTo, kiwi);		
 		aditya.addProperty(hasRecommendation, adityaRecommendedKiwi);
@@ -1110,7 +1108,7 @@ public class OntologyFactory{
 		adityaRecommendedApple.addProperty(hasWeelyWeightage, "0.1");
 		adityaRecommendedApple.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedApple.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedApple.addProperty(hasUserInterest, "0.9");
+		adityaRecommendedApple.addProperty(hasUserInterest, "0.3");
 		
 		adityaRecommendedApple.addProperty(isRelatedTo, apple);
 		aditya.addProperty(hasRecommendation, adityaRecommendedApple);
@@ -1120,7 +1118,7 @@ public class OntologyFactory{
 		adityaRecommendedOrange.addProperty(hasWeelyWeightage, "0.1");
 		adityaRecommendedOrange.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedOrange.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedOrange.addProperty(hasUserInterest, "0.9");
+		adityaRecommendedOrange.addProperty(hasUserInterest, "0.3");
 		
 		adityaRecommendedOrange.addProperty(isRelatedTo, orange);
 		aditya.addProperty(hasRecommendation, adityaRecommendedOrange);
@@ -1130,7 +1128,7 @@ public class OntologyFactory{
 		adityaRecommendedChickenLegs.addProperty(hasWeelyWeightage, "0.2");
 		adityaRecommendedChickenLegs.addProperty(hasBiweelyWeightage, "0.1");
 		adityaRecommendedChickenLegs.addProperty(hasMonthlyWeightage, "0.1");
-		adityaRecommendedChickenLegs.addProperty(hasUserInterest, "0.9");
+		adityaRecommendedChickenLegs.addProperty(hasUserInterest, "0.3");
 		
 		adityaRecommendedChickenLegs.addProperty(isRelatedTo, chickenLegs);
 		aditya.addProperty(hasRecommendation, adityaRecommendedChickenLegs);

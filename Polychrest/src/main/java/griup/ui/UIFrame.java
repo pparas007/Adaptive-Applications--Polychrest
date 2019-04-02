@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -249,6 +251,7 @@ public class UIFrame extends JFrame implements ActionListener{
 		
 		Pattern pattern=getPattern(patternName,patternConfidence);
 		Middleware.insertShoppingInstance(user,shopping, pattern);
+		Middleware.upgradeInterest(user, food);
 		
 		System.out.println("Shopping instance insterted!");
 	}
@@ -271,7 +274,7 @@ public class UIFrame extends JFrame implements ActionListener{
 		else monthlyWeightageLabel.setForeground(Color.GREEN);
 		
 		//user interest label
-		if(recommendation.getHasUserInterest()>0.69) userInterestLabel.setForeground(Color.GREEN);
+		if(recommendation.getHasUserInterest()>0.7) userInterestLabel.setForeground(Color.GREEN);
 	}
 	private Pattern getPattern(String patternName,float patternConfidence) {
 		Pattern pattern;
@@ -306,7 +309,8 @@ public class UIFrame extends JFrame implements ActionListener{
 		shopping=new Shopping();
 		shopping.setAtPrice(price);
 		shopping.setAtShop(shop);
-		shopping.setAtDateTime("12:00");
+		shopping.setAtDateTime(getCurrentDateTime());
+		
 		shopping.setBought(food);
 		shopping.setQuantity(quantity);
 		int shopingNo=(int)(Math.random()*10000);
@@ -321,6 +325,16 @@ public class UIFrame extends JFrame implements ActionListener{
 	}
 	private void changeUserButtonVisibility(boolean b) {
 		love.setVisible(b);hate.setVisible(b);forgot.setVisible(b);alreadyHave.setVisible(b);
+	}
+	
+	private String getCurrentDateTime() {
+		Date date = new Date();
+	    date.setHours(date.getHours() + 8);
+	    System.out.println(date);
+	    SimpleDateFormat simpDate;
+	    simpDate = new SimpleDateFormat("kk:mm:ss");
+	    System.out.println(simpDate.format(date));
+	    return simpDate.format(date);
 	}
 	
 }
