@@ -12,7 +12,7 @@ import griup.beans.User;
 public class Utility{
 	private static float e=2.73f;
 	private static String csvPrefix="resource\\csv\\";
-	private static String userInterestCsvPostfix=".csv";
+	private static String userInterestCsvPostfix="_user_interest.csv";
 	
 	public static  float changeExponentially(float weightage, float boost) {
 		System.out.println("###########");
@@ -37,7 +37,7 @@ public class Utility{
 	        CSVWriter writer = new CSVWriter(outputfile); 
 	  
 	        // adding header to csv 
-	        String[] header = { "Food", "User_Interest" }; 
+	        String[] header = { "Food", "User Interest" }; 
 	        writer.writeNext(header); 
 	  
 	        // add data to csv
