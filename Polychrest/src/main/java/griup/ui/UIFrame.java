@@ -13,6 +13,7 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
@@ -49,7 +50,7 @@ public class UIFrame extends JFrame implements ActionListener{
 	JLabel shopLabel=new JLabel("Shop");
 	JLabel priceLabel=new JLabel("Price");
 	JLabel patternLabel=new JLabel("Pattern");
-	JLabel patternConfidenceLabel=new JLabel("Pattern COnfidence");
+	JLabel patternConfidenceLabel=new JLabel("Pattern Confidence");
 	
 	JLabel userLabel=new JLabel("Select User");
 	JLabel shoppingLabel=new JLabel("Add shopping entry");
@@ -63,6 +64,8 @@ public class UIFrame extends JFrame implements ActionListener{
 	JLabel biweeklyWeightageLabel=new JLabel("");
 	JLabel monthlyWeightageLabel=new JLabel("");
 	JLabel userInterestLabel=new JLabel("");
+	
+	JLabel conflictPopUp=new JLabel("");
 	
 	//global variables to hold screen data
 	Food food,weightageFood;
@@ -151,6 +154,10 @@ public class UIFrame extends JFrame implements ActionListener{
 		//add action listeners
 		submitShopping.addActionListener(this);
 		
+		conflictPopUp.setBounds(150, 200, 100, 30);
+		conflictPopUp.setFont(new Font("Lucida Console", Font.PLAIN, 11));
+		conflictPopUp.setBackground(Color.RED);
+		
 		//check weightage section
 		checkWeightageLabel.setBounds(20, 240, 200, 30);
 		checkWeightageNote.setBounds(20, 250, 600, 40);
@@ -192,6 +199,7 @@ public class UIFrame extends JFrame implements ActionListener{
 		add(weeklyWeightageLabel);add(biweeklyWeightageLabel);add(monthlyWeightageLabel);add(userInterestLabel);add(patternConfidenceComboBox);
 		add(foodLabel);add(priceLabel);add(patternLabel);add(patternConfidenceLabel);add(shopLabel);
 		add(love);add(hate);add(alreadyHave);add(forgot);
+		add(conflictPopUp);
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
@@ -253,9 +261,23 @@ public class UIFrame extends JFrame implements ActionListener{
 		Middleware.insertShoppingInstance(user,shopping, pattern);
 		Middleware.upgradeInterest(user, food);
 		
+		String movingToGoal=Middleware.upgradeAndCheckConflict(user, food);
+		//String movingToGoal="try";
+		if(movingToGoal!=null) showConflictPopUp(movingToGoal);
+		
 		System.out.println("Shopping instance insterted!");
 	}
 	
+	private void showConflictPopUp(String movingToGoal) {
+		System.out.println("Conflict found in UIFrame\nPoping up!");
+		
+		int dialogResult = JOptionPane.showConfirmDialog (null, "Conflict detected!\nDo you want to chanage the goal to "+movingToGoal,"Warning",JOptionPane.YES_NO_OPTION);
+		if(dialogResult==0) {
+			System.out.println("Reset User Goal");
+			Middleware.reset(user);
+		}
+	}
+
 	private void checkWeightage() {
 		System.out.println("check weightage function called");
 		updateScreenData();

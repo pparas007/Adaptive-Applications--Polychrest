@@ -8,6 +8,7 @@ public class Recommendation {
 	float hasByWeeklyWeightage;
 	float hasMonthlyWeightage;
 	float hasUserInterest;
+	float hasGoalConflict;
 	
 	public float getHasWeeklyWeightage() {
 		return hasWeeklyWeightage;
@@ -34,6 +35,12 @@ public class Recommendation {
 		this.hasUserInterest = hasUserInterest;
 	}
 	
+	public float getHasGoalConflict() {
+		return hasGoalConflict;
+	}
+	public void setHasGoalConflict(float hasGoalConflict) {
+		this.hasGoalConflict = hasGoalConflict;
+	}
 	public Recommendation(float hasWeeklyWeightage, float hasByWeeklyWeightage, float hasMonthlyWeightage,
 			float hasUserInterest) {
 		super();

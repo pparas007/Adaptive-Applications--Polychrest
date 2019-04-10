@@ -894,4 +894,14 @@ String s=	ReadOntology.query(queryString);
 	
 		
 	}
+
+	public ArrayList<String> getFoodCategory(Food food) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ArrayList<String> getUserGoals(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

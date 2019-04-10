@@ -19,6 +19,7 @@ import griup.polychrest.InteractWithOntology;
 public class Middleware {
 	static final float boost=0.3f;
 	static final float interestBoost=0.6f;
+	static final float conflictBoost=0.6f;
 	
 	public static void insertShoppingInstance(User user,Shopping shopping, Pattern pattern){
 		
@@ -233,6 +234,81 @@ public class Middleware {
 			foodList.add(food);
 		}
 		return foodList;
+	}
+
+	public static String upgradeAndCheckConflict(User user, Food weightageFood) {
+		System.out.println("Middleware method upgradeAndCheckConflict with parameters:\n"+user+"\n"+weightageFood);
+		//get current recommendation conflict weightage
+		Recommendation recommendation=getRecommendationForUserAndFoodPair(user, weightageFood);
+		Recommendation oldRecommendation=new Recommendation(recommendation);
+		
+		float hasGoalConflict=recommendation.getHasGoalConflict();
+		System.out.println("User Goal Conflict before: "+hasGoalConflict);
+		
+		ArrayList<String> foodCategoryList= new InteractWithOntology().getFoodCategory(weightageFood);
+		ArrayList<String> userGoalsList= new InteractWithOntology().getUserGoals(user);
+		System.out.println("FoodCategoryList: "+foodCategoryList+"\nUserGoalsList: "+userGoalsList);
+		boolean didNotFoundAnyConflict=true;
+		String conflictingWithCategory=null;
+		for(String goal:userGoalsList) {
+			for(String category:foodCategoryList) {
+				if(Constants.conflictMap.get(goal).contains(category)) {
+					System.out.println("Conflict found with user goal "+goal+" and food category "+category+" for food "+weightageFood.getFoodName());
+					hasGoalConflict=Utility.changeExponentially(hasGoalConflict, conflictBoost);
+					didNotFoundAnyConflict=false;
+					conflictingWithCategory=category;
+				}
+			}
+		}
+		if(didNotFoundAnyConflict) {
+			System.out.println("Did not found any conflict, so reducing the conflict");
+			if(hasGoalConflict>0.3) hasGoalConflict=hasGoalConflict-0.1f;
+		}
+		
+		//compress weightage to probability i.e. between 0-1
+		hasGoalConflict=Utility.convertToProbability(hasGoalConflict,0.1f,0.1f);
+		System.out.println("User Goal Conflict after: "+hasGoalConflict);
+		
+		recommendation.setHasGoalConflict(hasGoalConflict);
+		
+		//update weightage to ontology
+		new InteractWithOntology().updateRecommendationForUserAndFoodPair(user, weightageFood, oldRecommendation, recommendation);
+		String movingToGoal=null;
+		if(conflictingWithCategory!=null && hasGoalConflict>0.7) {
+			System.out.println("Conflict exceeded the threshold of 0.7: "+hasGoalConflict+" for regular goal ");
+			for(String goal:Constants.goalList) {
+				if(Constants.suitableMap.get(goal).contains(conflictingWithCategory)) {
+					movingToGoal=goal;
+					break;
+				}
+			}
+			System.out.println("and seems to be moving to "+movingToGoal);
+		}
+		
+		return movingToGoal;
+	}
+
+	public static void reset(User user) {
+		System.out.println("Middleware method upgradeAndCheckConflict with parameters:\n"+user);
+		//get current recommendation conflict weightage
+		
+		for(String foodName:Constants.foodList) {
+			Food food=new Food();
+			food.setFoodName(foodName);
+			
+			Recommendation recommendation=getRecommendationForUserAndFoodPair(user, food);
+			Recommendation oldRecommendation=new Recommendation(recommendation);
+			
+			recommendation.setHasWeeklyWeightage(0.33f);
+			recommendation.setHasByWeeklyWeightage(0.33f);
+			recommendation.setHasMonthlyWeightage(0.33f);
+			recommendation.setHasUserInterest(0.3f);
+			recommendation.setHasGoalConflict(0.2f);
+			
+			new InteractWithOntology().updateRecommendationForUserAndFoodPair(user, food, oldRecommendation, recommendation);
+		}
+		
+		
 	}
 	
 }

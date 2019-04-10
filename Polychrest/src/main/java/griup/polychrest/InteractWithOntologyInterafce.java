@@ -13,7 +13,6 @@ import griup.beans.User;
 
 public interface InteractWithOntologyInterafce {
 	
-	//already added some parts by shubham and aditya
 	public ArrayList<User> getAllUser();
 	public ArrayList<Shopping> getAll();
 	public ArrayList<Shopping> getShoppingByUser(User user);
@@ -21,10 +20,10 @@ public interface InteractWithOntologyInterafce {
 	public ArrayList<Food> getFoodAtShop(String shopName);
 	public ArrayList<Shop> getShopThatSellsFood(String foodName);
 	
-	//yet to be implemented 
 	public void insertShoppingInstance(User user,Shopping shopping);
 	public Recommendation getRecommendationForUserAndFoodPair(User user,Food food);
 	public void updateRecommendationForUserAndFoodPair(User user, Food food, Recommendation oldRecommendation, Recommendation newRecommendation);
 	
-
+	public ArrayList<String> getFoodCategory(Food food);
+	public ArrayList<String> getUserGoals(User user);
 }
