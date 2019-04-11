@@ -18,7 +18,7 @@ import griup.polychrest.InteractWithOntology;
 
 public class Middleware {
 	static final float boost=0.3f;
-	static final float interestBoost=0.4f;
+	static final float interestBoost=0.6f;
 	static final float conflictBoost=0.2f;
 	
 	public static void insertShoppingInstance(User user,Shopping shopping, Pattern pattern){
@@ -287,9 +287,12 @@ public class Middleware {
 		return movingToGoal;
 	}
 
-	public static void reset(User user) {
+	public static void reset(User user, String movingToGoal) {
 		System.out.println("Middleware method upgradeAndCheckConflict with parameters:\n"+user);
 		//get current recommendation conflict weightage
+		User oldUser=new User(user);
+		ArrayList<String> oldGoalsList=new InteractWithOntology().getUserGoals(user);
+		oldUser.setGoalsList(oldGoalsList);
 		
 		for(String foodName:Constants.foodList) {
 			Food food=new Food();
@@ -306,6 +309,12 @@ public class Middleware {
 			
 			new InteractWithOntology().updateRecommendationForUserAndFoodPair(user, food, oldRecommendation, recommendation);
 		}
+		
+		//update goal
+		ArrayList<String> goalsList=new ArrayList<String>();
+		goalsList.add(movingToGoal);
+		user.setGoalsList(goalsList);
+		new InteractWithOntology().updateUserGoal(oldUser, user);
 		
 		
 	}

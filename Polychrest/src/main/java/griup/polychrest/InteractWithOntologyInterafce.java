@@ -26,4 +26,6 @@ public interface InteractWithOntologyInterafce {
 	
 	public ArrayList<String> getFoodCategory(Food food);
 	public ArrayList<String> getUserGoals(User user);
+	
+	public void updateUserGoal(User userOld,User userNew );
 }

@@ -60,7 +60,7 @@ public class Constants {
 		conflictMap=new HashMap<String, ArrayList<String>>();
 		
 		ArrayList<String> meatLoverConflictMap=new ArrayList<String>();
-		meatLoverConflictMap.add(FOOD_CATEGORY_VEG);meatLoverConflictMap.add(FOOD_CATEGORY_VEGETABLES);meatLoverConflictMap.add(FOOD_CATEGORY_FRUITS);meatLoverConflictMap.add(FOOD_CATEGORY_SALAD);
+		meatLoverConflictMap.add(FOOD_CATEGORY_VEGETABLES);
 		conflictMap.put(GOAL_MEAT_LOVER, meatLoverConflictMap);
 		
 		ArrayList<String> veggieConflictMap=new ArrayList<String>();
