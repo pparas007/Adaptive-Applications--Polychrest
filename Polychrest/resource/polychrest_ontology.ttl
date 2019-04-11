@@ -125,13 +125,6 @@ base:anirbanRecommendedGreekCheese
         base:hasWeelyWeightage    "0.33" ;
         base:isRelatedTo          base:greekCheese .
 
-base:parasShops2514  a   base:shopping ;
-        base:atDateTime  "02:35:23" ;
-        base:atPrice     "1.0" ;
-        base:atShop      base:lidlArtane ;
-        base:bought      base:spinach ;
-        base:quantity    "1.0" .
-
 base:anirbanRecommendedMushroom
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.33" ;
@@ -660,12 +653,19 @@ base:parasShops23  a     base:shopping ;
 
 base:parasRecommendedLowFatMilk
         a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
+        base:hasBiweelyWeightage  "0.043080907" ;
         base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
+        base:hasMonthlyWeightage  "0.042962953" ;
+        base:hasUserInterest      "0.6915095" ;
+        base:hasWeelyWeightage    "0.85908884" ;
         base:isRelatedTo          base:lowFatMilk .
+
+base:parasShops8641  a   base:shopping ;
+        base:atDateTime  "03:05:11" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:lowFatMilk ;
+        base:quantity    "1.0" .
 
 base:shubhamRecommendedMilk
         a                         base:recommendation ;
@@ -679,8 +679,8 @@ base:shubhamRecommendedMilk
 base:paras  a                   base:user ;
         base:hasGoal            "economical" ;
         base:hasName            "paras" ;
-        base:hasRecommendation  base:parasRecommendedBread , base:parasRecommendedApple , base:parasRecommendedCoke , base:parasRecommendedButter , base:parasRecommendedMilk , base:parasRecommendedChickenBreasts , base:parasRecommendedDietCoke , base:parasRecommendedSweeseCheese , base:parasRecommendedBrocolli , base:parasRecommendedKiwi , base:parasRecommendedMushroom , base:parasRecommendedLowFatMilk , base:parasRecommendedSpinach , base:parasRecommendedChickenLegs , base:parasRecommendedBrownBread , base:parasRecommendedOrange , base:parasRecommendedGreekCheese ;
-        base:shopped            base:parasShops23 , base:parasShops2514 , base:parasShops12 , base:parasShops11 , base:parasShops6984 , base:parasShops22 , base:parasShops13 , base:parasShops21 .
+        base:hasRecommendation  base:parasRecommendedApple , base:parasRecommendedBread , base:parasRecommendedCoke , base:parasRecommendedButter , base:parasRecommendedMilk , base:parasRecommendedChickenBreasts , base:parasRecommendedDietCoke , base:parasRecommendedSweeseCheese , base:parasRecommendedBrocolli , base:parasRecommendedKiwi , base:parasRecommendedMushroom , base:parasRecommendedLowFatMilk , base:parasRecommendedSpinach , base:parasRecommendedChickenLegs , base:parasRecommendedBrownBread , base:parasRecommendedOrange , base:parasRecommendedGreekCheese ;
+        base:shopped            base:parasShops23 , base:parasShops12 , base:parasShops11 , base:parasShops6984 , base:parasShops22 , base:parasShops13 , base:parasShops21 , base:parasShops8641 .
 
 base:hasUserInterest  a  owl:DatatypeProperty ;
         rdfs:domain  base:recommendation ;
@@ -739,11 +739,11 @@ base:adityaRecommendedBrownBread
 
 base:parasRecommendedSpinach
         a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.017127682" ;
+        base:hasBiweelyWeightage  "0.043080907" ;
         base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.017086156" ;
-        base:hasUserInterest      "0.869995" ;
-        base:hasWeelyWeightage    "0.9838373" ;
+        base:hasMonthlyWeightage  "0.042962953" ;
+        base:hasUserInterest      "0.7326376" ;
+        base:hasWeelyWeightage    "0.85908884" ;
         base:isRelatedTo          base:spinach .
 
 base:adityaRecommendedChickenBreasts

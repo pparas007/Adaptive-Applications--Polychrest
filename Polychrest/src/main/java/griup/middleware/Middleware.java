@@ -18,7 +18,7 @@ import griup.polychrest.InteractWithOntology;
 
 public class Middleware {
 	static final float boost=0.3f;
-	static final float interestBoost=0.6f;
+	static final float interestBoost=0.4f;
 	static final float conflictBoost=0.2f;
 	
 	public static void insertShoppingInstance(User user,Shopping shopping, Pattern pattern){
