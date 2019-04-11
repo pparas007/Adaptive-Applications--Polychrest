@@ -19,7 +19,7 @@ import griup.polychrest.InteractWithOntology;
 public class Middleware {
 	static final float boost=0.3f;
 	static final float interestBoost=0.6f;
-	static final float conflictBoost=0.6f;
+	static final float conflictBoost=0.2f;
 	
 	public static void insertShoppingInstance(User user,Shopping shopping, Pattern pattern){
 		
@@ -205,9 +205,6 @@ public class Middleware {
 		new InteractWithOntology().updateRecommendationForUserAndFoodPair(user, weightageFood, oldRecommendation, recommendation);
 	}
 	
-	public static Recommendation getDummyRecommendation() {
-		return new Recommendation(0.1f, 0.20f, 0.70f,0.66f);//dummy data; to be removed after above method is available
-	}
 
 	public static void generateCsv(User user) {
 		System.out.println("Middleware method generateCsv with parameters:\n"+user);
@@ -242,6 +239,7 @@ public class Middleware {
 		Recommendation recommendation=getRecommendationForUserAndFoodPair(user, weightageFood);
 		Recommendation oldRecommendation=new Recommendation(recommendation);
 		
+		String movingToGoal=null;
 		float hasGoalConflict=recommendation.getHasGoalConflict();
 		System.out.println("User Goal Conflict before: "+hasGoalConflict);
 		
@@ -264,16 +262,17 @@ public class Middleware {
 			System.out.println("Did not found any conflict, so reducing the conflict");
 			if(hasGoalConflict>0.3) hasGoalConflict=hasGoalConflict-0.1f;
 		}
+		else {
+			//compress weightage to probability i.e. between 0-1
+			hasGoalConflict=Utility.convertToProbability(hasGoalConflict,0.1f,0.1f);
+		}
 		
-		//compress weightage to probability i.e. between 0-1
-		hasGoalConflict=Utility.convertToProbability(hasGoalConflict,0.1f,0.1f);
 		System.out.println("User Goal Conflict after: "+hasGoalConflict);
-		
 		recommendation.setHasGoalConflict(hasGoalConflict);
 		
 		//update weightage to ontology
 		new InteractWithOntology().updateRecommendationForUserAndFoodPair(user, weightageFood, oldRecommendation, recommendation);
-		String movingToGoal=null;
+		
 		if(conflictingWithCategory!=null && hasGoalConflict>0.7) {
 			System.out.println("Conflict exceeded the threshold of 0.7: "+hasGoalConflict+" for regular goal ");
 			for(String goal:Constants.goalList) {

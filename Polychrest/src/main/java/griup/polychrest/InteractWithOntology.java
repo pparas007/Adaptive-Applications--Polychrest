@@ -893,7 +893,7 @@ String s=	ReadOntology.query(queryString);
 					 "base:"+user.getName()+"Recommended"+foodNameInCamelCase+" base:hasBiweelyWeightage \""+newRecommendation.getHasByWeeklyWeightage()+"\" ;\n" + 
 					"        base:hasMonthlyWeightage  \""+newRecommendation.getHasMonthlyWeightage()+"\" ;\n" + 
 					"  	base:hasUserInterest      \""+newRecommendation.getHasUserInterest()+"\" ;\n" + 
-					"  	base:hasGoalConflict      \""+oldRecommendation.getHasGoalConflict()+"\" ;\n" +
+					"  	base:hasGoalConflict      \""+newRecommendation.getHasGoalConflict()+"\" ;\n" +
 					"        base:hasWeelyWeightage   \""+newRecommendation.getHasWeeklyWeightage()+"\" .}\n" +  
 					"Where {\n" + 
 					"base:"+user.getName()+"Recommended"+foodNameInCamelCase +"   base:isRelatedTo  "+  "base:"+foodName+"." +"\n" + 
@@ -969,7 +969,7 @@ String s=	ReadOntology.query(queryString);
 			"PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
 			"select * \n" + 
 			"where{\n" + 
-			"base:shubham  a                 base:user ;\n" + 
+			"base:"+user.getName()+"  a                 base:user ;\n" + 
 			"        base:hasGoal          ?aa ;\n" + 
 			"}";
 	System.out.println(queryString);
