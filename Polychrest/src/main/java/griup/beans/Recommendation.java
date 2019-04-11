@@ -41,16 +41,18 @@ public class Recommendation {
 	public void setHasGoalConflict(float hasGoalConflict) {
 		this.hasGoalConflict = hasGoalConflict;
 	}
+	
+	public Recommendation() {}
+	
 	public Recommendation(float hasWeeklyWeightage, float hasByWeeklyWeightage, float hasMonthlyWeightage,
-			float hasUserInterest) {
+			float hasUserInterest, float hasGoalConflict) {
 		super();
 		this.hasWeeklyWeightage = hasWeeklyWeightage;
 		this.hasByWeeklyWeightage = hasByWeeklyWeightage;
 		this.hasMonthlyWeightage = hasMonthlyWeightage;
 		this.hasUserInterest = hasUserInterest;
+		this.hasGoalConflict = hasGoalConflict;
 	}
-	
-	
 	public Recommendation(Recommendation recommendation) {
 		super();
 		this.hasWeeklyWeightage = recommendation.getHasWeeklyWeightage();

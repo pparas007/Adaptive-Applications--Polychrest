@@ -244,7 +244,7 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 					" ?shopping       base:bought      ?bought.\n" +
 					"?shop       base:hasShopAddress      ?shopAddress.\n" + 
 							" ?shop       base:hasShopType       ?ShopType\n" + 
-					
+							   
 					"}";
 			
 			
@@ -487,6 +487,8 @@ String s=	ReadOntology.query(queryString);
 					"?recommendations  base:hasBiweelyWeightage ?biweekly.\n" + 
 					"?recommendations  base:hasMonthlyWeightage ?monthly.\n" + 
 					"?recommendations  base:hasWeelyWeightage ?weekly.\n" + 
+					"?recommendations base:hasGoalConflict      ?goal .\n"+
+					" ?recommendations       base:hasUserInterest        ?userintrest\n" + 
 					"}";
 			
 			
@@ -506,8 +508,16 @@ String s=	ReadOntology.query(queryString);
 			System.out.println(s2[1]);
 			System.out.println(s2[3]);
 			System.out.println(s2[5]);
-				
+			System.out.println(s2[7]);
+			System.out.println(s2[9]);
+			Recommendation recommendation = new Recommendation();
+			recommendation.setHasByWeeklyWeightage(Float.parseFloat(s2[1]));
+			recommendation.setHasGoalConflict(Float.parseFloat(s2[7]));
+			recommendation.setHasMonthlyWeightage(Float.parseFloat(s2[3]));
+			recommendation.setHasWeeklyWeightage(Float.parseFloat(s2[5]));
+			recommendation.setHasUserInterest(Float.parseFloat(s2[9]));
 			Food food= new Food();
+			
 			food.setFoodName(s4[1]);
 			if(food.getFoodName().equals("sprite"))
 			{ArrayList<String> cat= new ArrayList<String>();
@@ -669,7 +679,6 @@ String s=	ReadOntology.query(queryString);
 			cat.add("healthy");
 				food.setCategoryList(cat);
 			}
-			Recommendation recommendation = new Recommendation(Float.parseFloat(s2[5]), Float.parseFloat(s2[1]), Float.parseFloat(s2[3]), 0.5f);
 			
 			hs.put(food, recommendation);
 			
@@ -827,6 +836,7 @@ String s=	ReadOntology.query(queryString);
 				"base:"+user.getName()+"Recommended"+foodNameInCamelCase+"  base:hasBiweelyWeightage                        ?BiWeelyWeightage.\n" + 
 				"base:"+user.getName()+"Recommended"+foodNameInCamelCase+"  base:hasMonthlyWeightage                        ?MonthlyWeelyWeightage.\n" + 
 				"base:"+user.getName()+"Recommended"+foodNameInCamelCase+"  base:hasUserInterest                        ?hasUserInterest.\n" + 
+				"base:"+user.getName()+"Recommended"+foodNameInCamelCase+"  base:hasGoalConflict      ?goal                        .\n" + 
 				//"base:"+user.getName()+"Recommended"+food.getFoodName()+"  base:isRelatedTo                        base:"+food.getFoodName()+".\n" + 
 				
 
@@ -842,8 +852,15 @@ String s=	ReadOntology.query(queryString);
 		System.out.println("hasBiWeeklyWeightage"+s1[3]);
 		System.out.println("hasmonthlyWeightage"+s1[5]);
 		System.out.println("hasUserIntrest"+s1[7]);
-		 recommendation= new Recommendation(Float.parseFloat(s1[1]), Float.parseFloat(s1[3]),Float.parseFloat( s1[5]),Float.parseFloat( s1[7]));
-		
+		System.out.println("goalCOnflict"+s1[9]);
+		 recommendation= new Recommendation();
+		 
+
+		 recommendation.setHasUserInterest(Float.parseFloat( s1[7]));
+		 recommendation.setHasByWeeklyWeightage(Float.parseFloat(s1[3]));
+		 recommendation.setHasGoalConflict(Float.parseFloat( s1[9]));
+		 recommendation.setHasWeeklyWeightage(Float.parseFloat(s1[1]));
+		 recommendation.setHasMonthlyWeightage(Float.parseFloat( s1[5]));
 		return recommendation;
 		
 		} catch (FileNotFoundException e) {
@@ -870,11 +887,13 @@ String s=	ReadOntology.query(queryString);
 					+ "base:"+user.getName()+"Recommended"+foodNameInCamelCase+" base:hasBiweelyWeightage  \""+oldRecommendation.getHasByWeeklyWeightage()+"\" ;\n" + 
 					"        base:hasMonthlyWeightage \""+oldRecommendation.getHasMonthlyWeightage()+"\" ;\n" + 
 					"  	base:hasUserInterest      \""+oldRecommendation.getHasUserInterest()+"\" ;\n" + 
+					"  	base:hasGoalConflict      \""+oldRecommendation.getHasGoalConflict()+"\" ;\n" +
 					"        base:hasWeelyWeightage   \""+oldRecommendation.getHasWeeklyWeightage()+"\" .}\n" +  
 					"INSERT {\n" + 
 					 "base:"+user.getName()+"Recommended"+foodNameInCamelCase+" base:hasBiweelyWeightage \""+newRecommendation.getHasByWeeklyWeightage()+"\" ;\n" + 
 					"        base:hasMonthlyWeightage  \""+newRecommendation.getHasMonthlyWeightage()+"\" ;\n" + 
 					"  	base:hasUserInterest      \""+newRecommendation.getHasUserInterest()+"\" ;\n" + 
+					"  	base:hasGoalConflict      \""+oldRecommendation.getHasGoalConflict()+"\" ;\n" +
 					"        base:hasWeelyWeightage   \""+newRecommendation.getHasWeeklyWeightage()+"\" .}\n" +  
 					"Where {\n" + 
 					"base:"+user.getName()+"Recommended"+foodNameInCamelCase +"   base:isRelatedTo  "+  "base:"+foodName+"." +"\n" + 
@@ -897,11 +916,79 @@ String s=	ReadOntology.query(queryString);
 
 	public ArrayList<String> getFoodCategory(Food food) {
 		// TODO Auto-generated method stub
-		return null;
+		ArrayList<String> catt= new ArrayList<String>();
+		try {
+		//String foodName=food.getFoodName();
+		//char  firstChar=foodName.charAt(0);
+		//String foodNameInCamelCase=Character.toUpperCase(firstChar)+foodName.substring(1);
+		//System.out.println("foodNameInCamelCase: "+foodNameInCamelCase);
+	String queryString = "PREFIX base:  <http://polychrest/ontology#>\n" + 
+			"PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n" + 
+			"PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
+			"PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
+			"PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
+			"select * \n" + 
+			"where{\n" + 
+			"base:"+food.getFoodName()+" a              base:food ;\n" + 
+			"base:ofCategory   ?cat.\n" + 
+			"}";
+	System.out.println(queryString);
+	String s=	ReadOntology.query(queryString);
+	System.out.println(s);
+	
+	String s1[] = s.split("\"");
+	for(int i=1;i<s1.length;i=i+2) 
+	{
+	System.out.println(s1[i]);
+	
+	catt.add(s1[i]);
+		
+	}
+	}
+		catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return catt;
 	}
 
 	public ArrayList<String> getUserGoals(User user) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		
+		ArrayList<String> catt= new ArrayList<String>();
+		try {
+		//String foodName=food.getFoodName();
+		//char  firstChar=foodName.charAt(0);
+		//String foodNameInCamelCase=Character.toUpperCase(firstChar)+foodName.substring(1);
+		//System.out.println("foodNameInCamelCase: "+foodNameInCamelCase);
+	String queryString = "PREFIX base:  <http://polychrest/ontology#>\n" + 
+			"PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n" + 
+			"PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
+			"PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
+			"PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
+			"select * \n" + 
+			"where{\n" + 
+			"base:shubham  a                 base:user ;\n" + 
+			"        base:hasGoal          ?aa ;\n" + 
+			"}";
+	System.out.println(queryString);
+	String s=	ReadOntology.query(queryString);
+	System.out.println(s);
+	
+	String s1[] = s.split("\"");
+	for(int i=1;i<s1.length;i=i+2) 
+	{
+	System.out.println(s1[i]);
+	
+	catt.add(s1[i]);
+		
+	}
+		}catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return catt;
+	
 	}
 }
