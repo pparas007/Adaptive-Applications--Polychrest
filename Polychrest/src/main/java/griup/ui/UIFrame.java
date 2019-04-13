@@ -274,7 +274,7 @@ public class UIFrame extends JFrame implements ActionListener{
 		int dialogResult = JOptionPane.showConfirmDialog (null, "Conflict detected!\nDo you want to chanage the goal to "+movingToGoal,"Warning",JOptionPane.YES_NO_OPTION);
 		if(dialogResult==0) {
 			System.out.println("Reset User Goal");
-			Middleware.reset(user);
+			Middleware.reset(user,movingToGoal);
 		}
 	}
 

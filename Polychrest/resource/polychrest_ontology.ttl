@@ -5,311 +5,25 @@
 @prefix j.0:   <http://purl.org/dc/terms/> .
 @prefix base:  <http://polychrest/ontology#> .
 
-base:parasShops13  a     base:shopping ;
-        base:atDateTime  "08-Mar-2019" ;
-        base:atPrice     "2.5" ;
-        base:atShop      base:lidlArtane ;
-        base:bought      base:chickenLegs ;
-        base:quantity    "1" .
-
-base:adityaRecommendedSweeseCheese
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:sweeseCheese .
-
-base:shubhamRecommendedButter
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:butter .
-
-base:anirbanRecommendedCoke
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:coke .
-
-base:euroGeneralFairview
-        a                    base:shop ;
-        base:hasShopAddress  "Fairview, Dublin" ;
-        base:hasShopName     "Euro General" ;
-        base:hasShopType     "store" ;
-        base:sells           base:bread , base:apple , base:chickenLegs , base:chickenBreasts , base:butter , base:spinach , base:orange , base:coke .
-
-base:adityaRecommendedMushroom
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:mushroom .
-
-base:anirbanRecommendedApple
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.1" ;
-        base:isRelatedTo          base:apple .
-
-base:anirbanShops21  a   base:shopping ;
-        base:atDateTime  "14-Mar-2019" ;
-        base:atPrice     "1.5" ;
-        base:atShop      base:lidlCityCentre ;
-        base:bought      base:bread ;
-        base:quantity    "1" .
-
-base:anirban  a                 base:user ;
-        base:hasGoal            "meatlover" ;
-        base:hasName            "anirban" ;
-        base:hasRecommendation  base:anirbanRecommendedKiwi , base:anirbanRecommendedBrocolli , base:anirbanRecommendedMushroom , base:anirbanRecommendedOrange , base:anirbanRecommendedChickenLegs , base:anirbanRecommendedApple , base:anirbanRecommendedSpinach , base:anirbanRecommendedButter , base:anirbanRecommendedGreekCheese , base:anirbanRecommendedLowFatMilk , base:anirbanRecommendedMilk , base:anirbanRecommendedBread , base:anirbanRecommendedSweeseCheese , base:anirbanRecommendedBrownBread , base:anirbanRecommendedChickenBreasts , base:anirbanRecommendedDietCoke , base:anirbanRecommendedCoke ;
-        base:shopped            base:anirbanShops22 , base:anirbanShops11 , base:anirbanShops24 , base:anirbanShops21 , base:anirbanShops12 .
-
-base:lidlArtane  a           base:shop ;
-        base:hasShopAddress  "Artane, Dublin 5" ;
-        base:hasShopName     "LiDL" ;
-        base:hasShopType     "supermarket" ;
-        base:sells           base:butter , base:brocolli , base:spinach , base:orange , base:greekCheese , base:mushroom , base:chickenLegs , base:bread , base:apple , base:chickenBreasts , base:dietCoke , base:coke , base:sweeseCheese , base:lowFatMilk , base:kiwi .
-
-base:hasMonthlyWeightage
-        a            owl:DatatypeProperty ;
-        rdfs:domain  base:recommendation ;
-        rdfs:label   "denotes the monthly weightage for the recommendation"@en ;
-        rdfs:range   xsd:float .
-
-base:adityaRecommendedSpinach
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:spinach .
-
-base:shubhamRecommendedDietCoke
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:dietCoke .
-
-base:shubhamRecommendedSpinach
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:spinach .
-
-base:anirbanRecommendedGreekCheese
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:greekCheese .
-
-base:anirbanRecommendedMushroom
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:mushroom .
-
-base:adityaShops13  a    base:shopping ;
+base:adityaShops12  a    base:shopping ;
         base:atDateTime  "07-Mar-2019" ;
-        base:atPrice     "2.5" ;
+        base:atPrice     "1.8" ;
         base:atShop      base:tescoCityCentre ;
-        base:bought      base:chickenLegs ;
+        base:bought      base:lowFatMilk ;
         base:quantity    "1" .
-
-base:tescoCityCentre  a      base:shop ;
-        base:hasShopAddress  "City Centre, Dublin" ;
-        base:hasShopName     "Tesco" ;
-        base:hasShopType     "supermarket" ;
-        base:sells           base:lowFatMilk , base:kiwi , base:dietCoke , base:bread , base:orange , base:mushroom , base:sweeseCheese , base:chickenLegs , base:brownBread , base:apple , base:butter , base:chickenBreasts , base:coke , base:brocolli , base:greekCheese , base:spinach .
-
-base:milk  a              base:food ;
-        base:hasFoodName  "milk" ;
-        base:ofCategory   "veg" , "dairy" , "milk" .
-
-base:parasShops3101  a   base:shopping ;
-        base:atDateTime  "02:22:45" ;
-        base:atPrice     "1.0" ;
-        base:atShop      base:lidlArtane ;
-        base:bought      base:spinach ;
-        base:quantity    "1.0" .
-
-base:adityaRecommendedLowFatMilk
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:lowFatMilk .
-
-base:anirbanRecommendedChickenLegs
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:chickenLegs .
-
-base:parasRecommendedBread
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:bread .
-
-base:parasRecommendedBrownBread
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:brownBread .
-
-base:availableAt  a  owl:ObjectProperty ;
-        rdfs:domain  base:food ;
-        rdfs:label   "food item is available at this shop"@en ;
-        rdfs:range   base:shop .
-
-base:parasRecommendedBrocolli
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:brocolli .
-
-base:mushroom  a          base:food ;
-        base:hasFoodName  "mushroom" ;
-        base:ofCategory   "vegetables" , "veg" , "healthy" .
-
-base:butter  a            base:food ;
-        base:hasFoodName  "butter" ;
-        base:ofCategory   "colesterol" , "veg" , "dairy" .
-
-base:adityaRecommendedApple
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.1" ;
-        base:isRelatedTo          base:apple .
-
-base:adityaRecommendedDietCoke
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:dietCoke .
-
-base:shubhamRecommendedKiwi
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:kiwi .
-
-base:parasRecommendedSweeseCheese
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:sweeseCheese .
 
 base:chickenLegs  a       base:food ;
         base:hasFoodName  "chickenLegs" ;
-        base:ofCategory   "colesterol" , "chicken" , "nonveg" .
+        base:ofCategory   "nonveg" , "chicken" , "colesterol" .
 
-base:parasShops12  a     base:shopping ;
-        base:atDateTime  "08-Mar-2019" ;
-        base:atPrice     "2" ;
-        base:atShop      base:lidlArtane ;
-        base:bought      base:apple ;
-        base:quantity    "1" .
-
-base:isEnabled  a    owl:DatatypeProperty ;
-        rdfs:domain  base:recommendation ;
-        rdfs:label   "denotes if recommendation is enabled to be shown to user"@en ;
-        rdfs:range   xsd:boolean .
-
-base:parasRecommendedButter
+base:adityaRecommendedChickenBreasts
         a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:butter .
-
-base:anirbanRecommendedLowFatMilk
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:lowFatMilk .
-
-base:brownBread  a        base:food ;
-        base:hasFoodName  "brownBread" ;
-        base:ofCategory   "bread" , "bakery" .
-
-base:chickenBreasts  a    base:food ;
-        base:hasFoodName  "chickenBreasts" ;
-        base:ofCategory   "colesterol" , "chicken" , "nonveg" .
-
-base:anirbanRecommendedDietCoke
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:dietCoke .
-
-base:shop  a        owl:Class ;
-        rdfs:label  "any grocery shop"@en ;
-        owl:sameAs  <http://dbpedia.org/ontology/Shop> .
-
-base:coke  a              base:food ;
-        base:hasFoodName  "coke" ;
-        base:ofCategory   "softdrink" .
+        base:hasBiweelyWeightage  "0.017127682" ;
+        base:hasGoalConflict      "0.7707492" ;
+        base:hasMonthlyWeightage  "0.017086156" ;
+        base:hasUserInterest      "0.85742855" ;
+        base:hasWeelyWeightage    "0.9838373" ;
+        base:isRelatedTo          base:chickenBreasts .
 
 base:adityaRecommendedOrange
         a                         base:recommendation ;
@@ -320,48 +34,98 @@ base:adityaRecommendedOrange
         base:hasWeelyWeightage    "0.1" ;
         base:isRelatedTo          base:orange .
 
-base:dietCoke  a          base:food ;
-        base:hasFoodName  "dietCoke" ;
-        base:ofCategory   "softdrink" .
-
-base:hasName  a      owl:DatatypeProperty ;
-        rdfs:domain  base:user ;
-        rdfs:label   "user name"@en ;
-        rdfs:range   xsd:string .
-
-base:shubhamRecommendedBrocolli
+base:parasRecommendedCoke
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasGoalConflict      "0.2" ;
         base:hasMonthlyWeightage  "0.1" ;
         base:hasUserInterest      "0.3" ;
         base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:brocolli .
+        base:isRelatedTo          base:coke .
 
-base:parasRecommendedChickenBreasts
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:chickenBreasts .
-
-base:adityaShops12  a    base:shopping ;
-        base:atDateTime  "07-Mar-2019" ;
-        base:atPrice     "1.8" ;
-        base:atShop      base:tescoCityCentre ;
-        base:bought      base:lowFatMilk ;
+base:parasShops11  a     base:shopping ;
+        base:atDateTime  "08-Mar-2019" ;
+        base:atPrice     "1" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:kiwi ;
         base:quantity    "1" .
 
-base:anirbanRecommendedButter
+base:hasGoalConflict  a  owl:DatatypeProperty ;
+        rdfs:domain  base:recommendation ;
+        rdfs:label   "denotes the conflict rates user had with this item"@en ;
+        rdfs:range   xsd:float .
+
+base:adityaShops9963  a  base:shopping ;
+        base:atDateTime  "04:21:52" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:spinach ;
+        base:quantity    "1.0" .
+
+base:adityaRecommendedDietCoke
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasGoalConflict      "0.2" ;
         base:hasMonthlyWeightage  "0.1" ;
         base:hasUserInterest      "0.3" ;
         base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:butter .
+        base:isRelatedTo          base:dietCoke .
+
+base:bought  a       owl:ObjectProperty ;
+        rdfs:domain  base:shopping ;
+        rdfs:label   "the user bought this item"@en ;
+        rdfs:range   base:food .
+
+base:anirbanRecommendedMushroom
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:mushroom .
+
+base:adityaShops7259  a  base:shopping ;
+        base:atDateTime  "04:22:33" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:chickenBreasts ;
+        base:quantity    "1.0" .
+
+base:shubhamShops3812
+        a                base:shopping ;
+        base:atDateTime  "04:24:53" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:chickenBreasts ;
+        base:quantity    "1.0" .
+
+base:shubhamRecommendedApple
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.33" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.33" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.33" ;
+        base:isRelatedTo          base:apple .
+
+base:chickenBreasts  a    base:food ;
+        base:hasFoodName  "chickenBreasts" ;
+        base:ofCategory   "nonveg" , "chicken" , "colesterol" .
+
+base:atPrice  a      owl:DatatypeProperty ;
+        rdfs:domain  base:food ;
+        rdfs:label   "food price"@en ;
+        rdfs:range   xsd:float .
+
+base:atDateTime  a   owl:DatatypeProperty ;
+        rdfs:domain  base:shopping ;
+        rdfs:label   "the user shopped at this date-time"@en ;
+        rdfs:range   xsd:date .
+
+base:greekCheese  a       base:food ;
+        base:hasFoodName  "greekCheese" ;
+        base:ofCategory   "dairy" , "cheese" , "colesterol" .
 
 base:adityaRecommendedMilk
         a                         base:recommendation ;
@@ -372,164 +136,24 @@ base:adityaRecommendedMilk
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:milk .
 
-base:adityaRecommendedBread
+base:parasRecommendedButter
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasGoalConflict      "0.2" ;
         base:hasMonthlyWeightage  "0.1" ;
         base:hasUserInterest      "0.3" ;
         base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:bread .
+        base:isRelatedTo          base:butter .
 
-base:spinach  a           base:food ;
-        base:hasFoodName  "spinach" ;
-        base:ofCategory   "vegetables" , "veg" , "healthy" .
+base:dietCoke  a          base:food ;
+        base:hasFoodName  "dietCoke" ;
+        base:ofCategory   "softdrink" .
 
-base:anirbanShops12  a   base:shopping ;
-        base:atDateTime  "06-Mar-2019" ;
-        base:atPrice     "2.5" ;
+base:anirbanShops24  a   base:shopping ;
+        base:atDateTime  "14-Mar-2019" ;
+        base:atPrice     "1.5" ;
         base:atShop      base:lidlCityCentre ;
-        base:bought      base:coke ;
-        base:quantity    "2" .
-
-base:anirbanRecommendedChickenBreasts
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:chickenBreasts .
-
-base:shubhamRecommendedApple
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.1" ;
-        base:isRelatedTo          base:apple .
-
-base:parasShops11  a     base:shopping ;
-        base:atDateTime  "08-Mar-2019" ;
-        base:atPrice     "1" ;
-        base:atShop      base:lidlArtane ;
-        base:bought      base:kiwi ;
-        base:quantity    "1" .
-
-base:sells  a          owl:ObjectProperty ;
-        rdfs:label     "this shop sells the food item"@en ;
-        owl:inverseOf  base:availableAt .
-
-base:adityaRecommendedBrocolli
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:brocolli .
-
-base:shubhamRecommendedOrange
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.1" ;
-        base:isRelatedTo          base:orange .
-
-base:hasShopAddress  a  owl:DatatypeProperty ;
-        rdfs:domain  base:shop ;
-        rdfs:label   "grocery shop address"@en ;
-        rdfs:range   xsd:string .
-
-base:recommendedTo  a  owl:ObjectProperty ;
-        rdfs:label     "recommendation is recommended to this user"@en ;
-        owl:inverseOf  base:hasRecommendation .
-
-base:ofCategory  a   owl:DatatypeProperty ;
-        rdfs:domain  base:food ;
-        rdfs:label   "food category"@en ;
-        rdfs:range   xsd:string .
-
-base:parasRecommendedChickenLegs
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:chickenLegs .
-
-base:parasRecommendedKiwi
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:kiwi .
-
-base:lidlCityCentre  a       base:shop ;
-        base:hasShopAddress  "City Centre, Dublin" ;
-        base:hasShopName     "LiDL" ;
-        base:hasShopType     "supermarket" ;
-        base:sells           base:greekCheese , base:coke , base:sweeseCheese , base:spinach , base:orange , base:butter , base:mushroom , base:lowFatMilk , base:bread , base:chickenLegs , base:kiwi , base:brownBread , base:chickenBreasts , base:apple .
-
-base:greekCheese  a       base:food ;
-        base:hasFoodName  "greekCheese" ;
-        base:ofCategory   "colesterol" , "cheese" , "dairy" .
-
-base:anirbanRecommendedBrocolli
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:brocolli .
-
-base:quantity  a     owl:DatatypeProperty ;
-        rdfs:domain  base:shopping ;
-        rdfs:label   "quantity bought"@en ;
-        rdfs:range   xsd:float .
-
-base:adityaRecommendedCoke
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:coke .
-
-base:anirbanRecommendedSpinach
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:spinach .
-
-base:anirbanRecommendedBread
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:bread .
-
-base:shopping  a    owl:Class ;
-        rdfs:label  "user shopping details"@en .
-
-base:adityaShops24  a    base:shopping ;
-        base:atDateTime  "16-Mar-2019" ;
-        base:atPrice     "1" ;
-        base:atShop      base:tescoCityCentre ;
-        base:bought      base:spinach ;
+        base:bought      base:butter ;
         base:quantity    "1" .
 
 base:anirbanRecommendedKiwi
@@ -541,213 +165,25 @@ base:anirbanRecommendedKiwi
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:kiwi .
 
-base:brocolli  a          base:food ;
-        base:hasFoodName  "brocolli" ;
-        base:ofCategory   "vegetables" , "veg" , "healthy" .
-
-base:recommendation  a  owl:Class ;
-        rdfs:label  "recommendations for user"@en .
-
-base:anirbanShops11  a   base:shopping ;
-        base:atDateTime  "06-Mar-2019" ;
-        base:atPrice     "1.5" ;
-        base:atShop      base:lidlCityCentre ;
-        base:bought      base:bread ;
-        base:quantity    "1" .
-
-base:shubhamRecommendedBread
+base:anirbanRecommendedSpinach
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasGoalConflict      "0.2" ;
         base:hasMonthlyWeightage  "0.1" ;
         base:hasUserInterest      "0.3" ;
         base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:bread .
-
-base:atShop  a       owl:ObjectProperty ;
-        rdfs:domain  base:shopping ;
-        rdfs:label   "the user shopped at this shop"@en ;
-        rdfs:range   base:shop .
-
-base:orange  a            base:food ;
-        base:hasFoodName  "orange" ;
-        base:ofCategory   "veg" , "fruits" , "healthy" .
-
-base:anirbanShops24  a   base:shopping ;
-        base:atDateTime  "14-Mar-2019" ;
-        base:atPrice     "1.5" ;
-        base:atShop      base:lidlCityCentre ;
-        base:bought      base:butter ;
-        base:quantity    "1" .
-
-base:hasRecommendation
-        a            owl:ObjectProperty ;
-        rdfs:domain  base:user ;
-        rdfs:label   "user has this recommendation"@en ;
-        rdfs:range   base:recommendation .
-
-base:food  a        owl:Class ;
-        rdfs:label  "food"@en ;
-        owl:sameAs  <http://dbpedia.org/ontology/Food> , <http://purl.org/ontology/fo/Food> .
-
-base:shubhamRecommendedBrownBread
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:brownBread .
-
-base:parasRecommendedOrange
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.1" ;
-        base:isRelatedTo          base:orange .
-
-base:apple  a             base:food ;
-        base:hasFoodName  "apple" ;
-        base:ofCategory   "veg" , "fruits" , "healthy" .
-
-base:parasShops23  a     base:shopping ;
-        base:atDateTime  "15-Mar-2019" ;
-        base:atPrice     "2.5" ;
-        base:atShop      base:lidlArtane ;
-        base:bought      base:chickenLegs ;
-        base:quantity    "1" .
-
-base:parasRecommendedLowFatMilk
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:lowFatMilk .
-
-base:shubhamRecommendedMilk
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:milk .
-
-base:paras  a                   base:user ;
-        base:hasGoal            "economical" ;
-        base:hasName            "paras" ;
-        base:hasRecommendation  base:parasRecommendedApple , base:parasRecommendedBread , base:parasRecommendedButter , base:parasRecommendedCoke , base:parasRecommendedMilk , base:parasRecommendedKiwi , base:parasRecommendedDietCoke , base:parasRecommendedSweeseCheese , base:parasRecommendedBrocolli , base:parasRecommendedChickenBreasts , base:parasRecommendedMushroom , base:parasRecommendedLowFatMilk , base:parasRecommendedSpinach , base:parasRecommendedChickenLegs , base:parasRecommendedBrownBread , base:parasRecommendedOrange , base:parasRecommendedGreekCheese ;
-        base:shopped            base:parasShops23 , base:parasShops12 , base:parasShops11 , base:parasShops1532 , base:parasShops22 , base:parasShops13 , base:parasShops3101 , base:parasShops21 .
-
-base:hasUserInterest  a  owl:DatatypeProperty ;
-        rdfs:domain  base:recommendation ;
-        rdfs:label   "denotes user's interest in an item"@en ;
-        rdfs:range   xsd:float .
-
-base:sweeseCheese  a      base:food ;
-        base:hasFoodName  "sweeseCheese" ;
-        base:ofCategory   "colesterol" , "cheese" , "dairy" .
-
-base:lowFatMilk  a        base:food ;
-        base:hasFoodName  "lowFatMilk" ;
-        base:ofCategory   "veg" , "dairy" , "milk" .
-
-base:parasShops1532  a   base:shopping ;
-        base:atDateTime  "02:37:00" ;
-        base:atPrice     "1.0" ;
-        base:atShop      base:lidlArtane ;
-        base:bought      base:spinach ;
-        base:quantity    "1.0" .
-
-base:adityaShops23  a    base:shopping ;
-        base:atDateTime  "16-Mar-2019" ;
-        base:atPrice     "2.5" ;
-        base:atShop      base:tescoCityCentre ;
-        base:bought      base:chickenLegs ;
-        base:quantity    "1" .
-
-base:parasRecommendedGreekCheese
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:greekCheese .
-
-base:anirbanRecommendedSweeseCheese
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:sweeseCheese .
-
-base:adityaRecommendedBrownBread
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:brownBread .
-
-base:parasRecommendedSpinach
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.017127682" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.017086156" ;
-        base:hasUserInterest      "0.869995" ;
-        base:hasWeelyWeightage    "0.9838373" ;
         base:isRelatedTo          base:spinach .
-
-base:adityaRecommendedChickenBreasts
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:chickenBreasts .
-
-base:hasGoalConflict  a  owl:DatatypeProperty ;
-        rdfs:domain  base:recommendation ;
-        rdfs:label   "denotes the conflict rates user had with this item"@en ;
-        rdfs:range   xsd:float .
-
-base:shopped  a      owl:ObjectProperty ;
-        rdfs:domain  base:user ;
-        rdfs:label   "the user shopped this shopping"@en ;
-        rdfs:range   base:shopping .
 
 base:kiwi  a              base:food ;
         base:hasFoodName  "kiwi" ;
-        base:ofCategory   "veg" , "fruits" , "healthy" .
+        base:ofCategory   "healthy" , "fruits" , "veg" .
 
-base:shubhamRecommendedChickenBreasts
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:chickenBreasts .
+base:isRelatedTo  a  owl:ObjectProperty ;
+        rdfs:domain  base:recommendation ;
+        rdfs:label   "recommendation is related to this food item"@en ;
+        rdfs:range   base:food .
 
-base:parasRecommendedApple
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.1" ;
-        base:isRelatedTo          base:apple .
-
-base:shubhamRecommendedCoke
+base:adityaRecommendedCoke
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasGoalConflict      "0.2" ;
@@ -756,36 +192,63 @@ base:shubhamRecommendedCoke
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:coke .
 
-base:shubham  a                 base:user ;
-        base:hasGoal            "veggie" ;
-        base:hasName            "shubham" ;
-        base:hasRecommendation  base:shubhamRecommendedApple , base:shubhamRecommendedOrange , base:shubhamRecommendedMilk , base:shubhamRecommendedKiwi , base:shubhamRecommendedSpinach , base:shubhamRecommendedChickenBreasts , base:shubhamRecommendedBread , base:shubhamRecommendedGreekCheese , base:shubhamRecommendedMushroom , base:shubhamRecommendedBrocolli , base:shubhamRecommendedButter , base:shubhamRecommendedDietCoke , base:shubhamRecommendedLowFatMilk , base:shubhamRecommendedChickenLegs , base:shubhamRecommendedCoke , base:shubhamRecommendedBrownBread , base:shubhamRecommendedSweeseCheese .
+base:shubhamRecommendedSpinach
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.76010895" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.13138114" ;
+        base:hasUserInterest      "0.7326376" ;
+        base:hasWeelyWeightage    "0.12350755" ;
+        base:isRelatedTo          base:spinach .
 
-base:parasShops22  a     base:shopping ;
-        base:atDateTime  "15-Mar-2019" ;
-        base:atPrice     "2" ;
-        base:atShop      base:lidlArtane ;
-        base:bought      base:orange ;
-        base:quantity    "2" .
-
-base:hasGoal  a      owl:DatatypeProperty ;
-        rdfs:domain  base:user ;
-        rdfs:label   "user goal"@en ;
+base:hasFoodName  a  owl:DatatypeProperty ;
+        rdfs:domain  base:food ;
+        rdfs:label   "food name"@en ;
         rdfs:range   xsd:string .
 
-base:shubhamRecommendedSweeseCheese
+base:anirbanShops11  a   base:shopping ;
+        base:atDateTime  "06-Mar-2019" ;
+        base:atPrice     "1.5" ;
+        base:atShop      base:lidlCityCentre ;
+        base:bought      base:bread ;
+        base:quantity    "1" .
+
+base:adityaShops23  a    base:shopping ;
+        base:atDateTime  "16-Mar-2019" ;
+        base:atPrice     "2.5" ;
+        base:atShop      base:tescoCityCentre ;
+        base:bought      base:chickenLegs ;
+        base:quantity    "1" .
+
+base:shopping  a    owl:Class ;
+        rdfs:label  "user shopping details"@en .
+
+base:anirbanRecommendedChickenLegs
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasGoalConflict      "0.2" ;
         base:hasMonthlyWeightage  "0.1" ;
         base:hasUserInterest      "0.3" ;
         base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:sweeseCheese .
+        base:isRelatedTo          base:chickenLegs .
 
-base:hasShopName  a  owl:DatatypeProperty ;
-        rdfs:domain  base:shop ;
-        rdfs:label   "grocery shop name"@en ;
-        rdfs:range   xsd:string .
+base:shubhamRecommendedBrownBread
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.33" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.33" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.33" ;
+        base:isRelatedTo          base:brownBread .
+
+base:parasRecommendedSpinach
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:spinach .
 
 base:anirbanRecommendedBrownBread
         a                         base:recommendation ;
@@ -796,77 +259,65 @@ base:anirbanRecommendedBrownBread
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:brownBread .
 
-base:hasBiweelyWeightage
-        a            owl:DatatypeProperty ;
-        rdfs:domain  base:recommendation ;
-        rdfs:label   "denotes the bi-weekly weightage for the recommendation"@en ;
-        rdfs:range   xsd:float .
-
-base:user  a        owl:Class ;
-        rdfs:label  "app user"@en .
-
-base:parasRecommendedMushroom
+base:adityaRecommendedSpinach
         a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
+        base:hasBiweelyWeightage  "0.0068803746" ;
         base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:mushroom .
-
-base:parasRecommendedMilk
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:milk .
-
-base:bought  a       owl:ObjectProperty ;
-        rdfs:domain  base:shopping ;
-        rdfs:label   "the user bought this item"@en ;
-        rdfs:range   base:food .
-
-base:atDateTime  a   owl:DatatypeProperty ;
-        rdfs:domain  base:shopping ;
-        rdfs:label   "the user shopped at this date-time"@en ;
-        rdfs:range   xsd:date .
-
-base:adityaShops22  a    base:shopping ;
-        base:atDateTime  "16-Mar-2019" ;
-        base:atPrice     "1.8" ;
-        base:atShop      base:tescoCityCentre ;
-        base:bought      base:lowFatMilk ;
-        base:quantity    "1" .
-
-base:anirbanShops22  a   base:shopping ;
-        base:atDateTime  "14-Mar-2019" ;
-        base:atPrice     "2.5" ;
-        base:atShop      base:lidlCityCentre ;
-        base:bought      base:coke ;
-        base:quantity    "2" .
-
-base:shubhamRecommendedGreekCheese
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:greekCheese .
+        base:hasMonthlyWeightage  "0.006864076" ;
+        base:hasUserInterest      "0.88822633" ;
+        base:hasWeelyWeightage    "0.99432826" ;
+        base:isRelatedTo          base:spinach .
 
 base:hasShopType  a  owl:DatatypeProperty ;
         rdfs:domain  base:shop ;
         rdfs:label   "grocery shop type (eg. mall, supermarket, shop)"@en ;
         rdfs:range   xsd:string .
 
-base:hasFoodName  a  owl:DatatypeProperty ;
-        rdfs:domain  base:food ;
-        rdfs:label   "food name"@en ;
-        rdfs:range   xsd:string .
+base:adityaShops3858  a  base:shopping ;
+        base:atDateTime  "04:22:11" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:chickenBreasts ;
+        base:quantity    "1.0" .
 
-base:shubhamRecommendedChickenLegs
+base:bread  a             base:food ;
+        base:hasFoodName  "bread" ;
+        base:ofCategory   "bakery" , "bread" .
+
+base:adityaRecommendedButter
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:butter .
+
+base:parasShops22  a     base:shopping ;
+        base:atDateTime  "15-Mar-2019" ;
+        base:atPrice     "2" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:orange ;
+        base:quantity    "2" .
+
+base:shubhamShops2864
+        a                base:shopping ;
+        base:atDateTime  "04:23:19" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:mushroom ;
+        base:quantity    "1.0" .
+
+base:anirbanRecommendedBrocolli
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:brocolli .
+
+base:parasRecommendedChickenLegs
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasGoalConflict      "0.2" ;
@@ -875,20 +326,72 @@ base:shubhamRecommendedChickenLegs
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:chickenLegs .
 
-base:adityaRecommendedKiwi
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:kiwi .
+base:aditya  a                  base:user ;
+        base:hasGoal            "fitness" ;
+        base:hasName            "aditya" ;
+        base:hasRecommendation  base:adityaRecommendedMilk , base:adityaRecommendedApple , base:adityaRecommendedOrange , base:adityaRecommendedCoke , base:adityaRecommendedSweeseCheese , base:adityaRecommendedDietCoke , base:adityaRecommendedBread , base:adityaRecommendedChickenLegs , base:adityaRecommendedBrownBread , base:adityaRecommendedButter , base:adityaRecommendedLowFatMilk , base:adityaRecommendedSpinach , base:adityaRecommendedKiwi , base:adityaRecommendedChickenBreasts , base:adityaRecommendedMushroom , base:adityaRecommendedBrocolli , base:adityaRecommendedGreekCheese ;
+        base:shopped            base:adityaShops4921 , base:adityaShops9963 , base:adityaShops3858 , base:adityaShops7259 , base:adityaShops23 , base:adityaShops13 , base:adityaShops22 , base:adityaShops24 , base:adityaShops7456 , base:adityaShops12 .
 
-base:hasWeelyWeightage
-        a            owl:DatatypeProperty ;
-        rdfs:domain  base:recommendation ;
-        rdfs:label   "denotes the weekly weightage for the recommendation"@en ;
-        rdfs:range   xsd:float .
+base:spinach  a           base:food ;
+        base:hasFoodName  "spinach" ;
+        base:ofCategory   "healthy" , "veg" , "vegetables" .
+
+base:sells  a          owl:ObjectProperty ;
+        rdfs:label     "this shop sells the food item"@en ;
+        owl:inverseOf  base:availableAt .
+
+base:shubhamRecommendedChickenBreasts
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.33" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.33" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.33" ;
+        base:isRelatedTo          base:chickenBreasts .
+
+base:apple  a             base:food ;
+        base:hasFoodName  "apple" ;
+        base:ofCategory   "healthy" , "fruits" , "veg" .
+
+base:orange  a            base:food ;
+        base:hasFoodName  "orange" ;
+        base:ofCategory   "healthy" , "fruits" , "veg" .
+
+base:hasName  a      owl:DatatypeProperty ;
+        rdfs:domain  base:user ;
+        rdfs:label   "user name"@en ;
+        rdfs:range   xsd:string .
+
+base:anirban  a                 base:user ;
+        base:hasGoal            "meatlover" ;
+        base:hasName            "anirban" ;
+        base:hasRecommendation  base:anirbanRecommendedKiwi , base:anirbanRecommendedBrocolli , base:anirbanRecommendedMushroom , base:anirbanRecommendedOrange , base:anirbanRecommendedButter , base:anirbanRecommendedSpinach , base:anirbanRecommendedApple , base:anirbanRecommendedChickenLegs , base:anirbanRecommendedGreekCheese , base:anirbanRecommendedLowFatMilk , base:anirbanRecommendedMilk , base:anirbanRecommendedBread , base:anirbanRecommendedChickenBreasts , base:anirbanRecommendedBrownBread , base:anirbanRecommendedSweeseCheese , base:anirbanRecommendedDietCoke , base:anirbanRecommendedCoke ;
+        base:shopped            base:anirbanShops22 , base:anirbanShops11 , base:anirbanShops24 , base:anirbanShops21 , base:anirbanShops12 .
+
+base:shubhamRecommendedSweeseCheese
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.33" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.33" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.33" ;
+        base:isRelatedTo          base:sweeseCheese .
+
+base:shubhamShops4845
+        a                base:shopping ;
+        base:atDateTime  "04:23:23" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:mushroom ;
+        base:quantity    "1.0" .
+
+base:shubhamShops3063
+        a                base:shopping ;
+        base:atDateTime  "04:26:53" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:spinach ;
+        base:quantity    "1.0" .
 
 base:anirbanRecommendedMilk
         a                         base:recommendation ;
@@ -899,7 +402,299 @@ base:anirbanRecommendedMilk
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:milk .
 
-base:adityaRecommendedButter
+base:milk  a              base:food ;
+        base:hasFoodName  "milk" ;
+        base:ofCategory   "milk" , "dairy" , "veg" .
+
+base:parasRecommendedGreekCheese
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:greekCheese .
+
+base:anirbanShops22  a   base:shopping ;
+        base:atDateTime  "14-Mar-2019" ;
+        base:atPrice     "2.5" ;
+        base:atShop      base:lidlCityCentre ;
+        base:bought      base:coke ;
+        base:quantity    "2" .
+
+base:hasShopName  a  owl:DatatypeProperty ;
+        rdfs:domain  base:shop ;
+        rdfs:label   "grocery shop name"@en ;
+        rdfs:range   xsd:string .
+
+base:parasRecommendedBread
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:bread .
+
+base:adityaShops13  a    base:shopping ;
+        base:atDateTime  "07-Mar-2019" ;
+        base:atPrice     "2.5" ;
+        base:atShop      base:tescoCityCentre ;
+        base:bought      base:chickenLegs ;
+        base:quantity    "1" .
+
+base:shubhamRecommendedOrange
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.33" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.33" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.33" ;
+        base:isRelatedTo          base:orange .
+
+base:parasRecommendedMushroom
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:mushroom .
+
+base:anirbanRecommendedCoke
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:coke .
+
+base:shubhamShops8820
+        a                base:shopping ;
+        base:atDateTime  "04:25:27" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:spinach ;
+        base:quantity    "1.0" .
+
+base:coke  a              base:food ;
+        base:hasFoodName  "coke" ;
+        base:ofCategory   "softdrink" .
+
+base:anirbanRecommendedSweeseCheese
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:sweeseCheese .
+
+base:parasRecommendedApple
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.1" ;
+        base:isRelatedTo          base:apple .
+
+base:parasShops12  a     base:shopping ;
+        base:atDateTime  "08-Mar-2019" ;
+        base:atPrice     "2" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:apple ;
+        base:quantity    "1" .
+
+base:parasRecommendedSweeseCheese
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:sweeseCheese .
+
+base:adityaRecommendedGreekCheese
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:greekCheese .
+
+base:recommendedTo  a  owl:ObjectProperty ;
+        rdfs:label     "recommendation is recommended to this user"@en ;
+        owl:inverseOf  base:hasRecommendation .
+
+base:hasMonthlyWeightage
+        a            owl:DatatypeProperty ;
+        rdfs:domain  base:recommendation ;
+        rdfs:label   "denotes the monthly weightage for the recommendation"@en ;
+        rdfs:range   xsd:float .
+
+base:adityaRecommendedApple
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.1" ;
+        base:isRelatedTo          base:apple .
+
+base:butter  a            base:food ;
+        base:hasFoodName  "butter" ;
+        base:ofCategory   "dairy" , "veg" , "colesterol" .
+
+base:quantity  a     owl:DatatypeProperty ;
+        rdfs:domain  base:shopping ;
+        rdfs:label   "quantity bought"@en ;
+        rdfs:range   xsd:float .
+
+base:adityaRecommendedBrownBread
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:brownBread .
+
+base:sweeseCheese  a      base:food ;
+        base:hasFoodName  "sweeseCheese" ;
+        base:ofCategory   "dairy" , "cheese" , "colesterol" .
+
+base:anirbanRecommendedDietCoke
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:dietCoke .
+
+base:shubhamShops9607
+        a                base:shopping ;
+        base:atDateTime  "04:25:17" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:chickenBreasts ;
+        base:quantity    "1.0" .
+
+base:euroGeneralFairview
+        a                    base:shop ;
+        base:hasShopAddress  "Fairview, Dublin" ;
+        base:hasShopName     "Euro General" ;
+        base:hasShopType     "store" ;
+        base:sells           base:bread , base:apple , base:chickenLegs , base:chickenBreasts , base:butter , base:spinach , base:orange , base:coke .
+
+base:shubhamRecommendedGreekCheese
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.33" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.33" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.33" ;
+        base:isRelatedTo          base:greekCheese .
+
+base:shubhamShops8126
+        a                base:shopping ;
+        base:atDateTime  "04:24:12" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:chickenBreasts ;
+        base:quantity    "1.0" .
+
+base:brownBread  a        base:food ;
+        base:hasFoodName  "brownBread" ;
+        base:ofCategory   "bakery" , "bread" .
+
+base:parasRecommendedBrocolli
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:brocolli .
+
+base:shubhamRecommendedMushroom
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.33" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.33" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.33" ;
+        base:isRelatedTo          base:mushroom .
+
+base:tescoCityCentre  a      base:shop ;
+        base:hasShopAddress  "City Centre, Dublin" ;
+        base:hasShopName     "Tesco" ;
+        base:hasShopType     "supermarket" ;
+        base:sells           base:lowFatMilk , base:kiwi , base:dietCoke , base:bread , base:orange , base:mushroom , base:sweeseCheese , base:chickenLegs , base:apple , base:brownBread , base:butter , base:chickenBreasts , base:coke , base:brocolli , base:greekCheese , base:spinach .
+
+base:anirbanShops12  a   base:shopping ;
+        base:atDateTime  "06-Mar-2019" ;
+        base:atPrice     "2.5" ;
+        base:atShop      base:lidlCityCentre ;
+        base:bought      base:coke ;
+        base:quantity    "2" .
+
+base:shubhamRecommendedLowFatMilk
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.33" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.33" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.33" ;
+        base:isRelatedTo          base:lowFatMilk .
+
+base:adityaShops24  a    base:shopping ;
+        base:atDateTime  "16-Mar-2019" ;
+        base:atPrice     "1" ;
+        base:atShop      base:tescoCityCentre ;
+        base:bought      base:spinach ;
+        base:quantity    "1" .
+
+base:shop  a        owl:Class ;
+        rdfs:label  "any grocery shop"@en ;
+        owl:sameAs  <http://dbpedia.org/ontology/Shop> .
+
+base:shubhamRecommendedButter
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.33" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.33" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.33" ;
+        base:isRelatedTo          base:butter .
+
+base:anirbanRecommendedLowFatMilk
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:lowFatMilk .
+
+base:hasUserInterest  a  owl:DatatypeProperty ;
+        rdfs:domain  base:recommendation ;
+        rdfs:label   "denotes user's interest in an item"@en ;
+        rdfs:range   xsd:float .
+
+base:parasRecommendedBrownBread
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:brownBread .
+
+base:anirbanRecommendedButter
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasGoalConflict      "0.2" ;
@@ -907,6 +702,195 @@ base:adityaRecommendedButter
         base:hasUserInterest      "0.3" ;
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:butter .
+
+base:adityaRecommendedSweeseCheese
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:sweeseCheese .
+
+base:shubhamRecommendedBread
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.33" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.33" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.33" ;
+        base:isRelatedTo          base:bread .
+
+base:parasShops23  a     base:shopping ;
+        base:atDateTime  "15-Mar-2019" ;
+        base:atPrice     "2.5" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:chickenLegs ;
+        base:quantity    "1" .
+
+base:adityaRecommendedMushroom
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:mushroom .
+
+base:shubhamShops1759
+        a                base:shopping ;
+        base:atDateTime  "04:25:31" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:spinach ;
+        base:quantity    "1.0" .
+
+base:food  a        owl:Class ;
+        rdfs:label  "food"@en ;
+        owl:sameAs  <http://purl.org/ontology/fo/Food> , <http://dbpedia.org/ontology/Food> .
+
+base:mushroom  a          base:food ;
+        base:hasFoodName  "mushroom" ;
+        base:ofCategory   "healthy" , "veg" , "vegetables" .
+
+base:lidlArtane  a           base:shop ;
+        base:hasShopAddress  "Artane, Dublin 5" ;
+        base:hasShopName     "LiDL" ;
+        base:hasShopType     "supermarket" ;
+        base:sells           base:butter , base:brocolli , base:spinach , base:orange , base:greekCheese , base:mushroom , base:chickenLegs , base:bread , base:apple , base:chickenBreasts , base:dietCoke , base:coke , base:sweeseCheese , base:lowFatMilk , base:kiwi .
+
+base:hasShopAddress  a  owl:DatatypeProperty ;
+        rdfs:domain  base:shop ;
+        rdfs:label   "grocery shop address"@en ;
+        rdfs:range   xsd:string .
+
+base:hasRecommendation
+        a            owl:ObjectProperty ;
+        rdfs:domain  base:user ;
+        rdfs:label   "user has this recommendation"@en ;
+        rdfs:range   base:recommendation .
+
+base:shubhamRecommendedBrocolli
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.33" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.33" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.33" ;
+        base:isRelatedTo          base:brocolli .
+
+base:shubhamRecommendedKiwi
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.33" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.33" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.33" ;
+        base:isRelatedTo          base:kiwi .
+
+base:shubhamShops6072
+        a                base:shopping ;
+        base:atDateTime  "04:25:12" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:chickenBreasts ;
+        base:quantity    "1.0" .
+
+base:hasWeelyWeightage
+        a            owl:DatatypeProperty ;
+        rdfs:domain  base:recommendation ;
+        rdfs:label   "denotes the weekly weightage for the recommendation"@en ;
+        rdfs:range   xsd:float .
+
+base:anirbanRecommendedChickenBreasts
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:chickenBreasts .
+
+base:shubham  a                 base:user ;
+        base:hasGoal            "veggie" ;
+        base:hasName            "shubham" ;
+        base:hasRecommendation  base:shubhamRecommendedSpinach , base:shubhamRecommendedApple , base:shubhamRecommendedOrange , base:shubhamRecommendedKiwi , base:shubhamRecommendedMilk , base:shubhamRecommendedChickenBreasts , base:shubhamRecommendedBread , base:shubhamRecommendedGreekCheese , base:shubhamRecommendedMushroom , base:shubhamRecommendedBrocolli , base:shubhamRecommendedDietCoke , base:shubhamRecommendedButter , base:shubhamRecommendedLowFatMilk , base:shubhamRecommendedChickenLegs , base:shubhamRecommendedCoke , base:shubhamRecommendedBrownBread , base:shubhamRecommendedSweeseCheese ;
+        base:shopped            base:shubhamShops3063 , base:shubhamShops2864 , base:shubhamShops8126 , base:shubhamShops2537 , base:shubhamShops3812 , base:shubhamShops9607 , base:shubhamShops6072 , base:shubhamShops7928 , base:shubhamShops1759 , base:shubhamShops8820 , base:shubhamShops4845 , base:shubhamShops7910 .
+
+base:adityaRecommendedChickenLegs
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:chickenLegs .
+
+base:adityaRecommendedBrocolli
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:brocolli .
+
+base:recommendation  a  owl:Class ;
+        rdfs:label  "recommendations for user"@en .
+
+base:parasRecommendedKiwi
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:kiwi .
+
+base:adityaShops22  a    base:shopping ;
+        base:atDateTime  "16-Mar-2019" ;
+        base:atPrice     "1.8" ;
+        base:atShop      base:tescoCityCentre ;
+        base:bought      base:lowFatMilk ;
+        base:quantity    "1" .
+
+base:user  a        owl:Class ;
+        rdfs:label  "app user"@en .
+
+base:parasShops13  a     base:shopping ;
+        base:atDateTime  "08-Mar-2019" ;
+        base:atPrice     "2.5" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:chickenLegs ;
+        base:quantity    "1" .
+
+base:adityaShops4921  a  base:shopping ;
+        base:atDateTime  "04:21:52" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:spinach ;
+        base:quantity    "1.0" .
+
+base:shubhamShops7928
+        a                base:shopping ;
+        base:atDateTime  "04:26:57" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:spinach ;
+        base:quantity    "1.0" .
+
+base:parasRecommendedDietCoke
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:dietCoke .
+
+base:brocolli  a          base:food ;
+        base:hasFoodName  "brocolli" ;
+        base:ofCategory   "healthy" , "veg" , "vegetables" .
 
 base:anirbanRecommendedOrange
         a                         base:recommendation ;
@@ -924,25 +908,7 @@ base:parasShops21  a     base:shopping ;
         base:bought      base:kiwi ;
         base:quantity    "1" .
 
-base:parasRecommendedDietCoke
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:dietCoke .
-
-base:shubhamRecommendedMushroom
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:mushroom .
-
-base:adityaRecommendedGreekCheese
+base:anirbanRecommendedGreekCheese
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasGoalConflict      "0.2" ;
@@ -958,34 +924,16 @@ base:adityaRecommendedGreekCheese
         j.0:date         "08-Mar-2019" ;
         j.0:description  "Ontology Designed for Adaptive application module Project-Group Polychrest" .
 
-base:adityaRecommendedChickenLegs
+base:shubhamRecommendedChickenLegs
         a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
+        base:hasBiweelyWeightage  "0.33" ;
         base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
+        base:hasMonthlyWeightage  "0.33" ;
         base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
+        base:hasWeelyWeightage    "0.33" ;
         base:isRelatedTo          base:chickenLegs .
 
-base:parasRecommendedCoke
-        a                         base:recommendation ;
-        base:hasBiweelyWeightage  "0.1" ;
-        base:hasGoalConflict      "0.2" ;
-        base:hasMonthlyWeightage  "0.1" ;
-        base:hasUserInterest      "0.3" ;
-        base:hasWeelyWeightage    "0.2" ;
-        base:isRelatedTo          base:coke .
-
-base:bread  a             base:food ;
-        base:hasFoodName  "bread" ;
-        base:ofCategory   "bread" , "bakery" .
-
-base:isRelatedTo  a  owl:ObjectProperty ;
-        rdfs:domain  base:recommendation ;
-        rdfs:label   "recommendation is related to this food item"@en ;
-        rdfs:range   base:food .
-
-base:shubhamRecommendedLowFatMilk
+base:adityaRecommendedLowFatMilk
         a                         base:recommendation ;
         base:hasBiweelyWeightage  "0.1" ;
         base:hasGoalConflict      "0.2" ;
@@ -994,13 +942,183 @@ base:shubhamRecommendedLowFatMilk
         base:hasWeelyWeightage    "0.2" ;
         base:isRelatedTo          base:lowFatMilk .
 
-base:atPrice  a      owl:DatatypeProperty ;
-        rdfs:domain  base:food ;
-        rdfs:label   "food price"@en ;
+base:shopped  a      owl:ObjectProperty ;
+        rdfs:domain  base:user ;
+        rdfs:label   "the user shopped this shopping"@en ;
+        rdfs:range   base:shopping .
+
+base:shubhamShops2537
+        a                base:shopping ;
+        base:atDateTime  "04:24:26" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:chickenBreasts ;
+        base:quantity    "1.0" .
+
+base:paras  a                   base:user ;
+        base:hasGoal            "economical" ;
+        base:hasName            "paras" ;
+        base:hasRecommendation  base:parasRecommendedApple , base:parasRecommendedBread , base:parasRecommendedCoke , base:parasRecommendedButter , base:parasRecommendedMilk , base:parasRecommendedChickenBreasts , base:parasRecommendedDietCoke , base:parasRecommendedSweeseCheese , base:parasRecommendedBrocolli , base:parasRecommendedKiwi , base:parasRecommendedMushroom , base:parasRecommendedLowFatMilk , base:parasRecommendedSpinach , base:parasRecommendedChickenLegs , base:parasRecommendedBrownBread , base:parasRecommendedOrange , base:parasRecommendedGreekCheese ;
+        base:shopped            base:parasShops23 , base:parasShops12 , base:parasShops11 , base:parasShops22 , base:parasShops13 , base:parasShops21 .
+
+base:hasBiweelyWeightage
+        a            owl:DatatypeProperty ;
+        rdfs:domain  base:recommendation ;
+        rdfs:label   "denotes the bi-weekly weightage for the recommendation"@en ;
         rdfs:range   xsd:float .
 
-base:aditya  a                  base:user ;
-        base:hasGoal            "fitness" ;
-        base:hasName            "aditya" ;
-        base:hasRecommendation  base:adityaRecommendedMilk , base:adityaRecommendedApple , base:adityaRecommendedOrange , base:adityaRecommendedCoke , base:adityaRecommendedSweeseCheese , base:adityaRecommendedDietCoke , base:adityaRecommendedBread , base:adityaRecommendedChickenLegs , base:adityaRecommendedBrownBread , base:adityaRecommendedButter , base:adityaRecommendedLowFatMilk , base:adityaRecommendedSpinach , base:adityaRecommendedKiwi , base:adityaRecommendedChickenBreasts , base:adityaRecommendedMushroom , base:adityaRecommendedGreekCheese , base:adityaRecommendedBrocolli ;
-        base:shopped            base:adityaShops23 , base:adityaShops13 , base:adityaShops22 , base:adityaShops24 , base:adityaShops12 .
+base:availableAt  a  owl:ObjectProperty ;
+        rdfs:domain  base:food ;
+        rdfs:label   "food item is available at this shop"@en ;
+        rdfs:range   base:shop .
+
+base:lowFatMilk  a        base:food ;
+        base:hasFoodName  "lowFatMilk" ;
+        base:ofCategory   "milk" , "dairy" , "veg" .
+
+base:atShop  a       owl:ObjectProperty ;
+        rdfs:domain  base:shopping ;
+        rdfs:label   "the user shopped at this shop"@en ;
+        rdfs:range   base:shop .
+
+base:shubhamRecommendedMilk
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.33" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.33" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.33" ;
+        base:isRelatedTo          base:milk .
+
+base:lidlCityCentre  a       base:shop ;
+        base:hasShopAddress  "City Centre, Dublin" ;
+        base:hasShopName     "LiDL" ;
+        base:hasShopType     "supermarket" ;
+        base:sells           base:greekCheese , base:coke , base:sweeseCheese , base:spinach , base:orange , base:mushroom , base:butter , base:lowFatMilk , base:bread , base:chickenLegs , base:kiwi , base:brownBread , base:apple , base:chickenBreasts .
+
+base:parasRecommendedOrange
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.1" ;
+        base:isRelatedTo          base:orange .
+
+base:adityaRecommendedKiwi
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:kiwi .
+
+base:anirbanRecommendedBread
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:bread .
+
+base:parasRecommendedChickenBreasts
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:chickenBreasts .
+
+base:ofCategory  a   owl:DatatypeProperty ;
+        rdfs:domain  base:food ;
+        rdfs:label   "food category"@en ;
+        rdfs:range   xsd:string .
+
+base:parasRecommendedLowFatMilk
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:lowFatMilk .
+
+base:shubhamShops7910
+        a                base:shopping ;
+        base:atDateTime  "04:25:14" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:chickenBreasts ;
+        base:quantity    "1.0" .
+
+base:shubhamRecommendedCoke
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.33" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.33" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.33" ;
+        base:isRelatedTo          base:coke .
+
+base:anirbanRecommendedApple
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.1" ;
+        base:isRelatedTo          base:apple .
+
+base:isEnabled  a    owl:DatatypeProperty ;
+        rdfs:domain  base:recommendation ;
+        rdfs:label   "denotes if recommendation is enabled to be shown to user"@en ;
+        rdfs:range   xsd:boolean .
+
+base:anirbanShops21  a   base:shopping ;
+        base:atDateTime  "14-Mar-2019" ;
+        base:atPrice     "1.5" ;
+        base:atShop      base:lidlCityCentre ;
+        base:bought      base:bread ;
+        base:quantity    "1" .
+
+base:adityaShops7456  a  base:shopping ;
+        base:atDateTime  "04:21:50" ;
+        base:atPrice     "1.0" ;
+        base:atShop      base:lidlArtane ;
+        base:bought      base:spinach ;
+        base:quantity    "1.0" .
+
+base:parasRecommendedMilk
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:milk .
+
+base:adityaRecommendedBread
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.1" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.1" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.2" ;
+        base:isRelatedTo          base:bread .
+
+base:hasGoal  a      owl:DatatypeProperty ;
+        rdfs:domain  base:user ;
+        rdfs:label   "user goal"@en ;
+        rdfs:range   xsd:string .
+
+base:shubhamRecommendedDietCoke
+        a                         base:recommendation ;
+        base:hasBiweelyWeightage  "0.33" ;
+        base:hasGoalConflict      "0.2" ;
+        base:hasMonthlyWeightage  "0.33" ;
+        base:hasUserInterest      "0.3" ;
+        base:hasWeelyWeightage    "0.33" ;
+        base:isRelatedTo          base:dietCoke .

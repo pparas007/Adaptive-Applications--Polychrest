@@ -23,6 +23,14 @@ public String toString() {
 	return "User [name=" + name + ", goalsList=" + goalsList + "]";
 }
 
+public User(User user) {
+	super();
+	this.name = user.getName();
+	this.goalsList = user.getGoalsList();
+}
+
+public User() {
+}
 
 
 }

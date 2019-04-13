@@ -59,6 +59,7 @@ public class Recommendation {
 		this.hasByWeeklyWeightage = recommendation.getHasByWeeklyWeightage();
 		this.hasMonthlyWeightage = recommendation.getHasMonthlyWeightage();
 		this.hasUserInterest = recommendation.getHasUserInterest();
+		this.hasGoalConflict = recommendation.getHasGoalConflict();
 	}
 	
 	public float getHighestWeightage() {
@@ -66,12 +67,13 @@ public class Recommendation {
 		else if((hasByWeeklyWeightage>=hasWeeklyWeightage) && (hasByWeeklyWeightage>=hasMonthlyWeightage)) return hasByWeeklyWeightage;
 		else return hasMonthlyWeightage;
 	}
-	
 	@Override
 	public String toString() {
 		return "Recommendation [hasWeeklyWeightage=" + hasWeeklyWeightage + ", hasByWeeklyWeightage="
 				+ hasByWeeklyWeightage + ", hasMonthlyWeightage=" + hasMonthlyWeightage + ", hasUserInterest="
-				+ hasUserInterest + "]";
+				+ hasUserInterest + ", hasGoalConflict=" + hasGoalConflict + "]";
 	}
+	
+	
 	
 }

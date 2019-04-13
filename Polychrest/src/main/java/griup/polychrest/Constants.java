@@ -60,7 +60,7 @@ public class Constants {
 		conflictMap=new HashMap<String, ArrayList<String>>();
 		
 		ArrayList<String> meatLoverConflictMap=new ArrayList<String>();
-		meatLoverConflictMap.add(FOOD_CATEGORY_VEG);meatLoverConflictMap.add(FOOD_CATEGORY_VEGETABLES);meatLoverConflictMap.add(FOOD_CATEGORY_FRUITS);meatLoverConflictMap.add(FOOD_CATEGORY_SALAD);
+		meatLoverConflictMap.add(FOOD_CATEGORY_VEGETABLES);
 		conflictMap.put(GOAL_MEAT_LOVER, meatLoverConflictMap);
 		
 		ArrayList<String> veggieConflictMap=new ArrayList<String>();
@@ -71,6 +71,9 @@ public class Constants {
 		ArrayList<String> fitnessConflictMap=new ArrayList<String>();
 		fitnessConflictMap.add(FOOD_CATEGORY_SOFT_DRINK);fitnessConflictMap.add(FOOD_CATEGORY_ALCOHOL);fitnessConflictMap.add(FOOD_CATEGORY_CHOLESTEROL);
 		conflictMap.put(GOAL_FITNESS_FREAK, fitnessConflictMap);
+		
+		conflictMap.put(GOAL_ECONOMICAL, new ArrayList<String>());
+		conflictMap.put(GOAL_FUN_IN_VARIETY, new ArrayList<String>());
 	}
 	
 	public static HashMap<String, ArrayList<String>> suitableMap;
@@ -79,17 +82,20 @@ public class Constants {
 		
 		ArrayList<String> meatLoverSuitableMap=new ArrayList<String>();
 		meatLoverSuitableMap.add(FOOD_CATEGORY_NONVEG);meatLoverSuitableMap.add(FOOD_CATEGORY_MEAT);meatLoverSuitableMap.add(FOOD_CATEGORY_PORK);meatLoverSuitableMap.add(FOOD_CATEGORY_LAMB);
-		meatLoverSuitableMap.add(FOOD_CATEGORY_FISH);meatLoverSuitableMap.add(FOOD_CATEGORY_MEAT);
+		meatLoverSuitableMap.add(FOOD_CATEGORY_FISH);meatLoverSuitableMap.add(FOOD_CATEGORY_CHICKEN);
 		suitableMap.put(GOAL_MEAT_LOVER, meatLoverSuitableMap);
 		
 		ArrayList<String> veggieSuitableMap=new ArrayList<String>();
 		veggieSuitableMap.add(FOOD_CATEGORY_VEG);veggieSuitableMap.add(FOOD_CATEGORY_VEGETABLES);veggieSuitableMap.add(FOOD_CATEGORY_FRUITS);veggieSuitableMap.add(FOOD_CATEGORY_HEALTHY);
-		veggieSuitableMap.add(FOOD_CATEGORY_SALAD);;
+		veggieSuitableMap.add(FOOD_CATEGORY_SALAD);
 		suitableMap.put(GOAL_VEGGIE, veggieSuitableMap);
 		
 		ArrayList<String> fitnessSuitableMap=new ArrayList<String>();
 		fitnessSuitableMap.add(FOOD_CATEGORY_VEG);fitnessSuitableMap.add(FOOD_CATEGORY_VEGETABLES);fitnessSuitableMap.add(FOOD_CATEGORY_FRUITS);fitnessSuitableMap.add(FOOD_CATEGORY_HEALTHY);
 		fitnessSuitableMap.add(FOOD_CATEGORY_SALAD);fitnessSuitableMap.add(FOOD_CATEGORY_MILK);
 		suitableMap.put(GOAL_FITNESS_FREAK, fitnessSuitableMap);
+		
+		suitableMap.put(GOAL_ECONOMICAL, new ArrayList<String>());
+		suitableMap.put(GOAL_FUN_IN_VARIETY, new ArrayList<String>());
 	}
 }

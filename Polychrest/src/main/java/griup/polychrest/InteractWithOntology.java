@@ -893,7 +893,7 @@ String s=	ReadOntology.query(queryString);
 					 "base:"+user.getName()+"Recommended"+foodNameInCamelCase+" base:hasBiweelyWeightage \""+newRecommendation.getHasByWeeklyWeightage()+"\" ;\n" + 
 					"        base:hasMonthlyWeightage  \""+newRecommendation.getHasMonthlyWeightage()+"\" ;\n" + 
 					"  	base:hasUserInterest      \""+newRecommendation.getHasUserInterest()+"\" ;\n" + 
-					"  	base:hasGoalConflict      \""+oldRecommendation.getHasGoalConflict()+"\" ;\n" +
+					"  	base:hasGoalConflict      \""+newRecommendation.getHasGoalConflict()+"\" ;\n" +
 					"        base:hasWeelyWeightage   \""+newRecommendation.getHasWeeklyWeightage()+"\" .}\n" +  
 					"Where {\n" + 
 					"base:"+user.getName()+"Recommended"+foodNameInCamelCase +"   base:isRelatedTo  "+  "base:"+foodName+"." +"\n" + 
@@ -969,7 +969,7 @@ String s=	ReadOntology.query(queryString);
 			"PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
 			"select * \n" + 
 			"where{\n" + 
-			"base:shubham  a                 base:user ;\n" + 
+			"base:"+user.getName()+"  a                 base:user ;\n" + 
 			"        base:hasGoal          ?aa ;\n" + 
 			"}";
 	System.out.println(queryString);
@@ -990,5 +990,43 @@ String s=	ReadOntology.query(queryString);
 		}
 		return catt;
 	
+	}
+	
+	public void updateUserGoal(User userOld,User userNew )
+	{
+		try {
+			String goalOld=userOld.getGoalsList().get(0);
+			String goalNew=userNew.getGoalsList().get(0);
+				String queryString="PREFIX base:  <http://polychrest/ontology#>\n" + 
+						"PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
+						"PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
+						"PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
+						"PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
+						"DELETE {\n" + 
+						"base:"+userNew.getName()+"  base:hasGoal            \""+goalOld+"\" .\n" + 
+						"				\n" + 
+						"				\n" + 
+						"				}\n" + 
+						"INSERT {\n" + 
+						"base:"+userNew.getName()+"  base:hasGoal            \""+goalNew+ "\" .					\n" + 
+						"					\n" + 
+						"					}\n" + 
+						"Where {\n" + 
+						"					\n" + 
+						"	base:"+userNew.getName()+"  a                 base:user .				\n" + 
+						"					}";
+
+			System.out.println(queryString);
+
+			
+			ReadOntology.insert(queryString) ;
+			
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+			
 	}
 }

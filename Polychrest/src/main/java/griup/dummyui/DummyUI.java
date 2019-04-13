@@ -27,11 +27,18 @@ public class DummyUI {
 		Food kiwi=new Food();
 		kiwi.setFoodName("kiwi");
 		User paras=new User ();
-		paras.setName("paras");
+		paras.setName("shubham");
 		User user=new User();
 		Food food= new Food ();
 		food.setFoodName("chickenLegs");
 		user.setName("shubham");
+		ArrayList<String> goalOld=new ArrayList<String>();
+		ArrayList<String> goalNew=new ArrayList<String>();
+		goalOld.add("veggie");
+		goalNew.add("nonVeg");
+		user.setGoalsList(goalOld);
+		paras.setGoalsList(goalNew);
+		io.updateUserGoal(user, paras);
 		//io. getShoppingByUser( user);
 		io.getRecommendationListForUser(user);
 		Shop shop= new Shop();
@@ -55,6 +62,8 @@ public class DummyUI {
 		//io.getRecommendationListForUser(user);
 		//io.getFoodCategory(food);
 		//io.getUserGoals(user);
+		
+		
 	}
 	
 	public static void createShoppingInstance() {

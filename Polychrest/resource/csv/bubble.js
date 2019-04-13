@@ -132,7 +132,7 @@ d3.csv(year +'.csv', function(d){
   new_node.append("text")
     .attr("text-anchor", "middle")
     .text(function(d) {
-    if (d.data.value > 5000){
+    if (d.data.value > 0.7){
     return d.data.City;
     }
     return "";});
