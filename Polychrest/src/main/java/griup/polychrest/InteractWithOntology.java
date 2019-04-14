@@ -44,7 +44,7 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 				"?user  base:hasGoal ?goal\r\n" + 
 				"}";
 		
-		
+		System.out.println(queryString);
 		
 		String s=	ReadOntology.query(queryString);
 		System.out.println(s);
@@ -143,12 +143,12 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 		ArrayList<Shopping>allShopping = new ArrayList<Shopping>();
 		
 		try {
-			String queryString = "					PREFIX base:  <http://polychrest/ontology#>\n" + 
-					"					PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
-					"					PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
-					"					PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
-					"					PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
-					"					select * where\n" + 
+			String queryString = "PREFIX base:  <http://polychrest/ontology#>\n" + 
+					"PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
+					"PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
+					"PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
+					"PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
+					"select * where\n" + 
 					"{\n" + 
 					"?shopping a base:shopping.\n" + 
 					" ?shopping  base:atDateTime   ?date.\n" + 
@@ -161,7 +161,7 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 					"}\n" + 
 					"";
 			
-			
+			System.out.println(queryString);
 			
 			String s=	ReadOntology.query(queryString);
 			
@@ -170,14 +170,14 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 			for(int i=1;i<s1.length;i++)
 			{
 				Shop shop= new Shop();
-				System.out.println("i: "+i+" "+s1[i]);
+				//System.out.println("i: "+i+" "+s1[i]);
 				if(i%3==1)
 				{shopping = new Shopping();
 					String s2[] = s1[i].split("\"");
 					String s3[]= s2[0].split("#");
-				System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
-					System.out.println(s2[1]);
-					System.out.println(s2[3]);
+				//System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
+				//	System.out.println(s2[1]);
+				//	System.out.println(s2[3]);
 					shopping.setShoppingName(s3[1].replace(">", "").replace("|", "").trim());
 					shopping.setAtDateTime(s2[1]);
 					shopping.setAtPrice(Float.parseFloat(s2[3]));
@@ -187,8 +187,8 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 				{
 					String s2[] = s1[i].split("\"");
 					String s3[]= s2[0].split("#");
-					System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
-					System.out.println(s2[1]);
+				//	System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
+				//	System.out.println(s2[1]);
 					shop.setShopName(s3[1].replace(">", "").replace("|", "").trim());
 					shopping.setQuantity(Float.parseFloat(s2[1]));
 					
@@ -197,9 +197,9 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 				{
 					String s2[] = s1[i].split("\"");
 					String s3[]= s2[0].split("#");
-					System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
-					System.out.println(s2[1]);
-					System.out.println(s2[3]);
+					//System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
+					//System.out.println(s2[1]);
+					//System.out.println(s2[3]);
 					shop.setShopAddress(s2[1]);
 					shop.setShopType(s2[3]);
 					Food food = new Food ();
@@ -228,26 +228,26 @@ public class InteractWithOntology implements InteractWithOntologyInterafce{
 	{ArrayList<Shopping>allShopping = new ArrayList<Shopping>();
 		try {
 			String name = user.getName();
-			String queryString = "										PREFIX base:  <http://polychrest/ontology#>\n" + 
-					"					PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
-					"					PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
-					"					PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
-					"					PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
-					"					select * \n" + 
+			String queryString = "PREFIX base:  <http://polychrest/ontology#>\n" + 
+					"PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
+					"PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
+					"PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
+					"PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
+					"select * \n" + 
 					"Where {\n" + 
 					//"?user  a base:user.\n" + 
-					"base:"+name +" base:shopped ?shopping \n." + 
-					" ?shopping  base:atDateTime   ?date.\n" + 
-					" ?shopping   base:atPrice  ?price.\n" + 
-					" ?shopping       base:atShop      ?shop.\n" + 
-					" ?shopping       base:quantity      ?quantity.\n" + 
-					" ?shopping       base:bought      ?bought.\n" +
+					"base:"+name +" base:shopped ?shopping. \n" + 
+					"?shopping  base:atDateTime   ?date.\n" + 
+					"?shopping   base:atPrice  ?price.\n" + 
+					"?shopping       base:atShop      ?shop.\n" + 
+					"?shopping       base:quantity      ?quantity.\n" + 
+					"?shopping       base:bought      ?bought.\n" +
 					"?shop       base:hasShopAddress      ?shopAddress.\n" + 
 							" ?shop       base:hasShopType       ?ShopType\n" + 
 							   
 					"}";
 			
-			
+			System.out.println(queryString);
 			
 String s=	ReadOntology.query(queryString);
 			
@@ -256,14 +256,14 @@ String s=	ReadOntology.query(queryString);
 			for(int i=1;i<s1.length;i++)
 			{
 				Shop shop= new Shop();
-				System.out.println("i: "+i+" "+s1[i]);
+				//System.out.println("i: "+i+" "+s1[i]);
 				if(i%3==1)
 				{shopping = new Shopping();
 					String s2[] = s1[i].split("\"");
 					String s3[]= s2[0].split("#");
-				System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
-					System.out.println(s2[1]);
-					System.out.println(s2[3]);
+			//	System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
+			//		System.out.println(s2[1]);
+			//		System.out.println(s2[3]);
 					shopping.setShoppingName(s3[1].replace(">", "").replace("|", "").trim());
 					shopping.setAtDateTime(s2[1]);
 					shopping.setAtPrice(Float.parseFloat(s2[3]));
@@ -273,8 +273,8 @@ String s=	ReadOntology.query(queryString);
 				{
 					String s2[] = s1[i].split("\"");
 					String s3[]= s2[0].split("#");
-					System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
-					System.out.println(s2[1]);
+				//	System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
+				//	System.out.println(s2[1]);
 					shop.setShopName(s3[1].replace(">", "").replace("|", "").trim());
 					shopping.setQuantity(Float.parseFloat(s2[1]));
 					
@@ -283,9 +283,9 @@ String s=	ReadOntology.query(queryString);
 				{
 					String s2[] = s1[i].split("\"");
 					String s3[]= s2[0].split("#");
-					System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
-					System.out.println(s2[1]);
-					System.out.println(s2[3]);
+				//	System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
+				//	System.out.println(s2[1]);
+				//	System.out.println(s2[3]);
 					shop.setShopAddress(s2[1]);
 					shop.setShopType(s2[3]);
 					Food food = new Food ();
@@ -461,7 +461,7 @@ String s=	ReadOntology.query(queryString);
 			System.out.println(s);
 			for (int k=0;k<allShopping.size();k++)
 			{
-				System.out.println("user name :"+allShopping.get(k).getShoppingName());
+			//	System.out.println("user name :"+allShopping.get(k).getShoppingName());
 				
 			}
 			} catch (FileNotFoundException e) {
@@ -476,11 +476,11 @@ String s=	ReadOntology.query(queryString);
 	{HashMap <Food,Recommendation> hs = new HashMap<Food,Recommendation>();
 		try {
 			String name = user.getName();
-			String queryString = "					PREFIX base:  <http://polychrest/ontology#>\n" + 
-					"					PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
-					"					PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
-					"					PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
-					"					PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
+			String queryString = "PREFIX base:  <http://polychrest/ontology#>\n" + 
+					"PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
+					"PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
+					"PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
+					"PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
 					"					select *\n" + 
 					"where{\n" + 
 					"base:"+name+"  base:hasRecommendation ?recommendations.\n" + 
@@ -491,7 +491,7 @@ String s=	ReadOntology.query(queryString);
 					" ?recommendations       base:hasUserInterest        ?userintrest\n" + 
 					"}";
 			
-			
+			System.out.println(queryString);
 			
 			String s=	ReadOntology.query(queryString);
 			
@@ -504,12 +504,12 @@ String s=	ReadOntology.query(queryString);
 			String s3[]= s2[0].split("#");
 			//System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
 			String s4[]= 	s3[1].replace(">", "").replace("|", "").trim().split("Recommended");
-			System.out.println(s4[1]);
-			System.out.println(s2[1]);
-			System.out.println(s2[3]);
-			System.out.println(s2[5]);
-			System.out.println(s2[7]);
-			System.out.println(s2[9]);
+		//	System.out.println(s4[1]);
+		//	System.out.println(s2[1]);
+		//	System.out.println(s2[3]);
+		//	System.out.println(s2[5]);
+		//	System.out.println(s2[7]);
+		//	System.out.println(s2[9]);
 			Recommendation recommendation = new Recommendation();
 			recommendation.setHasByWeeklyWeightage(Float.parseFloat(s2[1]));
 			recommendation.setHasGoalConflict(Float.parseFloat(s2[7]));
@@ -703,18 +703,18 @@ String s=	ReadOntology.query(queryString);
 	ArrayList<Food> foods= new ArrayList<Food>();
 		try {
 			
-			String queryString = "									PREFIX base:  <http://polychrest/ontology#>\n" + 
-					"					PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
-					"					PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
-					"					PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
-					"					PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
+			String queryString = "PREFIX base:  <http://polychrest/ontology#>\n" + 
+					"PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
+					"PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
+					"PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
+					"PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
 					"					select *\n" + 
 					"where{\n" + 
 					"\n" + 
 					"base:"+shopName+"  base:sells   ?prod\n" + 
 					"}\n" + 
 					"";
-			
+			System.out.println(queryString);
 			
 			
 			String s=	ReadOntology.query(queryString);
@@ -724,7 +724,7 @@ String s=	ReadOntology.query(queryString);
 			{
 				Food food= new Food();
 			String s3[]= s1[i].split("#");
-			System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
+		//	System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
 			food.setFoodName(s3[1].replace(">", "").replace("|", "").trim());
 			foods.add(food);
 			}
@@ -742,11 +742,11 @@ String s=	ReadOntology.query(queryString);
 	{ArrayList<Shop> shops = new ArrayList<Shop>();
 		try {
 			
-			String queryString = "									PREFIX base:  <http://polychrest/ontology#>\n" + 
-					"					PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
-					"					PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
-					"					PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
-					"					PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
+			String queryString = "PREFIX base:  <http://polychrest/ontology#>\n" + 
+					"PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
+					"PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
+					"PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
+					"PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
 					"					select *\n" + 
 					"where{\n" + 
 					"\n" + 
@@ -754,7 +754,7 @@ String s=	ReadOntology.query(queryString);
 					"}\n" + 
 					"";
 			
-			
+			System.out.println(queryString);
 			
 			String s=	ReadOntology.query(queryString);
 			
@@ -766,7 +766,7 @@ String s=	ReadOntology.query(queryString);
 			{
 				Shop shop= new Shop();
 			String s3[]= s1[i].split("#");
-			System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
+		//	System.out.println(	s3[1].replace(">", "").replace("|", "").trim());
 			shop.setShopName(s3[1].replace(">", "").replace("|", "").trim());
 			shops.add(shop);
 			}
@@ -823,11 +823,11 @@ String s=	ReadOntology.query(queryString);
 			char  firstChar=foodName.charAt(0);
 			String foodNameInCamelCase=Character.toUpperCase(firstChar)+foodName.substring(1);
 			System.out.println("foodNameInCamelCase: "+foodNameInCamelCase);
-		String queryString = "									PREFIX base:  <http://polychrest/ontology#>\n" + 
-				"					PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
-				"					PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
-				"					PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
-				"					PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
+		String queryString = "PREFIX base:  <http://polychrest/ontology#>\n" + 
+				"PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
+				"PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
+				"PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>\n" + 
+				"PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>\n" + 
 				"					select *\n" + 
 				"where{\n" + 
 				"\n" + 
@@ -848,11 +848,11 @@ String s=	ReadOntology.query(queryString);
 		String s=	ReadOntology.query(queryString);
 		System.out.println(s);
 		String s1[]= s.split("\"");
-		System.out.println("hasWeeklyWeightage"+s1[1]);
-		System.out.println("hasBiWeeklyWeightage"+s1[3]);
-		System.out.println("hasmonthlyWeightage"+s1[5]);
-		System.out.println("hasUserIntrest"+s1[7]);
-		System.out.println("goalCOnflict"+s1[9]);
+	//	System.out.println("hasWeeklyWeightage"+s1[1]);
+	//	System.out.println("hasBiWeeklyWeightage"+s1[3]);
+	//	System.out.println("hasmonthlyWeightage"+s1[5]);
+	//	System.out.println("hasUserIntrest"+s1[7]);
+	//	System.out.println("goalCOnflict"+s1[9]);
 		 recommendation= new Recommendation();
 		 
 
@@ -877,7 +877,7 @@ String s=	ReadOntology.query(queryString);
 		String foodName=food.getFoodName();
 		char  firstChar=foodName.charAt(0);
 		String foodNameInCamelCase=Character.toUpperCase(firstChar)+foodName.substring(1);
-		System.out.println("foodNameInCamelCase: "+foodNameInCamelCase);
+	//	System.out.println("foodNameInCamelCase: "+foodNameInCamelCase);
 			String queryString="PREFIX base:  <http://polychrest/ontology#>\n" + 
 					"PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
 					"PREFIX owl:   <http://www.w3.org/2002/07/owl#>\n" + 
@@ -939,7 +939,7 @@ String s=	ReadOntology.query(queryString);
 	String s1[] = s.split("\"");
 	for(int i=1;i<s1.length;i=i+2) 
 	{
-	System.out.println(s1[i]);
+	//System.out.println(s1[i]);
 	
 	catt.add(s1[i]);
 		

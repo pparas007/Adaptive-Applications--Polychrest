@@ -38,9 +38,10 @@ public class DummyUI {
 		goalNew.add("nonVeg");
 		user.setGoalsList(goalOld);
 		paras.setGoalsList(goalNew);
+		//io.getFoodAtShop(shopName);
 		io.updateUserGoal(user, paras);
 		//io. getShoppingByUser( user);
-		io.getRecommendationListForUser(user);
+		//io.getRecommendationListForUser(user);
 		Shop shop= new Shop();
 		//io.getFoodAtShop("lidlArtane");
 		//io.getShopThatSellsFood("butter");
@@ -53,15 +54,16 @@ public class DummyUI {
 		int shopingNo=(int)(Math.random()*10000);
 		System.out.println(shopingNo);
 		shopping.setShoppingName(user.getName()+"Shops"+shopingNo);
-		//io.insertShoppingInstance(user, shopping);
+		io.insertShoppingInstance(user, shopping);
 		Recommendation rec=io.getRecommendationForUserAndFoodPair(user, food);
-		//rec.setHasByWeeklyWeightage((float) 0.912312);
-		//rec.setHasUserInterest((float) 0.931231);
-		//rec.setHasWeeklyWeightage((float) 0.93123123);
+		rec.setHasByWeeklyWeightage((float) 0.912312);
+		rec.setHasUserInterest((float) 0.931231);
+		rec.setHasWeeklyWeightage((float) 0.93123123);
 		//io.updateRecommendationForUserAndFoodPair(user, food,io.getRecommendationForUserAndFoodPair(user, food), rec);
 		//io.getRecommendationListForUser(user);
 		//io.getFoodCategory(food);
-		//io.getUserGoals(user);
+		io.getUserGoals(user);
+		//io.updateUserGoal(userOld, userNew);
 		
 		
 	}
